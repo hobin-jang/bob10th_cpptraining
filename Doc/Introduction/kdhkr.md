@@ -7,4 +7,5 @@ C++, JS, Python, Kotlin에 관심이 많으며, 암호학/머신러닝/웹/서�
 11기에는 꼭 BoB 영화제가 생겼으면 좋겠습니다.
 *남은 기간동안 잘 부탁드립니다!*
 
-https://kdh.io
+**E-mail:** [op@kdh.io](mailto:op@kdh.io)
+**Website:** [https://kdh.io](https://kdh.io)
