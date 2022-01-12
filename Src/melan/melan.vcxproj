@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{6d634754-4edd-4667-8c92-67c7b92c98c8}</ProjectGuid>
+    <ProjectGuid>{4455285a-167d-4d8e-9103-9ee77c419932}</ProjectGuid>
     <RootNamespace>melan</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
