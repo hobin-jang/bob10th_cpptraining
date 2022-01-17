@@ -1,45 +1,53 @@
 #include "stdafx.h"
 #include "ConsoleOutput.h"
+#include <stdexcept>
 
 CConsoleOutput::CConsoleOutput(void)
 	: m_vecBuffer()
 	, m_nViewWidth(0)
 	, m_nViewHeight(0)
 {
-	EnableVTMode();
 }
 
 bool CConsoleOutput::EnableVTMode(void)
 {
-	// Set output mode to handle virtual terminal sequences
-	HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
-	if (hOut == INVALID_HANDLE_VALUE)
+	try
 	{
-		return false;
-	}
+		// Set output mode to handle virtual terminal sequences
+		HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+		if (hOut == INVALID_HANDLE_VALUE)
+			throw std::runtime_error("Failed to GetStdHandle(STD_OUTPUT_HANDLE)");
 
-	DWORD dwMode = 0;
-	if (!GetConsoleMode(hOut, &dwMode))
-	{
-		return false;
-	}
+		DWORD dwMode = 0;
+		if (!GetConsoleMode(hOut, &dwMode))
+			throw std::runtime_error("Failed to GetConsoleMode()");
 
-	dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
-	if (!SetConsoleMode(hOut, dwMode))
+		dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+		if (!SetConsoleMode(hOut, dwMode))
+			throw std::runtime_error("Failed to SetConsoleMode(ENABLE_VIRTUAL_TERMINAL_PROCESSING)");
+	}
+	catch (const std::exception& e)
 	{
+		printf("%s\n", e.what());
 		return false;
 	}
+	
 	return true;
 }
 
-void CConsoleOutput::Create(int nWidth, int nHeight)
+int CConsoleOutput::Create(int nWidth, int nHeight)
 {
+	if (!EnableVTMode())
+		return -1;
+
 	m_vecBuffer.resize(nHeight);
 	for (std::string& strLine : m_vecBuffer)
 	{
 		strLine.resize(nWidth);
 		memset((void*)strLine.c_str(), ' ', strLine.size());
 	}
+
+	return 0;
 }
 
 void CConsoleOutput::ViewPort(int nViewWidth, int nViewHeight)
