@@ -18,7 +18,7 @@ DLL_API int QueryNpc(ST_NPC_INFO* outInfoArr)
 	if (nullptr == outInfoArr)
 		return vecNPC.size();
 
-	memcpy(outInfoArr, &vecNPC[0], sizeof(ST_NPC_INFO) * vecNPC.size());
+	*outInfoArr = vecNPC[0];
 	return vecNPC.size();
 }
 

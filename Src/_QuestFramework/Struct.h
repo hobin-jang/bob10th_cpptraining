@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <string>
 
 #pragma pack(push, 1)
 
@@ -76,6 +77,7 @@ struct ST_NPC_INFO
 	double h;
 	char patch;
 	char szGreetMessage[61];
+	std::vector<std::string> vecBuffer;
 
 	ST_NPC_INFO(void)
 		: id(0), szName{ 0, }, x(0), y(0), w(0), h(0), szGreetMessage{ 0, }
