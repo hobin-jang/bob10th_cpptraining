@@ -1,28 +1,21 @@
 ﻿#include "stdafx.h"
 #include "ConsoleOutput.h"
 
-void Update(std::vector<std::string>& vecBuffer)
-{
-    for (int y = 0; y < vecBuffer.size(); y++)
-    {
-        for (int x = 0; x < vecBuffer[y].size(); x++)
-        {
-            vecBuffer[y][x] = 32 + x + y;
-        }
-    }
-}
-
 int main()
 {
     CConsoleOutput output;
-    output.Create(50, 50);
-    output.ViewPort(80, 30);
+    output.CreateBuffer(50, 50);
+    output.SetViewPort(80, 30);
 
-    Update(output.GetBuffer());
+    auto& vecBuffer = output.GetBackBuffer();
+    for (int y = 10; y < 15; y++)
+        for (int x = 10; x < 15; x++)
+            vecBuffer[y][x] = '.';
+
     while (true)
     {
         Sleep(50);
-        output.Render(20, 25);
+        output.Render(10, 10);
     }
     return 0;
 }

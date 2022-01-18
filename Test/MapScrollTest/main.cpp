@@ -13,11 +13,13 @@ int main()
     input.Register(GAMEKEY_DOWN, 'S');
 
     CConsoleOutput output;
-    output.Create(100, 100);
-    output.ViewPort(80, 30);
+    output.CreateBuffer(100, 100);
+    output.SetViewPort(80, 30);
     
-    auto& buffer = output.GetBuffer();
-    buffer[1][1] = '*';
+    auto& buffer = output.GetBackBuffer();
+    for (int y = 10; y < 15; y++)
+        for (int x = 10; x < 15; x++)
+            buffer[y][x] = '.';
 
     ST_VECTOR pos;
     ST_VECTOR vel;
