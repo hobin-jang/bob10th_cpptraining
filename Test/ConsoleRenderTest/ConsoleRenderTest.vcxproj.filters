@@ -8,10 +8,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="ConsoleOutput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="ConsoleOutput.h" />
   </ItemGroup>
 </Project>

@@ -1,8 +1,4 @@
 ﻿#include "stdafx.h"
-#include <Windows.h>
-#include "../KeyInputTest/KeyInput.h"
-#include "../ConsoleRenderTest/ConsoleOutput.h"
-#include "Struct.h"
 
 int main()
 {

@@ -1,14 +1,16 @@
 #pragma once
 
-#include <list>
 #include <map>
+#include <list>
+#include "Struct.h"
 
-struct ST_KEYSTATE
+enum E_GAMEKEY
 {
-    int nVirtKey;
-    short nID;
-    bool bPressed;
-    bool bReserved;     // 7바이트를 8바이트로 유격을 채워주는 역할
+    GAMEKEY_LEFT,
+    GAMEKEY_RIGHT,
+    GAMEKEY_UP,
+    GAMEKEY_DOWN,
+    GAMEKEY_SELECT,
 };
 
 class CKeyInput

@@ -8,10 +8,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="KeyInput.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="KeyInput.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
 </Project>

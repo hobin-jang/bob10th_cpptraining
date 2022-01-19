@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "ConsoleOutput.h"
-#include <stdexcept>
 
 CConsoleOutput::CConsoleOutput(void)
     : m_vecBackBuffer()

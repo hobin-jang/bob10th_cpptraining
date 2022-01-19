@@ -1,13 +1,5 @@
 #pragma once
 
-enum E_GAMEKEY
-{
-    GAMEKEY_LEFT,
-    GAMEKEY_RIGHT,
-    GAMEKEY_UP,
-    GAMEKEY_DOWN,
-};
-
 struct ST_VECTOR
 {
     double x;
@@ -58,4 +50,12 @@ struct ST_VECTOR
         this->y -= other.y;
         return *this;
     }
+};
+
+struct ST_KEYSTATE
+{
+    int nVirtKey;
+    short nID;
+    bool bPressed;
+    bool bReserved;     // 7바이트를 8바이트로 유격을 채워주는 역할
 };
