@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="ConsoleOutput.h" />
     <ClInclude Include="Define.h" />
+    <ClInclude Include="DrawFunc.h" />
     <ClInclude Include="KeyInput.h" />
     <ClInclude Include="NpcContainer.h" />
     <ClInclude Include="SceneSuper.h" />
@@ -31,6 +32,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleOutput.cpp" />
+    <ClCompile Include="DrawFunc.cpp" />
     <ClCompile Include="KeyInput.cpp" />
     <ClCompile Include="NpcContainer.cpp" />
     <ClCompile Include="SceneSuper.cpp" />

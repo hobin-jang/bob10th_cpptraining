@@ -5,8 +5,11 @@
 class CUISuper
 {
 protected:
-	ST_VECTOR m_ptLeftTop;
-	ST_VECTOR m_ptRightBtm;
+	int m_nLeft;
+	int m_nTop;
+	int m_nRight;
+	int m_nBottom;
+
 	std::string m_strText;
 
 	CUISuper(ST_VECTOR ptLeftTop, ST_VECTOR ptRightBtm);
