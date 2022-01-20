@@ -10,6 +10,13 @@ CSceneSuper::CSceneSuper(void)
 {
 }
 
+CSceneSuper::~CSceneSuper(void)
+{
+    for (CUISuper* pUI : m_listUI)
+        delete pUI;
+    m_listUI.clear();
+}
+
 void CSceneSuper::Close(int nExitCode)
 {
 	m_bIsEndded = true;
@@ -18,7 +25,7 @@ void CSceneSuper::Close(int nExitCode)
 
 int CSceneSuper::DoModal(void)
 {
-    DWORD dwLastUpdateTick = GetTickCount();
+    static DWORD dwLastUpdateTick = GetTickCount();
     while (!m_bIsEndded)
     {
         std::list<ST_KEYSTATE> listKeyState;

@@ -14,6 +14,7 @@ class CSceneSuper
 
 protected:
 	CSceneSuper(void);
+	virtual ~CSceneSuper(void);
 
 	void AddUI(CUISuper* pNewUI) { m_listUI.push_back(pNewUI); }
 	void Close(int nExitCode);
