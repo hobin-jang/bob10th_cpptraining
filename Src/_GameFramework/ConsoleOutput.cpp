@@ -49,30 +49,20 @@ int CConsoleOutput::CreateBuffer(int nWidth, int nHeight)
     return 0;
 }
 
-#define MAX(x, y) ((x) < (y))? (y) : (x)
-#define MIN(x, y) ((x) < (y))? (x) : (y)
-
 void CConsoleOutput::SetViewPort(int nViewWidth, int nViewHeight)
 {
     m_nViewWidth = nViewWidth;
     m_nViewHeight = nViewHeight;
 }
 
-void CConsoleOutput::Render(int nCameraPosX, int nCameraPosY)
-{
-    std::vector<std::string> vecDisplayBuffer;
-    Flip(nCameraPosX, nCameraPosY, vecDisplayBuffer);
-    Print(vecDisplayBuffer);
-}
-
-void CConsoleOutput::Flip(int nCameraPosX, int nCameraPosY, std::vector<std::string>& vecDisplayBuffer)
+void CConsoleOutput::Flip(const ST_VECTOR& pos, std::vector<std::string>& vecDisplayBuffer)
 {
     vecDisplayBuffer.resize(m_nViewHeight);
 
-    int nLeft = nCameraPosX - (m_nViewWidth) / 2;
-    int nRight = nCameraPosX + (m_nViewWidth) / 2;
-    int nTop = nCameraPosY - (m_nViewHeight) / 2;
-    int nBottom = nCameraPosY + (m_nViewHeight) / 2;
+    int nLeft = pos.x - (m_nViewWidth) / 2;
+    int nRight = pos.x + (m_nViewWidth) / 2;
+    int nTop = pos.y - (m_nViewHeight) / 2;
+    int nBottom = pos.y + (m_nViewHeight) / 2;
 
     for (std::string& strLine : vecDisplayBuffer)
     {
@@ -93,7 +83,7 @@ void CConsoleOutput::Flip(int nCameraPosX, int nCameraPosY, std::vector<std::str
     }
 }
 
-void CConsoleOutput::Print(const std::vector<std::string>& vecDisplayBuffer)
+void CConsoleOutput::Render(const std::vector<std::string>& vecDisplayBuffer)
 {
     // ANSI Escape sequence
     // Âü°í: http://ascii-table.com/ansi-escape-sequences-vt-100.php

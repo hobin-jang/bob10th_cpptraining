@@ -9,6 +9,10 @@ struct ST_VECTOR
         : x(0), y(0)
     {}
 
+    ST_VECTOR(double inX, double inY)
+        : x(inX), y(inY)
+    {}
+
     ST_VECTOR operator+(const ST_VECTOR& other)
     {
         ST_VECTOR temp;

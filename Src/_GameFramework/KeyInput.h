@@ -11,6 +11,7 @@ enum E_GAMEKEY
     GAMEKEY_UP,
     GAMEKEY_DOWN,
     GAMEKEY_SELECT,
+    GAMEKEY_MENU,
 };
 
 class CKeyInput

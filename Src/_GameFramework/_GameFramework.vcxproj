@@ -20,21 +20,26 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConsoleOutput.h" />
+    <ClInclude Include="Define.h" />
     <ClInclude Include="KeyInput.h" />
+    <ClInclude Include="NpcContainer.h" />
     <ClInclude Include="SceneSuper.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Struct.h" />
+    <ClInclude Include="UISuper.h" />
     <ClInclude Include="_GameFramework.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleOutput.cpp" />
     <ClCompile Include="KeyInput.cpp" />
+    <ClCompile Include="NpcContainer.cpp" />
     <ClCompile Include="SceneSuper.cpp" />
+    <ClCompile Include="UISuper.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{AA84656D-E637-4E6D-9E43-8B1E17361BE0}</ProjectGuid>
+    <ProjectGuid>{9D43FFBF-FD65-4AB9-B2C2-CB1C82B13179}</ProjectGuid>
     <RootNamespace>Client</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
