@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "pch.h"
 #include "ConsoleOutput.h"
 
 CConsoleOutput::CConsoleOutput(void)
