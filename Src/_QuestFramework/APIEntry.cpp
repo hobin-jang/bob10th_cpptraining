@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "pch.h"
 #include "APIEntry.h"
 
 static IQuestInfo* g_pQuestInfo;
