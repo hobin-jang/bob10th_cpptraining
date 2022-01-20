@@ -14,14 +14,10 @@ void DrawRectangle(CDisplayBuffer& buffer, int nLeft, int nTop, int nRight, int 
 			continue;
 
 		if (0 <= nTop && nTop < buffer.size())
-		{
-			buffer[nTop][x] = 6;
-		}
+			buffer[nTop][x] = '-';
 
 		if (0 <= nBottom && nBottom < buffer.size())
-		{
-			buffer[nBottom][x] = 6;
-		}
+			buffer[nBottom][x] = '-';
 	}
 
 	for (int y = nTop; y <= nBottom; y++)
@@ -36,7 +32,7 @@ void DrawRectangle(CDisplayBuffer& buffer, int nLeft, int nTop, int nRight, int 
 			else if (y == nBottom)
 				buffer[y][nLeft] = 3;
 			else
-				buffer[y][nLeft] = 5;
+				buffer[y][nLeft] = '|';
 		}
 
 		if (0 <= nRight && nRight < buffer[0].size())
@@ -46,7 +42,7 @@ void DrawRectangle(CDisplayBuffer& buffer, int nLeft, int nTop, int nRight, int 
 			else if (y == nBottom)
 				buffer[y][nRight] = 4;
 			else
-				buffer[y][nRight] = 5;
+				buffer[y][nRight] = '|';
 		}
 	}
 }

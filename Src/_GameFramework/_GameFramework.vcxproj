@@ -19,11 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="ConsoleOutput.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="DrawFunc.h" />
     <ClInclude Include="KeyInput.h" />
-    <ClInclude Include="NpcContainer.h" />
+    <ClInclude Include="ResourceContainer.h" />
     <ClInclude Include="SceneSuper.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Struct.h" />
@@ -31,10 +32,11 @@
     <ClInclude Include="_GameFramework.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ConsoleOutput.cpp" />
     <ClCompile Include="DrawFunc.cpp" />
     <ClCompile Include="KeyInput.cpp" />
-    <ClCompile Include="NpcContainer.cpp" />
+    <ClCompile Include="ResourceContainer.cpp" />
     <ClCompile Include="SceneSuper.cpp" />
     <ClCompile Include="UISuper.cpp" />
   </ItemGroup>

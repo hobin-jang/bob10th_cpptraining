@@ -2,8 +2,9 @@
 
 #include "Define.h"
 #include "Struct.h"
+#include "Camera.h"
 #include "KeyInput.h"
 #include "SceneSuper.h"
-#include "NpcContainer.h"
+#include "ResourceContainer.h"
 #include "ConsoleOutput.h"
 #include "UISuper.h"

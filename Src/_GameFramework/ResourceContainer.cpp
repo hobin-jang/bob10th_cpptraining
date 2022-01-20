@@ -1,15 +1,15 @@
 #include "pch.h"
-#include "NpcContainer.h"
+#include "ResourceContainer.h"
 
-CNpcContainer::CNpcContainer(void)
+CResourceContainer::CResourceContainer(void)
 {
 }
 
-CNpcContainer::~CNpcContainer(void)
+CResourceContainer::~CResourceContainer(void)
 {
 }
 
-void CNpcContainer::Load(void)
+void CResourceContainer::Load(void)
 {
     m_vecNPCInfo.clear();
 
@@ -18,7 +18,7 @@ void CNpcContainer::Load(void)
     HANDLE hFind = FindFirstFileA("*.dll", &stFindData);
     if (INVALID_HANDLE_VALUE == hFind)
     {
-        printf("Quest DLL is not found.\n");
+        printf("Resource DLL is not found.\n");
         return;
     }
 
@@ -48,7 +48,7 @@ void CNpcContainer::Load(void)
     FindClose(hFind);
 }
 
-const ST_NPC_INFO* CNpcContainer::GetNpcInfo(int nIndex)
+const ST_NPC_INFO* CResourceContainer::GetNpcInfo(int nIndex)
 {
     if (nIndex < m_vecNPCInfo.size())
         return &m_vecNPCInfo[nIndex];

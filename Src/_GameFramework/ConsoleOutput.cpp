@@ -85,9 +85,20 @@ void CConsoleOutput::Flip(const ST_VECTOR& pos, std::vector<std::string>& vecDis
 
 void CConsoleOutput::Render(const std::vector<std::string>& vecDisplayBuffer)
 {
-    // ANSI Escape sequence
-    // 참고: http://ascii-table.com/ansi-escape-sequences-vt-100.php
-    printf("\x1b[H");
+    {
+        // ANSI Escape sequence
+        // 참고: http://ascii-table.com/ansi-escape-sequences-vt-100.php
+        printf("\x1b[H");
+    }
+
+    {   // FPS 표기
+        static std::list<DWORD> s_FrameTick;
+        DWORD dwCurrentTick = GetTickCount();
+        s_FrameTick.push_back(dwCurrentTick);
+        while (s_FrameTick.front() + 1000 < dwCurrentTick)
+            s_FrameTick.pop_front();
+        printf("FPS: %u\n", s_FrameTick.size());
+    }
 
     for (const std::string& strLine : vecDisplayBuffer)
         printf("%s\n", strLine.c_str());
