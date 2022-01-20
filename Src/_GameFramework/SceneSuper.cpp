@@ -18,10 +18,9 @@ void CSceneSuper::Close(int nExitCode)
 
 int CSceneSuper::DoModal(void)
 {
+    DWORD dwLastUpdateTick = GetTickCount();
     while (!m_bIsEndded)
     {
-        Sleep(1);
-
         std::list<ST_KEYSTATE> listKeyState;
         Input()->Query(listKeyState);
         OnInput(listKeyState);
@@ -37,6 +36,11 @@ int CSceneSuper::DoModal(void)
         OnDrawUI(vecDisplayBuffer);
 
         Output()->Render(vecDisplayBuffer);
+
+        const DWORD dwCurrentTick = GetTickCount();
+        if (dwCurrentTick < dwLastUpdateTick)
+            Sleep(dwLastUpdateTick - dwCurrentTick);
+        dwLastUpdateTick += g_nDeltaTick;
     }
 
 	return m_nExitCode;
