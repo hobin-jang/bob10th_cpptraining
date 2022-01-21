@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../bob10th_cpptraining/Src/_QuestFramework/_QuestFramework.h"
+#include "../_QuestFramework/_QuestFramework.h"
 
 class CQuestInfo : public IQuestInfo
 {
