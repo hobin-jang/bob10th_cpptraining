@@ -22,7 +22,7 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
     npc.w = 0.5;
     npc.h = 0.5;
     npc.patch = 'B';
-    strcpy_s(npc.szGreetMessage, 61, "난 아무것도 모르는 아가에요 응애~");
+    strcpy_s(npc.szGreetMessage, 61, "C++이 뭐에용? 먹는거에용?? 응애~");
 
     npc.vecBuffer.resize(60);
     npc.vecBuffer[0] =  "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
