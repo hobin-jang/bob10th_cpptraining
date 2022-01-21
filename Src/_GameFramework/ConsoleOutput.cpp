@@ -6,6 +6,7 @@ CConsoleOutput::CConsoleOutput(void)
     , m_nViewWidth(0)
     , m_nViewHeight(0)
 {
+    EnableVTMode();
 }
 
 bool CConsoleOutput::EnableVTMode(void)
@@ -36,9 +37,6 @@ bool CConsoleOutput::EnableVTMode(void)
 
 int CConsoleOutput::CreateBuffer(int nWidth, int nHeight)
 {
-    if (!EnableVTMode())
-        return -1;
-
     m_vecBackBuffer.resize(nHeight);
     for (std::string& strLine : m_vecBackBuffer)
     {

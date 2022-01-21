@@ -12,9 +12,9 @@ class CConsoleOutput
 
     bool EnableVTMode(void);
 
+public:
     CConsoleOutput(void);
 
-public:
     int CreateBuffer(int nWidth, int nHeight);
     void SetViewPort(int nViewWidth, int nViewHeight);
 
@@ -22,15 +22,4 @@ public:
 
     void Flip(const ST_VECTOR& pos, std::vector<std::string>& vecDisplayBuffer);
     void Render(const std::vector<std::string>& vecDisplayBuffer);
-
-    static CConsoleOutput* GetInstance(void)
-    {
-        static CConsoleOutput instance;
-        return &instance;
-    }
 };
-
-inline CConsoleOutput* Output(void)
-{
-    return CConsoleOutput::GetInstance();
-}
