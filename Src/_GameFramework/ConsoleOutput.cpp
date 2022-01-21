@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "ConsoleOutput.h"
 
 CConsoleOutput::CConsoleOutput(void)
@@ -6,13 +6,15 @@ CConsoleOutput::CConsoleOutput(void)
     , m_nViewWidth(0)
     , m_nViewHeight(0)
 {
-    EnableVTMode();
+    InitConsole();
 }
 
-bool CConsoleOutput::EnableVTMode(void)
+bool CConsoleOutput::InitConsole(void)
 {
     try
     {
+        SetConsoleTitleA(WINDOW_TITLE);
+
         // Set output mode to handle virtual terminal sequences
         HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
         if (hOut == INVALID_HANDLE_VALUE)
@@ -22,9 +24,25 @@ bool CConsoleOutput::EnableVTMode(void)
         if (!GetConsoleMode(hOut, &dwMode))
             throw std::runtime_error("Failed to GetConsoleMode()");
 
-        dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+        dwMode |= DISABLE_NEWLINE_AUTO_RETURN | ENABLE_VIRTUAL_TERMINAL_PROCESSING;
         if (!SetConsoleMode(hOut, dwMode))
             throw std::runtime_error("Failed to SetConsoleMode(ENABLE_VIRTUAL_TERMINAL_PROCESSING)");
+
+        CONSOLE_SCREEN_BUFFER_INFOEX stBufferInfo;
+        stBufferInfo.cbSize = sizeof(stBufferInfo);
+        if (!GetConsoleScreenBufferInfoEx(hOut, &stBufferInfo))
+            throw std::runtime_error("Failed to GetConsoleScreenBufferInfoEx");
+
+        stBufferInfo.dwSize.X = g_nConsoleW + 10;
+        stBufferInfo.dwMaximumWindowSize.X = g_nConsoleW + 10;
+        if (!SetConsoleScreenBufferInfoEx(hOut, &stBufferInfo))
+            throw std::runtime_error("Failed to SetConsoleScreenBufferInfoEx");
+
+        SMALL_RECT stDisplayArea = { 0, 0, g_nConsoleW + 3, g_nConsoleH + 3 };
+        if(!SetConsoleWindowInfo(hOut, TRUE, &stDisplayArea))
+            throw std::runtime_error("Failed to SetConsoleWindowInfo");
+
+        SetConsoleActiveScreenBuffer(hOut);
     }
     catch (const std::exception& e)
     {
@@ -85,11 +103,11 @@ void CConsoleOutput::Render(const std::vector<std::string>& vecDisplayBuffer)
 {
     {
         // ANSI Escape sequence
-        // Âü°í: http://ascii-table.com/ansi-escape-sequences-vt-100.php
+        // ì°¸ê³ : http://ascii-table.com/ansi-escape-sequences-vt-100.php
         printf("\x1b[H");
     }
 
-    {   // FPS Ç¥±â
+    {   // FPS í‘œê¸°
         static std::list<DWORD> s_FrameTick;
         DWORD dwCurrentTick = GetTickCount();
         s_FrameTick.push_back(dwCurrentTick);

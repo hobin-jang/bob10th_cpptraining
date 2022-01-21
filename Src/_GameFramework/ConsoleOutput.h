@@ -10,7 +10,7 @@ class CConsoleOutput
     int m_nViewWidth;
     int m_nViewHeight;
 
-    bool EnableVTMode(void);
+    bool InitConsole(void);
 
 public:
     CConsoleOutput(void);
