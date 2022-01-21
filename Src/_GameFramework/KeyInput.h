@@ -20,20 +20,9 @@ class CKeyInput
     std::map<int, int> m_mapRegisteredKey;
     std::map<int, short> m_mapLastKeyState;
 
+public:
     CKeyInput(void);
 
-public:
     void Register(int nID, int nVirtKey);
     void Query(std::list<ST_KEYSTATE>& outState);
-
-    static CKeyInput* GetInstance(void)
-    {
-        static CKeyInput instance;
-        return &instance;
-    }
 };
-
-inline CKeyInput* Input(void)
-{
-    return CKeyInput::GetInstance();
-}
