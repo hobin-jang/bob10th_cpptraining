@@ -8,6 +8,20 @@ void DrawRectangle(CDisplayBuffer& buffer, ST_VECTOR ptLeftTop, ST_VECTOR ptRigh
 
 void DrawRectangle(CDisplayBuffer& buffer, int nLeft, int nTop, int nRight, int nBottom)
 {
+	for (int y = nTop + 1; y <= nBottom - 1; y++)
+	{
+		if (y < 0 || buffer.size() <= y)
+			continue;
+
+		for (int x = nLeft + 1; x <= nRight - 1; x++)
+		{
+			if (x < 0 || buffer[y].size() <= x)
+				continue;
+
+			buffer[y][x] = ' ';
+		}
+	}
+
 	for (int x = nLeft+1; x < nRight; x++)
 	{
 		if (x < 0 || buffer[0].size() <= x)
