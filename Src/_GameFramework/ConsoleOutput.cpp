@@ -56,11 +56,8 @@ bool CConsoleOutput::InitConsole(void)
 int CConsoleOutput::CreateBuffer(int nWidth, int nHeight)
 {
     m_vecBackBuffer.resize(nHeight);
-    for (std::string& strLine : m_vecBackBuffer)
-    {
-        strLine.resize(nWidth);
-        memset((void*)strLine.c_str(), ' ', strLine.size());
-    }
+    for (std::wstring& strLine : m_vecBackBuffer)
+        strLine.resize(nWidth, ' ');
 
     return 0;
 }
@@ -71,7 +68,7 @@ void CConsoleOutput::SetViewPort(int nViewWidth, int nViewHeight)
     m_nViewHeight = nViewHeight;
 }
 
-void CConsoleOutput::Flip(const ST_VECTOR& pos, std::vector<std::string>& vecDisplayBuffer)
+void CConsoleOutput::Flip(const ST_VECTOR& pos, CDisplayBuffer& vecDisplayBuffer)
 {
     vecDisplayBuffer.resize(m_nViewHeight);
 
@@ -80,11 +77,8 @@ void CConsoleOutput::Flip(const ST_VECTOR& pos, std::vector<std::string>& vecDis
     int nTop = pos.y - (m_nViewHeight) / 2;
     int nBottom = pos.y + (m_nViewHeight) / 2;
 
-    for (std::string& strLine : vecDisplayBuffer)
-    {
-        strLine.resize(m_nViewWidth);
-        memset((void*)strLine.c_str(), ' ', strLine.size());
-    }
+    for (std::wstring& strLine : vecDisplayBuffer)
+        strLine.resize(m_nViewWidth, ' ');
 
     int nMaxHeight = MIN(MIN(m_nViewHeight, nBottom), m_vecBackBuffer.size());
     for (int y = MAX(nTop, 0); y < nMaxHeight; y++)
@@ -99,12 +93,12 @@ void CConsoleOutput::Flip(const ST_VECTOR& pos, std::vector<std::string>& vecDis
     }
 }
 
-void CConsoleOutput::Render(const std::vector<std::string>& vecDisplayBuffer)
+void CConsoleOutput::Render(const CDisplayBuffer& vecDisplayBuffer)
 {
     {
         // ANSI Escape sequence
         // 참고: http://ascii-table.com/ansi-escape-sequences-vt-100.php
-        printf("\x1b[H");
+        wprintf(L"\x1b[H");
     }
 
     {   // FPS 표기
@@ -113,10 +107,10 @@ void CConsoleOutput::Render(const std::vector<std::string>& vecDisplayBuffer)
         s_FrameTick.push_back(dwCurrentTick);
         while (s_FrameTick.front() + 1000 < dwCurrentTick)
             s_FrameTick.pop_front();
-        printf("FPS: %u\n", s_FrameTick.size());
+        wprintf(L"FPS: %u\n", (DWORD)s_FrameTick.size());
     }
 
-    for (const std::string& strLine : vecDisplayBuffer)
-        printf("%s\n", strLine.c_str());
+    for (const std::wstring& strLine : vecDisplayBuffer)
+        wprintf(L"%s\n", strLine.c_str());
 }
 

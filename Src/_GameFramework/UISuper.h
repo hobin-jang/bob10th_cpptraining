@@ -20,6 +20,6 @@ public:
 	virtual void Create(CDlgSuper* pParent, ST_VECTOR ptLeftTop, ST_VECTOR ptRightBtm);
 	virtual void SetText(std::string strText) { m_strText = strText; }
 
-	virtual void OnDraw(std::vector<std::string>& vecBuffer);
+	virtual void OnDraw(CDisplayBuffer& vecBuffer);
 };
 

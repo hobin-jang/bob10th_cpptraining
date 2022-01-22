@@ -75,13 +75,13 @@ void CDlgSuper::OnUpdate(double dElapsedTime)
 {
 }
 
-void CDlgSuper::OnDrawWorld(std::vector<std::string>& vecBuffer)
+void CDlgSuper::OnDrawWorld(CDisplayBuffer& vecBuffer)
 {
     for (CGameObjectSuper* pObject : m_listObject)
         pObject->OnDraw(vecBuffer);
 }
 
-void CDlgSuper::OnDrawUI(std::vector<std::string>& vecBuffer)
+void CDlgSuper::OnDrawUI(CDisplayBuffer& vecBuffer)
 {
     for (CUISuper* pUI : m_listUI)
         pUI->OnDraw(vecBuffer);

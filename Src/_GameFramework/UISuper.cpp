@@ -23,7 +23,7 @@ void CUISuper::Create(CDlgSuper* pParent, ST_VECTOR ptLeftTop, ST_VECTOR ptRight
 		m_pParent->AddUI(this);
 }
 
-void CUISuper::OnDraw(std::vector<std::string>& vecBuffer)
+void CUISuper::OnDraw(CDisplayBuffer& vecBuffer)
 {
 	DrawRectangle(vecBuffer, m_nLeft, m_nTop, m_nRight, m_nBottom);
 }

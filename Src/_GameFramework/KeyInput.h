@@ -2,18 +2,8 @@
 
 #include <map>
 #include <list>
+#include "Define.h"
 #include "Struct.h"
-
-enum E_GAMEKEY
-{
-    GAMEKEY_LEFT,
-    GAMEKEY_RIGHT,
-    GAMEKEY_UP,
-    GAMEKEY_DOWN,
-    GAMEKEY_SELECT,
-    GAMEKEY_MENU,
-    GAMEKEY_ESC,
-};
 
 class CKeyInput
 {

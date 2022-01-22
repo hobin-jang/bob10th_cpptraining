@@ -11,10 +11,20 @@ const double g_dDeltaTime = 1.0 / g_nFPS;
 const int g_nConsoleW = 100;
 const int g_nConsoleH = 50;
 
-typedef std::vector<std::string>	CDisplayBuffer;
+enum E_GAMEKEY
+{
+    GAMEKEY_LEFT,
+    GAMEKEY_RIGHT,
+    GAMEKEY_UP,
+    GAMEKEY_DOWN,
+    GAMEKEY_SELECT,
+    GAMEKEY_MENU,
+    GAMEKEY_ESC,
+};
+
+typedef std::vector<std::wstring>	CDisplayBuffer;
 
 #define WINDOW_TITLE	"BoB10th MMORPG 2022"
-
 
 #ifndef MAX
 #define MAX(x, y) ((x) < (y))? (y) : (x)

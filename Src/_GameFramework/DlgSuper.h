@@ -29,8 +29,8 @@ protected:
 	virtual void OnCreate(void);
 	virtual void OnInput(std::list<ST_KEYSTATE>& listKeyState);
 	virtual void OnUpdate(double dElapsedTime);
-	virtual void OnDrawWorld(std::vector<std::string>& vecBuffer);
-	virtual void OnDrawUI(std::vector<std::string>& vecBuffer);
+	virtual void OnDrawWorld(CDisplayBuffer& vecBuffer);
+	virtual void OnDrawUI(CDisplayBuffer& vecBuffer);
 
 public:
 	virtual int DoModal(void);
