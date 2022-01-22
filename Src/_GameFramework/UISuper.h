@@ -2,9 +2,11 @@
 
 #include "Struct.h"
 
+class CDlgSuper;
 class CUISuper
 {
 protected:
+	CDlgSuper* m_pParent;
 	int m_nLeft;
 	int m_nTop;
 	int m_nRight;
@@ -12,11 +14,12 @@ protected:
 
 	std::string m_strText;
 
-	CUISuper(ST_VECTOR ptLeftTop, ST_VECTOR ptRightBtm);
-
-	void SetText(std::string strText) { m_strText = strText; }
+	CUISuper(void);
 
 public:
+	virtual void Create(CDlgSuper* pParent, ST_VECTOR ptLeftTop, ST_VECTOR ptRightBtm);
+	virtual void SetText(std::string strText) { m_strText = strText; }
+
 	virtual void OnDraw(std::vector<std::string>& vecBuffer);
 };
 
