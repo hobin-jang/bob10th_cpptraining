@@ -1,6 +1,16 @@
 #include "pch.h"
 #include "DrawFunc.h"
 
+void Clear(CDisplayBuffer& buffer)
+{
+	for (std::wstring& strLine : buffer)
+	{
+		size_t tLength = strLine.size();
+		strLine.clear();
+		strLine.resize(tLength, ' ');
+	}
+}
+
 void DrawRectangle(CDisplayBuffer& buffer, ST_VECTOR ptLeftTop, ST_VECTOR ptRightBtm)
 {
 	DrawRectangle(buffer, ptLeftTop.x, ptLeftTop.y, ptRightBtm.x, ptRightBtm.y);

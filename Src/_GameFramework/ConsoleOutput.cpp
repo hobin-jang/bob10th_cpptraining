@@ -1,5 +1,6 @@
 ﻿#include "pch.h"
 #include "ConsoleOutput.h"
+#include "DrawFunc.h"
 
 CConsoleOutput::CConsoleOutput(void)
     : m_vecBackBuffer()
@@ -33,12 +34,12 @@ bool CConsoleOutput::InitConsole(void)
         if (!GetConsoleScreenBufferInfoEx(hOut, &stBufferInfo))
             throw std::runtime_error("Failed to GetConsoleScreenBufferInfoEx");
 
-        stBufferInfo.dwSize.X = g_nConsoleW + 10;
-        stBufferInfo.dwMaximumWindowSize.X = g_nConsoleW + 10;
+        stBufferInfo.dwSize.X = g_nConsoleW * 2 + 10;
+        stBufferInfo.dwMaximumWindowSize.X = g_nConsoleW * 2 + 10;
         if (!SetConsoleScreenBufferInfoEx(hOut, &stBufferInfo))
             throw std::runtime_error("Failed to SetConsoleScreenBufferInfoEx");
 
-        SMALL_RECT stDisplayArea = { 0, 0, g_nConsoleW + 3, g_nConsoleH + 3 };
+        SMALL_RECT stDisplayArea = { 0, 0, g_nConsoleW * 2 + 3, g_nConsoleH + 3 };
         if(!SetConsoleWindowInfo(hOut, TRUE, &stDisplayArea))
             throw std::runtime_error("Failed to SetConsoleWindowInfo");
 
@@ -91,6 +92,8 @@ void CConsoleOutput::Flip(const ST_VECTOR& pos, CDisplayBuffer& vecDisplayBuffer
             vecDisplayBuffer[nScreenY][nScreenX] = m_vecBackBuffer[y][x];
         }
     }
+
+    Clear(m_vecBackBuffer);
 }
 
 void CConsoleOutput::Render(const CDisplayBuffer& vecDisplayBuffer)
@@ -98,7 +101,7 @@ void CConsoleOutput::Render(const CDisplayBuffer& vecDisplayBuffer)
     {
         // ANSI Escape sequence
         // 참고: http://ascii-table.com/ansi-escape-sequences-vt-100.php
-        wprintf(L"\x1b[H");
+        printf("\x1b[H");
     }
 
     {   // FPS 표기
@@ -107,10 +110,21 @@ void CConsoleOutput::Render(const CDisplayBuffer& vecDisplayBuffer)
         s_FrameTick.push_back(dwCurrentTick);
         while (s_FrameTick.front() + 1000 < dwCurrentTick)
             s_FrameTick.pop_front();
-        wprintf(L"FPS: %u\n", (DWORD)s_FrameTick.size());
+        printf("FPS: %u\n", (DWORD)s_FrameTick.size());
     }
 
     for (const std::wstring& strLine : vecDisplayBuffer)
-        wprintf(L"%s\n", strLine.c_str());
+    {
+        std::string strLineA;
+        std::string strTest = core::MBSFromWCS(strLine);
+        for (char w : strTest)
+        {
+            if (0 < w)
+                strLineA.push_back(' ');
+
+            strLineA.push_back(w);
+        }
+        printf("%s\n", strLineA.c_str());
+    }
 }
 
