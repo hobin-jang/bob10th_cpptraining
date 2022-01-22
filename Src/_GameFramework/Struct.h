@@ -63,3 +63,10 @@ struct ST_KEYSTATE
     bool bPressed;
     bool bReserved;     // 7바이트를 8바이트로 유격을 채워주는 역할
 };
+
+struct ST_GAME_OBJECT
+{
+    short x;
+    short y;
+    char cPatch;
+};

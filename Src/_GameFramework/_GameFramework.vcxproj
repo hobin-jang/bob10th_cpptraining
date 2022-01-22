@@ -22,7 +22,9 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="ConsoleOutput.h" />
     <ClInclude Include="Define.h" />
+    <ClInclude Include="DlgSuper.h" />
     <ClInclude Include="DrawFunc.h" />
+    <ClInclude Include="GameObjectSuper.h" />
     <ClInclude Include="KeyInput.h" />
     <ClInclude Include="ResourceContainer.h" />
     <ClInclude Include="SceneSuper.h" />
@@ -34,7 +36,9 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ConsoleOutput.cpp" />
+    <ClCompile Include="DlgSuper.cpp" />
     <ClCompile Include="DrawFunc.cpp" />
+    <ClCompile Include="GameObjectSuper.cpp" />
     <ClCompile Include="KeyInput.cpp" />
     <ClCompile Include="ResourceContainer.cpp" />
     <ClCompile Include="SceneSuper.cpp" />

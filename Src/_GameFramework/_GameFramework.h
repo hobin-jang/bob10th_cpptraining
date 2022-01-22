@@ -8,3 +8,4 @@
 #include "ResourceContainer.h"
 #include "ConsoleOutput.h"
 #include "UISuper.h"
+#include "GameObjectSuper.h"
