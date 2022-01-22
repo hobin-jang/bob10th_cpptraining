@@ -1,4 +1,5 @@
 ﻿#include "stdafx.h"
+#include "ConsoleOutput.h"
 
 int main()
 {

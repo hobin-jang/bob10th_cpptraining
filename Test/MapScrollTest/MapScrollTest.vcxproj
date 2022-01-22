@@ -147,15 +147,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\ConsoleRenderTest\ConsoleOutput.cpp" />
+    <ClCompile Include="..\KeyInputTest\KeyInput.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\ConsoleRenderTest\ConsoleOutput.h" />
+    <ClInclude Include="..\KeyInputTest\KeyInput.h" />
     <ClInclude Include="stdafx.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Src\_GameFramework\_GameFramework.vcxproj">
-      <Project>{aa84656d-e637-4e6d-9e43-8b1e17361be0}</Project>
-    </ProjectReference>
+    <ClInclude Include="Struct.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

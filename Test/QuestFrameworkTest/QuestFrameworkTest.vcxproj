@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{1985de3a-7d99-4ace-ae37-ee8a37f5d464}</ProjectGuid>
+    <ProjectGuid>{E02728D3-E318-4165-A94F-20B24BDA19AE}</ProjectGuid>
     <RootNamespace>KeyInputTest</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -151,11 +151,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Src\_QuestFramework\_QuestFramework.vcxproj">
-      <Project>{aa84656d-e637-4e6d-9e43-8b1e17361be0}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,11 +5,27 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="library">
+      <UniqueIdentifier>{a05ae2e7-51bb-441e-b001-1ce7443476a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\ConsoleRenderTest\ConsoleOutput.cpp">
+      <Filter>library</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeyInputTest\KeyInput.cpp">
+      <Filter>library</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\ConsoleRenderTest\ConsoleOutput.h">
+      <Filter>library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeyInputTest\KeyInput.h">
+      <Filter>library</Filter>
+    </ClInclude>
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Struct.h" />
   </ItemGroup>
 </Project>

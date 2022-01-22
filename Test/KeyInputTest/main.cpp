@@ -1,4 +1,14 @@
 ﻿#include "stdafx.h"
+#include "KeyInput.h"
+
+enum E_GAMEKEY_TYPE
+{
+    GAMEKEY_LEFT,
+    GAMEKEY_RIGHT,
+    GAMEKEY_UP,
+    GAMEKEY_DOWN,
+    GAMEKEY_SELECT,
+};
 
 int main()
 {
