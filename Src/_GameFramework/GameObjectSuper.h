@@ -11,7 +11,7 @@ protected:
 	~CGameObjectSuper(void);
 
 public:
-	virtual void Create(CDlgSuper* pParent, int x, int y);
+	virtual void Create(CDlgSuper* pParent, int inX, int inY, int inZ);
 	virtual void OnDraw(CDisplayBuffer& destBuffer);
 };
 

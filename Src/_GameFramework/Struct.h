@@ -68,5 +68,6 @@ struct ST_GAME_OBJECT
 {
     short x;
     short y;
+    short z;    // floor
     char cPatch;
 };
