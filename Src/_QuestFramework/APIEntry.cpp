@@ -16,10 +16,10 @@ DLL_API int QueryNpc(ST_NPC_INFO* outInfoArr)
 		return 0;
 
 	if (nullptr == outInfoArr)
-		return vecNPC.size();
+		return (int)vecNPC.size();
 
 	*outInfoArr = vecNPC[0];
-	return vecNPC.size();
+	return (int)vecNPC.size();
 }
 
 struct ST_QUEST_QUERIER
@@ -52,5 +52,5 @@ DLL_API int QueryQuest(int nQuestID, int* pTargetNpcID, ST_QUEST_SEQUENCE* outIn
 		memcpy(outInfoArr, &pQuest->m_Sequence[0]
 			, pQuest->m_Sequence.size() * sizeof(pQuest->m_Sequence[0]));
 
-	return pQuest->m_Sequence.size();
+	return (int)pQuest->m_Sequence.size();
 }
