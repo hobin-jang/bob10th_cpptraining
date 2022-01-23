@@ -12,7 +12,7 @@ int main()
     }
 
     do
-    {
+    { 
         wprintf(L"---------- %s\n", stFindData.cFileName);
 
         HMODULE hModule = LoadLibrary(stFindData.cFileName);
