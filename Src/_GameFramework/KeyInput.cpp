@@ -30,3 +30,52 @@ void CKeyInput::Query(std::list<ST_KEYSTATE>& outState)
 		outState.push_back(KeyState);
 	}
 }
+
+void CKeyInput::GenerateRepeatKey(std::list<ST_KEYSTATE>& inState, std::list<ST_KEYSTATE>& outRepeatState)
+{
+	const DWORD dwCurrentTick = GetTickCount();
+	for (ST_KEYSTATE key : inState)
+	{
+		if (key.bPressed)
+		{
+			switch (key.nID)
+			{
+			case GAMEKEY_LEFT:
+			case GAMEKEY_RIGHT:
+			case GAMEKEY_UP:
+			case GAMEKEY_DOWN:
+				m_mapKeyPressTime[key.nID] = dwCurrentTick;
+				break;
+			}
+		}
+		else
+		{
+			switch (key.nID)
+			{
+			case GAMEKEY_LEFT:
+			case GAMEKEY_RIGHT:
+			case GAMEKEY_UP:
+			case GAMEKEY_DOWN:
+				m_mapKeyPressTime[key.nID] = 0xFFFFFFFF;
+				break;
+			}
+		}
+	}
+
+	for (auto iter : m_mapRegisteredKey)
+	{
+		bool bIsKeyPressed = m_mapLastKeyState[iter.second] & 0x8000;
+
+		if (bIsKeyPressed && m_mapKeyPressTime[iter.second] <= dwCurrentTick)
+		{
+			m_mapKeyPressTime[iter.second] = dwCurrentTick + 300;
+
+			ST_KEYSTATE stRepeatKey;
+			stRepeatKey.nID = iter.first;
+			stRepeatKey.nVirtKey = iter.second;
+			stRepeatKey.bPressed = true;
+			stRepeatKey.bReserved = 0;
+			outRepeatState.push_back(stRepeatKey);
+		}
+	}
+}
