@@ -18,7 +18,7 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 	npc.id = 1;
 	strcpy_s(npc.szName, 21, "전상현 멘토");
 	npc.x = 75;
-	npc.y = 101;
+	npc.y = 23;
 	npc.w = 0.5;
 	npc.h = 0.5;
 	npc.patch = 'p';
