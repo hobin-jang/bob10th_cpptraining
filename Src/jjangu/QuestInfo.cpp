@@ -16,7 +16,7 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 {
 	ST_NPC_INFO npc;
 	npc.id = 0;
-	strcpy_s(npc.szName, 21, "±èµ¿Çö ¸àÆ¼");
+	strcpy_s(npc.szName, 21, "±èµ¿Çö");
 	npc.patch = 'p';
 	strcpy_s(npc.szGreetMessage, 61, " *** stack smashing detected *** ");
 
@@ -74,6 +74,55 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 	npc.vecBuffer[49] = "==$=$#######$##$####!~.....-;$#$######$##$$$$$$$$$";
 	npc.vecBuffer[50] = "$$$$#####################$#$##############$$$$$$$$";
 	npc.vecBuffer[51] = "$$$$$###################################$##$$$$#$$";
+
+	vecNPC.push_back(npc);
+}
+
+void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
+{
+	ST_QUEST_NPC_DATA npc;
+	npc.Pos.x = 1;
+	npc.Pos.y = 19;
+	npc.Pos.z = 24;
+	npc.nNpcID = 152;
+	npc.strTrack = "Ãë¾àÁ¡ ºÐ¼® Æ®·¢";
+	npc.strName = "±èµ¿Çö(jjangu)";
+	npc.nAge = 21;
+	npc.strMBTI = "ENFJ";
+	npc.cPatch = 'K';
+	npc.strMessage = " *** stack smashing detected *** ";
+	npc.vecBuffer;	
+
+
+
+	npc.vecBuffer.resize(23);
+
+
+npc.vecBuffer [0] = ",,,,,,,,,-,-,,,,,,,,";
+npc.vecBuffer [1] = ",,,,,,$$$$$$=-,,,,,,";
+npc.vecBuffer [2] = ",,,,-$$$$##$$*~,,,,,";
+npc.vecBuffer [3] = ",,,,$$#$$$##$=$,,,,,";
+npc.vecBuffer [4] = ",,,~$##$$$#$$$=;,,,,";
+npc.vecBuffer [5] = ",,,$##$$$*$=$#$*,,,,";
+npc.vecBuffer [6] = ",,,-$$#$$!###=$:,,,,";
+npc.vecBuffer [7] = ",,,,$$##$:##$#$,,,,,";
+npc.vecBuffer [8] = ",,,,#$$#*~!-~$$,,,,,";
+npc.vecBuffer [9] = ",,,,:,:;,..*. :,,,..";
+npc.vecBuffer[10] = ",,,,-...,  . ..,,,,,";
+npc.vecBuffer[11] = ",,,,,...,.   . ,,,..";
+npc.vecBuffer[12] = ".,,,,,..,. . .,.,...";
+npc.vecBuffer[13] = "..,,,,,,:-,.........";
+npc.vecBuffer[14] = "......,,,,..........";
+npc.vecBuffer[15] = "......,,,..,........";
+npc.vecBuffer[16] = ".....=,,:!-.. =.....";
+npc.vecBuffer[17] = "...*$$,,,,,...$$!...";
+npc.vecBuffer[18] = ".*=$$$-,,,....$$$**.";
+npc.vecBuffer[19] = "=$$$$##-.....$$$$$==";
+npc.vecBuffer[20] = "=$#######=$$####$$$$";
+npc.vecBuffer[21] = "$$###############$$$";
+npc.vecBuffer[22] = "$##################$";
+
+
 
 	vecNPC.push_back(npc);
 }
