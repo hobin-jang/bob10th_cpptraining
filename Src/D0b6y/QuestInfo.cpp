@@ -12,9 +12,9 @@ CQuestInfo::~CQuestInfo(void) {
 
 void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC) {
 	ST_NPC_INFO npc;
-	strcpy_s(npc.szName, 21, "ÀÓ¿øºó ¸àÆ¼");
+	strcpy_s(npc.szName, 21, "ì„ì›ë¹ˆ ë©˜í‹°");
 	npc.patch = 'W';
-	strcpy_s(npc.szGreetMessage, 61, "ÇØÇÇÇØÇÇ ÇØÅ·!");
+	strcpy_s(npc.szGreetMessage, 61, "í•´í”¼í•´í”¼ í•´í‚¹!");
 
 	npc.vecBuffer.resize(60);
 	npc.vecBuffer[0] = "                          ....  ... ,.-~~,!~:*!*=*;!!*;--~,..,..................................=:";
@@ -85,15 +85,15 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
 	ST_QUEST_NPC_DATA npc;
 	npc.Pos.x = 12;
-	npc.Pos.y = 2;
-	npc.Pos.z = 26;
+	npc.Pos.y = 4;
+	npc.Pos.z = 25;
 	npc.nNpcID = 130;
-	npc.strTrack = "Ãë¾àÁ¡ºĞ¼®";
-	npc.strName = "I'm ¿øºó";
+	npc.strTrack = "ì·¨ì•½ì ë¶„ì„";
+	npc.strName = "I'm ì›ë¹ˆ";
 	npc.nAge = 22;
-	npc.strMBTI = "¸¶À½¸¸Àº IÀÎ ENFJÀÔ´Ï´Ù :)";
+	npc.strMBTI = "ë§ˆìŒë§Œì€ Iì¸ ENFJì…ë‹ˆë‹¤ :)";
 	npc.cPatch = 'W';
-	npc.strMessage = "ÀÌÁ¦ °ğ ¸¶Áö¸· ÃşÀÌ³×¿ä! ¼ö°íÇß¾î¿ä ÃÖÁ¾ º¸½º¸¸ Àâ´Â´Ù¸é Â¯Â¯ÀÌ µÉ ¼ö ÀÖ¾î¿ä.";
+	npc.strMessage = "ì´ì œ ê³§ ë§ˆì§€ë§‰ ì¸µì´ë„¤ìš”! ìˆ˜ê³ í–ˆì–´ìš” ìµœì¢… ë³´ìŠ¤ë§Œ ì¡ëŠ”ë‹¤ë©´ ì§±ì§±ì´ ë  ìˆ˜ ìˆì–´ìš”.";
 	npc.vecBuffer.resize(25);
 	npc.vecBuffer[0] = ".........................";
 	npc.vecBuffer[1] = ".........................";
