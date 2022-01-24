@@ -125,9 +125,9 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 	npc.Pos.x = 13;
 	npc.Pos.y = 5;
 	npc.Pos.z = 1;
-	npc.nNpcID = 128;
+	npc.nNpcID = 135;
 	npc.strTrack = "보안개발트랙";
-	npc.strName = "정지용";
+	npc.strName = "겨울이지용";
 	npc.nAge = 25;
 	npc.strMBTI = "ENTJ이고 A형입니다.";
 	npc.cPatch = 'G';
