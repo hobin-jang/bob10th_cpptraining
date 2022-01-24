@@ -16,8 +16,8 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 {
     ST_NPC_INFO npc;
     strcpy_s(npc.szName, 21, "홍택균 멘티");
-    npc.patch = 'p';
-    strcpy_s(npc.szGreetMessage, 61, "안녕하세요 :) 다들 화이팅입니다!!");
+    npc.patch = 'O';
+    strcpy_s(npc.szGreetMessage, 61, "안녕하세요 취약점분석트랙 홍택균입니다 :) 다들 화이팅입니다!!");
 
 	npc.vecBuffer.resize(60);
 	                                                         
@@ -85,6 +85,24 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 
 
 	vecNPC.push_back(npc);
+}
+
+void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
+{
+    ST_QUEST_NPC_DATA npc;
+    npc.Pos.x = 20;
+    npc.Pos.y = 3;
+    npc.Pos.z = 23;
+    npc.nNpcID = 128;
+    npc.strTrack = "취약점분석트랙";
+    npc.strName = "홍택균(OZ1NG)";
+    npc.nAge = 28;
+    npc.strMBTI = "INTP이고 B형입니다 :)";
+    npc.cPatch = 'O';
+    npc.strMessage = "퍼징은 신이야! 너도 퍼징교에 들어오지 않을래? 너도 취약점을 찾을 수 있을지도 모른다구?";
+
+    npc.vecBuffer;	// 위엣것 참조.
+    vecNPC.push_back(npc);
 }
 
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest)
