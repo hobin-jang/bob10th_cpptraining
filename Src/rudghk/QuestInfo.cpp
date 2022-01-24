@@ -98,8 +98,8 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.strMBTI = "ISFJ";
     npc.cPatch = 'K';
     npc.strMessage = "æ»≥Á«œººø‰!";
-    npc.vecBuffer;
-
+    
+    npc.vecBuffer.resize(25);
     npc.vecBuffer[0]  = "@@@@@@@-*...,@@@@@@@@@@@@";
     npc.vecBuffer[1]  = "@@@@@@....,,,,@@@@@@@@@@@";
     npc.vecBuffer[2]  = "@@@@@!,..,-.~-,@@@@@@@@@@";
