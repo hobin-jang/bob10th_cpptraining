@@ -98,7 +98,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.strMBTI = "INFJ, A형입니다.";
     npc.cPatch = 'S';
     npc.strMessage = "안녕하세요. BoB 정말 어렵네요. 화이팅.";
-    npc.vecBuffer.resize(25);
+    npc.vecBuffer.resize(26);
     npc.vecBuffer[0] = "          ,::.           ";
     npc.vecBuffer[1] = "         -=$$*!:         ";
     npc.vecBuffer[2] = "       ~$##$$$=$*,       ";
@@ -123,7 +123,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.vecBuffer[21] = "  .,,.....  ...,,,-,,,.  ";
     npc.vecBuffer[22] = ".....,..,.    .,-,,.,,,, ";
     npc.vecBuffer[23] = "........,,.....,,,......,";
-    npc.vecBuffer[24] = "...........,.,,,.........";
+    npc.vecBuffer[24] = "...........,.,,,.......,.";
     vecNPC.push_back(npc);
 }
 
