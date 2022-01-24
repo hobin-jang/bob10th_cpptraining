@@ -16,7 +16,7 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 {
 	ST_NPC_INFO npc;
 	npc.id = 1;
-	strcpy_s(npc.szName, 21, "gdjung");
+	strcpy_s(npc.szName, 21, "Á¤Áö¿ë");
 	npc.x = 75;
 	npc.y = 101;
 	npc.w = 101;
