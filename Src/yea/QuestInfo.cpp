@@ -99,6 +99,8 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC) {
 	npc.strMBTI = "ISFP인데 S빼고는 계속 바껴요. A형입니다아~~";
 	npc.cPatch = 'Y';
 	npc.strMessage = "BOB에서 스트레스 받지 말구 즐겨요!! \n 롤 좋아하는 사람 연락해줘여 쵸비 응원해주세요ヾ(≧▽≦*)o";
+
+	npc.vecBuffer.resize(25);
 	npc.vecBuffer[0] = "======###$$=###$*=#======";
 	npc.vecBuffer[1] = "======###=$=$####=$$=====";
 	npc.vecBuffer[2] = "=====####$==;!$##$=#=====";
@@ -124,7 +126,6 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC) {
 	npc.vecBuffer[22] = "        . .~:;*#$##$####=";
 	npc.vecBuffer[23] = ".       ..,::##$=$######$";
 	npc.vecBuffer[24] = ".       ..,~;$!;!#######=";
-	npc.vecBuffer[25] = "       .-..,-~-~!###$##$=";
 	vecNPC.push_back(npc);
 }
 
