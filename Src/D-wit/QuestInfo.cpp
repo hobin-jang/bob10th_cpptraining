@@ -98,7 +98,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.Pos.z = 5;
     npc.nNpcID = 129;
     npc.strTrack = "µðÁöÅÐÆ÷·»½ÄÆ®·¢";
-    npc.strName = "±è´ë±â(D_wit)";
+    npc.strName = "±è´ë±â (D_wit)";
     npc.nAge = 25;
     npc.strMBTI = "Á¤»ó";
     npc.cPatch = 'D';
