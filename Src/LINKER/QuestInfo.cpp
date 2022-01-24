@@ -91,6 +91,23 @@ npc.vecBuffer[61] = "~~~--~::~~~:~~~~~.               .-~~~:~~~~~~~~::*    ";
     vecNPC.push_back(npc);
 }
 
+void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
+{
+	ST_QUEST_NPC_DATA npc;
+	npc.Pos.x = 30;
+	npc.Pos.y = 30;
+	npc.Pos.z = 15;
+	npc.nNpcID = 138;
+	npc.strTrack = "보안개발트랙";
+	npc.strName = "이찬우(LINKER)";
+	npc.nAge = 24;
+	npc.strMBTI = "ENFJ-T이고 A형 입니다.";
+	npc.cPatch = 'L';
+	npc.strMessage = "C,C++,OS에 대한 기초 지식은 ★필수★";
+	npc.vecBuffer;	// 위엣것 참조.
+	vecNPC.push_back(npc);
+}
+
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest)
 {
 }
