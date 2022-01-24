@@ -89,8 +89,8 @@ npc.vecBuffer[61] = "~~~--~::~~~:~~~~~.               .-~~~:~~~~~~~~::*    ";
 void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
 	ST_QUEST_NPC_DATA npc;
-	npc.Pos.x = 30;
-	npc.Pos.y = 30;
+	npc.Pos.x = 17;
+	npc.Pos.y = 17;
 	npc.Pos.z = 1;
 	npc.nNpcID = 138;
 	npc.strTrack = "보안개발트랙";
@@ -98,8 +98,36 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 	npc.nAge = 24;
 	npc.strMBTI = "ENFJ-T이고 A형 입니다.";
 	npc.cPatch = 'L';
-	npc.strMessage = "C,C++,OS에 대한 기초 지식은 ★필수★";
-	npc.vecBuffer;	// 위엣것 참조.
+	npc.strMessage = "어이 너 나랑 코딩하지 않을래?";
+
+	npc.vecBuffer.resize(25);
+        
+	npc.vecBuffer[ 0] = "💻🎮🎬💻🎮🎬🎮🎬💻 ";
+	npc.vecBuffer[ 1] = "                         ";
+	npc.vecBuffer[ 2] = "        ,;@**@@=         ";
+	npc.vecBuffer[ 3] = "      ~$#@@@@@@##$,      ";
+	npc.vecBuffer[ 4] = "     .*#@@@@@@##$$:      ";
+	npc.vecBuffer[ 5] = "     ,##@#@##@#$$$$,     ";
+	npc.vecBuffer[ 6] = "     ,########@####,     ";
+	npc.vecBuffer[ 7] = "     ,$#$$!:~;$#@#:      ";
+	npc.vecBuffer[ 8] = "      .=~-,. .-~~:.      ";
+	npc.vecBuffer[ 9] = "       ,|~~|^|~~|.       ";
+	npc.vecBuffer[10] = "       .        .        ";
+	npc.vecBuffer[11] = "        .   ,   .        ";
+	npc.vecBuffer[12] = "        .       ,        ";
+	npc.vecBuffer[13] = "         . ㅇ  .         ";
+	npc.vecBuffer[14] = "         ,,,,,,.         ";
+	npc.vecBuffer[15] = "       ....,.......      ";
+	npc.vecBuffer[16] = "     ,,-....... .-~,,,   ";
+	npc.vecBuffer[17] = "   ,-:~-         ,~:::,, ";
+	npc.vecBuffer[18] = " ,,:::~-         ,~:~:~:-";
+	npc.vecBuffer[19] = "-~~:::~-         -~~::~~:";
+	npc.vecBuffer[20] = "::~~::~-         ,~~~:~~:";
+	npc.vecBuffer[21] = ":~:~::~-.        ,~-~~~::";
+	npc.vecBuffer[22] = "-------------------------";
+	npc.vecBuffer[23] = "                         ";
+	npc.vecBuffer[24] = "★☆★☆★☆★☆★☆★☆★";
+
 	vecNPC.push_back(npc);
 }
 
