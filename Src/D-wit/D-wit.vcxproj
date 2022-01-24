@@ -78,8 +78,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IntDir>D:\BoB_Final\전상현_멘토님\CPP_Dwit\D-wit\Output\$(Platform)$(Configuration)\$(ProjectName)\</IntDir>
-    <OutDir>D:\BoB_Final\전상현_멘토님\CPP_Dwit\D-wit\Build\</OutDir>
+    <IntDir>$(ProjectDir)\..\..\Output\$(Platform)$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(ProjectDir)\..\..\Build\$(Platform)$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
