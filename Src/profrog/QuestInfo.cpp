@@ -90,6 +90,23 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 	vecNPC.push_back(npc);
 }
 
+void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
+{
+	ST_QUEST_NPC_DATA npc;
+	npc.Pos.x = 4;
+	npc.Pos.y = 21;
+	npc.Pos.z = 1;
+	npc.nNpcID = 128;
+	npc.strTrack = "보안개발트랙";
+	npc.strName = "어린 전상현";
+	npc.nAge = 28;
+	npc.strMBTI = "ENFJ이고 B형이에요";
+	npc.cPatch = 'P';
+	npc.strMessage = "게임 보안을 해보고 싶다면 날 찾아와. 근데 C++이 어렵다고? 뭘 잘 모르는구만. 누구든 21일이면 마스터 할 수 있지. 일단은 물리학과 생물학을 먼저 배워보자꾸나.";
+	npc.vecBuffer;	// 위엣것 참조.
+	vecNPC.push_back(npc);
+}
+
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest)
 {
 }

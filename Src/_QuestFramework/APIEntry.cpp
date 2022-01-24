@@ -22,6 +22,21 @@ DLL_API int QueryNpc(ST_NPC_INFO* outInfoArr)
 	return (int)vecNPC.size();
 }
 
+DLL_API int QueryNpcEx(ST_QUEST_NPC_DATA* outInfoArr)
+{
+	std::vector<ST_QUEST_NPC_DATA> vecNPC;
+	g_pQuestInfo->QueryNpcEx(vecNPC);
+
+	if (vecNPC.empty())
+		return 0;
+
+	if (nullptr == outInfoArr)
+		return (int)vecNPC.size();
+
+	*outInfoArr = vecNPC[0];
+	return (int)vecNPC.size();
+}
+
 struct ST_QUEST_QUERIER
 {
 	std::vector<ST_QUEST_DATA*> quests;
