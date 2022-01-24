@@ -100,7 +100,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.strTrack = "디지털포렌식트랙";
     npc.strName = "김대기(D_wit)";
     npc.nAge = 25;
-    npc.strMBTI = "INFP";
+    npc.strMBTI = "정상";
     npc.cPatch = 'D';
     npc.strMessage = "미리 말해두는데, 트랙 디코방이 생기면 자주 들어가. 과제할 때 혼자 고생할 일은 없을거야.";
     npc.vecBuffer;	// 위엣것 참조.
