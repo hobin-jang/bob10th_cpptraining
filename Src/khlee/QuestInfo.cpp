@@ -17,7 +17,7 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
     ST_NPC_INFO npc;
     
     strcpy_s(npc.szName, 21, "이권희 교육생");
-    npc.patch = 'v';
+    npc.patch = 'V';
     strcpy_s(npc.szGreetMessage, 61, "인생은 고통이다 참고하세요");
     npc.vecBuffer.resize(60);
     npc.vecBuffer[0] =  "                   .,;=*$$*!~,                    ";
@@ -82,6 +82,49 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
     npc.vecBuffer[59] =  "##################################################";
     vecNPC.push_back(npc);
 
+}
+
+
+void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
+{
+    ST_QUEST_NPC_DATA npc;
+    npc.Pos.x = 3;
+    npc.Pos.y = 4;
+    npc.Pos.z = 2;
+    npc.nNpcID = 137;
+    npc.strTrack = "디지털포렌식트랙";
+    npc.strName = "이권희";
+    npc.nAge = 23;
+    npc.strMBTI = "INTJ.. MBTI는.. 유사과학이니 조심해!";
+    npc.cPatch = 'V';
+    npc.strMessage = "오늘은 즐거운 월요일이야! 너도 신나지??";
+    npc.vecBuffer.resize(25);
+    npc.vecBuffer[0] = "#####@@@@@@@@#@@@########";
+    npc.vecBuffer[1] = "#####@@@@#@@@#@@@########";
+    npc.vecBuffer[2] = "####g######@##@##QQBQQ6QB";
+    npc.vecBuffer[3] = "###QH@@######BB$MehZMdMgQ";
+    npc.vecBuffer[4] = "##BBI8#########QQdM8OwBBQ";
+    npc.vecBuffer[5] = "BBQBEkD########QgWzmKB##8";
+    npc.vecBuffer[6] = "BQ$Q$PVyHOQQ80dqKVTOdQ##$";
+    npc.vecBuffer[7] = "Qg$0KY!:Y}}}Lxr\vr}XT3#BR";
+    npc.vecBuffer[8] = "QDRDM,  _v)?<   :!~r*VBzr";
+    npc.vecBuffer[9] = "Q9O9V =r-yxT`  ` !'<>yBzv";
+    npc.vecBuffer[10] = "gRdO( zy:ZM)  ;T :_~~mj=?";
+    npc.vecBuffer[11] = "0EOZ) O*|MM;  XH !_==Z^!r";
+    npc.vecBuffer[12] = "EEM5o` _Pkk!  y)':-==y!!^";
+    npc.vecBuffer[13] = "OOGGGakZGDl*    *_-!!^!!=";
+    npc.vecBuffer[14] = "ddPIxk3gdQQ)<-:r<-.:!>!!L";
+    npc.vecBuffer[15] = "ZZG(^(TuqDRx^=!::-.::~!xo";
+    npc.vecBuffer[16] = "MGHr;~adL\|r**!!!-':!iuuc";
+    npc.vecBuffer[17] = "G3Ks)~YUixvvr!,,_``_*vTVc";
+    npc.vecBuffer[18] = "PKhoUl*cxvx<:,_.```.,=rxV";
+    npc.vecBuffer[19] = "amhjyoiv}(^?^=_`     `,*x";
+    npc.vecBuffer[20] = "KsIzwddurrxvr_`       `,|";
+    npc.vecBuffer[21] = "mUXzmOQQMYvr:`         `~";
+    npc.vecBuffer[22] = "mUIzbdQQWxr^-           ,";
+    npc.vecBuffer[23] = "hjwkMG$Oex*~.           -";
+    npc.vecBuffer[24] = "r<!:,__-.```             ";// 위엣것 참조.
+    vecNPC.push_back(npc);
 }
 
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest)
