@@ -94,7 +94,8 @@ void QuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 	npc.strTrack = "취약점분석트랙";
 	npc.strName = "정종배";
 	npc.nAge = 23;
-	npc.strMBTI = "????_A형";
+	npc.strMBTI = "INFP에 A형 입니다~";
+	npc.cPatch = 'J';
 	npc.strMessage = "뭐? 취약점이라고?? (호다ㅏㅏㄱ)";
 
 	npc.vecBuffer.resize(25);
