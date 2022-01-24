@@ -106,7 +106,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.nAge = 23;
     npc.strMBTI = "ESFP이고 B형이에요";
     npc.cPatch = 'C';
-    npc.strMessage = "오늘 과제가 2개밖에 없네? 하는 순간 다음날 과제가 6개로 늘어난다.";
+    npc.strMessage = "Segmentation fault. (Core dumped)";
     npc.vecBuffer;	// 위엣것 참조.
 
 
