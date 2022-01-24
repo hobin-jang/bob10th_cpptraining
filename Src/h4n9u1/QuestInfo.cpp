@@ -58,6 +58,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 	npc.vecBuffer[9] = " |t| ! | k |   |";
 	npc.vecBuffer[10] =" ---------------";
 	npc.vecBuffer[11] ="   h4n9u1.xyz  ";
+	vecNPC.push_back(npc);
 }
 
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest)
