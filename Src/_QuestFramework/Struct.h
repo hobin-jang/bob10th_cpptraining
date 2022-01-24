@@ -165,4 +165,30 @@ struct ST_QUEST_DATA
 	std::vector<ST_QUEST_SEQUENCE> m_Sequence;
 };
 
+struct ST_VECTOR3
+{
+	union
+	{
+		unsigned long long int qwPos;
+		struct {
+			short x;
+			short y;
+			short z;
+			short reserved;
+		} Pos;
+	};
+};
+
+struct ST_QUEST_NPC_DATA : public ST_VECTOR3
+{
+	int nNpcID;
+	std::string strTrack;
+	std::string strName;
+	int nAge;
+	std::string strMBTI;
+	char cPatch;
+	std::string strMessage;
+	std::vector<std::string> vecBuffer;		// 25x25
+};
+
 #pragma pack(pop)
