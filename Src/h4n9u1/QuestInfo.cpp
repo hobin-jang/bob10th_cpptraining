@@ -45,7 +45,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 	npc.strMBTI = "INTJ/P";
 	npc.cPatch = 'H';
 	npc.strMessage = "취약점분석... 프로그래밍 언어... DB... 네트워크.. 임베디드 시스템... 알고리즘... 컴파일러... 배우고 싶은 건 많은데 시간이 없네... 그렇다면 나 자신을 갈아넣어야지...";
-	npc.vecBuffer.resize(11);
+	npc.vecBuffer.resize(12);
 	npc.vecBuffer[0] = "                ";
 	npc.vecBuffer[1] = "        ___ ___ ";
 	npc.vecBuffer[2] = " .-.   |   |   |";
@@ -58,6 +58,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 	npc.vecBuffer[9] = " |t| ! | k |   |";
 	npc.vecBuffer[10] =" ---------------";
 	npc.vecBuffer[11] ="   h4n9u1.xyz  ";
+	vecNPC.push_back(npc);
 }
 
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest)

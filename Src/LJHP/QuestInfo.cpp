@@ -1,15 +1,12 @@
 #include "pch.h"
 #include "QuestInfo.h"
 
-static CQuestInfo g_QuestInfo;
-
-CQuestInfo::CQuestInfo(void)
-{
+CQuestInfo::CQuestInfo(void) {
 	ExportAPIEntry(this);
 }
 
-CQuestInfo::~CQuestInfo(void)
-{
+CQuestInfo::~CQuestInfo(void) {
+
 }
 
 void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
@@ -17,7 +14,7 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 	ST_NPC_INFO npc;
 	strcpy_s(npc.szName, 10, "¿Ã¡÷«˘");
 	npc.patch = 'p';
-	strcpy_s(npc.szGreetMessage, 100, "æ»≥Á«œººø‰.");
+	strcpy_s(npc.szGreetMessage, 61, "æ»≥Á«œººø‰.");
 
 	npc.vecBuffer.resize(60);
 	npc.vecBuffer[0] = "*==***=*==******==****==**====*===================";
@@ -86,3 +83,4 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest)
 {
 }
+
