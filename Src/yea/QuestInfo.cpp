@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "QuestInfo.h"
 
 static CQuestInfo g_Questinfo;
@@ -17,9 +17,9 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 {
 	ST_NPC_INFO npc;
 	//npc.id = 1;
-	strcpy_s(npc.szName, 21, "������ ��Ƽ");
+	strcpy_s(npc.szName, 21, "유지예 멘티");
 	npc.patch = 'p';
-	strcpy_s(npc.szGreetMessage, 61, "�ȳ� �� ������ �����ϱ��?(���� �ƴմϴ�)");
+	strcpy_s(npc.szGreetMessage, 61, "안녕 이 사진은 누구일까요?(저는 아닙니다)");
 	
 	npc.vecBuffer.resize(60);
 
@@ -84,6 +84,47 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 	npc.vecBuffer[58] = "          .      .,~,...:,,,.!*;!=$######$$$#####!";
 	npc.vecBuffer[59] = "          .      .,~,...:,,,.!*;!=$######$$$#####!";
 
+	vecNPC.push_back(npc);
+}
+
+void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC) {
+	ST_QUEST_NPC_DATA npc;
+	npc.Pos.x = 13;
+	npc.Pos.y = 22;
+	npc.Pos.z = 23;
+	npc.nNpcID = 140;
+	npc.strTrack = "취약점분석트랙";
+	npc.strName = "Chovy 찐팬 지예에";
+	npc.nAge = 23;
+	npc.strMBTI = "ISFP인데 S빼고는 계속 바껴요. A형입니다아~~";
+	npc.cPatch = 'Y';
+	npc.strMessage = "BOB에서 스트레스 받지 말구 즐겨요!! \n 롤 좋아하는 사람 연락해줘여 다들 쵸비 응원해주세요ヾ(≧▽≦*)o";
+	npc.vecBuffer[0] = "======###$$=###$*=#======";
+	npc.vecBuffer[1] = "======###=$=$####=$$=====";
+	npc.vecBuffer[2] = "=====####$==;!$##$=#=====";
+	npc.vecBuffer[3] = "=====####*;~,-;===$#$====";
+	npc.vecBuffer[4] = "====####=~-...,:;=$##====";
+	npc.vecBuffer[5] = "====####!:,....,;=###====";
+	npc.vecBuffer[6] = "====###=!~......~$###====";
+	npc.vecBuffer[7] = "===$###=;;::,..~*#####===";
+	npc.vecBuffer[8] = "===##$#!~:~~,.--;##$##===";
+	npc.vecBuffer[9] = "===##$*;.---..,-~=$$##===";
+	npc.vecBuffer[10]= "===##$::....  ..,*$$##*==";
+	npc.vecBuffer[11] = "==$#$=$*,.  . .. ;$###=*=";
+	npc.vecBuffer[12] = "===#$=$*,.... ,..;####=**";
+	npc.vecBuffer[13] = "===##=$$-,. --:.,!$###=**";
+	npc.vecBuffer[14] = "===##$$=*,....,,-$####$**";
+	npc.vecBuffer[15] = "==$###$$!~,-~~;~!###$##=*";
+	npc.vecBuffer[16] = "==$###=*!;-,-!~:####$##$*";
+	npc.vecBuffer[17] = "==###=*!!,-    -#$##$##$*";
+	npc.vecBuffer[18] = "===;--*;;.,,   .*=######=";
+	npc.vecBuffer[19] = "--,.-=-,,.. -  .==######=";
+	npc.vecBuffer[20] = "..---,. ....~. ~=$######$";
+	npc.vecBuffer[21] = " .      ...-:,.$$$#$####$";
+	npc.vecBuffer[22] = "        . .~:;*#$##$####=";
+	npc.vecBuffer[23] = ".       ..,::##$=$######$";
+	npc.vecBuffer[24] = ".       ..,~;$!;!#######=";
+	npc.vecBuffer[25] = "       .-..,-~-~!###$##$=";
 	vecNPC.push_back(npc);
 }
 
