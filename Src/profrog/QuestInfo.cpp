@@ -18,7 +18,7 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 	npc.id = 1;
 	strcpy_s(npc.szName, 21, "Àü»óÇö ¸àÅä");
 	npc.x = 75;
-	npc.y = 101;
+	npc.y = 23;
 	npc.w = 0.5;
 	npc.h = 0.5;
 	npc.patch = 'p';
@@ -26,16 +26,16 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 
 	npc.vecBuffer.resize(60);
 
-	npc.vecBuffer[0] = "                   .~:;;!!;:~.                    ";
-	npc.vecBuffer[1] = "                .~*==$$$$$$$$*!;~-.               ";
-	npc.vecBuffer[2] = "               ~=$$$$$$#$#$$$$$$==*~              ";
-	npc.vecBuffer[3] = "             ,!$$$$##########$$$$$$$!.            ";
-	npc.vecBuffer[4] = "            -*$$$#################$$$=,           ";
-	npc.vecBuffer[5] = "           -==$$$$$$###############$$$$~          ";
-	npc.vecBuffer[6] = "          ,*==$$$$$$#################$$=-         ";
-	npc.vecBuffer[7] = "          !=$$$$$$$$$$$$#$############$$$,        ";
-	npc.vecBuffer[8] = "         ~$$$$$$$$$$$$$$$======$#######$$!        ";
-	npc.vecBuffer[9] = "        .=$$$$$$$$=******!!!:!*=$$$$##$$$=,       ";
+	npc.vecBuffer[0]  = "                   .~:;;!!;:~.                    ";
+	npc.vecBuffer[1]  = "                .~*==$$$$$$$$*!;~-.               ";
+	npc.vecBuffer[2]  = "               ~=$$$$$$#$#$$$$$$==*~              ";
+	npc.vecBuffer[3]  = "             ,!$$$$##########$$$$$$$!.            ";
+	npc.vecBuffer[4]  = "            -*$$$#################$$$=,           ";
+	npc.vecBuffer[5]  = "           -==$$$$$$###############$$$$~          ";
+	npc.vecBuffer[6]  = "          ,*==$$$$$$#################$$=-         ";
+	npc.vecBuffer[7]  = "          !=$$$$$$$$$$$$#$############$$$,        ";
+	npc.vecBuffer[8]  = "         ~$$$$$$$$$$$$$$$======$#######$$!        ";
+	npc.vecBuffer[9]  = "        .=$$$$$$$$=******!!!:!*=$$$$##$$$=,       ";
 	npc.vecBuffer[10] = "        :$$$$$$$*!:~::~~~~~--~:;*==$$$$$$$;       ";
 	npc.vecBuffer[11] = "        *$###$*;~,......,,...,--:;!=$$###$*       ";
 	npc.vecBuffer[12] = "       .=###$!~,.       ......,,-~~:*$$$$$=.      ";
