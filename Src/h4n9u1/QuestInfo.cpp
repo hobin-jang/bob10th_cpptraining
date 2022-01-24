@@ -16,7 +16,7 @@ CQuestInfo::~CQuestInfo()
 void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 {
 	ST_NPC_INFO npc;
-	strcpy_s(npc.szName, 21, "취약점분석 김훈민");
+	strcpy_s(npc.szName, 21, "김훈민 멘티");
 	npc.patch = 'p';
 	strcpy_s(npc.szGreetMessage, 61, "..."); // 자기소개 추가 예정
 
