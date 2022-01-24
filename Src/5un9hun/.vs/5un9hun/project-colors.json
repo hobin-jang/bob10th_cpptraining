@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "587b234d-11c0-46ff-bb51-4bcbc2e32b3a": {
+      "ProjectGuid": "587b234d-11c0-46ff-bb51-4bcbc2e32b3a",
+      "DisplayName": "5un9hun",
+      "ColorIndex": 0
+    },
+    "aa84656d-e637-4e6d-9e43-8b1e17361be0": {
+      "ProjectGuid": "aa84656d-e637-4e6d-9e43-8b1e17361be0",
+      "DisplayName": "_QuestFramework",
+      "ColorIndex": 1
+    },
+    "b7e6565e-6919-4241-8b28-5679efe3d4ef": {
+      "ProjectGuid": "b7e6565e-6919-4241-8b28-5679efe3d4ef",
+      "DisplayName": "_QuestFramework",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
