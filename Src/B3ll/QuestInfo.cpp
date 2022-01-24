@@ -15,9 +15,9 @@ QuestInfo::~QuestInfo(void)
 void QuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 {
 	ST_NPC_INFO npc;
-	strcpy_s(npc.szName, 21, "[취약점분석] 정종배");
+	strcpy_s(npc.szName, 21, "정종배");
 	npc.patch = 'p';
-	strcpy_s(npc.szGreetMessage, 61, "몰?루");
+	strcpy_s(npc.szGreetMessage, 61, "안녕하세요 취분트랙 정종배입니다;");
 
 	npc.vecBuffer.resize(60);
 	npc.vecBuffer[ 0] = "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
@@ -81,6 +81,48 @@ void QuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 	npc.vecBuffer[58] = "@@@@@@@@@@######@###$:             -##@@@#####@@@@@@@@@@@@@@";
 	npc.vecBuffer[59] = "@@@@@@@@@@####@#@##@=,              @#@@@@####@@@@@@@@@@@@@@";
 
+	vecNPC.push_back(npc);
+}
+
+void QuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
+{
+	ST_QUEST_NPC_DATA npc;
+	npc.Pos.x = 10;
+	npc.Pos.y = 4;
+	npc.Pos.z = 6;
+	npc.nNpcID = 144;
+	npc.strTrack = "취약점분석트랙";
+	npc.strName = "정종배";
+	npc.nAge = 23;
+	npc.strMBTI = "????_A형";
+	npc.strMessage = "뭐? 취약점이라고?? (호다ㅏㅏㄱ)";
+
+	npc.vecBuffer.resize(25);
+	npc.vecBuffer[0]  = "@@@@@@@@@@@@@@@@@@@@@@@@@";
+	npc.vecBuffer[1]  = "@@@@@@@@@@@@@@@@@@@  @@@@";
+	npc.vecBuffer[2]  = "@@@@@@@@@@@@@ @@@.     @@";
+	npc.vecBuffer[3]  = "@@@@                    @";
+	npc.vecBuffer[4]  = "@@@                     @";
+	npc.vecBuffer[5]  = "@@.                     @";
+	npc.vecBuffer[6]  = "@@.                  .  @";
+	npc.vecBuffer[7]  = "@@.                 .,,.@";
+	npc.vecBuffer[8]  = "@@..         .*~     --@@";
+	npc.vecBuffer[9]  = "@@@. *       :$=     .@@@";
+	npc.vecBuffer[10] = "@@@. $  -*.   *:      @@@";
+	npc.vecBuffer[11] = "@@@. ;  -$-          @@@@";
+	npc.vecBuffer[12] = "@@@,.   : = .       .@@@@";
+	npc.vecBuffer[13] = "@@@@.......,....... .@@@@";
+	npc.vecBuffer[14] = "@@@@@....,,..,,,,,..@@@@@";
+	npc.vecBuffer[15] = "@@@@@..,..,,,,,--,,,@@@@@";
+	npc.vecBuffer[16] = "@@@@@@.;!**;!***:-;@@@@@@";
+	npc.vecBuffer[17] = "@@@@@#=#@@@@@@@@@#@@@@@@@";
+	npc.vecBuffer[18] = "@@@@@####@@@@@@@@#@@@@@@@";
+	npc.vecBuffer[19] = "@@@@@#####@@@#@@###@@@@@@";
+	npc.vecBuffer[20] = "@@@@@##########@@@#@@@@@@";
+	npc.vecBuffer[21] = "@@@@@########*:#@@#@@@@@@";
+	npc.vecBuffer[22] = "@@@@#######$; -#@@#@@@@@@";
+	npc.vecBuffer[23] = "@@@#######-   -#@##@@@@@@";
+	npc.vecBuffer[24] = "@@@@##@#$     ,#@@#@@@@@@";
 	vecNPC.push_back(npc);
 }
 
