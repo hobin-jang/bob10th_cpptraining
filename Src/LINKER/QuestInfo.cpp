@@ -15,14 +15,9 @@ CQuestInfo::~CQuestInfo(void)
 void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 {
 	ST_NPC_INFO npc;
-	npc.id = 1;
-	strcpy_s(npc.szName, 21, "Dev. 10th 이찬우");
-	npc.x = 75;
-	npc.y = 101;
-	npc.w = 101;
-	npc.h = 101;
-	npc.patch = 'p';
-	strcpy_s(npc.szGreetMessage, 61, "C,C++,OS에 대한 기초 지식은 ★필수★");
+	strcpy_s(npc.szName, 21, "이찬우 멘티");
+	npc.patch = 'L';
+	strcpy_s(npc.szGreetMessage, 61, "우리집에서 코딩하고 갈래?");
 
 	npc.vecBuffer.resize(62);
 npc.vecBuffer[0] = "                                                       ";
@@ -96,7 +91,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 	ST_QUEST_NPC_DATA npc;
 	npc.Pos.x = 30;
 	npc.Pos.y = 30;
-	npc.Pos.z = 15;
+	npc.Pos.z = 1;
 	npc.nNpcID = 138;
 	npc.strTrack = "보안개발트랙";
 	npc.strName = "이찬우(LINKER)";
