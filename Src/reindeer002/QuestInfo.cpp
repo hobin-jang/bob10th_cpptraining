@@ -16,7 +16,7 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 {
     ST_NPC_INFO npc;
     strcpy_s(npc.szName, 21, "이성진 멘티");
-    npc.patch = 'L';
+    npc.patch = 'S';
     strcpy_s(npc.szGreetMessage, 61, "도망쳐... 어서 이곳은 정글이야!!");
 
     npc.vecBuffer.resize(60);
@@ -80,6 +80,23 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
     npc.vecBuffer[57] = "~~*@@@@@@@@@###################################!,,";
     npc.vecBuffer[58] = "~~*@@@@@@@@####################################!,,";
     npc.vecBuffer[59] = "~~*@@@@@@@@@@#####################$==##########;,,";
+    vecNPC.push_back(npc);
+}
+
+void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
+{
+    ST_QUEST_NPC_DATA npc;
+    npc.Pos.x = 4;
+    npc.Pos.y = 19;
+    npc.Pos.z = 1;
+    npc.nNpcID = 150;
+    npc.strTrack = "보안개발트랙";
+    npc.strName = "이성진";
+    npc.nAge = 23;
+    npc.strMBTI = "내 MBTI가... 뭐드라?";
+    npc.cPatch = 'S';
+    npc.strMessage = "멘토님... 이제 끝인겁니까? (절레절레) 저 앞에 어둠만이 가득하군요...";
+    npc.vecBuffer;	// 위엣것 참조.
     vecNPC.push_back(npc);
 }
 
