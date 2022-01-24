@@ -93,7 +93,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC ) {
 	npc.nAge = 18;
 	npc.strMBTI = "INFJ";
 	npc.cPatch = 'X';
-	npc.strMessage = "안녕하세요 이주협입니다. 해킹은 재밌다!";
+	npc.strMessage = "안녕하세요 이주협입니다. 해킹은 재밌다~!";
 
 	npc.vecBuffer.resize(25);
 	npc.vecBuffer[0] = "           .@+           ";
