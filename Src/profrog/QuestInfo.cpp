@@ -102,9 +102,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 	npc.nAge = 28;
 	npc.strMBTI = "ENFJ이고 B형이에요";
 	npc.cPatch = 'P';
-	npc.strMessage =	"난 멘토 전상현과 달라요.\n" 
-						"게임회사 막 퇴사했을 때의 모습이랍니다.\n"
-						"으으...\n"
+	npc.strMessage =	"으으...\n"
 						"게임 개발 지긋지긋해..\n"
 						"두번 다시 안할거야.";
 
