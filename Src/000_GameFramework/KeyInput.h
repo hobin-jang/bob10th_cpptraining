@@ -11,6 +11,8 @@ class CKeyInput
     std::map<int, DWORD> m_mapKeyPressTime;
     bool m_bCapsLockEnabled;
     bool m_bShiftPressed;
+    DWORD m_dwFirstRepeatTick;
+    DWORD m_dwRepeatTick;
 
 public:
     CKeyInput(void);
@@ -19,7 +21,10 @@ public:
     void UnregisterAll(void);
     void Query(std::list<ST_KEYSTATE>& outState);
 
-    void GenerateRepeatKey(std::list<ST_KEYSTATE>& inState, std::list<ST_KEYSTATE>& outRepeatState);
-
     bool IsUpperCase(void);
+
+    void SetRepeatTick(DWORD dwRepeatTick = 200);
+
+private:
+    void GenerateRepeatKey(std::list<ST_KEYSTATE>& inState, std::list<ST_KEYSTATE>& outRepeatState);
 };
