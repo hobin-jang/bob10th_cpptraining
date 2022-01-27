@@ -1,20 +1,18 @@
 #pragma once
 
 #include <vector>
-#include "Struct.h"
+#include "QuestStruct.h"
 #include "IQuestInfo.h"
 
 #define DLL_API extern "C" __declspec(dllexport)
 
-void ExportDllMain(void);
 void ExportAPIEntry(IQuestInfo* pIntance);
 
+typedef int (*FP_QueryNpcEx)(std::vector<ST_QUEST_NPC_DATA>& vecNpcInfo);
+DLL_API int QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNpcInfo);
 
-typedef int (*FP_QueryNpc)(ST_NPC_INFO* pInfo);
-DLL_API int QueryNpc(ST_NPC_INFO* outInfoArr);
+typedef void (*FP_QueryQuestObject)(std::vector<ST_QUEST_OBJECT>& vecQuestObject);
+DLL_API void QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuest);
 
-typedef int (*FP_QueryNpcEx)(ST_QUEST_NPC_DATA* pInfo);
-DLL_API int QueryNpcEx(ST_QUEST_NPC_DATA* outInfoArr);
-
-typedef int (*FP_QueryQuest)(int nQuestID, int* pTargetNpcID, ST_QUEST_SEQUENCE* outInfoArr);
-DLL_API int QueryQuest(int nQuestID, int* pTargetNpcID, ST_QUEST_SEQUENCE* outInfoArr);
+typedef int (*FP_QueryQuest)(std::vector<ST_QUEST_DATA>& vecQuest);
+DLL_API void QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest);

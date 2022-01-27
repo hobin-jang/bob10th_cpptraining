@@ -23,7 +23,7 @@
     <ClInclude Include="APIEntry.h" />
     <ClInclude Include="IQuestInfo.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="Struct.h" />
+    <ClInclude Include="QuestStruct.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="APIEntry.cpp" />

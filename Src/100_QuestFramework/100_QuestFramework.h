@@ -1,5 +1,5 @@
 #pragma once
 
-#include "APIEntry.h"
-#include "Struct.h"
+#include "QuestStruct.h"
 #include "IQuestInfo.h"
+#include "APIEntry.h"
