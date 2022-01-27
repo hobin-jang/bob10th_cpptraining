@@ -81,12 +81,38 @@ struct ST_RECT
     short b;
 };
 
+struct ST_POINT3
+{
+    union
+    {
+        unsigned long long int qwPos;
+        struct {
+            short x;
+            short y;
+            short z;
+            short reserved;
+        };
+    };
+
+    ST_POINT3(void)
+        : qwPos(0)
+    {}
+};
+
 struct ST_KEYSTATE
 {
     int nVirtKey;
     short nID;
     bool bPressed;
     bool bReserved;     // 7바이트를 8바이트로 유격을 채워주는 역할
+};
+
+enum E_GAME_OBJECT_DIR
+{
+    GAME_OBJECT_DIR_LEFT = 1,
+    GAME_OBJECT_DIR_RIGHT,
+    GAME_OBJECT_DIR_UP,
+    GAME_OBJECT_DIR_DOWN,
 };
 
 struct ST_GAME_OBJECT
@@ -96,4 +122,6 @@ struct ST_GAME_OBJECT
     short z;    // floor
     char cDir;  // GAMEKEY_LEFT or RIGHT, UP, DOWN
     char cPatch;
+
+    ST_POINT3 GetFrontPos(void);
 };

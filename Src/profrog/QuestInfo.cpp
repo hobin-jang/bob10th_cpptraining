@@ -20,9 +20,9 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
 	{
 		ST_QUEST_NPC_DATA npc;
-		npc.Pos.x = 72;
-		npc.Pos.y = 20;
-		npc.Pos.z = 0;
+		npc.x = 72;
+		npc.y = 20;
+		npc.z = 0;
 		npc.nNpcID = 4;
 		npc.strTrack = "보안개발트랙";
 		npc.strName = "[멘토]전상현";
@@ -99,9 +99,12 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 
 	{
 		ST_QUEST_NPC_DATA npc;
-		npc.Pos.x = 4;
-		npc.Pos.y = 21;
-		npc.Pos.z = 1;
+		npc.x = 40;
+		npc.y = 15;
+		npc.z = 0;
+		//npc.x = 4;
+		//npc.y = 21;
+		//npc.z = 1;
 		npc.nNpcID = 128;
 		npc.strTrack = "보안개발트랙";
 		npc.strName = "방황하는전상현";
@@ -148,10 +151,12 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 {
 	ST_QUEST_OBJECT stObject;
 	stObject.nQuestObjectId = 256;
-	stObject.Pos.x = 43;
-	stObject.Pos.y = 15;
-	stObject.Pos.z = 0;
-	stObject.Pos.reserved = 0;
+	stObject.strName = "분수대의 시원한 물";
+	stObject.cPatch = 0;	// 화면에 보이지도 않고 만져지지도 않게 하려면 0을 넣으면 됨
+	stObject.x = 35;
+	stObject.y = 13;
+	stObject.z = 0;
+	stObject.reserved = 0;
 	vecQuestObject.push_back(stObject);
 }
 

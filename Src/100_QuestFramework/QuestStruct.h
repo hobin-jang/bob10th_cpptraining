@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <string>
+#include "../000_GameFramework/000_GameFramework.h"
 
 #pragma pack(push, 1)
 
@@ -106,22 +107,10 @@ struct QUEST_SEQ_CONDITION : public ST_QUEST_SEQUENCE
 	}
 };
 
-struct ST_VECTOR3
+struct ST_QUEST_OBJECT : public ST_POINT3
 {
-	union
-	{
-		unsigned long long int qwPos;
-		struct {
-			short x;
-			short y;
-			short z;
-			short reserved;
-		} Pos;
-	};
-};
-
-struct ST_QUEST_OBJECT : public ST_VECTOR3
-{
+	std::string strName;
+	char cPatch;
 	int nQuestObjectId;
 };
 
@@ -133,7 +122,7 @@ struct ST_QUEST_DATA
 	std::vector<std::string> vecMessages;
 };
 
-struct ST_QUEST_NPC_DATA : public ST_VECTOR3
+struct ST_QUEST_NPC_DATA : public ST_POINT3
 {
 	int nNpcID;
 	std::string strTrack;

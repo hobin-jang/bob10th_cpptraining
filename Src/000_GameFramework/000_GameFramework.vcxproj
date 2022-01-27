@@ -50,6 +50,7 @@
     <ClCompile Include="PictureUI.cpp" />
     <ClCompile Include="SceneSuper.cpp" />
     <ClCompile Include="SingleLineTextUI.cpp" />
+    <ClCompile Include="Struct.cpp" />
     <ClCompile Include="TextUI.cpp" />
     <ClCompile Include="UISuper.cpp" />
   </ItemGroup>
