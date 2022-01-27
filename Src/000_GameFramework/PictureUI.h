@@ -1,0 +1,18 @@
+#pragma once
+
+#include "UISuper.h"
+
+class CPictureUI : public CUISuper
+{
+	CDisplayBuffer m_vecImageData;
+
+public:
+	CPictureUI(void);
+	~CPictureUI(void);
+
+	void SetImage(std::vector<std::string> vecImage);
+	void SetImage(CDisplayBuffer vecImage);
+
+	void OnDraw(CDisplayBuffer& vecBuffer);
+};
+
