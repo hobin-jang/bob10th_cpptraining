@@ -17,7 +17,7 @@ struct ST_FILTER
 		, wCondition(0)
 		, wReward(0)
 	{}
-	ST_FILTER(int targetNpcId, unsigned short condition, unsigned short reward)
+	ST_FILTER(int targetNpcId, unsigned short condition, unsigned short reward = 0)
 		: nTargetNpcId(targetNpcId)
 		, wCondition(condition)
 		, wReward(reward)
