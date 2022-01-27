@@ -7,10 +7,11 @@ CKeyInput::CKeyInput(void)
 {
 }
 
-void CKeyInput::Register(int nID, int nVirtKey)
+void CKeyInput::Register(int nVirtKey, int nID)
 {
-	m_mapRegisteredKey.insert(std::make_pair(nID, nVirtKey));
-	m_mapKeyPressTime[nID] = 0xFFFFFFFF;
+	m_mapRegisteredKey.insert(std::make_pair(nVirtKey, nID));
+	if( 0 == m_mapKeyPressTime[nVirtKey])
+		m_mapKeyPressTime[nVirtKey] = 0xFFFFFFFF;
 }
 
 void CKeyInput::UnregisterAll(void)
@@ -26,7 +27,7 @@ void CKeyInput::Query(std::list<ST_KEYSTATE>& outState)
 	std::list<ST_KEYSTATE> tempState;
 	for (auto iter : m_mapRegisteredKey)
 	{
-		short nCurState = GetKeyState(iter.second);
+		short nCurState = GetKeyState(iter.first);
 		short nPreState = m_mapLastKeyState[iter.first];
 		m_mapLastKeyState[iter.first] = nCurState;
 
@@ -35,8 +36,8 @@ void CKeyInput::Query(std::list<ST_KEYSTATE>& outState)
 			continue;
 
 		ST_KEYSTATE KeyState;
-		KeyState.nID = iter.first;
-		KeyState.nVirtKey = iter.second;
+		KeyState.nVirtKey = iter.first;
+		KeyState.nID = iter.second;
 		KeyState.bPressed = (nCurState & 0x8000)? true : false;
 		KeyState.bReserved = 0;
 		tempState.push_back(KeyState);
@@ -51,9 +52,9 @@ void CKeyInput::GenerateRepeatKey(std::list<ST_KEYSTATE>& inState, std::list<ST_
 	for (ST_KEYSTATE key : inState)
 	{
 		if (key.bPressed)
-			m_mapKeyPressTime[key.nID] = dwCurrentTick;
+			m_mapKeyPressTime[key.nVirtKey] = dwCurrentTick;
 		else
-			m_mapKeyPressTime[key.nID] = 0xFFFFFFFF;
+			m_mapKeyPressTime[key.nVirtKey] = 0xFFFFFFFF;
 	}
 
 	for (auto iter : m_mapRegisteredKey)
@@ -68,8 +69,8 @@ void CKeyInput::GenerateRepeatKey(std::list<ST_KEYSTATE>& inState, std::list<ST_
 				m_mapKeyPressTime[iter.first] = dwCurrentTick + m_dwRepeatTick;
 
 			ST_KEYSTATE stRepeatKey;
-			stRepeatKey.nID = iter.first;
-			stRepeatKey.nVirtKey = iter.second;
+			stRepeatKey.nVirtKey = iter.first;
+			stRepeatKey.nID = iter.second;
 			stRepeatKey.bPressed = true;
 			stRepeatKey.bReserved = 0;
 			outRepeatState.push_back(stRepeatKey);

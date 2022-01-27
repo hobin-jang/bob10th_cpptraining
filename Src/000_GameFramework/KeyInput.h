@@ -6,7 +6,7 @@
 
 class CKeyInput
 {
-    std::map<int, int> m_mapRegisteredKey;
+    std::map<int, int> m_mapRegisteredKey;      // (virt, id)
     std::map<int, short> m_mapLastKeyState;
     std::map<int, DWORD> m_mapKeyPressTime;
     bool m_bCapsLockEnabled;
@@ -17,7 +17,7 @@ class CKeyInput
 public:
     CKeyInput(void);
 
-    void Register(int nID, int nVirtKey);
+    void Register(int nVirtKey, int nID);
     void UnregisterAll(void);
     void Query(std::list<ST_KEYSTATE>& outState);
 
