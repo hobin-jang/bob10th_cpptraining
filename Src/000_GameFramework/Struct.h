@@ -61,10 +61,24 @@ struct ST_VECTOR
     }
 };
 
-struct ST_VECTOR2
+struct ST_POINT
 {
     short x;
     short y;
+};
+
+struct ST_SIZE
+{
+    short cx;
+    short cy;
+};
+
+struct ST_RECT
+{
+    short l;
+    short t;
+    short r;
+    short b;
 };
 
 struct ST_KEYSTATE
