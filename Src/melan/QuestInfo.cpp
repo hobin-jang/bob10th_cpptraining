@@ -180,9 +180,12 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		stQuest.StartCondition = ST_FILTER(142, 0x0003, 0x0007);
 		stQuest.vecMessages.push_back("진짜 가져왔네!? 고마워 :)");
 		stQuest.vecMessages.push_back("엌!! 등받이 넘어가는 거 너무 좋아ㅠㅠ");
-		stQuest.vecMessages.push_back("그나저나 너 취약점 잘 찾게 생겼다!");
-		stQuest.vecMessages.push_back("화내지마..! 좋은 뜻이야! 말 그대로 고수같아 보여서 그래.");
-		stQuest.vecMessages.push_back("우리 프로젝트 같이 할래??");
+		stQuest.vecMessages.push_back("11기 교육생이야??");
+		stQuest.vecMessages.push_back("그렇구나!! 합격한 거 축하해! 준비하느라 힘들었지?");
+		stQuest.vecMessages.push_back("근데 이제 시작이야ㅋㅋ...");
+		stQuest.vecMessages.push_back("교육 받으면서 잘 안 풀려도 포기하거나 너무 슬퍼하지 마!");
+		stQuest.vecMessages.push_back("과제는 성공하지 못 해도 시도 해본 것 자체가 도움이 많이 되더라");
+		stQuest.vecMessages.push_back("너도 나처럼 앉아 있는 시간이 많아질텐데 건강 챙겨가면서 해!!");
 		stQuest.ClearCondition = ST_FILTER(142, 0x000f);
 		vecQuest.push_back(stQuest);
 	}
