@@ -153,12 +153,20 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ProjectReference Include="..\..\Src\_QuestFramework\_QuestFramework.vcxproj">
 <<<<<<< Updated upstream
       <Project>{aa84656d-e637-4e6d-9e43-8b1e17361be0}</Project>
 =======
       <Project>{b7e6565e-6919-4241-8b28-5679efe3d4ef}</Project>
 >>>>>>> Stashed changes
+=======
+    <ProjectReference Include="..\..\Src\000_GameFramework\000_GameFramework.vcxproj">
+      <Project>{9d43ffbf-fd65-4ab9-b2c2-cb1c82b13179}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Src\100_QuestFramework\100_QuestFramework.vcxproj">
+      <Project>{b7e6565e-6919-4241-8b28-5679efe3d4ef}</Project>
+>>>>>>> 86b9d7038c9215c7b43e81554beaac92662d42aa
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

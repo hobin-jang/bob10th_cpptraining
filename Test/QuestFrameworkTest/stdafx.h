@@ -5,4 +5,5 @@
 #include <vector>
 #include <string>
 
-#include "../../Src/_QuestFramework/_QuestFramework.h"
+#include "../../Src/000_GameFramework/000_GameFramework.h"
+#include "../../Src/100_QuestFramework/100_QuestFramework.h"
