@@ -15,14 +15,9 @@ CQuestInfo::~CQuestInfo(void)
 void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 {
 	ST_NPC_INFO npc;
-	npc.id = 1;
-	strcpy_s(npc.szName, 21, "Dev. 10th 이찬우");
-	npc.x = 75;
-	npc.y = 101;
-	npc.w = 101;
-	npc.h = 101;
-	npc.patch = 'p';
-	strcpy_s(npc.szGreetMessage, 61, "C,C++,OS에 대한 기초 지식은 ★필수★");
+	strcpy_s(npc.szName, 21, "이찬우 멘티");
+	npc.patch = 'L';
+	strcpy_s(npc.szGreetMessage, 61, "우리집에서 코딩하고 갈래?");
 
 	npc.vecBuffer.resize(62);
 npc.vecBuffer[0] = "                                                       ";
@@ -89,6 +84,51 @@ npc.vecBuffer[60] = "~~~~-~~~~~~~~~~~-.               .-~~~~~~~~~~~~:~!    ";
 npc.vecBuffer[61] = "~~~--~::~~~:~~~~~.               .-~~~:~~~~~~~~::*    ";
 
     vecNPC.push_back(npc);
+}
+
+void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
+{
+	ST_QUEST_NPC_DATA npc;
+	npc.x = 17;
+	npc.y = 17;
+	npc.z = 1;
+	npc.nNpcID = 138;
+	npc.strTrack = "보안개발트랙";
+	npc.strName = "이찬우(LINKER)";
+	npc.nAge = 24;
+	npc.strMBTI = "ENFJ-T이고 A형 입니다.";
+	npc.cPatch = 'L';
+	npc.strMessage = "어이 너 나랑 코딩하지 않을래?";
+
+	npc.vecSmallImage.resize(25);
+        
+	npc.vecSmallImage[ 0] = "💻🎮🎬💻🎮🎬🎮🎬💻 ";
+	npc.vecSmallImage[ 1] = "                         ";
+	npc.vecSmallImage[ 2] = "        ,;@**@@=         ";
+	npc.vecSmallImage[ 3] = "      ~$#@@@@@@##$,      ";
+	npc.vecSmallImage[ 4] = "     .*#@@@@@@##$$:      ";
+	npc.vecSmallImage[ 5] = "     ,##@#@##@#$$$$,     ";
+	npc.vecSmallImage[ 6] = "     ,########@####,     ";
+	npc.vecSmallImage[ 7] = "     ,$#$$!:~;$#@#:      ";
+	npc.vecSmallImage[ 8] = "      .=~-,. .-~~:.      ";
+	npc.vecSmallImage[ 9] = "       ,|~~|^|~~|.       ";
+	npc.vecSmallImage[10] = "       .        .        ";
+	npc.vecSmallImage[11] = "        .   ,   .        ";
+	npc.vecSmallImage[12] = "        .       ,        ";
+	npc.vecSmallImage[13] = "         . ㅇ  .         ";
+	npc.vecSmallImage[14] = "         ,,,,,,.         ";
+	npc.vecSmallImage[15] = "       ....,.......      ";
+	npc.vecSmallImage[16] = "     ,,-....... .-~,,,   ";
+	npc.vecSmallImage[17] = "   ,-:~-         ,~:::,, ";
+	npc.vecSmallImage[18] = " ,,:::~-         ,~:~:~:-";
+	npc.vecSmallImage[19] = "-~~:::~-         -~~::~~:";
+	npc.vecSmallImage[20] = "::~~::~-         ,~~~:~~:";
+	npc.vecSmallImage[21] = ":~:~::~-.        ,~-~~~::";
+	npc.vecSmallImage[22] = "-------------------------";
+	npc.vecSmallImage[23] = "                         ";
+	npc.vecSmallImage[24] = "★☆★☆★☆★☆★☆★☆★";
+
+	vecNPC.push_back(npc);
 }
 
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest)

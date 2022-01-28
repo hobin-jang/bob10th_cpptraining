@@ -92,6 +92,78 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 }
 
 
+/*
+	  .:$$*:
+	  =$$$$$!-
+	 :==$$$$==~
+	 $=$$$=$=$=
+	 $=!,. .~$$
+	 $!.    ,!$
+	 ;-.   .-~;
+	 ---~.,~-~~
+	 ~,~~..:~-~
+	 ,,   ...--
+	  ,  ....-
+	  .,.,,.,,
+	   ,,,,--
+	   -...,~
+	   --,--~,
+	 ~:-------*~
+   ~=$!,,----!$$=*
+ *$$$$#$-,,-!$$$$$$=
+$$$$$$$$$$##$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$
+##$$$$$$$$$$$$$$$$$$
+##$$$$$$$$$$$$$$$$$$
+*/
+
+void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
+{
+	ST_QUEST_NPC_DATA npc;
+	npc.x = 13;
+	npc.y = 5;
+	npc.z = 1;
+	npc.nNpcID = 135;
+	npc.strTrack = "보안개발트랙";
+	npc.strName = "겨울이지용";
+	npc.nAge = 25;
+	npc.strMBTI = "ENTJ이고 A형입니다.";
+	npc.cPatch = 'G';
+	npc.strMessage = "추운게 너무 좋아요. 눈 많이왔으면 좋겠다!";
+	//npc.vecBuffer;
+	npc.vecSmallImage.resize(25);
+	npc.vecSmallImage[0]  = "	  .:$$*:";
+	npc.vecSmallImage[1]  = "	  =$$$$$!-";
+	npc.vecSmallImage[2]  = "	 :==$$$$==~";
+	npc.vecSmallImage[3]  = "	 $=$$$=$=$=";
+	npc.vecSmallImage[4]  = "	 $=!,. .~$$";
+	npc.vecSmallImage[5]  = "	 $!.    ,!$";
+	npc.vecSmallImage[6]  = "	 ;-☆    ☆;";
+	npc.vecSmallImage[7]  = "	 ---~.,~-~~";
+	npc.vecSmallImage[8]  = "	 ~,~~..:~-~";
+	npc.vecSmallImage[9]  = "	 ,,   ...--";
+	npc.vecSmallImage[10] = "	  ,  ....-";
+	npc.vecSmallImage[11] = "	  .,.,,.,,";
+	npc.vecSmallImage[12] = "	   ,,,,--";
+	npc.vecSmallImage[13] = "	   -...,~";
+	npc.vecSmallImage[14] = "	   --,--~,";
+	npc.vecSmallImage[15] = "	 ~:-------*~";
+	npc.vecSmallImage[16] = "   ~=$!,,----!$$=*";
+	npc.vecSmallImage[17] = " *$$$$#$-,,-!$$$$$$=";
+	npc.vecSmallImage[18] = "$$$$$$$$$$##$$$$$$$$";
+	npc.vecSmallImage[19] = "$$$$$$$$$$$$$$$$$$$$";
+	npc.vecSmallImage[20] = "$$$$$$$$$$$$$$$$$$$$";
+	npc.vecSmallImage[21] = "$$$$$$$$$$$$$$$$$$$$";
+	npc.vecSmallImage[22] = "##$$$$$$$$$$$$$$$$$$";
+	npc.vecSmallImage[23] = "##$$$$$$$$$$$$$$$$$$";
+	
+
+
+	vecNPC.push_back(npc);
+}
+
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest)
 {
 }

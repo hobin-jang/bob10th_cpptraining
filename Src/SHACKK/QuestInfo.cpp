@@ -12,82 +12,75 @@ CQuestInfo::~CQuestInfo(void)
 {
 }
 
-void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
+void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
-    ST_NPC_INFO npc;
-    npc.id = 1;
-    strcpy_s(npc.szName, 21, "임창현 멘티");
-    npc.x = 75;
-    npc.y = 101;
-    npc.w = 0.5;
-    npc.h = 0.5;
-    npc.patch = 'B';
-    strcpy_s(npc.szGreetMessage, 61, "C++이 뭐에용? 먹는거에용?? 응애~");
+    ST_QUEST_NPC_DATA npc;
+    npc.nNpcID = 132;
+    npc.strTrack = "보안제품개발";
+    npc.strName = "BABY 임창현";
+    npc.x = 22;
+    npc.y = 15;
+    npc.z = 1;
+    npc.cPatch = 'B';
+    npc.strMBTI = "저는 MBTI가 BABY에요 응애~~";
+    npc.strMessage = "애기는 아무것도 몰라염! \n"
+        "C++이 머에염!! 먹는건가염??\n"
+        "먹는거 얘기하니까 배고프네... 엄마 밥줘!! 응애~~\n";
 
-    npc.vecBuffer.resize(60);
-    npc.vecBuffer[0] =  "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
-    npc.vecBuffer[1] =  "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
-    npc.vecBuffer[2] =  "@@@@@@@@@@@@@@@@@@@@@@@@@@@*!!!!!@@@@@@@@@@@@@@@@@@@@@@@@@@@";
-    npc.vecBuffer[3] =  "@@@@@@@@@@@@@@@@@@@@@@@@@!!!!!!!!!!@@@@@@@@@@@@@@@@@@@@@@@@@";
-    npc.vecBuffer[4] =  "@@@@@@@@@@@@@@@@@@@@@@@@!!!******!!!!@@@@@@@@@@@@@@@@@@@@@@@";
-    npc.vecBuffer[5] =  "@@@@@@@@@@@@@@@@@@@@@@@!************!!@@@@@@@@@@@@@@@@@@@@@@";
-    npc.vecBuffer[6] =  "@@@@@@@@@@@@@@@@@@@@@@**!:~,,:********@@@@@@@@@@@@@@@@@@@@@@";
-    npc.vecBuffer[7] =  "@@@@@@@@@@@@@@@@@@@@           ~******~ @@@@@@@@@@@@@@@@@@@@";
-    npc.vecBuffer[8] =  "@@@@@@@@@@@@@@@@@@              ;******   @@@@@@@@@@@@@@@@@@";
-    npc.vecBuffer[9] =  "@@@@@@@@@@@@@@@@                 ******     @@@@@@@@@@@@@@@@";
-    npc.vecBuffer[10] = "@@@@@@@@@@@@@@@                  ******      @@@@@@@@@@@@@@@";
-    npc.vecBuffer[11] = "@@@@@@@@@@@@@@                  .******       @@@@@@@@@@@@@@";
-    npc.vecBuffer[12] = "@@@@@@@@@@@@@                   !******        @@@@@@@@@@@@@";
-    npc.vecBuffer[13] = "@@@@@@@@@@@@           *;      ~******~         @@@@@@@@@@@@";
-    npc.vecBuffer[14] = "@@@@@@@@@@@            ~***:~;********           @@@@@@@@@@@";
-    npc.vecBuffer[15] = "@@@@@@@@@@@             *************-           @@@@@@@@@@@";
-    npc.vecBuffer[16] = "@@@@@@@@@@              .***********~             @@@@@@@@@@";
-    npc.vecBuffer[17] = "@@@@@@@@@@               .*********               @@@@@@@@@@";
-    npc.vecBuffer[18] = "@@@@@@@@@                  -!**!~                  @@@@@@@@@";
-    npc.vecBuffer[19] = "@@@@@@@@@                                          @@@@@@@@@";
-    npc.vecBuffer[20] = "@@@@@@@@                                           @@@@@@@@@";
-    npc.vecBuffer[21] = "@@@@@@@@                                            @@@@@@@@";
-    npc.vecBuffer[22] = "@@@@@@@@                                            @@@@@@@@";
-    npc.vecBuffer[23] = "@@@@@@@@                                            @@@@@@@@";
-    npc.vecBuffer[24] = "@@@@@@@@                                            @@@@@@@@";
-    npc.vecBuffer[25] = "@@@@@@@@                                            @@@@@@@@";
-    npc.vecBuffer[26] = "@@@@@@@                                             @@@@@@@@";
-    npc.vecBuffer[27] = "@@@@@@@                                             @@@@@@@@";
-    npc.vecBuffer[28] = "@@@@@@@                                             @@@@@@@@";
-    npc.vecBuffer[29] = "@@@@@@@                                             @@@@@@@@";
-    npc.vecBuffer[30] = "@@@@@@@                                             @@@@@@@@";
-    npc.vecBuffer[31] = "@@@@@@@                                             @@@@@@@@";
-    npc.vecBuffer[32] = "@@@@@@@                                             @@@@@@@@";
-    npc.vecBuffer[33] = "@@@@@@@           ===;                ~===          @@@@@@@@";
-    npc.vecBuffer[34] = "@@@@@@@.         =====~              ,=====         .@@@@@@@";
-    npc.vecBuffer[35] = "@@@@@@..         ======              *=====.        ..@@@@@@";
-    npc.vecBuffer[36] = "@@@@@@..         ======              *=====.        ..@@@@@@";
-    npc.vecBuffer[37] = "@@@@@...         =====:              -=====         ...@@@@@";
-    npc.vecBuffer[38] = "@@@@@...          ===*                ;===.         ...@@@@@";
-    npc.vecBuffer[39] = "@@@@@...                   ......                  ....@@@@@";
-    npc.vecBuffer[40] = "@@@@@ ..                    ....                   ... @@@@@";
-    npc.vecBuffer[41] = "@@@@@@...                                          ...@@@@@@";
-    npc.vecBuffer[42] = "@@@@@@ ..                                          .. @@@@@@";
-    npc.vecBuffer[43] = "@@@@@@@..                                          ..@@@@@@@";
-    npc.vecBuffer[44] = "@@@@@@@@.                                         ..@@@@@@@@";
-    npc.vecBuffer[45] = "@@@@@@@@@               ;;.      .;;              @@@@@@@@@@";
-    npc.vecBuffer[46] = "@@@@@@@@@@              ;;;;;;;;;;;;              @@@@@@@@@@";
-    npc.vecBuffer[47] = "@@@@@@@@@@               ;;;;;;;;;;               @@@@@@@@@@";
-    npc.vecBuffer[48] = "@@@@@@@@@@@               ,;;;;;;,               @@@@@@@@@@@";
-    npc.vecBuffer[49] = "@@@@@@@@@@@                  ..                  @@@@@@@@@@@";
-    npc.vecBuffer[50] = "@@@@@@@@@@@@                                    @@@@@@@@@@@@";
-    npc.vecBuffer[51] = "@@@@@@@@@@@@@                                  @@@@@@@@@@@@@";
-    npc.vecBuffer[52] = "@@@@@@@@@@@@@@                                @@@@@@@@@@@@@@";
-    npc.vecBuffer[53] = "@@@@@@@@@@@@@@@                              @@@@@@@@@@@@@@@";
-    npc.vecBuffer[54] = "@@@@@@@@@@@@@@@@                            @@@@@@@@@@@@@@@@";
-    npc.vecBuffer[55] = "@@@@@@@@@@@@@@@@@@                        @@@@@@@@@@@@@@@@@@";
-    npc.vecBuffer[56] = "@@@@@@@@@@@@@@@@@@@@                    @@@@@@@@@@@@@@@@@@@@";
-    npc.vecBuffer[57] = "@@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@";
-    npc.vecBuffer[58] = "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
-    npc.vecBuffer[59] = "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@@@@@@@@@@@@*!!!!!@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@@@@@@@@@@!!!!!!!!!!@@@@@@@@@@@@@@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@@@@@@@@@!!!******!!!!@@@@@@@@@@@@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@@@@@@@@!************!!@@@@@@@@@@@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@@@@@@@**!:~,,:********@@@@@@@@@@@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@@@@@           ~******~ @@@@@@@@@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@@@              ;******   @@@@@@@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@                 ******     @@@@@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@@@                  ******      @@@@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@@                  .******       @@@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@                   !******        @@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@           *;      ~******~         @@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@            ~***:~;********           @@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@             *************-           @@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@              .***********~             @@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@               .*********               @@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@                  -!**!~                  @@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@                                          @@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@                                           @@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@                                             @@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@                                             @@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@           ===;                ~===          @@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@.         =====~              ,=====         .@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@..         ======              *=====.        ..@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@..         ======              *=====.        ..@@@@@@");
+    npc.vecBigImage.push_back("@@@@@...         =====:              -=====         ...@@@@@");
+    npc.vecBigImage.push_back("@@@@@...          ===*                ;===.         ...@@@@@");
+    npc.vecBigImage.push_back("@@@@@...                   ......                  ....@@@@@");
+    npc.vecBigImage.push_back("@@@@@ ..                    ....                   ... @@@@@");
+    npc.vecBigImage.push_back("@@@@@@...                                          ...@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@ ..                                          .. @@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@..                                          ..@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@.                                         ..@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@               ;;.      .;;              @@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@              ;;;;;;;;;;;;              @@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@               ;;;;;;;;;;               @@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@               ,;;;;;;,               @@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@                  ..                  @@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@                                    @@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@                                  @@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@@                                @@@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@@@                              @@@@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@                            @@@@@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@@@                        @@@@@@@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@@@@@                    @@@@@@@@@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@@@@@@@@@            @@@@@@@@@@@@@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+    npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 
     vecNPC.push_back(npc);
 }
+
 
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest)
 {

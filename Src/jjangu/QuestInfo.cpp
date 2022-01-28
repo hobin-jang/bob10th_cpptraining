@@ -16,7 +16,7 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 {
 	ST_NPC_INFO npc;
 	npc.id = 0;
-	strcpy_s(npc.szName, 21, "±èµ¿Çö ¸àÆ¼");
+	strcpy_s(npc.szName, 21, "±èµ¿Çö");
 	npc.patch = 'p';
 	strcpy_s(npc.szGreetMessage, 61, " *** stack smashing detected *** ");
 
@@ -74,6 +74,55 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 	npc.vecBuffer[49] = "==$=$#######$##$####!~.....-;$#$######$##$$$$$$$$$";
 	npc.vecBuffer[50] = "$$$$#####################$#$##############$$$$$$$$";
 	npc.vecBuffer[51] = "$$$$$###################################$##$$$$#$$";
+
+	vecNPC.push_back(npc);
+}
+
+void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
+{
+	ST_QUEST_NPC_DATA npc;
+	npc.x = 1;
+	npc.y = 19;
+	npc.z = 24;
+	npc.nNpcID = 152;
+	npc.strTrack = "Ãë¾àÁ¡ ºÐ¼® Æ®·¢";
+	npc.strName = "±èµ¿Çö(jjangu)";
+	npc.nAge = 21;
+	npc.strMBTI = "ENFJ";
+	npc.cPatch = 'K';
+	npc.strMessage = " *** stack smashing detected *** ";
+	npc.vecSmallImage;	
+
+
+
+	npc.vecSmallImage.resize(23);
+
+
+npc.vecSmallImage [0] = ",,,,,,,,,-,-,,,,,,,,";
+npc.vecSmallImage [1] = ",,,,,,$$$$$$=-,,,,,,";
+npc.vecSmallImage [2] = ",,,,-$$$$##$$*~,,,,,";
+npc.vecSmallImage [3] = ",,,,$$#$$$##$=$,,,,,";
+npc.vecSmallImage [4] = ",,,~$##$$$#$$$=;,,,,";
+npc.vecSmallImage [5] = ",,,$##$$$*$=$#$*,,,,";
+npc.vecSmallImage [6] = ",,,-$$#$$!###=$:,,,,";
+npc.vecSmallImage [7] = ",,,,$$##$:##$#$,,,,,";
+npc.vecSmallImage [8] = ",,,,#$$#*~!-~$$,,,,,";
+npc.vecSmallImage [9] = ",,,,:,:;,..*. :,,,..";
+npc.vecSmallImage[10] = ",,,,-...,  . ..,,,,,";
+npc.vecSmallImage[11] = ",,,,,...,.   . ,,,..";
+npc.vecSmallImage[12] = ".,,,,,..,. . .,.,...";
+npc.vecSmallImage[13] = "..,,,,,,:-,.........";
+npc.vecSmallImage[14] = "......,,,,..........";
+npc.vecSmallImage[15] = "......,,,..,........";
+npc.vecSmallImage[16] = ".....=,,:!-.. =.....";
+npc.vecSmallImage[17] = "...*$$,,,,,...$$!...";
+npc.vecSmallImage[18] = ".*=$$$-,,,....$$$**.";
+npc.vecSmallImage[19] = "=$$$$##-.....$$$$$==";
+npc.vecSmallImage[20] = "=$#######=$$####$$$$";
+npc.vecSmallImage[21] = "$$###############$$$";
+npc.vecSmallImage[22] = "$##################$";
+
+
 
 	vecNPC.push_back(npc);
 }

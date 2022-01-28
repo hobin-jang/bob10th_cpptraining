@@ -15,9 +15,9 @@ QuestInfo::~QuestInfo(void)
 void QuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 {
 	ST_NPC_INFO npc;
-	strcpy_s(npc.szName, 21, "[취약점분석] 정종배");
+	strcpy_s(npc.szName, 21, "정종배");
 	npc.patch = 'p';
-	strcpy_s(npc.szGreetMessage, 61, "몰?루");
+	strcpy_s(npc.szGreetMessage, 61, "안녕하세요 취분트랙 정종배입니다;");
 
 	npc.vecBuffer.resize(60);
 	npc.vecBuffer[ 0] = "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
@@ -81,6 +81,49 @@ void QuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 	npc.vecBuffer[58] = "@@@@@@@@@@######@###$:             -##@@@#####@@@@@@@@@@@@@@";
 	npc.vecBuffer[59] = "@@@@@@@@@@####@#@##@=,              @#@@@@####@@@@@@@@@@@@@@";
 
+	vecNPC.push_back(npc);
+}
+
+void QuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
+{
+	ST_QUEST_NPC_DATA npc;
+	npc.x = 10;
+	npc.y = 4;
+	npc.z = 6;
+	npc.nNpcID = 144;
+	npc.strTrack = "취약점분석트랙";
+	npc.strName = "정종배";
+	npc.nAge = 23;
+	npc.strMBTI = "INFP에 A형 입니다~";
+	npc.cPatch = 'J';
+	npc.strMessage = "뭐? 취약점이라고?? (호다ㅏㅏㄱ)";
+
+	npc.vecSmallImage.resize(25);
+	npc.vecSmallImage[0]  = "@@@@@@@@@@@@@@@@@@@@@@@@@";
+	npc.vecSmallImage[1]  = "@@@@@@@@@@@@@@@@@@@  @@@@";
+	npc.vecSmallImage[2]  = "@@@@@@@@@@@@@ @@@.     @@";
+	npc.vecSmallImage[3]  = "@@@@                    @";
+	npc.vecSmallImage[4]  = "@@@                     @";
+	npc.vecSmallImage[5]  = "@@.                     @";
+	npc.vecSmallImage[6]  = "@@.                  .  @";
+	npc.vecSmallImage[7]  = "@@.                 .,,.@";
+	npc.vecSmallImage[8]  = "@@..         .*~     --@@";
+	npc.vecSmallImage[9]  = "@@@. *       :$=     .@@@";
+	npc.vecSmallImage[10] = "@@@. $  -*.   *:      @@@";
+	npc.vecSmallImage[11] = "@@@. ;  -$-          @@@@";
+	npc.vecSmallImage[12] = "@@@,.   : = .       .@@@@";
+	npc.vecSmallImage[13] = "@@@@.......,....... .@@@@";
+	npc.vecSmallImage[14] = "@@@@@....,,..,,,,,..@@@@@";
+	npc.vecSmallImage[15] = "@@@@@..,..,,,,,--,,,@@@@@";
+	npc.vecSmallImage[16] = "@@@@@@.;!**;!***:-;@@@@@@";
+	npc.vecSmallImage[17] = "@@@@@#=#@@@@@@@@@#@@@@@@@";
+	npc.vecSmallImage[18] = "@@@@@####@@@@@@@@#@@@@@@@";
+	npc.vecSmallImage[19] = "@@@@@#####@@@#@@###@@@@@@";
+	npc.vecSmallImage[20] = "@@@@@##########@@@#@@@@@@";
+	npc.vecSmallImage[21] = "@@@@@########*:#@@#@@@@@@";
+	npc.vecSmallImage[22] = "@@@@#######$; -#@@#@@@@@@";
+	npc.vecSmallImage[23] = "@@@#######-   -#@##@@@@@@";
+	npc.vecSmallImage[24] = "@@@@##@#$     ,#@@#@@@@@@";
 	vecNPC.push_back(npc);
 }
 

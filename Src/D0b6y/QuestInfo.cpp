@@ -81,6 +81,49 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC) {
 	vecNPC.push_back(npc);
 }
 
+void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
+{
+	ST_QUEST_NPC_DATA npc;
+	npc.x = 12;
+	npc.y = 4;
+	npc.z = 25;
+	npc.nNpcID = 130;
+	npc.strTrack = "취약점 분석";
+	npc.strName = "I\'m 원빈";
+	npc.nAge = 22;
+	npc.strMBTI = "마음만은 I인 ENFJ입니다 :)";
+	npc.cPatch = 'W';
+	npc.strMessage = "이제 곧 마지막 층이네요! 수고했어요 최종 보스만 잡는다면 짱짱이 될 수 있어요.";
+	npc.vecBuffer.resize(25);
+	npc.vecBuffer[0] = ".........................";
+	npc.vecBuffer[1] = ".........................";
+	npc.vecBuffer[2] = ".........................";
+	npc.vecBuffer[3] = ".........................";
+	npc.vecBuffer[4] = ".*.......................";
+	npc.vecBuffer[5] = ".**......................";
+	npc.vecBuffer[6] = ".*..*....................";
+	npc.vecBuffer[7] = ".*...*...................";
+	npc.vecBuffer[8] = ".*....*..................";
+	npc.vecBuffer[9] = ".*.......................";
+	npc.vecBuffer[10] = ".*.......................";
+	npc.vecBuffer[11] = ".*.......................";
+	npc.vecBuffer[12] = ".*.......................";
+	npc.vecBuffer[13] = ".*.......................";
+	npc.vecBuffer[14] = ".*.......................";
+	npc.vecBuffer[15] = ".*.......................";
+	npc.vecBuffer[16] = ".*.......................";
+	npc.vecBuffer[17] = ".*.......................";
+	npc.vecBuffer[18] = ".*.......................";
+	npc.vecBuffer[19] = ".*.......................";
+	npc.vecBuffer[20] = ".*.......................";
+	npc.vecBuffer[21] = ".........................";
+	npc.vecBuffer[22] = ".........................";
+	npc.vecBuffer[23] = ".........................";
+	npc.vecBuffer[24] = ".........................";
+
+	vecNPC.push_back(npc);
+}
+
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest) {
 
 }

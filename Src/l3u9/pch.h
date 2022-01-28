@@ -5,6 +5,8 @@
 
 
 #include "framework.h"
-#include "../_QuestFramework/_QuestFramework.h"
+#include "../000_GameFramework/000_GameFramework.h"
+#include "../100_QuestFramework/100_QuestFramework.h"
+
 
 #endif //PCH_H

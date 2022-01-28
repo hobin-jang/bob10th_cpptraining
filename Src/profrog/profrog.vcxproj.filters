@@ -9,15 +9,11 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="ProfrogQuest.h" />
-    <ClInclude Include="ProfrogSubQuest.h" />
     <ClInclude Include="QuestInfo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="ProfrogSubQuest.cpp" />
     <ClCompile Include="QuestInfo.cpp" />
-    <ClCompile Include="ProfrogQuest.cpp" />
   </ItemGroup>
 </Project>

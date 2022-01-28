@@ -16,8 +16,8 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 {
     ST_NPC_INFO npc;
     strcpy_s(npc.szName, 21, "홍택균 멘티");
-    npc.patch = 'p';
-    strcpy_s(npc.szGreetMessage, 61, "안녕하세요 :) 다들 화이팅입니다!!");
+    npc.patch = 'O';
+    strcpy_s(npc.szGreetMessage, 61, "안녕하세요 취약점분석트랙 홍택균입니다 :) 다들 화이팅입니다!!");
 
 	npc.vecBuffer.resize(60);
 	                                                         
@@ -85,6 +85,52 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 
 
 	vecNPC.push_back(npc);
+}
+
+void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
+{
+    ST_QUEST_NPC_DATA npc;
+    npc.x = 20;
+    npc.y = 3;
+    npc.z = 23;
+    npc.nNpcID = 128;
+    npc.strTrack = "취약점분석트랙";
+    npc.strName = "퍼징교 신자 홍택균(OZ1NG)";
+    npc.nAge = 28;
+    npc.strMBTI = "INTP이고 B형입니다 :)";
+    npc.cPatch = 'O';
+    npc.strMessage = "퍼징은 신이야! 너도 퍼징교에 들어오지 않을래? 너도 취약점을 찾을 수 있을지도 모른다구?";
+
+    npc.vecSmallImage;	// 위엣것 참조.
+    npc.vecSmallImage.resize(25);
+
+    npc.vecSmallImage[0]   = "@@@@@@@@@@@@@&&&&&&&&&&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
+    npc.vecSmallImage[1]   = "@@@@@@@@@@...@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@...&@@@@@@@";
+    npc.vecSmallImage[2]   = "@@@@@@@@@@@@@@.@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,@@@@@@@@@@@@";
+    npc.vecSmallImage[3]   = "@@@@@@@@@@@@@@@,&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.@@@@@@@@@@@@@";
+    npc.vecSmallImage[4]   = "@@@@@@@@@@@@@@@@,.@%,.......    .......,%@@@#.@@@@@@@@@@@@@@";
+    npc.vecSmallImage[5]   = "@@@@@@@@@@@@@#...                   ...   ....*@@@@@@@@@@@@@";
+    npc.vecSmallImage[6]   = "@@@@@@@@@#..   .........................  ......../@@@@@@@@@";
+    npc.vecSmallImage[7]   = "@@@@@@%..............................................(@@@@@@";
+    npc.vecSmallImage[8]   = "@@@@(..................................................,@@@@";
+    npc.vecSmallImage[9]   = "@@@......................................................&@@";
+    npc.vecSmallImage[10]  = "@&.......@      @..........................%(    *&.......#@";
+    npc.vecSmallImage[11]  = "@......@          %......................@          @......@";
+    npc.vecSmallImage[12]  = "/.....,      @     (....................,      #     /.....,";
+    npc.vecSmallImage[13]  = ",......@          @......................@          %.......";
+    npc.vecSmallImage[14]  = "&........&*    ,@..........................@      &,.......(";
+    npc.vecSmallImage[15]  = "@..........................................................@";
+    npc.vecSmallImage[16]  = "@@........................................................@@";
+    npc.vecSmallImage[17]  = "@@@&....................................................#@@@";
+    npc.vecSmallImage[18]  = "&&&&&#................................................/@@@@@";
+    npc.vecSmallImage[19]  = "&&&&&@@@...*,..................................,,*..@@@@@@@@";
+    npc.vecSmallImage[20]  = "@@@@@@@@..&(..,,,,,,,,,............,,,,,,,,,,,../@...@@@@@@@";
+    npc.vecSmallImage[21]  = "@@@@@@@@....../@(....,,,,,,,,,,,,,,,,,,..../@(.......%@@@@@@";
+    npc.vecSmallImage[22]  = "@@@@@@@@..,.......&@@@@@@&%#/**/(%&@@@@@@@,......,...@@@@@@@";
+    npc.vecSmallImage[23]  = "@@@@@@@@@..,,,,,,,..#@@@@@@@@@@@@@@@@@@@@...,,,,,,,,@@@@@@@@";
+    npc.vecSmallImage[24]  = "@@@@@@@@@@@@@@&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#(#@@@@@@@@@@@@";
+
+    vecNPC.push_back(npc);
 }
 
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest)

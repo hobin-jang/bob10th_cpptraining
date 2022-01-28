@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "QuestInfo.h"
 
 static CQuestInfo g_Questinfo;
@@ -17,9 +17,9 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 {
 	ST_NPC_INFO npc;
 	//npc.id = 1;
-	strcpy_s(npc.szName, 21, "������ ��Ƽ");
+	strcpy_s(npc.szName, 21, "유지예 멘티");
 	npc.patch = 'p';
-	strcpy_s(npc.szGreetMessage, 61, "�ȳ� �� ������ �����ϱ��?(���� �ƴմϴ�)");
+	strcpy_s(npc.szGreetMessage, 61, "안녕 이 사진은 누구일까요?(저는 아닙니다)");
 	
 	npc.vecBuffer.resize(60);
 
@@ -84,6 +84,48 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 	npc.vecBuffer[58] = "          .      .,~,...:,,,.!*;!=$######$$$#####!";
 	npc.vecBuffer[59] = "          .      .,~,...:,,,.!*;!=$######$$$#####!";
 
+	vecNPC.push_back(npc);
+}
+
+void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC) {
+	ST_QUEST_NPC_DATA npc;
+	npc.x = 13;
+	npc.y = 22;
+	npc.z = 23;
+	npc.nNpcID = 140;
+	npc.strTrack = "취약점분석트랙";
+	npc.strName = "Chovy 찐팬 지예에";
+	npc.nAge = 23;
+	npc.strMBTI = "ISFP인데 S빼고는 계속 바껴요. A형입니다아~~";
+	npc.cPatch = 'Y';
+	npc.strMessage = "BOB에서 스트레스 받지 말구 즐겨요!! \n 롤 좋아하는 사람 연락해줘여 쵸비 응원해주세요ヾ(≧▽≦*)o";
+
+	npc.vecSmallImage.resize(25);
+	npc.vecSmallImage[0] = "======###$$=###$*=#======";
+	npc.vecSmallImage[1] = "======###=$=$####=$$=====";
+	npc.vecSmallImage[2] = "=====####$==;!$##$=#=====";
+	npc.vecSmallImage[3] = "=====####*;~,-;===$#$====";
+	npc.vecSmallImage[4] = "====####=~-...,:;=$##====";
+	npc.vecSmallImage[5] = "====####!:,....,;=###====";
+	npc.vecSmallImage[6] = "====###=!~......~$###====";
+	npc.vecSmallImage[7] = "===$###=;;::,..~*#####===";
+	npc.vecSmallImage[8] = "===##$#!~:~~,.--;##$##===";
+	npc.vecSmallImage[9] = "===##$*;.---..,-~=$$##===";
+	npc.vecSmallImage[10]= "===##$::....  ..,*$$##*==";
+	npc.vecSmallImage[11] = "==$#$=$*,.  . .. ;$###=*=";
+	npc.vecSmallImage[12] = "===#$=$*,.... ,..;####=**";
+	npc.vecSmallImage[13] = "===##=$$-,. --:.,!$###=**";
+	npc.vecSmallImage[14] = "===##$$=*,....,,-$####$**";
+	npc.vecSmallImage[15] = "==$###$$!~,-~~;~!###$##=*";
+	npc.vecSmallImage[16] = "==$###=*!;-,-!~:####$##$*";
+	npc.vecSmallImage[17] = "==###=*!!,-    -#$##$##$*";
+	npc.vecSmallImage[18] = "===;--*;;.,,   .*=######=";
+	npc.vecSmallImage[19] = "--,.-=-,,.. -  .==######=";
+	npc.vecSmallImage[20] = "..---,. ....~. ~=$######$";
+	npc.vecSmallImage[21] = " .      ...-:,.$$$#$####$";
+	npc.vecSmallImage[22] = "        . .~:;*#$##$####=";
+	npc.vecSmallImage[23] = ".       ..,::##$=$######$";
+	npc.vecSmallImage[24] = ".       ..,~;$!;!#######=";
 	vecNPC.push_back(npc);
 }
 
