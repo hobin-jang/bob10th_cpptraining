@@ -99,7 +99,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 {
 	ST_QUEST_OBJECT stObject;
-	stObject.nQuestObjectId = 256;
+	stObject.nQuestObjectId = 268;
 	stObject.strName = "군대";
 	stObject.cPatch = 'G';	// 화면에 보이지도 않고 만져지지도 않게 하려면 0을 넣으면 됨
 	stObject.x = 19;
@@ -125,7 +125,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 	// 군대
 	{
 		ST_QUEST_DATA stQuest;
-		stQuest.nNpcId = 256;
+		stQuest.nNpcId = 268;
 		stQuest.StartCondition = ST_FILTER(145, 0x0001, 0x0003);
 		stQuest.vecMessages.push_back("군 ㄷㅐ 7r 즈 아");
 		stQuest.vecMessages.push_back("다시 정다훈에게로 7r 즈 아.");
