@@ -192,6 +192,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 	npc.vecSmallImage[23] = "!;;;;;;!;$$#####$**!!;!!!";
 	npc.vecSmallImage[24] = ";;;;;;;;!=$###$$$!*!;!!!!";
 
+	npc.strContents1 = "내가 BoB에 합격하다니!";
 
 	vecNPC.push_back(npc);
 }
