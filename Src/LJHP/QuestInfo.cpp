@@ -20,8 +20,15 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC) {
 	ST_QUEST_NPC_DATA npc;
 	npc.x = 11;
 	npc.y = 5;
-	npc.z = 25;
+	npc.z = 1;	
 
+	npc.nNpcID = 151;
+	npc.strTrack = "취약점분석트랙";
+	npc.strName = "이주협";
+	npc.nAge = 18;
+	npc.strMBTI = "INFJ";
+	npc.cPatch = 'X';
+	npc.strMessage = "안녕하세요 이주협입니다.\n악성코드 분석은 재밌다~!";
 
 	npc.vecBigImage.resize(60);
 	npc.vecBigImage[0] = "*==***=*==******==****==**====*===================";
@@ -84,15 +91,6 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC) {
 	npc.vecBigImage[57] = "$$$$$$$$$$$#$$$$$$$$~.**=#$!$###$$$$##$$$$########";
 	npc.vecBigImage[58] = "$$$$$$$=$$$$$$$$$$$$@-===$#$$##$$$$#@#$$$$#$######";
 	npc.vecBigImage[59] = "$$$$$$$$$$$$$$#$$$$$@#===###$##$$$$##$$$$#########";
-	vecNPC.push_back(npc);
-
-	npc.nNpcID = 151;
-	npc.strTrack = "취약점분석트랙";
-	npc.strName = "이주협";
-	npc.nAge = 18;
-	npc.strMBTI = "INFJ";
-	npc.cPatch = 'X';
-	npc.strMessage = "안녕하세요 이주협입니다. 분석은 재밌다~!";
 
 	npc.vecSmallImage.resize(25);
 	npc.vecSmallImage[0] = "           .@+           ";
@@ -120,6 +118,11 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC) {
 	npc.vecSmallImage[22] = "     @%@         @@#.    ";
 	npc.vecSmallImage[23] = "      @@@       @@#      ";
 	npc.vecSmallImage[24] = "       @%@@@@@@@@#       ";
+	
+	npc.strContents1 = "나는 누구인가..";
+	npc.strContents2 = "어렵고 힘들다..";
+	npc.strContents3 = "많은 것들을 배웠다..";
+	npc.strContents4 = "좋은 경험이었다..ㅠㅠ";
 	vecNPC.push_back(npc);
 }
 

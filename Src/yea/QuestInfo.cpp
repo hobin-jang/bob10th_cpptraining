@@ -89,8 +89,8 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 
 void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC) {
 	ST_QUEST_NPC_DATA npc;
-	npc.x = 13;
-	npc.y = 22;
+	npc.x = 12;
+	npc.y = 21;
 	npc.z = 23;
 	npc.nNpcID = 140;
 	npc.strTrack = "취약점분석트랙";

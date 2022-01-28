@@ -11,7 +11,7 @@ CQuestInfo::CQuestInfo(void)
 CQuestInfo::~CQuestInfo(void)
 {
 }
-
+/*
 void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 {
     ST_NPC_INFO npc;
@@ -83,13 +83,13 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
     
     vecNPC.push_back(npc);
 
-}
+}*/
 
 void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
     ST_QUEST_NPC_DATA npc;
-    npc.x = 5;
-    npc.y = 20;
+    npc.x = 21;
+    npc.y = 9;
     npc.z = 9;
     npc.nNpcID = 143;
     npc.strTrack = "취약점분석트랙";
@@ -97,36 +97,168 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.nAge = 22;
     npc.strMBTI = "INFJ, A형입니다.";
     npc.cPatch = 'S';
-    npc.strMessage = "안녕하세요. BoB 정말 어렵네요. 화이팅.";
-    npc.vecSmallImage.resize(26);
-    npc.vecSmallImage[0] = "          ,::.           ";
-    npc.vecSmallImage[1] = "         -=$$*!:         ";
-    npc.vecSmallImage[2] = "       ~$##$$$=$*,       ";
-    npc.vecSmallImage[3] = "      -$####$$=$=:       ";
-    npc.vecSmallImage[4] = "      !=##=$$==$==:      ";
-    npc.vecSmallImage[5] = "     .$$$!-;$$$$$$$.     ";
-    npc.vecSmallImage[6] = "     .$$*- ,!$####$.     ";
-    npc.vecSmallImage[7] = "     ,##;.  ;######.     ";
-    npc.vecSmallImage[8] = "     .$*;,,.-*=$##$.     ";
-    npc.vecSmallImage[9] = "      !:,,~. ,::!=*      ";
-    npc.vecSmallImage[10] = "      ,-..:...:,-:,      ";
-    npc.vecSmallImage[11] = "      ..  .  .,.,-.      ";
-    npc.vecSmallImage[12] = "             .  .,       ";
-    npc.vecSmallImage[13] = "       ..  ..,  .,       ";
-    npc.vecSmallImage[14] = "        .  .,,..,.       ";
-    npc.vecSmallImage[15] = "         ..,,-,,,        ";
-    npc.vecSmallImage[16] = "        ,,...,,-,        ";
-    npc.vecSmallImage[17] = "        .,....,-,        ";
-    npc.vecSmallImage[18] = "        ,.,,.,--,.       ";
-    npc.vecSmallImage[19] = "       ,,..,---,--       ";
-    npc.vecSmallImage[20] = "    .....  ..,.,--,,     ";
-    npc.vecSmallImage[21] = "  .,,.....  ...,,,-,,,.  ";
-    npc.vecSmallImage[22] = ".....,..,.    .,-,,.,,,, ";
-    npc.vecSmallImage[23] = "........,,.....,,,......,";
-    npc.vecSmallImage[24] = "...........,.,,,.......,.";
+    npc.strMessage = "BoB 프로그램 정말 어렵네요오.....\n화이팅!";
+
+    npc.vecBigImage.push_back("                     ~!;;~.                       ");
+    npc.vecBigImage.push_back("                    *$$$$$=**~                    ");
+    npc.vecBigImage.push_back("                  -!$##$$$$$=$*;,                 ");
+    npc.vecBigImage.push_back("               .!!*###$#$$$$$=$$*:                ");
+    npc.vecBigImage.push_back("              ;$$######$=$=$======:               ");
+    npc.vecBigImage.push_back("             ~=$$######$$$=$=======~              ");
+    npc.vecBigImage.push_back("            .==$$###$###$$==$$======,             ");
+    npc.vecBigImage.push_back("            :$==####=##=$$$$=$$$=$===             ");
+    npc.vecBigImage.push_back("            ====####$=##$#$$=$$$$==$=-            ");
+    npc.vecBigImage.push_back("           :====$$$*;~*$$$$==$$=$$=$$=            ");
+    npc.vecBigImage.push_back("           ;===$$=;~..,*$$$$$$$$$$$$$$            ");
+    npc.vecBigImage.push_back("           *$$===!-,.  ,$$$$#$###$#$$=;           ");
+    npc.vecBigImage.push_back("           =$###=;-.    ;##$#####$##$$;           ");
+    npc.vecBigImage.push_back("           $##$#=~,.    ~#########$###;           ");
+    npc.vecBigImage.push_back("           $####=~,.    :$$#########$$;           ");
+    npc.vecBigImage.push_back("           =##=!=:,.    -!=$$########$-           ");
+    npc.vecBigImage.push_back("           :#$:,,~~-,   .,--~!$######$            ");
+    npc.vecBigImage.push_back("            =$~.,---~:-.  .-;;:!==##$=            ");
+    npc.vecBigImage.push_back("            ,=~...   ...  .,,...,-:$$;            ");
+    npc.vecBigImage.push_back("            .:~....,,...  ,,..,,,--:*.            ");
+    npc.vecBigImage.push_back("             .-...~-$-,   ,.-$::-,,~:             ");
+    npc.vecBigImage.push_back("              ,.  . ..    ,....,,,,-~             ");
+    npc.vecBigImage.push_back("            . ,.          ,.  ....,-~             ");
+    npc.vecBigImage.push_back("              ,.          ,.    ..,~-             ");
+    npc.vecBigImage.push_back("               ,          .,    ..--,             ");
+    npc.vecBigImage.push_back("               ,.         .,    .,-,              ");
+    npc.vecBigImage.push_back("               ,.         ,,.   .,-               ");
+    npc.vecBigImage.push_back("               ..     .-,,~-.  ..,,               ");
+    npc.vecBigImage.push_back("                .      ...,,....,,                ");
+    npc.vecBigImage.push_back("                ,    .   ..,,..,,-                ");
+    npc.vecBigImage.push_back("                .....--,,,-~~,,,,.                ");
+    npc.vecBigImage.push_back("                 ,.....   .-,,,--                 ");
+    npc.vecBigImage.push_back("                 ,,....,,,,,,,--,                 ");
+    npc.vecBigImage.push_back("                 ,,,.......,,,-~,                 ");
+    npc.vecBigImage.push_back("                 ..,..    ..,-~-,                 ");
+    npc.vecBigImage.push_back("                 ...,..  ..,-~--,                 ");
+    npc.vecBigImage.push_back("                 ,...-,,,,,-~---~~                ");
+    npc.vecBigImage.push_back("              .!,..  .,-------,--;~               ");
+    npc.vecBigImage.push_back("             .!,,..  ..,,,,,-,,,-;!,              ");
+    npc.vecBigImage.push_back("           .,.-....   ....,,,,,,-::,,,            ");
+    npc.vecBigImage.push_back("         .,.,.-....     ......,,-~~-,,,,          ");
+    npc.vecBigImage.push_back("     .........,....      .....,,,~-,,,,,,,..      ");
+    npc.vecBigImage.push_back("   ...,,....,.,....     ......,,---,,,,,,..,.,    ");
+    npc.vecBigImage.push_back(" .........,,.,.,,...     .   .,,-,,,,,,,..,...,,  ");
+    npc.vecBigImage.push_back("...........,,.,....     .    .,,,,,,,...,.,..,..,.");
+    npc.vecBigImage.push_back("......,........,,....  ..   ..,,,,,,.,..,....,...,");
+    npc.vecBigImage.push_back("....................,.,.....,..,............,,....");
+    npc.vecBigImage.push_back("....,.....................,.........,.............");
+    npc.vecBigImage.push_back("...........................,..........,.,..,.,.,..");
+    npc.vecBigImage.push_back("................................,......, .........");
+    npc.vecBigImage.push_back("............. ............,................,,.....");
+    npc.vecBigImage.push_back("...................................,.......,......");
+    npc.vecBigImage.push_back(".......................,..............,.....,.....");
+    npc.vecBigImage.push_back(".......................,.................,........");
+    npc.vecBigImage.push_back(".........................................,.,......");
+    npc.vecBigImage.push_back(",....................................,........,,..");
+    npc.vecBigImage.push_back(".......................................,..........");
+    npc.vecBigImage.push_back("...............................,.......,.,........");
+    npc.vecBigImage.push_back("..................................................");
+    npc.vecBigImage.push_back("......,..................................,.....,.,");
+
+    npc.vecSmallImage.push_back("          ,::.           ");
+    npc.vecSmallImage.push_back("         -=$$*!:         ");
+    npc.vecSmallImage.push_back("       ~$##$$$=$*,       ");
+    npc.vecSmallImage.push_back("      -$####$$=$=:       ");
+    npc.vecSmallImage.push_back("      !=##=$$==$==:      ");
+    npc.vecSmallImage.push_back("     .$$$!-;$$$$$$$.     ");
+    npc.vecSmallImage.push_back("     .$$*- ,!$####$.     ");
+    npc.vecSmallImage.push_back("     ,##;.  ;######.     ");
+    npc.vecSmallImage.push_back("     .$*;,,.-*=$##$.     ");
+    npc.vecSmallImage.push_back("      !:,,~. ,::!=*      ");
+    npc.vecSmallImage.push_back("      ,-..:...:,-:,      ");
+    npc.vecSmallImage.push_back("      ..  .  .,.,-.      ");
+    npc.vecSmallImage.push_back("             .  .,       ");
+    npc.vecSmallImage.push_back("       ..  ..,  .,       ");
+    npc.vecSmallImage.push_back("        .  .,,..,.       ");
+    npc.vecSmallImage.push_back("         ..,,-,,,        ");
+    npc.vecSmallImage.push_back("        ,,...,,-,        ");
+    npc.vecSmallImage.push_back("        .,....,-,        ");
+    npc.vecSmallImage.push_back("        ,.,,.,--,.       ");
+    npc.vecSmallImage.push_back("       ,,..,---,--       ");
+    npc.vecSmallImage.push_back("    .....  ..,.,--,,     ");
+    npc.vecSmallImage.push_back("  .,,.....  ...,,,-,,,.  ");
+    npc.vecSmallImage.push_back(".....,..,.    .,-,,.,,,, ");
+    npc.vecSmallImage.push_back("........,,.....,,,......,");
+    npc.vecSmallImage.push_back("...........,.,,,.......,.");
+
+    npc.strContents1 =
+        "보안? 얼마나 어렵겠어 ..ㅋ\n"
+        "열정을 가지고 열심히 해보자 ㅋ"
+        ;
+    npc.strContents2 =
+        "드디어 2차 전직을 해냈어!\n"
+        "나도 이제는 어엿한 B 0 B인이야!\n"
+        ;
+    npc.strContents3 =
+        "역시 팀프로젝트는 너무 어려워..\n"
+        "자신감이 하락하는 것 같다.."
+        ;
+    npc.strContents4 =
+        "엔딩이란 없다..\n"
+        "끊임없이 노력해라ㅠㅠ.."
+        ;
+
     vecNPC.push_back(npc);
 }
 
-void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest)
+void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 {
+    ST_QUEST_OBJECT stObject;
+    stObject.nQuestObjectId = 256;
+    stObject.strName = "시계";
+    stObject.cPatch = 67;	// 화면에 보이지도 않고 만져지지도 않게 하려면 0을 넣으면 됨
+    stObject.x = 21;
+    stObject.y = 6;
+    stObject.z = 9;
+    stObject.reserved = 0;
+    vecQuestObject.push_back(stObject);
+}
+
+void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
+{
+    {
+        ST_QUEST_DATA stQuest;
+        stQuest.nNpcId = 143;
+        stQuest.StartCondition = ST_FILTER(143, 0x0000, 0x0001);
+        stQuest.vecMessages.push_back("밤새는건 정말 어려워...");
+        stQuest.vecMessages.push_back("밤을 새고 내일 아침에 들을 강의를 생각하면 끔찍한걸..?");
+        stQuest.vecMessages.push_back("강의 시작 전에 1시간만 잘테니 날 깨워줄래?");
+        stQuest.vecMessages.push_back("혹시 내일 아침에 내가 일어나지 않는다면 뺨을 때려줘");
+        stQuest.ClearCondition = ST_FILTER(143, 0x0003);
+        vecQuest.push_back(stQuest);
+    }
+
+    {
+        ST_QUEST_DATA stQuest;
+        stQuest.nNpcId = 256;
+        stQuest.StartCondition = ST_FILTER(143, 0x0001, 0x0003);
+        stQuest.vecMessages.push_back("째깍.. 째깍..");
+        stQuest.vecMessages.push_back("(제 시간에 맞춰서 깨우지 못할 것 같다.)");
+        stQuest.vecMessages.push_back("(피곤하더라도 지금 깨우는게 좋겠다.)");
+        stQuest.ClearCondition = ST_FILTER(143, 0x0007);
+        vecQuest.push_back(stQuest);
+    }
+
+    {
+        ST_QUEST_DATA stQuest;
+        stQuest.nNpcId = 143;
+        stQuest.StartCondition = ST_FILTER(143, 0x0003, 0x0007);
+        stQuest.vecMessages.push_back("Zzzz........");
+        stQuest.vecMessages.push_back("짝..");
+        stQuest.vecMessages.push_back("....Zzzz....");
+        stQuest.vecMessages.push_back("짝..짝..!");
+        stQuest.vecMessages.push_back("........Zzzz");
+        stQuest.vecMessages.push_back(".... .... 퍽!");
+        stQuest.vecMessages.push_back("아.. 일어났어.. 고마워..");
+        stQuest.vecMessages.push_back("그런데 아직 아침이 아니잖아..?");
+        stQuest.vecMessages.push_back("후.. 깨워줘서 고마워..");
+        stQuest.ClearCondition = ST_FILTER(143, 0x000F);
+        vecQuest.push_back(stQuest);
+    }
+
 }

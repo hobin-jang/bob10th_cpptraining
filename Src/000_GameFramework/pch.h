@@ -6,4 +6,5 @@
 #include <vector>
 #include <string>
 #include <Windows.h>
+#include <algorithm>
 #include "Unicode.h"
