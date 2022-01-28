@@ -3,7 +3,7 @@
 #include <map>
 #include <string>
 #include <vector>
-#include "../../../cppcore/Inc/cppcore.h"
+#include <Windows.h>
 
 struct ST_VECTOR
 {

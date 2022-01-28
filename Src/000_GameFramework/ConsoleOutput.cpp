@@ -77,12 +77,12 @@ void CConsoleOutput::Flip(const ST_VECTOR& pos, CDisplayBuffer& vecDisplayBuffer
     for (std::wstring& strLine : vecDisplayBuffer)
         strLine.resize(m_nViewWidth, ' ');
 
-    const int nMaxHeight = MIN(MIN(m_nViewHeight, nBottom), (int)m_vecBackBuffer.size());
-    for (int y = MAX(nTop, 0); y < nMaxHeight; y++)
+    const int nMaxHeight = std::min<int>(std::min<int>(m_nViewHeight, nBottom), (int)m_vecBackBuffer.size());
+    for (int y = std::max<int>(nTop, 0); y < nMaxHeight; y++)
     {
         const int nScreenY = y - nTop;
-        const int nMaxWidth = MIN(MIN(nRight, (int)m_vecBackBuffer[y].size()), nLeft + vecDisplayBuffer[nScreenY].size());
-        for (int x = MAX(nLeft, 0); x < nMaxWidth; x++)
+        const int nMaxWidth = std::min<int>(std::min<int>(nRight, (int)m_vecBackBuffer[y].size()), nLeft + vecDisplayBuffer[nScreenY].size());
+        for (int x = std::max<int>(nLeft, 0); x < nMaxWidth; x++)
         {
             const int nScreenX = x - nLeft;
             vecDisplayBuffer[nScreenY][nScreenX] = m_vecBackBuffer[y][x];
@@ -114,7 +114,7 @@ void CConsoleOutput::Render(const CDisplayBuffer& vecDisplayBuffer)
         size_t tPos = 0;
         std::string strOutput;
         strOutput.resize(strLineW.length() * 2);
-        std::string strLine = core::MBSFromWCS(strLineW);
+        std::string strLine = unicode::MBSFromWCS(strLineW);
         for (char w : strLine)
         {
             if (w == 2 || w == 4 || w == 6)   // UI 외곽선만 연결함

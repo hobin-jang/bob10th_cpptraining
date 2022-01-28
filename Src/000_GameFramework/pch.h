@@ -6,5 +6,4 @@
 #include <vector>
 #include <string>
 #include <Windows.h>
-
-#include "../../../cppcore/Inc/cppcore.h"
+#include "Unicode.h"

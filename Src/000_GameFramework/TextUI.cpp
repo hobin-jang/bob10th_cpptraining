@@ -15,7 +15,7 @@ void CTextUI::Clear(void)
 
 void CTextUI::AddText(std::string strText)
 {
-	AddText(core::WCSFromMBS(strText));
+	AddText(unicode::WCSFromMBS(strText));
 }
 
 void CTextUI::AddText(std::wstring strText)
@@ -53,7 +53,7 @@ void CTextUI::OnDraw(CDisplayBuffer& vecBuffer)
 		if (m_nBottom <= y)
 			break;
 
-		int w = MIN(m_nRight - (m_nLeft + 1), strLine.length());
+		int w = std::min<int>(m_nRight - (m_nLeft + 1), strLine.length());
 		memcpy((void*)(vecBuffer[y].c_str() + m_nLeft + 1), strLine.c_str(), w * sizeof(wchar_t));
 	}
 }

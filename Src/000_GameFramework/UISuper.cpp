@@ -23,7 +23,7 @@ void CUISuper::Create(CDlgSuper* pParent, int l, int t, int r, int b, DWORD dwAt
 
 void CUISuper::SetText(std::string strText)
 {
-	m_strText = core::WCSFromMBS(strText);
+	m_strText = unicode::WCSFromMBS(strText);
 }
 
 void CUISuper::SetText(std::wstring strText)

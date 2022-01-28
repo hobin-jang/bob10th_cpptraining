@@ -36,6 +36,8 @@
     <ClInclude Include="Struct.h" />
     <ClInclude Include="TextUI.h" />
     <ClInclude Include="UISuper.h" />
+    <ClInclude Include="Unicode.h" />
+    <ClInclude Include="UnicodeEncoding.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AlarmUI.cpp" />
@@ -53,6 +55,8 @@
     <ClCompile Include="Struct.cpp" />
     <ClCompile Include="TextUI.cpp" />
     <ClCompile Include="UISuper.cpp" />
+    <ClCompile Include="UnicodeEncoding.cpp" />
+    <ClCompile Include="Unicode.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

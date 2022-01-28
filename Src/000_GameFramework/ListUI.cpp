@@ -11,7 +11,7 @@ CListUI::CListUI(void)
 
 void CListUI::AddItem(std::string strValue)
 {
-	AddItem(core::WCSFromMBS(strValue));
+	AddItem(unicode::WCSFromMBS(strValue));
 }
 
 void CListUI::AddItem(std::wstring strValue)
@@ -117,7 +117,7 @@ void CListUI::OnDraw(CDisplayBuffer& vecBuffer)
 		if (m_nBottom <= nTop)
 			break;
 
-		int w = MIN(m_nRight - (nLeft + 1), (int)strItem.length());
+		int w = std::min<int>(m_nRight - (nLeft + 1), (int)strItem.length());
 		memcpy((void*)(vecBuffer[nTop].c_str() + nLeft + 1), strItem.c_str(), w * sizeof(wchar_t));
 
 		if (nItemIndex == m_nCursorIndex)
