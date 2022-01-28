@@ -87,9 +87,9 @@ void QuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 void QuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
 	ST_QUEST_NPC_DATA npc;
-	npc.Pos.x = 10;
-	npc.Pos.y = 4;
-	npc.Pos.z = 6;
+	npc.x = 10;
+	npc.y = 4;
+	npc.z = 6;
 	npc.nNpcID = 144;
 	npc.strTrack = "취약점분석트랙";
 	npc.strName = "정종배";

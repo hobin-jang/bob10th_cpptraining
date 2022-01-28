@@ -1,5 +1,5 @@
 #pragma once
-#include "../_QuestFramework/_QuestFramework.h"
+#include "../100_QuestFramework/100_QuestFramework.h"
 
 class CQuestInfo:public IQuestInfo
 {

@@ -90,9 +90,9 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
     ST_QUEST_NPC_DATA npc;
-    npc.Pos.x = 20;
-    npc.Pos.y = 3;
-    npc.Pos.z = 23;
+    npc.x = 20;
+    npc.y = 3;
+    npc.z = 23;
     npc.nNpcID = 128;
     npc.strTrack = "취약점분석트랙";
     npc.strName = "퍼징교 신자 홍택균(OZ1NG)";

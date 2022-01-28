@@ -93,9 +93,9 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
     ST_QUEST_NPC_DATA npc;
-    npc.Pos.x = 6;
-    npc.Pos.y = 5;
-    npc.Pos.z = 5;
+    npc.x = 6;
+    npc.y = 5;
+    npc.z = 5;
     npc.nNpcID = 129;
     npc.strTrack = "µðÁöÅÐÆ÷·»½ÄÆ®·¢";
     npc.strName = "±è´ë±â (D_wit)";

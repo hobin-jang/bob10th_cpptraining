@@ -88,9 +88,9 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
     ST_QUEST_NPC_DATA npc;
 
-    npc.Pos.x = 12;
-    npc.Pos.y = 3;
-    npc.Pos.z = 25;
+    npc.x = 12;
+    npc.y = 3;
+    npc.z = 25;
     npc.nNpcID = 136;
     npc.strTrack = "보안제품개발";
     npc.strName = "정경화";

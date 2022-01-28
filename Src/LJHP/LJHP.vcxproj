@@ -165,11 +165,6 @@
     </ClCompile>
     <ClCompile Include="QuestInfo.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\_QuestFramework\_QuestFramework.vcxproj">
-      <Project>{b7e6565e-6919-4241-8b28-5679efe3d4ef}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

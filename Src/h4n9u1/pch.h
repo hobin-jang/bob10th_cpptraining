@@ -10,6 +10,6 @@
 // add headers that you want to pre-compile here
 #include "framework.h"
 
-#include "../_QuestFramework/_QuestFramework.h"
+#include "../100_QuestFramework/100_QuestFramework.h"
 
 #endif //PCH_H

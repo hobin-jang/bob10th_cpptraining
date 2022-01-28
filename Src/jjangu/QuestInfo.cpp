@@ -81,9 +81,9 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
 	ST_QUEST_NPC_DATA npc;
-	npc.Pos.x = 1;
-	npc.Pos.y = 19;
-	npc.Pos.z = 24;
+	npc.x = 1;
+	npc.y = 19;
+	npc.z = 24;
 	npc.nNpcID = 152;
 	npc.strTrack = "취약점 분석 트랙";
 	npc.strName = "김동현(jjangu)";
