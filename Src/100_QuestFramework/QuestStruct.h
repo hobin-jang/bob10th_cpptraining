@@ -139,7 +139,7 @@ struct ST_QUEST_NPC_DATA : public ST_POINT3
 	std::string strContents3;	// 2단계 프로젝트를 마친 후 보여줄 메시지
 	std::string strContents4;	// 수료 후 보여줄 메시지
 
-	double CalcLevelOfCompletion(void);
+	double CalcLevelOfCompletion(void) const;
 };
 
 #pragma pack(pop)

@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "QuestStruct.h"
 
-double ST_QUEST_NPC_DATA::CalcLevelOfCompletion(void)
+double ST_QUEST_NPC_DATA::CalcLevelOfCompletion(void) const
 {
 	double dScore = 0;
 	double dCount = 0;
