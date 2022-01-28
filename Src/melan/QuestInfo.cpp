@@ -145,6 +145,45 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject) 
 	vecQuestObject.push_back(stObject);
 }
 
-void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest)
+void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 {
+	// 조준희 
+	{
+		ST_QUEST_DATA stQuest;
+		stQuest.nNpcId = 142;
+		stQuest.StartCondition = ST_FILTER(142, 0x0000, 0x0001);
+		stQuest.vecMessages.push_back("와... 센터에서 밤을 새다니...");
+		stQuest.vecMessages.push_back("몇 시간을 앉아 있으니까 머리부터 발끝까지 정상인 곳이 없지만");
+		stQuest.vecMessages.push_back("허리가 제일 먼저 끊어질 거 같아;;");
+		stQuest.vecMessages.push_back("14층 회사에 게이밍 의자가 있다고 했던 거 같은데..\n누가 가져와주면 소원이 없겠다~~~");
+		stQuest.ClearCondition = ST_FILTER(142, 0x0003);
+		vecQuest.push_back(stQuest);			
+	}
+
+	// 게이밍 의자
+	{
+		ST_QUEST_DATA stQuest;
+		stQuest.nNpcId = 264;
+		stQuest.StartCondition = ST_FILTER(142, 0x0001, 0x0003);
+		stQuest.vecMessages.push_back("14층은 다른 회사 아니야...? 여기 들어와도 되는 거 맞나;");
+		stQuest.vecMessages.push_back("나 지금 도둑질하고 있는 거 같은데...");
+		stQuest.vecMessages.push_back("근데 센터 의자보다 좋아보이긴하네.");
+		stQuest.vecMessages.push_back("[14층 사무실의 게이밍 의자]를 찾았다!");
+		stQuest.vecMessages.push_back("조준희에게 가져다주자.");
+		stQuest.ClearCondition = ST_FILTER(142, 0x0007);
+	}
+
+	// 조준희
+	{
+		ST_QUEST_DATA stQuest;
+		stQuest.nNpcId = 142;
+		stQuest.StartCondition = ST_FILTER(142, 0x0003, 0x0007);
+		stQuest.vecMessages.push_back("진짜 가져왔네!? 고마워 :)");
+		stQuest.vecMessages.push_back("엌!! 등받이 넘어가는 거 너무 좋아ㅠㅠ");
+		stQuest.vecMessages.push_back("그나저나 너 취약점 잘 찾게 생겼다!");
+		stQuest.vecMessages.push_back("화내지마..! 좋은 뜻이야! 말 그대로 고수같아 보여서 그래.");
+		stQuest.vecMessages.push_back("우리 프로젝트 같이 할래??");
+		stQuest.ClearCondition = ST_FILTER(142, 0x000f);
+		vecQuest.push_back(stQuest);
+	}
 }
