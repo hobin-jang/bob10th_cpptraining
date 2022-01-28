@@ -132,6 +132,19 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 	vecNPC.push_back(npc);
 }
 
+void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject) {
+	ST_QUEST_OBJECT stObject;
+	stObject.nQuestObjectId = 264;
+	stObject.strName = "게이밍 의자";
+	stObject.cPatch = 'C';
+	stObject.z = 14;
+	stObject.x = 3;
+	stObject.y = 16;
+	stObject.reserved = 0;
+
+	vecQuestObject.push_back(stObject);
+}
+
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest)
 {
 }
