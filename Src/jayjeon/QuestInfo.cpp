@@ -23,7 +23,7 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 	npc.w = 0.5;
 	npc.h = 0.5;
 
-	npc.patch = 'p';
+	npc.patch = 'H';
 	strcpy_s(npc.szGreetMessage, 61, "제품개발트랙 전승현입니다.");
 
 	npc.vecBuffer.resize(75);
@@ -107,16 +107,24 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 
 	vecNPC.push_back(npc);
 
-	
+                                                                                       
+}
 
-
-                                                                                                    
-                                                                                                    
-                                                                                                    
-
-
-
-
+void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
+{
+	ST_QUEST_NPC_DATA npc;
+	npc.Pos.x = 1;
+	npc.Pos.y = 2;
+	npc.Pos.z = 23;
+	npc.nNpcID = 133;
+	npc.strTrack = "보안제품개발트랙";
+	npc.strName = "걱정많은승현";
+	npc.nAge = 25;
+	npc.strMBTI = 'ESTJ';
+	npc.cPatch = 'H';
+	npc.strMessage = "못 따라갈거같아 걱정이되는구만! :(";
+	npc.vecBuffer;	// 위엣것 참조.
+	vecNPC.push_back(npc);
 }
 
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest)
