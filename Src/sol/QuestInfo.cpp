@@ -28,7 +28,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.nAge = 25;
     npc.strMBTI = "INFP이고 O형이에요";
     npc.cPatch = 'E';
-    npc.strMessage = "버그가 되고 싶지 않으면 열심히 따라가야 해.\n"
+    npc.strMessage = "버그가 되고 싶지 않으면 열심히 따라가야 해.\n" //캐릭터 소개 및 NPC 말
         "여기까지 따라온 나는 뭐냐고?\n"
         "그래도 버그야..";
 
@@ -108,6 +108,8 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.vecSmallImage.push_back("$$###@@##$$:  ;##@@@#####");
     npc.vecSmallImage.push_back("#$$####@########@@@@#####");
     npc.vecSmallImage.push_back("@########@###@@##@@######");
+
+    npc.strContents1 = ""; //캐릭터 선택 후 도입부
 
     vecNPC.push_back(npc);
 
