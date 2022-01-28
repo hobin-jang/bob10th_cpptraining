@@ -94,6 +94,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 
 void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 {
+
 }
 
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
