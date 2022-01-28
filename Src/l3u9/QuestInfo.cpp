@@ -225,7 +225,7 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject) 
 
 
     ST_QUEST_OBJECT stObject;
-    stObject.nQuestObjectId = 256;
+    stObject.nQuestObjectId = 257;
     stObject.strName = "JPEG Coverage 5% 찍고있는 BOB트북";
     stObject.cPatch = 'N';	// 화면에 보이지도 않고 만져지지도 않게 하려면 0을 넣으면 됨
     stObject.x = 62;
