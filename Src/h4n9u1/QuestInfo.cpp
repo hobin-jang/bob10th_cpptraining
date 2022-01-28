@@ -37,7 +37,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 	ST_QUEST_NPC_DATA npc;
 	npc.x = 2;
 	npc.y = 3;
-	npc.x = 18;
+	npc.z = 18;
 	npc.nNpcID = 146;
 	npc.strTrack = "취약점분석트랙";
 	npc.strName = "김훈민(H4N9U1)";
