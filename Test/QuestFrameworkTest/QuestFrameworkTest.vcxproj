@@ -154,7 +154,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Src\_QuestFramework\_QuestFramework.vcxproj">
+<<<<<<< Updated upstream
       <Project>{aa84656d-e637-4e6d-9e43-8b1e17361be0}</Project>
+=======
+      <Project>{b7e6565e-6919-4241-8b28-5679efe3d4ef}</Project>
+>>>>>>> Stashed changes
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
