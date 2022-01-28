@@ -35,9 +35,9 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
 	ST_QUEST_NPC_DATA npc;
-	npc.x = 5;
+	npc.x = 2;
 	npc.y = 3;
-	npc.x = 24;
+	npc.z = 18;
 	npc.nNpcID = 146;
 	npc.strTrack = "취약점분석트랙";
 	npc.strName = "김훈민(H4N9U1)";
@@ -45,6 +45,21 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 	npc.strMBTI = "INTJ/P";
 	npc.cPatch = 'H';
 	npc.strMessage = "취약점분석... 프로그래밍 언어... DB... 네트워크.. 임베디드 시스템... 알고리즘... 컴파일러... 배우고 싶은 건 많은데 시간이 없네... 그렇다면 나 자신을 갈아넣어야지...";
+	
+	npc.strContents1 = ""; //인트로 멘트
+	npc.strContents2 = ""; //전직
+	npc.strContents3 = ""; //팀 프로젝트 완료
+	npc.strContents4 = ""; //BoB 수료
+
+	npc.vecBigImage.resize(6);
+	npc.vecBigImage[0] = " _   _    ___  _   _  _____  _   _  __  ";
+	npc.vecBigImage[1] = "| | | |  /   || \\ | ||  _  || | | |/  | ";
+	npc.vecBigImage[2] = "| |_| | / /| ||  \\| || |_| || | | |`| | ";
+	npc.vecBigImage[3] = "|  _  |/ /_| || . ` |\\____ || | | | | | ";
+	npc.vecBigImage[4] = "| | | |\\___  || |\\  |.___/ /| |_| |_| |_";
+	npc.vecBigImage[5] = "\\_| |_/    |_/\\_| \\_/\\____/  \\___/ \\___/";
+
+
 	npc.vecSmallImage.resize(12);
 	npc.vecSmallImage[0] = "                ";
 	npc.vecSmallImage[1] = "        ___ ___ ";
@@ -61,9 +76,23 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 	vecNPC.push_back(npc);
 }
 
-void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest)
+void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 {
-	
+	ST_QUEST_OBJECT stObject;
+	stObject.nQuestObjectId = 265;
+	stObject.strName = "포장되어 있는 램";
+	stObject.cPatch = 0;
+	stObject.x = 6;
+	stObject.y = 3;
+	stObject.z = 0;
+	stObject.reserved = 0;
+	vecQuestObject.push_back(stObject);
+}
+
+
+void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
+{
+
 }
 
 
