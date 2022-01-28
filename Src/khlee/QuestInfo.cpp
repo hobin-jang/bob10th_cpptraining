@@ -12,78 +12,6 @@ CQuestInfo::~CQuestInfo(void)
 {
 }
 
-void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
-{
-    ST_NPC_INFO npc;
-    
-    strcpy_s(npc.szName, 21, "이권희 교육생");
-    npc.patch = 'V';
-    strcpy_s(npc.szGreetMessage, 61, "인생은 고통이다 참고하세요");
-    npc.vecBuffer.resize(60);
-    npc.vecBuffer[0] =  "                   .,;=*$$*!~,                    ";
-    npc.vecBuffer[1] =  "                 .!==$==$$$###=.                  ";
-    npc.vecBuffer[2] =  "                ===$$$##$$@$$##$*                 ";
-    npc.vecBuffer[3] =  "              ,*$$$$$###$########=;               ";
-    npc.vecBuffer[4] =  "             ~$$##$$###$$$$$####$#$:              ";
-    npc.vecBuffer[5] =  "            ~=#$###$$$$$#$$$$$##$$#$;             ";
-    npc.vecBuffer[6] =  "            $######$$$$$$#$$$$$$#$#$$;            ";
-    npc.vecBuffer[7] =  "           *######$#$##$$###$$$$#$$$$$            ";
-    npc.vecBuffer[8] =  "           =###########$$##$$$#$$$#$$$*           ";
-    npc.vecBuffer[9] =  "          .$#########$$$$#$$$$$=$$=$$$$           ";
-    npc.vecBuffer[10] =  "          .$######$$$==$$$$$$==$$===#=$           ";
-    npc.vecBuffer[11] =  "           #@##@##$==*$#$$$=====$$#$$=$           ";
-    npc.vecBuffer[12] =  "           $######=!!!==#=##$#######$$*           ";
-    npc.vecBuffer[13] =  "           *#####$=*!!!;=*!#$########$;           ";
-    npc.vecBuffer[14] =  "           .$$#$=!;;;!:-,:-;=$$=#$##$=            ";
-    npc.vecBuffer[15] =  "            =##=~,....,.  .,,,..~!*##:            ";
-    npc.vecBuffer[16] =  "           .,$$~,,,!$...        ..-$=.            ";
-    npc.vecBuffer[17] =  "           ..-$-,,--!,,.    ,=~-. .=,..           ";
-    npc.vecBuffer[18] =  "             .=,...    .          .*              ";
-    npc.vecBuffer[19] =  "           . .:,.                 .:              ";
-    npc.vecBuffer[20] =  "             .~,.                 .-              ";
-    npc.vecBuffer[21] =  "            ..~,.      .          ..              ";
-    npc.vecBuffer[22] =  "              ,-..    ..          -               ";
-    npc.vecBuffer[23] =  "              .~,.    .           ~               ";
-    npc.vecBuffer[24] =  "               .,..   .-,.,      .,               ";
-    npc.vecBuffer[25] =  "                ,,.              .                ";
-    npc.vecBuffer[26] =  "                ,,..             .                ";
-    npc.vecBuffer[27] =  "                ,,.......  ..    .                ";
-    npc.vecBuffer[28] =  "                 ,,..,,,.....   .                 ";
-    npc.vecBuffer[29] =  "                 ,,.....        .                 ";
-    npc.vecBuffer[30] =  "                  ,....        .                  ";
-    npc.vecBuffer[31] =  "                  ,,..        ..                  ";
-    npc.vecBuffer[32] =  "                  ,,,..      ...                  ";
-    npc.vecBuffer[33] =  "                  ,,,,,.......                    ";
-    npc.vecBuffer[34] =  "                  ...,,---,,.                     ";
-    npc.vecBuffer[35] =  "                  ....,,,,..    .                 ";
-    npc.vecBuffer[36] =  "                 .........                        ";
-    npc.vecBuffer[37] =  "                 .......                          ";
-    npc.vecBuffer[38] =  "                 ,..  .          .                ";
-    npc.vecBuffer[39] =  "              .*,....              =:             ";
-    npc.vecBuffer[40] =  "             *#,....               *##=           ";
-    npc.vecBuffer[41] =  "           ,$##-....               #####*-        ";
-    npc.vecBuffer[42] =  "         -*#####...               ;#######*,      ";
-    npc.vecBuffer[43] =  "       -######@#~..              ,##########=,    ";
-    npc.vecBuffer[44] =  "     -###########-              ,#############$   ";
-    npc.vecBuffer[45] =  "   .=############$~            :################= ";
-    npc.vecBuffer[46] =  "  ;################!-        ;=###################";
-    npc.vecBuffer[47] =  ":#####################*:~~;#######################";
-    npc.vecBuffer[48] =  "####################@#############################";
-    npc.vecBuffer[49] =  "##################################################";
-    npc.vecBuffer[50] =  "##################################################";
-    npc.vecBuffer[51] =  "##################################################";
-    npc.vecBuffer[52] =  "##################################################";
-    npc.vecBuffer[53] =  "##############################################@###";
-    npc.vecBuffer[54] =  "##################################################";
-    npc.vecBuffer[55] =  "###############################################@##";
-    npc.vecBuffer[56] =  "###############################################@##";
-    npc.vecBuffer[57] =  "##################################################";
-    npc.vecBuffer[58] =  "##################################################";
-    npc.vecBuffer[59] =  "##################################################";
-    vecNPC.push_back(npc);
-
-}
-
 
 void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
@@ -186,6 +114,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.vecSmallImage.push_back("hjwkMG$Oex*~.           -");
     npc.vecSmallImage.push_back("r<!:,__-.```             ");// 위엣것 참조.
     
+    // 인트로 메시지
     npc.strContents1 =
         "앗!...\n"
         "아...\n"
@@ -201,10 +130,98 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
         "BoB.. 센터..?\n"
         "???\n"
         ;
+    
+    // 전직했을 때 보여줄 메시지
+    npc.strContents2 = 
+        "[성장] 했구나\n"
+        "후후...\n"
+        ;	
+
+    // 2단계 프로젝트를 마친 후 보여줄 메시지
+    npc.strContents3 =
+        "오호..\n"
+        "프로젝트를 성공적으로 마쳤구나!!\n"
+        "수고 많았어!!\n"
+        "그동안 많은걸 배웠을거라고 생각해\n"
+        "수료까지 다시 화이팅해보자!!\n"
+        ;	
+
+    // 수료 후 보여줄 메시지
+    npc.strContents4 =
+        "5252!!\n"
+        "진짜로 수료한거냐구!!\n"
+        "박수!!\n"
+        "아주 훌륭해\n"
+        "수고 많았다!!\n"
+        "이제 시작이니까 그 초심 잃지말고!!\n"
+        ;	
 
     vecNPC.push_back(npc);
 }
 
-void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest)
+
+void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 {
+    {
+        ST_QUEST_OBJECT stObject;
+        stObject.nQuestObjectId = 267;
+        stObject.strName = "얼룩진 마우스패드";
+        stObject.cPatch = 0;	// 화면에 보이지도 않고 만져지지도 않게 하려면 0을 넣으면 됨
+        stObject.x = 3;
+        stObject.y = 13;
+        stObject.z = 3;
+        stObject.reserved = 0;
+        vecQuestObject.push_back(stObject);
+    }
+}
+
+
+
+void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
+{
+    // npc 이권희
+    {
+        ST_QUEST_DATA stQuest;
+        stQuest.nNpcId = 137;
+        stQuest.StartCondition = ST_FILTER(137, 0x0000, 0x0001);
+        stQuest.vecMessages.push_back("아아..");
+        stQuest.vecMessages.push_back("아까 급하게 나오다가 말야");
+        stQuest.vecMessages.push_back("마우스패드를 놓고왔지 뭐야");
+        stQuest.vecMessages.push_back("어디였지.. 3층이었나..?");
+        stQuest.vecMessages.push_back("아 미안한데 그 마우스패드좀 가져와줄 수 있니??");
+        stQuest.ClearCondition = ST_FILTER(137, 0x0003);
+        vecQuest.push_back(stQuest);
+    }
+
+    // 얼룩진 마우스패드
+    {
+        ST_QUEST_DATA stQuest;
+        stQuest.nNpcId = 267;
+        stQuest.StartCondition = ST_FILTER(137, 0x0001, 0x0003);
+        stQuest.vecMessages.push_back("음 마우스패드가 이건가");
+        stQuest.vecMessages.push_back("마르지도 않은 커피얼룩이 있네");
+        stQuest.vecMessages.push_back("근데 왜 내가 이 심부름을 하고 있지..?");
+        stQuest.vecMessages.push_back(".....");
+        stQuest.vecMessages.push_back("모르겠고! 일단 가져다주자");
+        stQuest.ClearCondition = ST_FILTER(137, 0x0007);
+        vecQuest.push_back(stQuest);
+    }
+
+    // npc 이권희
+    {
+        ST_QUEST_DATA stQuest;
+        stQuest.nNpcId = 137;
+        stQuest.StartCondition = ST_FILTER(137, 0x0003, 0x0007);
+        stQuest.vecMessages.push_back("오오..!");
+        stQuest.vecMessages.push_back("정말 가져와줬네!");
+        stQuest.vecMessages.push_back("고마워 ^^");
+        stQuest.vecMessages.push_back("너 정말 착한 아이구나!");
+        stQuest.vecMessages.push_back("아 ..! 막차 곧 오겠다");
+        stQuest.vecMessages.push_back("그 나중에라도 도울 거 있으ㅁ...");
+        stQuest.vecMessages.push_back("(황급히 달려간다)");
+        stQuest.vecMessages.push_back("...?");
+        stQuest.ClearCondition = ST_FILTER(137, 0x000F);
+        vecQuest.push_back(stQuest);
+    }
+
 }
