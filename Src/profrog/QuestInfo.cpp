@@ -29,71 +29,11 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 		npc.nAge = 40;
 		npc.strMBTI = "ENFJ이고 B형이에요";
 		npc.cPatch = 'J';
-		npc.strMessage = "게임 보안을 해보고 싶다면 날 찾아와.\n근데 C++이 어렵다고?\n뭘 잘 모르는구만.\n누구든 21일이면 마스터 할 수 있지.\n일단은 물리학과 생물학을 먼저 배워보자꾸나.";
+		npc.strMessage = 
+			"게임 보안을 해보고 싶다면 날 찾아와.\n근데 C++이 어렵다고?\n뭘 잘 모르는구만.\n누구든 21일이면 마스터 할 수 있지.\n일단은 물리학과 생물학을 먼저 배워보자꾸나.";
 
 		npc.strContents1 = "";
 
-		// 25x25
-		npc.vecBuffer.push_back("                   .~:;;!!;:~.                    ");
-		npc.vecBuffer.push_back("                .~*==$$$$$$$$*!;~-.               ");
-		npc.vecBuffer.push_back("               ~=$$$$$$#$#$$$$$$==*~              ");
-		npc.vecBuffer.push_back("             ,!$$$$##########$$$$$$$!.            ");
-		npc.vecBuffer.push_back("            -*$$$#################$$$=,           ");
-		npc.vecBuffer.push_back("           -==$$$$$$###############$$$$~          ");
-		npc.vecBuffer.push_back("          ,*==$$$$$$#################$$=-         ");
-		npc.vecBuffer.push_back("          !=$$$$$$$$$$$$#$############$$$,        ");
-		npc.vecBuffer.push_back("         ~$$$$$$$$$$$$$$$======$#######$$!        ");
-		npc.vecBuffer.push_back("        .=$$$$$$$$=******!!!:!*=$$$$##$$$=,       ");
-		npc.vecBuffer.push_back("        :$$$$$$$*!:~::~~~~~--~:;*==$$$$$$$;       ");
-		npc.vecBuffer.push_back("        *$###$*;~,......,,...,--:;!=$$###$*       ");
-		npc.vecBuffer.push_back("       .=###$!~,.       ......,,-~~:*$$$$$=.      ");
-		npc.vecBuffer.push_back("       -$#$$!-.              ...,,--:=$$$$$,      ");
-		npc.vecBuffer.push_back("       ~$#$=:,.              .....,,-!$$$$$,      ");
-		npc.vecBuffer.push_back("       ~$#$=~..               .....,,~=$$$$,      ");
-		npc.vecBuffer.push_back("       ~$$$=-..               .....,,-!$#$$,      ");
-		npc.vecBuffer.push_back("       ~$#$!.....             ...,,,,,~=##=.      ");
-		npc.vecBuffer.push_back("       -$#$:...--,,,.       ...,-~-,,,,!##*       ");
-		npc.vecBuffer.push_back("       .$#=,..-,-~:~:-.   .,~:::~~~-,,,:$#;       ");
-		npc.vecBuffer.push_back("        !#!,.,,....,~~-...,-~~~------,,~$$~       ");
-		npc.vecBuffer.push_back("        ~#;.....,,,,,--,..---,,,--,,,,,:$=.       ");
-		npc.vecBuffer.push_back("        .$;,,..,-~~--~~. .,~~~----,,,-,:$;        ");
-		npc.vecBuffer.push_back("         ~:;:,-:;*=;-,-;--;~-~!=*;~--:::!-        ");
-		npc.vecBuffer.push_back("         ,;;:---,~:~~,,-.,:--::!::;~::;:~.        ");
-		npc.vecBuffer.push_back("        .,~~~-,,,---,.~~ .:~,------~~~-~--.       ");
-		npc.vecBuffer.push_back("        ~--,..,...,...,, .,,,.,,,,,,,,,-,-.       ");
-		npc.vecBuffer.push_back("        -,-...........,   .,..........,-.,        ");
-		npc.vecBuffer.push_back("        ..,.     ......   .............-,,        ");
-		npc.vecBuffer.push_back("         .,..        .    ...      ....-,.        ");
-		npc.vecBuffer.push_back("         .-..        ..   .,,.     ....,.         ");
-		npc.vecBuffer.push_back("          ,,..      ..    ..,,.   ....,,,         ");
-		npc.vecBuffer.push_back("         .,,,..    .,.,-,,-,,,.......,,,.         ");
-		npc.vecBuffer.push_back("          ,,,...   ..,;!:~;:,,.......,,,          ");
-		npc.vecBuffer.push_back("          .,,,...    .-,,,,-,.....,,,,,.          ");
-		npc.vecBuffer.push_back("           ,,,...    .....,,,,...,,,,,,           ");
-		npc.vecBuffer.push_back("            -,,........ ...,,,,,,,,,,,.           ");
-		npc.vecBuffer.push_back("            -,,....,,..,..,,,--,,,,,,,.           ");
-		npc.vecBuffer.push_back("            ,,,,.,,,--~~~~~:~~-,,,,,,,            ");
-		npc.vecBuffer.push_back("            ,-,,,,---,....,,-~--,,,,,-            ");
-		npc.vecBuffer.push_back("            .-,,,,,.... ...,,,,,,,,,-,            ");
-		npc.vecBuffer.push_back("             --,,,,..,-~~~~,,.,,,,,--             ");
-		npc.vecBuffer.push_back("             .~-,,,,,..,--,,,,,,,,,-,             ");
-		npc.vecBuffer.push_back("              ,--,,,,,..,,,,,,,,,,-~~             ");
-		npc.vecBuffer.push_back("               ~-,,........,,,,,,-~~!,            ");
-		npc.vecBuffer.push_back("              :~~~,,..,,,,,,,,,--~~-:*.           ");
-		npc.vecBuffer.push_back("             :=-~:~-,,,--------~~~---#:           ");
-		npc.vecBuffer.push_back("            ~$*,-~;:~~~~~~~~~~::~---,=$~          ");
-		npc.vecBuffer.push_back("           -$#!,--~;;!!!!;;;;;::~-,,,*$=.         ");
-		npc.vecBuffer.push_back("          ,=##;.---~:;!***!;:~~--,-,,!#$*.        ");
-		npc.vecBuffer.push_back("       -;=$$##;.,---~~:;;;:-----,-,..!###=;.      ");
-		npc.vecBuffer.push_back("    .:*$$$####!..,--~~~~~~-,------..,*####$=;,    ");
-		npc.vecBuffer.push_back("  -;$$$$######*...---~~~--,------,..,=######$$*:, ");
-		npc.vecBuffer.push_back(";*$$$##$######$,...,---~~~-----~,...,#########$$$=");
-		npc.vecBuffer.push_back("$$$$##$$#######:....,--~~~~--~-,....-#############");
-		npc.vecBuffer.push_back("$$$$##$$#######*.  ..,---~---~,.....:#############");
-		npc.vecBuffer.push_back("$$$############$-    ..,-----.......!#############");
-		npc.vecBuffer.push_back("$$$#############:      .,--,.......,=#############");
-		npc.vecBuffer.push_back("$###############*.      ,~..    ...-$#############");
-		npc.vecBuffer.push_back("$###############$-.    .:!~.   ....;##############");
 		vecNPC.push_back(npc);
 	}
 
@@ -112,7 +52,94 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 			"게임 개발 지긋지긋해..\n"
 			"두번 다시 안할거야.";
 
-		npc.strContents1 = 
+		npc.vecBigImage.push_back("                   .~:;;!!;:~.                    ");
+		npc.vecBigImage.push_back("                .~*==$$$$$$$$*!;~-.               ");
+		npc.vecBigImage.push_back("               ~=$$$$$$#$#$$$$$$==*~              ");
+		npc.vecBigImage.push_back("             ,!$$$$##########$$$$$$$!.            ");
+		npc.vecBigImage.push_back("            -*$$$#################$$$=,           ");
+		npc.vecBigImage.push_back("           -==$$$$$$###############$$$$~          ");
+		npc.vecBigImage.push_back("          ,*==$$$$$$#################$$=-         ");
+		npc.vecBigImage.push_back("          !=$$$$$$$$$$$$#$############$$$,        ");
+		npc.vecBigImage.push_back("         ~$$$$$$$$$$$$$$$======$#######$$!        ");
+		npc.vecBigImage.push_back("        .=$$$$$$$$=******!!!:!*=$$$$##$$$=,       ");
+		npc.vecBigImage.push_back("        :$$$$$$$*!:~::~~~~~--~:;*==$$$$$$$;       ");
+		npc.vecBigImage.push_back("        *$###$*;~,......,,...,--:;!=$$###$*       ");
+		npc.vecBigImage.push_back("       .=###$!~,.       ......,,-~~:*$$$$$=.      ");
+		npc.vecBigImage.push_back("       -$#$$!-.              ...,,--:=$$$$$,      ");
+		npc.vecBigImage.push_back("       ~$#$=:,.              .....,,-!$$$$$,      ");
+		npc.vecBigImage.push_back("       ~$#$=~..               .....,,~=$$$$,      ");
+		npc.vecBigImage.push_back("       ~$$$=-..               .....,,-!$#$$,      ");
+		npc.vecBigImage.push_back("       ~$#$!.....             ...,,,,,~=##=.      ");
+		npc.vecBigImage.push_back("       -$#$:...--,,,.       ...,-~-,,,,!##*       ");
+		npc.vecBigImage.push_back("       .$#=,..-,-~:~:-.   .,~:::~~~-,,,:$#;       ");
+		npc.vecBigImage.push_back("        !#!,.,,....,~~-...,-~~~------,,~$$~       ");
+		npc.vecBigImage.push_back("        ~#;.....,,,,,--,..---,,,--,,,,,:$=.       ");
+		npc.vecBigImage.push_back("        .$;,,..,-~~--~~. .,~~~----,,,-,:$;        ");
+		npc.vecBigImage.push_back("         ~:;:,-:;*=;-,-;--;~-~!=*;~--:::!-        ");
+		npc.vecBigImage.push_back("         ,;;:---,~:~~,,-.,:--::!::;~::;:~.        ");
+		npc.vecBigImage.push_back("        .,~~~-,,,---,.~~ .:~,------~~~-~--.       ");
+		npc.vecBigImage.push_back("        ~--,..,...,...,, .,,,.,,,,,,,,,-,-.       ");
+		npc.vecBigImage.push_back("        -,-...........,   .,..........,-.,        ");
+		npc.vecBigImage.push_back("        ..,.     ......   .............-,,        ");
+		npc.vecBigImage.push_back("         .,..        .    ...      ....-,.        ");
+		npc.vecBigImage.push_back("         .-..        ..   .,,.     ....,.         ");
+		npc.vecBigImage.push_back("          ,,..      ..    ..,,.   ....,,,         ");
+		npc.vecBigImage.push_back("         .,,,..    .,.,-,,-,,,.......,,,.         ");
+		npc.vecBigImage.push_back("          ,,,...   ..,;!:~;:,,.......,,,          ");
+		npc.vecBigImage.push_back("          .,,,...    .-,,,,-,.....,,,,,.          ");
+		npc.vecBigImage.push_back("           ,,,...    .....,,,,...,,,,,,           ");
+		npc.vecBigImage.push_back("            -,,........ ...,,,,,,,,,,,.           ");
+		npc.vecBigImage.push_back("            -,,....,,..,..,,,--,,,,,,,.           ");
+		npc.vecBigImage.push_back("            ,,,,.,,,--~~~~~:~~-,,,,,,,            ");
+		npc.vecBigImage.push_back("            ,-,,,,---,....,,-~--,,,,,-            ");
+		npc.vecBigImage.push_back("            .-,,,,,.... ...,,,,,,,,,-,            ");
+		npc.vecBigImage.push_back("             --,,,,..,-~~~~,,.,,,,,--             ");
+		npc.vecBigImage.push_back("             .~-,,,,,..,--,,,,,,,,,-,             ");
+		npc.vecBigImage.push_back("              ,--,,,,,..,,,,,,,,,,-~~             ");
+		npc.vecBigImage.push_back("               ~-,,........,,,,,,-~~!,            ");
+		npc.vecBigImage.push_back("              :~~~,,..,,,,,,,,,--~~-:*.           ");
+		npc.vecBigImage.push_back("             :=-~:~-,,,--------~~~---#:           ");
+		npc.vecBigImage.push_back("            ~$*,-~;:~~~~~~~~~~::~---,=$~          ");
+		npc.vecBigImage.push_back("           -$#!,--~;;!!!!;;;;;::~-,,,*$=.         ");
+		npc.vecBigImage.push_back("          ,=##;.---~:;!***!;:~~--,-,,!#$*.        ");
+		npc.vecBigImage.push_back("       -;=$$##;.,---~~:;;;:-----,-,..!###=;.      ");
+		npc.vecBigImage.push_back("    .:*$$$####!..,--~~~~~~-,------..,*####$=;,    ");
+		npc.vecBigImage.push_back("  -;$$$$######*...---~~~--,------,..,=######$$*:, ");
+		npc.vecBigImage.push_back(";*$$$##$######$,...,---~~~-----~,...,#########$$$=");
+		npc.vecBigImage.push_back("$$$$##$$#######:....,--~~~~--~-,....-#############");
+		npc.vecBigImage.push_back("$$$$##$$#######*.  ..,---~---~,.....:#############");
+		npc.vecBigImage.push_back("$$$############$-    ..,-----.......!#############");
+		npc.vecBigImage.push_back("$$$#############:      .,--,.......,=#############");
+		npc.vecBigImage.push_back("$###############*.      ,~..    ...-$#############");
+		npc.vecBigImage.push_back("$###############$-.    .:!~.   ....;##############");
+
+		npc.vecSmallImage.push_back("      ,..            ");
+		npc.vecSmallImage.push_back("    ..,...           ");
+		npc.vecSmallImage.push_back("  ,..,,.,.   .       ");
+		npc.vecSmallImage.push_back("  -.,..... . .       ");
+		npc.vecSmallImage.push_back(" ,~.,,,,,,.,  .      ");
+		npc.vecSmallImage.push_back(" .-.#*-.,.-#- .      ");
+		npc.vecSmallImage.push_back(" .-,--,... -         ");
+		npc.vecSmallImage.push_back(" .-...,=$-.          ");
+		npc.vecSmallImage.push_back("  .....$$=.  .       ");
+		npc.vecSmallImage.push_back("   ,...,!..          ");
+		npc.vecSmallImage.push_back("   .....:..   .      ");
+		npc.vecSmallImage.push_back("   ...... .          ");
+		npc.vecSmallImage.push_back("   ....  .....       ");
+		npc.vecSmallImage.push_back("   .....,  . .       ");
+		npc.vecSmallImage.push_back("   ..... .  ...      ");
+		npc.vecSmallImage.push_back("   ....  ....    .   ");
+		npc.vecSmallImage.push_back("   ...,  .....  .    ");
+		npc.vecSmallImage.push_back("   ..,.. . .,.  ..   ");
+		npc.vecSmallImage.push_back("   .,.-,..,,..  ..   ");
+		npc.vecSmallImage.push_back("   ...,.,,. ..  ,.   ");
+		npc.vecSmallImage.push_back("   ,...-,,  ..  ..   ");
+		npc.vecSmallImage.push_back("   ,,-,,..  ..  ...  ");
+		npc.vecSmallImage.push_back("   ..,.-.   ..  -,,  ");
+		npc.vecSmallImage.push_back("  ,-,,,.   ,...      ");
+		npc.vecSmallImage.push_back("  -....   .,..,      ");
+
+		npc.strContents1 =
 			"으윽...\n"
 			"아이고.. 아야...\n"
 			"...\n"
@@ -136,32 +163,6 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 			"여길 어떻게든 벗어나보자.\n"
 			;
 
-		// 25x25
-		npc.vecBuffer.push_back("      ,..            ");
-		npc.vecBuffer.push_back("    ..,...           ");
-		npc.vecBuffer.push_back("  ,..,,.,.   .       ");
-		npc.vecBuffer.push_back("  -.,..... . .       ");
-		npc.vecBuffer.push_back(" ,~.,,,,,,.,  .      ");
-		npc.vecBuffer.push_back(" .-.#*-.,.-#- .      ");
-		npc.vecBuffer.push_back(" .-,--,... -         ");
-		npc.vecBuffer.push_back(" .-...,=$-.          ");
-		npc.vecBuffer.push_back("  .....$$=.  .       ");
-		npc.vecBuffer.push_back("   ,...,!..          ");
-		npc.vecBuffer.push_back("   .....:..   .      ");
-		npc.vecBuffer.push_back("   ...... .          ");
-		npc.vecBuffer.push_back("   ....  .....       ");
-		npc.vecBuffer.push_back("   .....,  . .       ");
-		npc.vecBuffer.push_back("   ..... .  ...      ");
-		npc.vecBuffer.push_back("   ....  ....    .   ");
-		npc.vecBuffer.push_back("   ...,  .....  .    ");
-		npc.vecBuffer.push_back("   ..,.. . .,.  ..   ");
-		npc.vecBuffer.push_back("   .,.-,..,,..  ..   ");
-		npc.vecBuffer.push_back("   ...,.,,. ..  ,.   ");
-		npc.vecBuffer.push_back("   ,...-,,  ..  ..   ");
-		npc.vecBuffer.push_back("   ,,-,,..  ..  ...  ");
-		npc.vecBuffer.push_back("   ..,.-.   ..  -,,  ");
-		npc.vecBuffer.push_back("  ,-,,,.   ,...      ");
-		npc.vecBuffer.push_back("  -....   .,..,      ");
 		vecNPC.push_back(npc);
 	}
 }

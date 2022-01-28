@@ -78,7 +78,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 	npc.strMBTI = "ENTP이고 O형입니다";
 	npc.cPatch = 'P';
 	npc.strMessage = "팀원 및 멘토님들과 좋은 추억 쌓으려고 노력하면, 길면 길고 짧으면 짧은 프로젝트를 잘 마무리 할 수 있을거에요.";
-	npc.vecBuffer;
+	npc.vecSmallImage;
 	vecNPC.push_back(npc);
 }
 

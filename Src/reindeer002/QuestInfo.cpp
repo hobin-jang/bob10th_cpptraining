@@ -96,7 +96,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.strMBTI = "내 MBTI가... 뭐드라?";
     npc.cPatch = 'S';
     npc.strMessage = "멘토님... 이제 끝인겁니까? (절레절레) 저 앞에 어둠만이 가득하군요...";
-    npc.vecBuffer;	// 위엣것 참조.
+    npc.vecSmallImage;	// 위엣것 참조.
     vecNPC.push_back(npc);
 }
 

@@ -98,32 +98,32 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.strMBTI = "INTJ.. MBTI는.. 유사과학이니 조심해!";
     npc.cPatch = 'V';
     npc.strMessage = "오늘은 즐거운 월요일이야! 너도 신나지??";
-    npc.vecBuffer.resize(25);
-    npc.vecBuffer[0] = "#####@@@@@@@@#@@@########";
-    npc.vecBuffer[1] = "#####@@@@#@@@#@@@########";
-    npc.vecBuffer[2] = "####g######@##@##QQBQQ6QB";
-    npc.vecBuffer[3] = "###QH@@######BB$MehZMdMgQ";
-    npc.vecBuffer[4] = "##BBI8#########QQdM8OwBBQ";
-    npc.vecBuffer[5] = "BBQBEkD########QgWzmKB##8";
-    npc.vecBuffer[6] = "BQ$Q$PVyHOQQ80dqKVTOdQ##$";
-    npc.vecBuffer[7] = "Qg$0KY!:Y}}}Lxr\vr}XT3#BR";
-    npc.vecBuffer[8] = "QDRDM,  _v)?<   :!~r*VBzr";
-    npc.vecBuffer[9] = "Q9O9V =r-yxT`  ` !'<>yBzv";
-    npc.vecBuffer[10] = "gRdO( zy:ZM)  ;T :_~~mj=?";
-    npc.vecBuffer[11] = "0EOZ) O*|MM;  XH !_==Z^!r";
-    npc.vecBuffer[12] = "EEM5o` _Pkk!  y)':-==y!!^";
-    npc.vecBuffer[13] = "OOGGGakZGDl*    *_-!!^!!=";
-    npc.vecBuffer[14] = "ddPIxk3gdQQ)<-:r<-.:!>!!L";
-    npc.vecBuffer[15] = "ZZG(^(TuqDRx^=!::-.::~!xo";
-    npc.vecBuffer[16] = "MGHr;~adL\|r**!!!-':!iuuc";
-    npc.vecBuffer[17] = "G3Ks)~YUixvvr!,,_``_*vTVc";
-    npc.vecBuffer[18] = "PKhoUl*cxvx<:,_.```.,=rxV";
-    npc.vecBuffer[19] = "amhjyoiv}(^?^=_`     `,*x";
-    npc.vecBuffer[20] = "KsIzwddurrxvr_`       `,|";
-    npc.vecBuffer[21] = "mUXzmOQQMYvr:`         `~";
-    npc.vecBuffer[22] = "mUIzbdQQWxr^-           ,";
-    npc.vecBuffer[23] = "hjwkMG$Oex*~.           -";
-    npc.vecBuffer[24] = "r<!:,__-.```             ";// 위엣것 참조.
+    npc.vecSmallImage.resize(25);
+    npc.vecSmallImage[0] = "#####@@@@@@@@#@@@########";
+    npc.vecSmallImage[1] = "#####@@@@#@@@#@@@########";
+    npc.vecSmallImage[2] = "####g######@##@##QQBQQ6QB";
+    npc.vecSmallImage[3] = "###QH@@######BB$MehZMdMgQ";
+    npc.vecSmallImage[4] = "##BBI8#########QQdM8OwBBQ";
+    npc.vecSmallImage[5] = "BBQBEkD########QgWzmKB##8";
+    npc.vecSmallImage[6] = "BQ$Q$PVyHOQQ80dqKVTOdQ##$";
+    npc.vecSmallImage[7] = "Qg$0KY!:Y}}}Lxr\vr}XT3#BR";
+    npc.vecSmallImage[8] = "QDRDM,  _v)?<   :!~r*VBzr";
+    npc.vecSmallImage[9] = "Q9O9V =r-yxT`  ` !'<>yBzv";
+    npc.vecSmallImage[10] = "gRdO( zy:ZM)  ;T :_~~mj=?";
+    npc.vecSmallImage[11] = "0EOZ) O*|MM;  XH !_==Z^!r";
+    npc.vecSmallImage[12] = "EEM5o` _Pkk!  y)':-==y!!^";
+    npc.vecSmallImage[13] = "OOGGGakZGDl*    *_-!!^!!=";
+    npc.vecSmallImage[14] = "ddPIxk3gdQQ)<-:r<-.:!>!!L";
+    npc.vecSmallImage[15] = "ZZG(^(TuqDRx^=!::-.::~!xo";
+    npc.vecSmallImage[16] = "MGHr;~adL\|r**!!!-':!iuuc";
+    npc.vecSmallImage[17] = "G3Ks)~YUixvvr!,,_``_*vTVc";
+    npc.vecSmallImage[18] = "PKhoUl*cxvx<:,_.```.,=rxV";
+    npc.vecSmallImage[19] = "amhjyoiv}(^?^=_`     `,*x";
+    npc.vecSmallImage[20] = "KsIzwddurrxvr_`       `,|";
+    npc.vecSmallImage[21] = "mUXzmOQQMYvr:`         `~";
+    npc.vecSmallImage[22] = "mUIzbdQQWxr^-           ,";
+    npc.vecSmallImage[23] = "hjwkMG$Oex*~.           -";
+    npc.vecSmallImage[24] = "r<!:,__-.```             ";// 위엣것 참조.
     vecNPC.push_back(npc);
 }
 

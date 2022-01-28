@@ -72,7 +72,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 	npc.strMBTI = "7r 즈 아";
 	npc.cPatch = 'B';
 	npc.strMessage = "휴핚 없ㅇ1 7r능";
-	npc.vecBuffer;	// 위엣것 참조.
+	npc.vecSmallImage;	// 위엣것 참조.
 	vecNPC.push_back(npc);
 }
 

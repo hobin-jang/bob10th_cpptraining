@@ -92,7 +92,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.strMBTI = "제 MBTI는 BABY 입니다. 응애~~";
     npc.cPatch = 'L';
     npc.strMessage = "응애~~응애~~";
-    npc.vecBuffer;
+    npc.vecSmallImage;
     vecNPC.push_back(npc);
 }
 

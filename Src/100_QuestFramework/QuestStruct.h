@@ -131,7 +131,8 @@ struct ST_QUEST_NPC_DATA : public ST_POINT3
 	std::string strMBTI;
 	char cPatch;
 	std::string strMessage;
-	std::vector<std::string> vecBuffer;		// 25x25
+	std::vector<std::string> vecBigImage;		// 50x50
+	std::vector<std::string> vecSmallImage;		// 25x25
 
 	std::string strContents1;	// 인트로 메시지
 	std::string strContents2;	// 전직했을 때 보여줄 메시지

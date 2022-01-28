@@ -107,41 +107,41 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.strMBTI = "ESFP이고 B형이에요";
     npc.cPatch = 'C';
     npc.strMessage = "Segmentation fault. (Core dumped)";
-    npc.vecBuffer;	// 위엣것 참조.
+    npc.vecSmallImage;	// 위엣것 참조.
 
 
 
 
-    npc.vecBuffer.resize(25);
+    npc.vecSmallImage.resize(25);
 
     
 
                     
-npc.vecBuffer [0] = "        ,           ";
-npc.vecBuffer [1] = "      ;=$$##=.      ";
-npc.vecBuffer [2] = "    .*$$#@###$$,    ";
-npc.vecBuffer [3] = "    !$==$######=.   ";
-npc.vecBuffer [4] = "    $==$=$$$$=$*!   ";
-npc.vecBuffer [5] = "   :==*=*$**===$=   ";
-npc.vecBuffer [6] = "   .$$=***=;=##==   ";
-npc.vecBuffer [7] = "    #=!!::!==#$#,   ";
-npc.vecBuffer [8] = "    =~~~---~--~$    ";
-npc.vecBuffer [9] = "    !---,,..--,!    ";
-npc.vecBuffer[10] = "    ~-...,.. .,,    ";
-npc.vecBuffer[11] = "    .~,..!-...-     ";
-npc.vecBuffer[12] = "     ~-,,,,,,-~     ";
-npc.vecBuffer[13] = "     .---,,,,-      ";
-npc.vecBuffer[14] = "      :~-,,,~       ";
-npc.vecBuffer[15] = "      :;~--~;       ";
-npc.vecBuffer[16] = "      :;;;;;:       ";
-npc.vecBuffer[17] = "    =:::;;;~--$     ";
-npc.vecBuffer[18] = " :$=!-~~::~---$**   ";
-npc.vecBuffer[19] = "$$###$-----,--$$$$$=";
-npc.vecBuffer[20] = "#####=#-,,,-##=##$$$";
-npc.vecBuffer[21] = "#$$#$#$$###$=#$####$";
-npc.vecBuffer[22] = "#$$$###$##$#$#$#####";
-npc.vecBuffer[23] = "$#####$####$#$$###$#";
-npc.vecBuffer[24] = "$$$$##$#####$######$";
+npc.vecSmallImage [0] = "        ,           ";
+npc.vecSmallImage [1] = "      ;=$$##=.      ";
+npc.vecSmallImage [2] = "    .*$$#@###$$,    ";
+npc.vecSmallImage [3] = "    !$==$######=.   ";
+npc.vecSmallImage [4] = "    $==$=$$$$=$*!   ";
+npc.vecSmallImage [5] = "   :==*=*$**===$=   ";
+npc.vecSmallImage [6] = "   .$$=***=;=##==   ";
+npc.vecSmallImage [7] = "    #=!!::!==#$#,   ";
+npc.vecSmallImage [8] = "    =~~~---~--~$    ";
+npc.vecSmallImage [9] = "    !---,,..--,!    ";
+npc.vecSmallImage[10] = "    ~-...,.. .,,    ";
+npc.vecSmallImage[11] = "    .~,..!-...-     ";
+npc.vecSmallImage[12] = "     ~-,,,,,,-~     ";
+npc.vecSmallImage[13] = "     .---,,,,-      ";
+npc.vecSmallImage[14] = "      :~-,,,~       ";
+npc.vecSmallImage[15] = "      :;~--~;       ";
+npc.vecSmallImage[16] = "      :;;;;;:       ";
+npc.vecSmallImage[17] = "    =:::;;;~--$     ";
+npc.vecSmallImage[18] = " :$=!-~~::~---$**   ";
+npc.vecSmallImage[19] = "$$###$-----,--$$$$$=";
+npc.vecSmallImage[20] = "#####=#-,,,-##=##$$$";
+npc.vecSmallImage[21] = "#$$#$#$$###$=#$####$";
+npc.vecSmallImage[22] = "#$$$###$##$#$#$#####";
+npc.vecSmallImage[23] = "$#####$####$#$$###$#";
+npc.vecSmallImage[24] = "$$$$##$#####$######$";
 
 
 
