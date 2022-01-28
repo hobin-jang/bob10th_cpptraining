@@ -12,10 +12,6 @@ CQuestInfo::~CQuestInfo(void)
 {
 }
 
-void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
-{
-}
-
 void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
 	{
@@ -163,6 +159,9 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 			"여길 어떻게든 벗어나보자.\n"
 			;
 
+		npc.strContents2 = "작성중...";
+		npc.strContents3 = "작성중...";
+		npc.strContents4 = "작성중...";
 		vecNPC.push_back(npc);
 	}
 }
