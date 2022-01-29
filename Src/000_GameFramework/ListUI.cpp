@@ -9,6 +9,14 @@ CListUI::CListUI(void)
 {
 }
 
+void CListUI::Clear(void)
+{
+	m_vecItems.clear();
+	m_nScrollPos = 0;
+	m_nCursorIndex = 0;
+	m_nAlignCol = 1;
+}
+
 void CListUI::AddItem(std::string strValue)
 {
 	AddItem(unicode::WCSFromMBS(strValue));

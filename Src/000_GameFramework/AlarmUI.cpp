@@ -12,6 +12,11 @@ CAlarmUI::~CAlarmUI()
 {
 }
 
+void CAlarmUI::Clear(void)
+{
+	m_dwTimeOutTick = 0;
+}
+
 void CAlarmUI::Alarm(int x, int y, std::string strMsg, size_t tMaxLen, DWORD dwDuring)
 {
 	m_dwTimeOutTick = GetTickCount() + dwDuring;

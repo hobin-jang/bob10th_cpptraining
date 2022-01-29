@@ -7,11 +7,12 @@ class CListUI : public CUISuper
 	int m_nScrollPos;
 	int m_nCursorIndex;
 	int m_nAlignCol;
-	CDisplayBuffer m_vecItems;
+	std::vector<std::wstring> m_vecItems;
 
 public:
 	CListUI(void);
 
+	void Clear(void);
 	void AddItem(std::string strValue);
 	void AddItem(std::wstring strValue);
 	void SetItemAlign(int nColCount = -1);		// -1은 항목 길이에 따라 자동 조절

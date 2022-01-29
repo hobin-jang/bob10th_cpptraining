@@ -14,6 +14,7 @@ public:
 	CAlarmUI(void);
 	~CAlarmUI(void);
 
+	void Clear(void);
 	void Alarm(int x, int y, std::string strMsg, size_t tMaxLen, DWORD dwDuring = 1000);
 
 private:
