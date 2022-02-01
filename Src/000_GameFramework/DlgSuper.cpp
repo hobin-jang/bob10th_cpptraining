@@ -23,6 +23,15 @@ void CDlgSuper::Close(int nExitCode)
     m_nExitCode = nExitCode;
 }
 
+void CDlgSuper::OnCreate(void)
+{
+    __super::OnCreate();
+}
+
+void CDlgSuper::OnClose(void)
+{
+}
+
 void CDlgSuper::AddUI(CUISuper* pNewUI)
 {
     m_listUI.push_back(pNewUI);
@@ -70,6 +79,7 @@ int CDlgSuper::DoModal(CDlgSuper* pParent)
         dwLastUpdateTick = dwCurrentTick;
     }
 
+    OnClose();
     return m_nExitCode;
 }
 

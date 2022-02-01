@@ -26,6 +26,8 @@ protected:
 
 	virtual void Close(int nExitCode);
 
+	virtual void OnCreate(void);
+	virtual void OnClose(void);
 	virtual void OnInput(std::list<ST_KEYSTATE>& listKeyState);
 	virtual void OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick);
 	virtual void OnDrawWorld(CDisplayBuffer& vecBuffer);
