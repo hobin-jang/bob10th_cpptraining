@@ -209,7 +209,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 {
     ST_QUEST_OBJECT stObject;
-    stObject.nQuestObjectId = 256;
+    stObject.nQuestObjectId = 270;
     stObject.strName = "시계";
     stObject.cPatch = 67;	// 화면에 보이지도 않고 만져지지도 않게 하려면 0을 넣으면 됨
     stObject.x = 21;
@@ -235,7 +235,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 
     {
         ST_QUEST_DATA stQuest;
-        stQuest.nNpcId = 256;
+        stQuest.nNpcId = 270;
         stQuest.StartCondition = ST_FILTER(143, 0x0001, 0x0003);
         stQuest.vecMessages.push_back("째깍.. 째깍..");
         stQuest.vecMessages.push_back("(제 시간에 맞춰서 깨우지 못할 것 같다.)");
