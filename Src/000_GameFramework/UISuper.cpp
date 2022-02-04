@@ -101,13 +101,13 @@ void CUISuper::OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick)
 {
 	double dElapsedTime = dwElapsedTick * 0.001;
 	ST_VECTOR stPosDiff = m_TargetPos - m_Pos;
-	if (stPosDiff.y < 0.5)
+	if (std::abs(stPosDiff.y) < 0.5)
 		m_Pos = m_TargetPos;
 	else
 		m_Pos += stPosDiff * dElapsedTime * 3;
 
 	ST_VECTOR stSizeDiff = m_TargetSize - m_Size;
-	if (stSizeDiff.y < 0.5)
+	if (std::abs(stSizeDiff.y) < 0.5)
 		m_Size = m_TargetSize;
 	else
 		m_Size += stSizeDiff * dElapsedTime * 15;
