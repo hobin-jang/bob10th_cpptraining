@@ -49,8 +49,8 @@ int CDlgSuper::DoModal(CDlgSuper* pParent)
     static DWORD dwLastUpdateTick = GetTickCount();
     while (!m_bIsEndded)
     {
-        const DWORD dwCurrentTick = GetTickCount();
-        const DWORD dwElapsedTick = dwCurrentTick - dwLastUpdateTick;
+        const DWORD dwElapsedTick = 1000 / FPS;
+        const DWORD dwCurrentTick = dwLastUpdateTick + dwElapsedTick;
 
         std::list<ST_KEYSTATE> listKeyState;
         m_Input.Query(listKeyState);
@@ -74,8 +74,7 @@ int CDlgSuper::DoModal(CDlgSuper* pParent)
         m_Output.Render(vecDisplayBuffer);
 
         // 30 FPS∑Œ ∞Ì¡§
-        if (dwElapsedTick < 30)
-            Sleep(30 - dwElapsedTick);
+        Sleep(dwElapsedTick);
         dwLastUpdateTick = dwCurrentTick;
     }
 
@@ -89,6 +88,12 @@ void CDlgSuper::OnInput(std::list<ST_KEYSTATE>& listKeyState)
 
 void CDlgSuper::OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick)
 {
+    for (CUISuper* pUI : m_listUI)
+    {
+        if (!pUI->GetVisible())
+            continue;
+        pUI->OnUpdate(dwCurrentTick, dwElapsedTick);
+    }
 }
 
 void CDlgSuper::OnDrawWorld(CDisplayBuffer& vecBuffer)

@@ -79,6 +79,12 @@ struct ST_RECT
     short t;
     short r;
     short b;
+
+    ST_RECT(void)
+    {}
+    ST_RECT(const ST_POINT& pt, const ST_SIZE& sz)
+        : l(pt.x), t(pt.y), r(pt.x + sz.cx + 1), b(pt.y + sz.cy + 1)
+    {}
 };
 
 struct ST_POINT3

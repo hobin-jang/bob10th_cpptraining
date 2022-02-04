@@ -21,6 +21,8 @@ void TokenizeMessage(std::wstring strContext, std::vector<std::wstring>& outMess
 	}
 
 	// 만일 하나의 라인이 너무 길면 화면 길이에 맞추어 여러 줄로 자름
+	if (tMaxTextLen < 10)
+		tMaxTextLen = 10;
 	for (std::wstring strLine : vecLines)
 	{
 		for (size_t i = 0; i < strLine.size(); i += tMaxTextLen)
