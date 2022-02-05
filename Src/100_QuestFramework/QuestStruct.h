@@ -58,55 +58,6 @@ struct ST_NPC_INFO
 	{}
 };
 
-enum E_QUEST_SEQUENCE_TYPE
-{
-	QUEST_SEQUENCE_TYPE_MESSAGE_ONLY = 0,
-	QUEST_SEQUENCE_TYPE_CONDITION,
-	QUEST_SEQUENCE_TYPE_REWARD
-};
-struct ST_QUEST_SEQUENCE
-{
-	int nType;
-	ST_FILTER Filter;
-	unsigned short wRewardFlag;
-	std::string strMessage;
-	//ST_QUEST_SEQUENCE(void) {}
-
-protected:
-	ST_QUEST_SEQUENCE(E_QUEST_SEQUENCE_TYPE type, const char* pszMessage)
-		: nType(type)
-		, wRewardFlag(0)
-		, strMessage(pszMessage)
-	{
-	}
-};
-
-struct QUEST_SEQ_MESSAGE : public ST_QUEST_SEQUENCE
-{
-	QUEST_SEQ_MESSAGE(const char* pszMessage)
-		: ST_QUEST_SEQUENCE(QUEST_SEQUENCE_TYPE_MESSAGE_ONLY, pszMessage)
-	{}
-};
-
-struct QUEST_SEQ_REWARD : public ST_QUEST_SEQUENCE
-{
-	QUEST_SEQ_REWARD(const char* pszMessage, unsigned short wRewardFlag)
-		: ST_QUEST_SEQUENCE(QUEST_SEQUENCE_TYPE_REWARD, pszMessage)
-	{
-		wRewardFlag = wRewardFlag;
-	}
-};
-
-struct QUEST_SEQ_CONDITION : public ST_QUEST_SEQUENCE
-{
-	QUEST_SEQ_CONDITION(const char* pszMessage, ST_FILTER filter, unsigned short wRewardFlag)
-		: ST_QUEST_SEQUENCE(QUEST_SEQUENCE_TYPE_CONDITION, pszMessage)
-	{
-		wRewardFlag = wRewardFlag;
-		Filter = filter;
-	}
-};
-
 struct ST_QUEST_OBJECT : public ST_POINT3
 {
 	std::string strName;
