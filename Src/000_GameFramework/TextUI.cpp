@@ -36,15 +36,15 @@ size_t CTextUI::GetLineCount(void)
 	return m_listText.size();
 }
 
-void CTextUI::SetPos(int l, int t, int r, int b)
+void CTextUI::SetRect(int l, int t, int r, int b)
 {
-	__super::SetPos(l, t, r, b);
+	__super::SetRect(l, t, r, b);
 	m_tViewPos = 0;
 }
 
-void CTextUI::SetPos(ST_RECT rt)
+void CTextUI::SetRect(ST_RECT rt)
 {
-	__super::SetPos(rt);
+	__super::SetRect(rt);
 	m_tViewPos = 0;
 }
 

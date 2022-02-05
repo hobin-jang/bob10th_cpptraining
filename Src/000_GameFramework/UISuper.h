@@ -29,8 +29,8 @@ public:
 	virtual void Create(CDlgSuper* pParent, ST_RECT rt, DWORD dwAttribute = 0);
 	virtual void SetText(std::string strText);
 	virtual void SetText(std::wstring strText);
-	virtual void SetPos(int l, int t, int r, int b);
-	virtual void SetPos(ST_RECT rt);
+	virtual void SetRect(int l, int t, int r, int b);
+	virtual void SetRect(ST_RECT rt);
 	virtual void SetVisible(bool bVisible);
 	virtual bool GetVisible(void);
 

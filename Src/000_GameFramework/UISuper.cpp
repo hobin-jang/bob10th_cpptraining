@@ -18,7 +18,7 @@ void CUISuper::Create(CDlgSuper* pParent, int l, int t, int r, int b, DWORD dwAt
 	m_dwAttribute = dwAttribute;
 	if (m_pParent)
 		m_pParent->AddUI(this);
-	SetPos(l, t, r, b);
+	SetRect(l, t, r, b);
 	OnCreate();
 }
 
@@ -37,7 +37,7 @@ void CUISuper::SetText(std::wstring strText)
 	m_strText = strText;
 }
 
-void CUISuper::SetPos(int l, int t, int r, int b)
+void CUISuper::SetRect(int l, int t, int r, int b)
 {
 	m_TargetPos.x = l;
 	m_TargetPos.y = t;
@@ -45,9 +45,9 @@ void CUISuper::SetPos(int l, int t, int r, int b)
 	m_TargetSize.y = b - t - 1;
 }
 
-void CUISuper::SetPos(ST_RECT rt)
+void CUISuper::SetRect(ST_RECT rt)
 {
-	SetPos(rt.l, rt.t, rt.r, rt.b);
+	SetRect(rt.l, rt.t, rt.r, rt.b);
 }
 
 void CUISuper::SetVisible(bool bVisible)

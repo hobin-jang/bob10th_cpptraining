@@ -40,7 +40,7 @@ void CAlarmUI::Alarm(int x, int y, std::string strMsg, size_t tMaxLen, DWORD dwD
 	int nTop = y - ((int)m_TextUI.GetLineCount() + 2) + nVerticalOffset;
 	int nRight = nLeft + (int)tMaxTextLen + 2;
 	int nBottom = nTop + (int)m_TextUI.GetLineCount() + 1;
-	m_TextUI.SetPos(nLeft, nTop, nRight, nBottom);
+	m_TextUI.SetRect(nLeft, nTop, nRight, nBottom);
 }
 
 void CAlarmUI::OnCreate(void)
