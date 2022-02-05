@@ -120,14 +120,3 @@ enum E_GAME_OBJECT_DIR
     GAME_OBJECT_DIR_UP,
     GAME_OBJECT_DIR_DOWN,
 };
-
-struct ST_GAME_OBJECT
-{
-    short x;
-    short y;
-    short z;    // floor
-    char cDir;  // GAMEKEY_LEFT or RIGHT, UP, DOWN
-    char cPatch;
-
-    ST_POINT3 GetFrontPos(void);
-};
