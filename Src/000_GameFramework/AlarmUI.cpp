@@ -14,11 +14,13 @@ CAlarmUI::~CAlarmUI()
 
 void CAlarmUI::Clear(void)
 {
+	SetVisible(false);
 	m_dwTimeOutTick = 0;
 }
 
 void CAlarmUI::Alarm(int x, int y, std::string strMsg, size_t tMaxLen, DWORD dwDuring)
 {
+	SetVisible(true);
 	m_dwTimeOutTick = GetTickCount() + dwDuring;
 	m_vecMessage.clear();
 	TokenizeMessage(strMsg, m_vecMessage, tMaxLen);

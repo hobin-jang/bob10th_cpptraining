@@ -15,7 +15,8 @@ public:
 	void AddText(std::wstring strText);
 	size_t GetLineCount(void);
 
-	virtual void SetPos(int l, int t, int r, int b);
+	void SetPos(int l, int t, int r, int b);
+	void SetPos(ST_RECT rt);
 
 	void OnDraw(CDisplayBuffer& vecBuffer);
 };

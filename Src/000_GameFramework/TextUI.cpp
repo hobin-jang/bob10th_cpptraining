@@ -42,6 +42,12 @@ void CTextUI::SetPos(int l, int t, int r, int b)
 	m_tViewPos = 0;
 }
 
+void CTextUI::SetPos(ST_RECT rt)
+{
+	__super::SetPos(rt);
+	m_tViewPos = 0;
+}
+
 void CTextUI::OnDraw(CDisplayBuffer& vecBuffer)
 {
 	__super::OnDraw(vecBuffer);
