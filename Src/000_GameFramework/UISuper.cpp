@@ -3,8 +3,7 @@
 #include "DlgSuper.h"
 
 CUISuper::CUISuper(void)
-	: m_pParent(nullptr)
-	, m_Pos()
+	: m_Pos()
 	, m_Size()
 	, m_TargetPos()
 	, m_TargetSize()
@@ -12,12 +11,15 @@ CUISuper::CUISuper(void)
 {
 }
 
+CUISuper::~CUISuper(void)
+{
+}
+
 void CUISuper::Create(CDlgSuper* pParent, int l, int t, int r, int b, DWORD dwAttribute)
 {
-	m_pParent = pParent;
 	m_dwAttribute = dwAttribute;
-	if (m_pParent)
-		m_pParent->AddUI(this);
+	if (pParent)
+		pParent->AddUI(this);
 	SetRect(l, t, r, b);
 	OnCreate();
 }
@@ -37,12 +39,26 @@ void CUISuper::SetText(std::wstring strText)
 	m_strText = strText;
 }
 
+void CUISuper::SetPos(ST_POINT pos)
+{
+	m_TargetPos.x = pos.x;
+	m_TargetPos.y = pos.y;
+}
+
+void CUISuper::SetSize(ST_SIZE size)
+{
+	m_TargetSize.x = size.cx;
+	m_TargetSize.y = size.cy;
+	OnSize();
+}
+
 void CUISuper::SetRect(int l, int t, int r, int b)
 {
 	m_TargetPos.x = l;
 	m_TargetPos.y = t;
 	m_TargetSize.x = r - l - 1;
 	m_TargetSize.y = b - t - 1;
+	OnSize();
 }
 
 void CUISuper::SetRect(ST_RECT rt)
@@ -58,42 +74,31 @@ void CUISuper::SetVisible(bool bVisible)
 		m_dwAttribute |= UI_ATTRIBUTE_INVISIBLE;
 }
 
-bool CUISuper::GetVisible(void)
+bool CUISuper::IsVisible(void)
 {
 	return 0 == (m_dwAttribute & UI_ATTRIBUTE_INVISIBLE);
 }
 
-int CUISuper::GetLeft(void)
+ST_POINT CUISuper::GetPos(void)
 {
-	return m_TargetPos.x;
+	return ST_POINT{ (short)m_TargetPos.x, (short)m_TargetPos.y };
 }
 
-int CUISuper::GetRight(void)
+ST_SIZE CUISuper::GetSize(void)
 {
-	return m_TargetPos.x + m_TargetSize.x + 1;
+	return ST_SIZE {(short)m_TargetSize.x, (short)m_TargetSize.y};
 }
 
-int CUISuper::GetTop(void)
+ST_RECT CUISuper::GetRect(void)
 {
-	return m_TargetPos.y;
-}
-
-int CUISuper::GetBottom(void)
-{
-	return m_TargetPos.y + m_TargetSize.y + 1;
-}
-
-int CUISuper::GetWidth(void)
-{
-	return m_TargetSize.x;
-}
-
-int CUISuper::GetHeight(void)
-{
-	return m_TargetSize.y;
+	return ST_RECT(GetPos(), GetSize());
 }
 
 void CUISuper::OnCreate(void)
+{
+}
+
+void CUISuper::OnSize(void)
 {
 }
 

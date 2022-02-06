@@ -7,16 +7,16 @@ CKeyInput::CKeyInput(void)
 {
 }
 
+void CKeyInput::Clear(void)
+{
+	m_mapRegisteredKey.clear();
+}
+
 void CKeyInput::Register(int nVirtKey, int nID)
 {
 	m_mapRegisteredKey.insert(std::make_pair(nVirtKey, nID));
 	if( 0 == m_mapKeyPressTime[nVirtKey])
 		m_mapKeyPressTime[nVirtKey] = 0xFFFFFFFF;
-}
-
-void CKeyInput::UnregisterAll(void)
-{
-	m_mapRegisteredKey.clear();
 }
 
 void CKeyInput::Query(std::list<ST_KEYSTATE>& outState)
@@ -78,7 +78,7 @@ void CKeyInput::GenerateRepeatKey(std::list<ST_KEYSTATE>& inState, std::list<ST_
 	}
 }
 
-bool CKeyInput::IsUpperCase(void)
+bool CKeyInput::IsEnabledCapsLock(void)
 {
 	return m_bCapsLockEnabled xor m_bShiftPressed;
 }

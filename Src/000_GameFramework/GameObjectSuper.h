@@ -19,6 +19,7 @@ public:
 	virtual void Create(CDlgSuper* pParent, int inX, int inY, int inZ);
 	virtual void OnDraw(CDisplayBuffer& destBuffer);
 
-	virtual ST_POINT3 GetFrontPos(void);
+	virtual ST_POINT GetFrontPos(void);
+	virtual ST_POINT3 GetFrontPos3(void);
 };
 

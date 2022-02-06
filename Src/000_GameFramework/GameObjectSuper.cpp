@@ -25,20 +25,36 @@ void CGameObjectSuper::OnDraw(CDisplayBuffer& destBuffer)
 		destBuffer[y][x] = cPatch;
 }
 
-ST_POINT3 CGameObjectSuper::GetFrontPos(void)
+ST_POINT CGameObjectSuper::GetFrontPos(void)
 {
-	ST_POINT3 stCoordID;
-	stCoordID.x = x;
-	stCoordID.y = y;
-	stCoordID.z = z;
-	stCoordID.reserved = 0;
+	ST_POINT pos;
+	pos.x = x;
+	pos.y = y;
 
 	switch (cDir)
 	{
-	case GAME_OBJECT_DIR_LEFT:	stCoordID.x--;	break;
-	case GAME_OBJECT_DIR_RIGHT:	stCoordID.x++;	break;
-	case GAME_OBJECT_DIR_UP:	stCoordID.y--;	break;
-	case GAME_OBJECT_DIR_DOWN:	stCoordID.y++;	break;
+	case GAME_OBJECT_DIR_LEFT:	pos.x--;	break;
+	case GAME_OBJECT_DIR_RIGHT:	pos.x++;	break;
+	case GAME_OBJECT_DIR_UP:	pos.y--;	break;
+	case GAME_OBJECT_DIR_DOWN:	pos.y++;	break;
 	}
-	return stCoordID;
+	return pos;
+}
+
+ST_POINT3 CGameObjectSuper::GetFrontPos3(void)
+{
+	ST_POINT3 pos;
+	pos.x = x;
+	pos.y = y;
+	pos.z = z;
+	pos.reserved = 0;
+
+	switch (cDir)
+	{
+	case GAME_OBJECT_DIR_LEFT:	pos.x--;	break;
+	case GAME_OBJECT_DIR_RIGHT:	pos.x++;	break;
+	case GAME_OBJECT_DIR_UP:	pos.y--;	break;
+	case GAME_OBJECT_DIR_DOWN:	pos.y++;	break;
+	}
+	return pos;
 }

@@ -17,7 +17,7 @@ void CSceneSuper::OnCreate(void)
 void CSceneSuper::OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick)
 {
     __super::OnUpdate(dwCurrentTick, dwElapsedTick);
-    m_Camera.Update(dwElapsedTick * 0.001);
+    g_Camera.Update(dwElapsedTick * 0.01);
 }
 
 int CSceneSuper::DoModal(CDlgSuper* pParent)

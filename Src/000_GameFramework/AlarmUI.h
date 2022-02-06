@@ -3,11 +3,8 @@
 #include "UISuper.h"
 #include "TextUI.h"
 
-class CAlarmUI : public CUISuper
+class CAlarmUI : public CTextUI
 {
-	CTextUI m_TextUI;
-	std::vector<std::wstring> m_vecMessage;
-
 	DWORD m_dwTimeOutTick;
 
 public:

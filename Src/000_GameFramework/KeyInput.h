@@ -17,11 +17,11 @@ class CKeyInput
 public:
     CKeyInput(void);
 
+    void Clear(void);
     void Register(int nVirtKey, int nID);
-    void UnregisterAll(void);
     void Query(std::list<ST_KEYSTATE>& outState);
 
-    bool IsUpperCase(void);
+    bool IsEnabledCapsLock(void);
 
     void SetRepeatTick(DWORD dwRepeatTick = 200);
 

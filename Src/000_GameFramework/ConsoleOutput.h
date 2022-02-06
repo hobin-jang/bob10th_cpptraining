@@ -7,7 +7,7 @@
 
 class CConsoleOutput
 {
-    CDisplayBuffer m_vecBackBuffer;
+    CDisplayBuffer m_BackBuffer;
     int m_nViewWidth;
     int m_nViewHeight;
 
@@ -18,7 +18,7 @@ public:
     bool InitConsole(std::string strTitle, int w, int h);
     void SetViewPort(int w, int h);
 
-    CDisplayBuffer& GetBackBuffer(void)    {    return m_vecBackBuffer;    }
+    CDisplayBuffer& GetBackBuffer(void)    {    return m_BackBuffer;    }
 
     void Flip(const ST_VECTOR& pos, CDisplayBuffer& vecDisplayBuffer);
     void Render(const CDisplayBuffer& vecDisplayBuffer);

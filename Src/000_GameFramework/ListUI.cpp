@@ -56,12 +56,12 @@ void CListUI::AdjustHeight(int nRowCount)
 	m_TargetSize.y = nRowCount;
 }
 
-int CListUI::GetCount(void)
+int CListUI::GetItemCount(void)
 {
 	return (int)m_vecItems.size();
 }
 
-std::wstring CListUI::GetText(int nIndex)
+std::wstring CListUI::GetItem(int nIndex)
 {
 	if (nIndex < m_vecItems.size())
 		return m_vecItems[nIndex];
@@ -97,7 +97,7 @@ void CListUI::MoveCurPos(int nOffsetX, int nOffsetY)
 			m_nCursorIndex = (int)m_vecItems.size() - 1;
 	}
 
-	int nListHeight = GetHeight();
+	int nListHeight = GetSize().cy;
 	int nMinShowingIndex = m_nScrollPos * m_nAlignCol + 1;
 	int nMaxShowingIndex = (m_nScrollPos + nListHeight) * m_nAlignCol;
 	if (m_nCursorIndex < nMinShowingIndex)

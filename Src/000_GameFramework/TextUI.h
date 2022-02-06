@@ -9,15 +9,17 @@ class CTextUI : public CUISuper
 
 public:
 	CTextUI(void);
+	virtual ~CTextUI(void);
 
 	void Clear(void);
 	void AddText(std::string strText);
 	void AddText(std::wstring strText);
 	size_t GetLineCount(void);
 
-	void SetRect(int l, int t, int r, int b);
-	void SetRect(ST_RECT rt);
+	virtual void OnSize(void);
+	virtual void OnDraw(CDisplayBuffer& vecBuffer);
 
-	void OnDraw(CDisplayBuffer& vecBuffer);
+private:
+	void SeperarateLines(void);
 };
 

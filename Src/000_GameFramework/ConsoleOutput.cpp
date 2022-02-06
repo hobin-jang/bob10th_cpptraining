@@ -3,7 +3,7 @@
 #include "HelperFunc.h"
 
 CConsoleOutput::CConsoleOutput(void)
-    : m_vecBackBuffer()
+    : m_BackBuffer()
     , m_nViewWidth(0)
     , m_nViewHeight(0)
 {
@@ -15,8 +15,8 @@ bool CConsoleOutput::InitConsole(std::string strTitle, int w, int h)
     {
         SetConsoleTitleA(strTitle.c_str());
 
-        m_vecBackBuffer.resize(h + 1);
-        for (auto& strLine : m_vecBackBuffer)
+        m_BackBuffer.resize(h + 1);
+        for (auto& strLine : m_BackBuffer)
             strLine.resize(w + 1, ' ');
 
         // Set output mode to handle virtual terminal sequences
@@ -77,19 +77,19 @@ void CConsoleOutput::Flip(const ST_VECTOR& pos, CDisplayBuffer& vecDisplayBuffer
     for (std::wstring& strLine : vecDisplayBuffer)
         strLine.resize(m_nViewWidth, ' ');
 
-    const int nMaxHeight = std::min<int>(std::min<int>(m_nViewHeight, nBottom), (int)m_vecBackBuffer.size());
+    const int nMaxHeight = std::min<int>(std::min<int>(m_nViewHeight, nBottom), (int)m_BackBuffer.size());
     for (int y = std::max<int>(nTop, 0); y < nMaxHeight; y++)
     {
         const int nScreenY = y - nTop;
-        const int nMaxWidth = std::min<int>(std::min<int>(nRight, (int)m_vecBackBuffer[y].size()), nLeft + vecDisplayBuffer[nScreenY].size());
+        const int nMaxWidth = std::min<int>(std::min<int>(nRight, (int)m_BackBuffer[y].size()), nLeft + vecDisplayBuffer[nScreenY].size());
         for (int x = std::max<int>(nLeft, 0); x < nMaxWidth; x++)
         {
             const int nScreenX = x - nLeft;
-            vecDisplayBuffer[nScreenY][nScreenX] = m_vecBackBuffer[y][x];
+            vecDisplayBuffer[nScreenY][nScreenX] = m_BackBuffer[y][x];
         }
     }
 
-    m_vecBackBuffer.Clear();
+    m_BackBuffer.Clear();
 }
 
 void CConsoleOutput::Render(const CDisplayBuffer& vecDisplayBuffer)
@@ -106,7 +106,7 @@ void CConsoleOutput::Render(const CDisplayBuffer& vecDisplayBuffer)
         s_FrameTick.push_back(dwCurrentTick);
         while (s_FrameTick.front() + 1000 < dwCurrentTick)
             s_FrameTick.pop_front();
-        printf("FPS: %u                                   \n", (DWORD)s_FrameTick.size());
+        printf("g_nFPS: %u                                   \n", (DWORD)s_FrameTick.size());
     }
 
     for (const std::wstring& strLineW : vecDisplayBuffer)
