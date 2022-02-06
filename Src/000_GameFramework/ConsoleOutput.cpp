@@ -93,8 +93,23 @@ void CConsoleOutput::Flip(const ST_VECTOR& pos, CDisplayBuffer& vecDisplayBuffer
     m_BackBuffer.Clear();
 }
 
+struct ST_PROFILE
+{
+    DWORD dwStartTick;
+    ST_PROFILE(void)
+    {
+        dwStartTick = GetTickCount();
+    }
+    ~ST_PROFILE(void)
+    {
+        DWORD dwElapsedTick = GetTickCount() - dwStartTick;
+        printf("ElapsedTick:%u\n", dwElapsedTick);
+    }
+};
+
 void CConsoleOutput::Render(const CDisplayBuffer& vecDisplayBuffer)
 {
+    ST_PROFILE profile;
     {
         // ANSI Escape sequence
         // 참고: http://ascii-table.com/ansi-escape-sequences-vt-100.php

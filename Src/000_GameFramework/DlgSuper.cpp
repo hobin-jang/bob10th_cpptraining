@@ -70,7 +70,10 @@ int CDlgSuper::DoModal(CDlgSuper* pParent)
         {
             static DWORD dwLastUpdateTick = GetTickCount();
             if (dwCurrentTick < dwLastUpdateTick)
-                Sleep(dwLastUpdateTick - dwCurrentTick);
+            {
+                DWORD dwRemainedTick = dwLastUpdateTick - dwCurrentTick;
+                Sleep(std::min<DWORD>(dwRemainedTick, g_nDeltaTick));
+            }
             dwLastUpdateTick += g_nDeltaTick;
         }
     }

@@ -82,7 +82,8 @@ void CTextUI::OnDraw(CDisplayBuffer& vecBuffer)
 	if (UI_ATTRIBUTE_SINGLELINE & m_dwAttribute)
 	{
 		int w = std::min<int>(m_Size.x, m_strText.length());
-		memcpy((void*)(vecBuffer[pos.y].c_str() + pos.x + 1), m_strText.c_str(), w * sizeof(wchar_t));
+		if(pos.y + 1 < vecBuffer.size())
+			memcpy((void*)(vecBuffer[pos.y + 1].c_str() + pos.x + 1), m_strText.c_str(), w * sizeof(wchar_t));
 		return;
 	}
 
