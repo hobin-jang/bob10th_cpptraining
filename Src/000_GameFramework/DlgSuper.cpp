@@ -41,11 +41,10 @@ int CDlgSuper::DoModal(CDlgSuper* pParent)
 {
     OnCreate();
 
-    static DWORD dwLastUpdateTick = GetTickCount();
     while (!m_bIsClosed)
     {
         const DWORD dwElapsedTick = 1000 / g_dwFPS;
-        const DWORD dwCurrentTick = dwLastUpdateTick + dwElapsedTick;
+        const DWORD dwCurrentTick = GetTickCount();
 
         std::list<ST_KEYSTATE> listKeyState;
         g_Input.Query(listKeyState);
@@ -68,9 +67,12 @@ int CDlgSuper::DoModal(CDlgSuper* pParent)
 
         g_Output.Render(vecDisplayBuffer);
 
-        // 30 FPS∑Œ ∞Ì¡§
-        Sleep(dwElapsedTick);
-        dwLastUpdateTick = dwCurrentTick;
+        {
+            static DWORD dwLastUpdateTick = GetTickCount();
+            if (dwCurrentTick < dwLastUpdateTick)
+                Sleep(dwLastUpdateTick - dwCurrentTick);
+            dwLastUpdateTick += g_nDeltaTick;
+        }
     }
 
     OnClose();
