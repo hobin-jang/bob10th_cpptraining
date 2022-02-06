@@ -51,6 +51,7 @@
     <ClCompile Include="ListUI.cpp" />
     <ClCompile Include="PictureUI.cpp" />
     <ClCompile Include="SceneSuper.cpp" />
+    <ClCompile Include="Setting.cpp" />
     <ClCompile Include="Struct.cpp" />
     <ClCompile Include="TextUI.cpp" />
     <ClCompile Include="UISuper.cpp" />
