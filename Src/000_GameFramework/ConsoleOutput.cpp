@@ -1,6 +1,7 @@
 ﻿#include "pch.h"
 #include "ConsoleOutput.h"
 #include "HelperFunc.h"
+#include "Setting.h"
 
 CConsoleOutput::CConsoleOutput(void)
     : m_BackBuffer()
@@ -106,7 +107,7 @@ void CConsoleOutput::Render(const CDisplayBuffer& vecDisplayBuffer)
         s_FrameTick.push_back(dwCurrentTick);
         while (s_FrameTick.front() + 1000 < dwCurrentTick)
             s_FrameTick.pop_front();
-        printf("g_nFPS: %u                                   \n", (DWORD)s_FrameTick.size());
+        printf("%*uFPS\n", g_nConsoleW * 2 - 2, (DWORD)s_FrameTick.size());
     }
 
     for (const std::wstring& strLineW : vecDisplayBuffer)
