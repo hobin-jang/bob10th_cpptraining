@@ -3,17 +3,15 @@
 #include "UISuper.h"
 #include "TextUI.h"
 
-class CAlarmUI : public CUISuper
+class CAlarmUI : public CTextUI
 {
-	CTextUI m_TextUI;
-	std::vector<std::wstring> m_vecMessage;
-
 	DWORD m_dwTimeOutTick;
 
 public:
 	CAlarmUI(void);
 	~CAlarmUI(void);
 
+	void Clear(void);
 	void Alarm(int x, int y, std::string strMsg, size_t tMaxLen, DWORD dwDuring = 1000);
 
 private:

@@ -79,6 +79,12 @@ struct ST_RECT
     short t;
     short r;
     short b;
+
+    ST_RECT(void)
+    {}
+    ST_RECT(const ST_POINT& pt, const ST_SIZE& sz)
+        : l(pt.x), t(pt.y), r(pt.x + sz.cx + 1), b(pt.y + sz.cy + 1)
+    {}
 };
 
 struct ST_POINT3
@@ -113,15 +119,4 @@ enum E_GAME_OBJECT_DIR
     GAME_OBJECT_DIR_RIGHT,
     GAME_OBJECT_DIR_UP,
     GAME_OBJECT_DIR_DOWN,
-};
-
-struct ST_GAME_OBJECT
-{
-    short x;
-    short y;
-    short z;    // floor
-    char cDir;  // GAMEKEY_LEFT or RIGHT, UP, DOWN
-    char cPatch;
-
-    ST_POINT3 GetFrontPos(void);
 };

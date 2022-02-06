@@ -12,7 +12,6 @@
     <ClCompile Include="ListUI.cpp" />
     <ClCompile Include="PictureUI.cpp" />
     <ClCompile Include="SceneSuper.cpp" />
-    <ClCompile Include="SingleLineTextUI.cpp" />
     <ClCompile Include="Struct.cpp" />
     <ClCompile Include="TextUI.cpp" />
     <ClCompile Include="UISuper.cpp" />
@@ -22,6 +21,7 @@
     <ClCompile Include="Unicode.cpp">
       <Filter>Unicode</Filter>
     </ClCompile>
+    <ClCompile Include="Setting.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="000_GameFramework.h" />
@@ -37,7 +37,6 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="PictureUI.h" />
     <ClInclude Include="SceneSuper.h" />
-    <ClInclude Include="SingleLineTextUI.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="TextUI.h" />
     <ClInclude Include="UISuper.h" />
@@ -47,6 +46,7 @@
     <ClInclude Include="UnicodeEncoding.h">
       <Filter>Unicode</Filter>
     </ClInclude>
+    <ClInclude Include="Setting.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Unicode">

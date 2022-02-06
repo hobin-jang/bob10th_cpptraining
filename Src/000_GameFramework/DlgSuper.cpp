@@ -1,13 +1,8 @@
 #include "pch.h"
 #include "DlgSuper.h"
 
-DWORD CDlgSuper::FPS = 30;
-CKeyInput CDlgSuper::m_Input;
-CConsoleOutput CDlgSuper::m_Output;
-CCamera CDlgSuper::m_Camera;
-
 CDlgSuper::CDlgSuper(void)
-    : m_bIsEndded(false)
+    : m_bIsClosed(false)
     , m_nExitCode(0)
 {
 }
@@ -19,57 +14,68 @@ CDlgSuper::~CDlgSuper(void)
 
 void CDlgSuper::Close(int nExitCode)
 {
-    m_bIsEndded = true;
+    m_bIsClosed = true;
     m_nExitCode = nExitCode;
 }
 
-void CDlgSuper::AddUI(CUISuper* pNewUI)
+void CDlgSuper::OnCreate(void)
 {
-    m_listUI.push_back(pNewUI);
+    __super::OnCreate();
 }
 
-void CDlgSuper::AddObject(CGameObjectSuper* pObject)
+void CDlgSuper::OnClose(void)
 {
-    m_listObject.push_back(pObject);
+}
+
+void CDlgSuper::AddUI(CUISuper* pChild)
+{
+    m_listUI.push_back(pChild);
+}
+
+void CDlgSuper::AddObject(CGameObjectSuper* pChild)
+{
+    m_listObject.push_back(pChild);
 }
 
 int CDlgSuper::DoModal(CDlgSuper* pParent)
 {
     OnCreate();
 
-    static DWORD dwLastUpdateTick = GetTickCount();
-    while (!m_bIsEndded)
+    while (!m_bIsClosed)
     {
+        const DWORD dwElapsedTick = 1000 / g_dwFPS;
         const DWORD dwCurrentTick = GetTickCount();
-        const DWORD dwElapsedTick = dwCurrentTick - dwLastUpdateTick;
 
         std::list<ST_KEYSTATE> listKeyState;
-        m_Input.Query(listKeyState);
+        g_Input.Query(listKeyState);
         OnInput(listKeyState);
 
         if (pParent)
             pParent->OnUpdate(dwCurrentTick, dwElapsedTick);
         OnUpdate(dwCurrentTick, dwElapsedTick);
 
-        CDisplayBuffer& vecBackBuffer = m_Output.GetBackBuffer();
+        CDisplayBuffer& vecBackBuffer = g_Output.GetBackBuffer();
         if (pParent)
             pParent->OnDrawWorld(vecBackBuffer);
         OnDrawWorld(vecBackBuffer);
 
         CDisplayBuffer vecDisplayBuffer;
-        m_Output.Flip(m_Camera.GetViewPos(), vecDisplayBuffer);
+        g_Output.Flip(g_Camera.GetViewPos(), vecDisplayBuffer);
         if (pParent)
             pParent->OnDrawUI(vecDisplayBuffer);
         OnDrawUI(vecDisplayBuffer);
 
-        m_Output.Render(vecDisplayBuffer);
+        g_Output.Render(vecDisplayBuffer);
 
-        // 30 FPS∑Œ ∞Ì¡§
-        if (dwElapsedTick < 30)
-            Sleep(30 - dwElapsedTick);
-        dwLastUpdateTick = dwCurrentTick;
+        {
+            static DWORD dwLastUpdateTick = GetTickCount();
+            if (dwCurrentTick < dwLastUpdateTick)
+                Sleep(dwLastUpdateTick - dwCurrentTick);
+            dwLastUpdateTick += g_nDeltaTick;
+        }
     }
 
+    OnClose();
     return m_nExitCode;
 }
 
@@ -79,6 +85,12 @@ void CDlgSuper::OnInput(std::list<ST_KEYSTATE>& listKeyState)
 
 void CDlgSuper::OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick)
 {
+    for (CUISuper* pUI : m_listUI)
+    {
+        if (!pUI->IsVisible())
+            continue;
+        pUI->OnUpdate(dwCurrentTick, dwElapsedTick);
+    }
 }
 
 void CDlgSuper::OnDrawWorld(CDisplayBuffer& vecBuffer)
@@ -91,7 +103,7 @@ void CDlgSuper::OnDrawUI(CDisplayBuffer& vecBuffer)
 {
     for (CUISuper* pUI : m_listUI)
     {
-        if (!pUI->GetVisible())
+        if (!pUI->IsVisible())
             continue;
         pUI->OnDraw(vecBuffer);
     }
