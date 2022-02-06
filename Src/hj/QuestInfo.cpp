@@ -16,7 +16,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
 	ST_QUEST_NPC_DATA npc;
 	npc.x = 12;
-	npc.y = 4;
+	npc.y = 3;
 	npc.z = 18;
 	npc.nNpcID = 149;
 	npc.strTrack = "보안제품개발트랙";
@@ -93,14 +93,20 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 		"BoB 광장에 오신 것을 환영해요~~ \n"
 		"이제부터 BoB 탑을 오를건데, \n"
 		"(띠리링~~~) 여보세요~? \n"
-		"죄송해요..! 바쁜일이 있어서 잠깐 어디좀 들렸다와야 할 것 같아요..\n"
+		"죄송해요..! 바쁜일이 있어서 잠깐 어디좀 들렸다와야 할 것 같아요.. \n"
 		"탑을 오르면서 어려운 부분은 언제든 페메로 연락주세요!! \n"
 		"아참 탑을 오르기전에 멘토님들을 꼭 뵙고 가봐요~ \n"
-		"그럼 이만..!!\n"
+		"그럼 이만..!! \n"
 		;
+
 	npc.strContents2 = "..";
+
 	npc.strContents3 = "..";
-	npc.strContents4 = "..";
+
+	npc.strContents4 = 
+		"힘든 탑을 다 오르셨다니.. 정말 고생하셨습니다~ \n"
+		"남은 BoB 기간도 화이팅입니다 !\n"
+		;
 
 	vecNPC.push_back(npc);
 }
