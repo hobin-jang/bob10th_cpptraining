@@ -200,6 +200,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("로비의 연구원님한테 가면 노트북을 줄꺼얌");
         stQuest.vecMessages.push_back("가서 받아오도록!!");
         stQuest.ClearCondition = ST_FILTER(132, 0x0003);
+        vecQuest.push_back(stQuest);
     }
 
     {
@@ -216,6 +217,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         //stQuest.vecMessages.push_back("[1,500,000원]을 획득했습니다.");
         //이후 추가되는 NPC 정보에 따라서 BoB트북 획득 과정을 어렵게 할 예정
         stQuest.ClearCondition = ST_FILTER(132, 0x0007);
+        vecQuest.push_back(stQuest);
     }
 
     {
@@ -231,6 +233,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("케헴... C++은 전상현 멘토님이 대한민국 최강자니까..");
         stQuest.vecMessages.push_back("전상현 멘토님한테 가봐!");
         stQuest.ClearCondition = ST_FILTER(132, 0x000F);
+        vecQuest.push_back(stQuest);
     }
 
     {
@@ -247,6 +250,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("샷건을 치다 피가날 경우 염증으로부터의…...");
         stQuest.vecMessages.push_back("(못들어주겠군.. 도망가자)");
         stQuest.ClearCondition = ST_FILTER(132, 0x001F);
+        vecQuest.push_back(stQuest);
     }
 
     {
@@ -264,6 +268,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("탑을 오르다보면 계속해서 나를 만날 수 있을꺼얌!");
         stQuest.vecMessages.push_back("내 이야기를 담아둘테니 많은 도움이 되길 바랄껨!!");
         stQuest.ClearCondition = ST_FILTER(132, 0x003F);
+        vecQuest.push_back(stQuest);
     }
 
     // 5F : 어린 창현
@@ -280,6 +285,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("난 공부하느라 바쁘니까 좀 찾아주람!!");
         stQuest.vecMessages.push_back("오른쪽 방을 뒤져보면 있을거담!!");
         stQuest.ClearCondition = ST_FILTER(132, 0x007F);
+        vecQuest.push_back(stQuest);
         
     }
 
@@ -292,6 +298,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("(혹시 이건가...?");
         stQuest.vecMessages.push_back("[잊혀진 기억1]을 획득했습니다.");
         stQuest.ClearCondition = ST_FILTER(132, 0x00FF);
+        vecQuest.push_back(stQuest);
     }
 
     {
@@ -316,6 +323,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("앗...기억이....");
         stQuest.vecMessages.push_back("");
         stQuest.ClearCondition = ST_FILTER(132, 0x01FF);
+        vecQuest.push_back(stQuest);
     }
 
     //16F : 청소년 창현
@@ -324,5 +332,6 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.nNpcId = 157;
         stQuest.StartCondition = ST_FILTER(132, 0x00FF, 0x01FF);
         stQuest.vecMessages.push_back("이런이런~");
+        vecQuest.push_back(stQuest);
     }
 }
