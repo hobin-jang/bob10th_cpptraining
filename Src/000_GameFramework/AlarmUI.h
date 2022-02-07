@@ -17,6 +17,6 @@ public:
 private:
 	void OnCreate(void);
 	void OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick);
-	void OnDraw(CDisplayBuffer& vecBuffer);
+	void OnDrawUI(CDisplayBuffer& vecBuffer);
 };
 

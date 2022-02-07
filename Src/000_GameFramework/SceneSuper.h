@@ -9,13 +9,16 @@
 class CSceneSuper : public CDlgSuper
 {
 protected:
+	std::list<CGameObjectSuper*> m_listObject;
+
 	CSceneSuper(void);
 	virtual ~CSceneSuper(void);
 
 	virtual void OnCreate(void);
 	virtual void OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick);
+	virtual void OnDrawWorld(CDisplayBuffer& vecBuffer);
 
 public:
-	virtual int DoModal(CDlgSuper* pParent = nullptr);
+	virtual void AddObject(CGameObjectSuper* pChild);
 };
 

@@ -44,6 +44,7 @@ public:
 	virtual void OnCreate(void);
 	virtual void OnSize(void);
 	virtual void OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick);
-	virtual void OnDraw(CDisplayBuffer& vecBuffer);
+	virtual void OnDrawWorld(CDisplayBuffer& vecBuffer);
+	virtual void OnDrawUI(CDisplayBuffer& vecBuffer);
 };
 

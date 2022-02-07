@@ -119,7 +119,11 @@ void CUISuper::OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick)
 
 }
 
-void CUISuper::OnDraw(CDisplayBuffer& vecBuffer)
+void CUISuper::OnDrawWorld(CDisplayBuffer& vecBuffer)
+{
+}
+
+void CUISuper::OnDrawUI(CDisplayBuffer& vecBuffer)
 {
 	if( 0 == (m_dwAttribute & UI_ATTRIBUTE_NO_BORDER))
 		vecBuffer.DrawRectangle((int)m_Pos.x, (int)m_Pos.y, (int)m_Pos.x + m_Size.x + 1, (int)m_Pos.y + m_Size.y + 1);
