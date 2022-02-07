@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../100_QuestFramework/100_QuestFramework.h"
+#include "../000_GameFramework/000_GameFramework.h"
 class QuestInfo : public IQuestInfo
 {
 public:
@@ -9,6 +10,7 @@ public:
 
 	void QueryNpc(std::vector<ST_NPC_INFO>& vecNPC);
 	void QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC);
-	void QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest);
+	void QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject);
+	void QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest);
 };
 
