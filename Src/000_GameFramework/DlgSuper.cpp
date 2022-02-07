@@ -103,10 +103,20 @@ void CDlgSuper::OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick)
 void CDlgSuper::OnDrawUI(CDisplayBuffer& vecBuffer)
 {
 	__super::OnDrawUI(vecBuffer);
+	if (m_Size.y < 1 || m_Size.x < 1)
+		return;
+
+	CDisplayBuffer vecClientBuffer;
+	vecClientBuffer.resize((int)m_Size.y);
+	for (auto line : vecClientBuffer)
+		line.resize((int)m_Size.x);
+
 	for (CUISuper* pUI : m_listUI)
 	{
 		if (!pUI->IsVisible())
 			continue;
-		pUI->OnDrawUI(vecBuffer);
+		pUI->OnDrawUI(vecClientBuffer);
 	}
+
+	vecBuffer.BitBlt(GetPos(), vecClientBuffer);
 }

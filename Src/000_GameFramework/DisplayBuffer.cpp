@@ -74,3 +74,15 @@ void CDisplayBuffer::DrawRectangle(int nLeft, int nTop, int nRight, int nBottom)
 		}
 	}
 }
+
+void CDisplayBuffer::BitBlt(ST_POINT pos, const CDisplayBuffer& buffer)
+{
+	int nTargetY = std::min<int>(pos.y, 0);
+	int nMaxTargetY = std::min<int>(pos.y + buffer.size(), size());
+
+	for (int y=0; y < buffer.size() && nTargetY <nMaxTargetY; y++, nTargetY++)
+	{
+		int nTargetX = std::min<int>(pos.x, 0);
+		int nMaxTargetX = std::min<int>(pos.x + buffer[y].size(), at(y).size());
+	}
+}
