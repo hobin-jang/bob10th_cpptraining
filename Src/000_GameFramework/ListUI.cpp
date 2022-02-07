@@ -106,9 +106,9 @@ void CListUI::MoveCurPos(int nOffsetX, int nOffsetY)
 		m_nScrollPos = m_nCursorIndex / m_nAlignCol - (nListHeight - 1);
 }
 
-void CListUI::OnDraw(CDisplayBuffer& vecBuffer)
+void CListUI::OnDrawUI(CDisplayBuffer& vecBuffer)
 {
-	__super::OnDraw(vecBuffer);
+	__super::OnDrawUI(vecBuffer);
 	int nLeftMargin = 2;
 	int nItemLength = m_Size.x / m_nAlignCol;
 	int nStartIndex = m_nScrollPos * m_nAlignCol;

@@ -25,6 +25,6 @@ public:
 	void SetCurPos(int nIndex);
 	void MoveCurPos(int nOffsetX, int nOffsetY);
 
-	void OnDraw(CDisplayBuffer& vecBuffer);
+	void OnDrawUI(CDisplayBuffer& vecBuffer);
 };
 

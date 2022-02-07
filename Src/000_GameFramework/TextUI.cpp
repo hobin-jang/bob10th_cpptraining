@@ -74,9 +74,9 @@ void CTextUI::OnSize(void)
 	m_tViewPos = 0;
 }
 
-void CTextUI::OnDraw(CDisplayBuffer& vecBuffer)
+void CTextUI::OnDrawUI(CDisplayBuffer& vecBuffer)
 {
-	__super::OnDraw(vecBuffer);
+	__super::OnDrawUI(vecBuffer);
 
 	const ST_POINT pos = { (short)m_Pos.x, (short)m_Pos.y };
 	if (UI_ATTRIBUTE_SINGLELINE & m_dwAttribute)

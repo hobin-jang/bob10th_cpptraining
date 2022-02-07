@@ -30,9 +30,9 @@ void CPictureUI::SetImage(CDisplayBuffer vecImage)
 	}
 }
 
-void CPictureUI::OnDraw(CDisplayBuffer& vecBuffer)
+void CPictureUI::OnDrawUI(CDisplayBuffer& vecBuffer)
 {
-	__super::OnDraw(vecBuffer);
+	__super::OnDrawUI(vecBuffer);
 	int nBufferY = m_TargetPos.y + 1;
 	int nBottom = (int)(m_Pos.y + m_Size.y + 1);
 	nBottom = std::min<int>(nBottom, (int)vecBuffer.size() - 1);
