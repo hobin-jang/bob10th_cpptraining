@@ -53,7 +53,7 @@ void CListUI::AdjustHeight(int nRowCount)
 	if (nRowCount < 0)
 		nRowCount = m_vecItems.empty() ? 0 : ((m_vecItems.size() - 1) / m_nAlignCol) + 1;
 	
-	m_TargetSize.y = nRowCount;
+	m_TargetSize.y = nRowCount + 2;
 }
 
 int CListUI::GetItemCount(void)

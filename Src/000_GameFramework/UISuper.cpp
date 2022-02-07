@@ -25,10 +25,8 @@ void CUISuper::Create(CDlgSuper* pParent, ST_POINT pos, ST_SIZE size, DWORD dwAt
 	m_dwAttribute = dwAttribute;
 	if (pParent)
 		pParent->AddUI(this);
-	m_TargetPos.x = pos.x < 0? g_nConsoleW + pos.x : pos.x;
-	m_TargetPos.y = pos.y < 0 ? g_nConsoleH + pos.y : pos.y;
-	m_TargetSize.x = size.cx;
-	m_TargetSize.y = size.cy;
+	SetPos(pos);
+	SetSize(size);
 	OnCreate();
 }
 
@@ -49,8 +47,8 @@ void CUISuper::SetText(std::wstring strText)
 
 void CUISuper::SetPos(ST_POINT pos)
 {
-	m_TargetPos.x = pos.x;
-	m_TargetPos.y = pos.y;
+	m_TargetPos.x = pos.x < 0 ? g_nConsoleW + pos.x : pos.x;
+	m_TargetPos.y = pos.y < 0 ? g_nConsoleH + pos.y : pos.y;
 }
 
 void CUISuper::SetSize(ST_SIZE size)

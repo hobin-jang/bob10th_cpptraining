@@ -104,9 +104,7 @@ void CDlgSuper::OnDrawUI(CDisplayBuffer& vecBuffer)
 		return;
 
 	CDisplayBuffer vecClientBuffer;
-	vecClientBuffer.resize((int)m_Size.y);
-	for (auto& line : vecClientBuffer)
-		line.resize((int)m_Size.x);
+	vecClientBuffer.Create(m_Size.x, m_Size.y);
 
 	for (CUISuper* pUI : m_listUI)
 	{

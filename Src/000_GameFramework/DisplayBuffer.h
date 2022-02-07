@@ -8,6 +8,7 @@ public:
 	CDisplayBuffer(void);
 	virtual ~CDisplayBuffer(void);
 
+	void Create(size_t w, size_t h);
 	void Clear(void);
 	void DrawRectangle(int nLeft, int nTop, int nRight, int nBottom);
 	void DrawString(ST_POINT pos, std::string strText, size_t tLength = -1);

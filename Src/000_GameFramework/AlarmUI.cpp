@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "AlarmUI.h"
 #include "HelperFunc.h"
+#include "Setting.h"
 
 CAlarmUI::CAlarmUI(void)
 	: CTextUI()
@@ -18,13 +19,15 @@ void CAlarmUI::Clear(void)
 	m_dwTimeOutTick = 0;
 }
 
-void CAlarmUI::Alarm(int x, int y, std::string strMsg, size_t tMaxLen, DWORD dwDuring)
+void CAlarmUI::Alarm(std::string strMsg, DWORD dwDuring)
 {
 	SetVisible(true);
 	m_dwTimeOutTick = GetTickCount() + dwDuring;
 
 	std::vector<std::wstring> vecMessage;
 	vecMessage.clear();
+
+	size_t tMaxLen = g_nConsoleW * 0.8;
 	TokenizeMessage(strMsg, vecMessage, tMaxLen);
 
 	size_t tMaxTextLen = 10;
@@ -38,6 +41,8 @@ void CAlarmUI::Alarm(int x, int y, std::string strMsg, size_t tMaxLen, DWORD dwD
 	}
 
 	int nVerticalOffset = -2;
+	int x = g_nConsoleW / 2;
+	int y = g_nConsoleH / 2;
 	int nLeft = x - (int)(tMaxTextLen) / 2 - 1;
 	int nTop = y - ((int)GetLineCount() + 2) + nVerticalOffset;
 	int nRight = nLeft + (int)tMaxTextLen + 2;

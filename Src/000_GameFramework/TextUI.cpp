@@ -60,7 +60,7 @@ void CTextUI::SeperarateLines(void)
 		}
 
 		std::vector<std::wstring> vecLine;
-		TokenizeMessage(strLine, vecLine, m_TargetSize.x);
+		TokenizeMessage(strLine, vecLine, m_TargetSize.x - 2);
 
 		m_listText.insert(m_listText.end(), vecLine.begin(), vecLine.end());
 

@@ -20,6 +20,14 @@ void CDisplayBuffer::Clear(void)
 	}
 }
 
+void CDisplayBuffer::Create(size_t w, size_t h)
+{
+	this->resize(h);
+	for (auto& line : *this)
+		line.resize(w);
+	Clear();
+}
+
 void CDisplayBuffer::DrawRectangle(int nLeft, int nTop, int nRight, int nBottom)
 {
 	for (int y = nTop + 1; y <= nBottom - 1; y++)
