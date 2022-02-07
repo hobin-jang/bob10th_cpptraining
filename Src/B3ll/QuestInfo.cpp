@@ -12,17 +12,6 @@ QuestInfo::~QuestInfo(void)
 {
 }
 
-void QuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
-{
-	ST_NPC_INFO npc;
-	strcpy_s(npc.szName, 21, "정종배");
-	npc.patch = 'p';
-	strcpy_s(npc.szGreetMessage, 61, "안녕하세요 취분트랙 정종배입니다;");
-
-	
-
-	vecNPC.push_back(npc);
-}
 
 void QuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
