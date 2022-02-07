@@ -25,39 +25,6 @@ struct ST_FILTER
 	}
 };
 
-struct ST_SWITCH
-{
-	unsigned short& wSwitch;
-	ST_SWITCH(unsigned short& value)
-		: wSwitch(value)
-	{}
-	bool IsSet(unsigned short wFlag)
-	{
-		return (wSwitch & wFlag) == wFlag;
-	}
-	void Set(unsigned short wFlag)
-	{
-		wSwitch |= wFlag;
-	}
-};
-
-struct ST_NPC_INFO
-{
-	int id;
-	char szName[21];
-	double x;
-	double y;
-	double w;
-	double h;
-	char patch;
-	char szGreetMessage[61];
-	std::vector<std::string> vecBuffer;
-
-	ST_NPC_INFO(void)
-		: id(0), szName{ 0, }, x(0), y(0), w(0), h(0), szGreetMessage{ 0, }
-	{}
-};
-
 struct ST_QUEST_OBJECT : public ST_POINT3
 {
 	std::string strName;

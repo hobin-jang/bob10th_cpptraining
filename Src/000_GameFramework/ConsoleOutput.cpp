@@ -1,6 +1,7 @@
 ﻿#include "pch.h"
 #include "ConsoleOutput.h"
 #include "HelperFunc.h"
+#include "Setting.h"
 
 CConsoleOutput::CConsoleOutput(void)
     : m_BackBuffer()
@@ -92,8 +93,23 @@ void CConsoleOutput::Flip(const ST_VECTOR& pos, CDisplayBuffer& vecDisplayBuffer
     m_BackBuffer.Clear();
 }
 
+struct ST_PROFILE
+{
+    DWORD dwStartTick;
+    ST_PROFILE(void)
+    {
+        dwStartTick = GetTickCount();
+    }
+    ~ST_PROFILE(void)
+    {
+        DWORD dwElapsedTick = GetTickCount() - dwStartTick;
+        printf("ElapsedTick:%u\n", dwElapsedTick);
+    }
+};
+
 void CConsoleOutput::Render(const CDisplayBuffer& vecDisplayBuffer)
 {
+    ST_PROFILE profile;
     {
         // ANSI Escape sequence
         // 참고: http://ascii-table.com/ansi-escape-sequences-vt-100.php
@@ -106,7 +122,7 @@ void CConsoleOutput::Render(const CDisplayBuffer& vecDisplayBuffer)
         s_FrameTick.push_back(dwCurrentTick);
         while (s_FrameTick.front() + 1000 < dwCurrentTick)
             s_FrameTick.pop_front();
-        printf("g_nFPS: %u                                   \n", (DWORD)s_FrameTick.size());
+        printf("%*uFPS\n", g_nConsoleW * 2 - 2, (DWORD)s_FrameTick.size());
     }
 
     for (const std::wstring& strLineW : vecDisplayBuffer)

@@ -21,6 +21,7 @@
     <ClCompile Include="Unicode.cpp">
       <Filter>Unicode</Filter>
     </ClCompile>
+    <ClCompile Include="Setting.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="000_GameFramework.h" />

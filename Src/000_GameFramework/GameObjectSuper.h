@@ -16,7 +16,7 @@ public:
 	CGameObjectSuper(void);
 	~CGameObjectSuper(void);
 
-	virtual void Create(CDlgSuper* pParent, int inX, int inY, int inZ);
+	virtual void Create(CDlgSuper* pParent);
 	virtual void OnDraw(CDisplayBuffer& destBuffer);
 
 	virtual ST_POINT GetFrontPos(void);
