@@ -12,11 +12,11 @@ public:
 	~CAlarmUI(void);
 
 	void Clear(void);
-	void Alarm(int x, int y, std::string strMsg, size_t tMaxLen, DWORD dwDuring = 1000);
+	void Alarm(std::string strMsg, DWORD dwDuring = 1000);
 
 private:
 	void OnCreate(void);
 	void OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick);
-	void OnDraw(CDisplayBuffer& vecBuffer);
+	void OnDrawUI(CDisplayBuffer& vecBuffer);
 };
 

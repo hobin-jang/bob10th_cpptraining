@@ -1,26 +1,28 @@
 #include "pch.h"
 #include "DlgSuper.h"
 
-CDlgSuper::CDlgSuper(void)
-    : m_bIsClosed(false)
-    , m_nExitCode(0)
+CDlgSuper::CDlgSuper(CDlgSuper* pParent)
+	: CUISuper()
+	, m_pParent(pParent)
+	, m_bIsClosed(false)
+	, m_nExitCode(0)
 {
 }
 
 CDlgSuper::~CDlgSuper(void)
 {
-    m_listUI.clear();
+	m_listUI.clear();
 }
 
 void CDlgSuper::Close(int nExitCode)
 {
-    m_bIsClosed = true;
-    m_nExitCode = nExitCode;
+	m_bIsClosed = true;
+	m_nExitCode = nExitCode;
 }
 
 void CDlgSuper::OnCreate(void)
 {
-    __super::OnCreate();
+	__super::OnCreate();
 }
 
 void CDlgSuper::OnClose(void)
@@ -29,54 +31,59 @@ void CDlgSuper::OnClose(void)
 
 void CDlgSuper::AddUI(CUISuper* pChild)
 {
-    m_listUI.push_back(pChild);
+	m_listUI.push_back(pChild);
 }
 
-void CDlgSuper::AddObject(CGameObjectSuper* pChild)
+int CDlgSuper::DoModal(void)
 {
-    m_listObject.push_back(pChild);
+	OnCreate();
+
+	while (!m_bIsClosed)
+	{
+		const DWORD dwCurrentTick = GetTickCount();
+
+		std::list<ST_KEYSTATE> listKeyState;
+		g_Input.Query(listKeyState);
+		OnInput(listKeyState);
+		OnUpdate(dwCurrentTick, g_nDeltaTick);
+
+		CDisplayBuffer& vecBackBuffer = g_Output.GetBackBuffer();
+		vecBackBuffer.Clear();
+		g_Output.Flip(g_Camera.GetViewPos(), vecBackBuffer);
+		DrawWorld(vecBackBuffer);
+
+		CDisplayBuffer vecDisplayBuffer;
+		g_Output.Flip(g_Camera.GetViewPos(), vecDisplayBuffer);
+		DrawUI(vecDisplayBuffer);
+		g_Output.Render(vecDisplayBuffer);
+
+		{
+			static DWORD dwLastUpdateTick = GetTickCount();
+			if (dwCurrentTick < dwLastUpdateTick)
+			{
+				DWORD dwRemainedTick = dwLastUpdateTick - dwCurrentTick;
+				Sleep(std::min<DWORD>(dwRemainedTick, g_nDeltaTick));
+			}
+			dwLastUpdateTick += g_nDeltaTick;
+		}
+	}
+
+	OnClose();
+	return m_nExitCode;
 }
 
-int CDlgSuper::DoModal(CDlgSuper* pParent)
+void CDlgSuper::DrawUI(CDisplayBuffer& vecBuffer)
 {
-    OnCreate();
+	if (m_pParent)
+		m_pParent->DrawUI(vecBuffer);
+	OnDrawUI(vecBuffer);
+}
 
-    while (!m_bIsClosed)
-    {
-        const DWORD dwElapsedTick = 1000 / g_dwFPS;
-        const DWORD dwCurrentTick = GetTickCount();
-
-        std::list<ST_KEYSTATE> listKeyState;
-        g_Input.Query(listKeyState);
-        OnInput(listKeyState);
-
-        if (pParent)
-            pParent->OnUpdate(dwCurrentTick, dwElapsedTick);
-        OnUpdate(dwCurrentTick, dwElapsedTick);
-
-        CDisplayBuffer& vecBackBuffer = g_Output.GetBackBuffer();
-        if (pParent)
-            pParent->OnDrawWorld(vecBackBuffer);
-        OnDrawWorld(vecBackBuffer);
-
-        CDisplayBuffer vecDisplayBuffer;
-        g_Output.Flip(g_Camera.GetViewPos(), vecDisplayBuffer);
-        if (pParent)
-            pParent->OnDrawUI(vecDisplayBuffer);
-        OnDrawUI(vecDisplayBuffer);
-
-        g_Output.Render(vecDisplayBuffer);
-
-        {
-            static DWORD dwLastUpdateTick = GetTickCount();
-            if (dwCurrentTick < dwLastUpdateTick)
-                Sleep(dwLastUpdateTick - dwCurrentTick);
-            dwLastUpdateTick += g_nDeltaTick;
-        }
-    }
-
-    OnClose();
-    return m_nExitCode;
+void CDlgSuper::DrawWorld(CDisplayBuffer& vecBuffer)
+{
+	if (m_pParent)
+		m_pParent->DrawWorld(vecBuffer);
+	OnDrawWorld(vecBuffer);
 }
 
 void CDlgSuper::OnInput(std::list<ST_KEYSTATE>& listKeyState)
@@ -85,32 +92,26 @@ void CDlgSuper::OnInput(std::list<ST_KEYSTATE>& listKeyState)
 
 void CDlgSuper::OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick)
 {
-    for (CUISuper* pUI : m_listUI)
-    {
-        if (!pUI->IsVisible())
-            continue;
-        pUI->OnUpdate(dwCurrentTick, dwElapsedTick);
-    }
-}
-
-void CDlgSuper::OnDrawWorld(CDisplayBuffer& vecBuffer)
-{
-    for (CGameObjectSuper* pObject : m_listObject)
-        pObject->OnDraw(vecBuffer);
+	__super::OnUpdate(dwCurrentTick, dwElapsedTick);
+	for (CUISuper* pUI : m_listUI)
+		pUI->OnUpdate(dwCurrentTick, dwElapsedTick);
 }
 
 void CDlgSuper::OnDrawUI(CDisplayBuffer& vecBuffer)
 {
-    for (CUISuper* pUI : m_listUI)
-    {
-        if (!pUI->IsVisible())
-            continue;
-        pUI->OnDraw(vecBuffer);
-    }
-}
+	__super::OnDrawUI(vecBuffer);
+	if (m_Size.y < 1 || m_Size.x < 1)
+		return;
 
-void CDlgSuper::OnDraw(CDisplayBuffer& vecBuffer)
-{
-    __super::OnDraw(vecBuffer);
-    OnDrawUI(vecBuffer);
+	CDisplayBuffer vecClientBuffer;
+	vecClientBuffer.Create(m_Size.x, m_Size.y);
+
+	for (CUISuper* pUI : m_listUI)
+	{
+		if (!pUI->IsVisible())
+			continue;
+		pUI->OnDrawUI(vecClientBuffer);
+	}
+
+	vecBuffer.BitBlt((short)m_Pos.x, (short)m_Pos.y, vecClientBuffer);
 }

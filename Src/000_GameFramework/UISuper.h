@@ -26,7 +26,8 @@ protected:
 	virtual ~CUISuper(void);
 
 public:
-	virtual void Create(CDlgSuper* pParent, int l, int t, int r, int b, DWORD dwAttribute = 0);
+	virtual void Create(CDlgSuper* pParent, short l, short t, short r, short b, DWORD dwAttribute = 0);
+	virtual void Create(CDlgSuper* pParent, ST_POINT pos, ST_SIZE size, DWORD dwAttribute = 0);
 	virtual void Create(CDlgSuper* pParent, ST_RECT rt, DWORD dwAttribute = 0);
 	virtual void SetText(std::string strText);
 	virtual void SetText(std::wstring strText);
@@ -44,6 +45,7 @@ public:
 	virtual void OnCreate(void);
 	virtual void OnSize(void);
 	virtual void OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick);
-	virtual void OnDraw(CDisplayBuffer& vecBuffer);
+	virtual void OnDrawWorld(CDisplayBuffer& vecBuffer);
+	virtual void OnDrawUI(CDisplayBuffer& vecBuffer);
 };
 

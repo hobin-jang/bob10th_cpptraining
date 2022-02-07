@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "GameObjectSuper.h"
-#include "DlgSuper.h"
+#include "SceneSuper.h"
 
 CGameObjectSuper::CGameObjectSuper(void)
 {
@@ -10,16 +10,13 @@ CGameObjectSuper::~CGameObjectSuper(void)
 {
 }
 
-void CGameObjectSuper::Create(CDlgSuper* pParent, int inX, int inY, int inZ)
+void CGameObjectSuper::Create(CSceneSuper* pParent)
 {
-	x = inX;
-	y = inY;
-	z = inZ;
 	if (pParent)
 		pParent->AddObject(this);
 }
 
-void CGameObjectSuper::OnDraw(CDisplayBuffer& destBuffer)
+void CGameObjectSuper::OnDrawUI(CDisplayBuffer& destBuffer)
 {
 	if (y < destBuffer.size() && x < destBuffer[y].size())
 		destBuffer[y][x] = cPatch;

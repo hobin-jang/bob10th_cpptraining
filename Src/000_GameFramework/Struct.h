@@ -85,6 +85,9 @@ struct ST_RECT
     ST_RECT(const ST_POINT& pt, const ST_SIZE& sz)
         : l(pt.x), t(pt.y), r(pt.x + sz.cx + 1), b(pt.y + sz.cy + 1)
     {}
+    ST_RECT(short left, short top, short right, short bottom)
+        : l(left), t(top), r(right), b(bottom)
+    {}
 };
 
 struct ST_POINT3
