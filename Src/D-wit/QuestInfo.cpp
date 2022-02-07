@@ -235,7 +235,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("아, 그리구 실지로는 이 정도로 사투리 안햐.");
         stQuest.vecMessages.push_back("말도 원체 이렇게 답답허지도 않여. 게임이니께 이러지.");
         stQuest.vecMessages.push_back("뭐... 암튼지간에, 궁금허면은 나 캐릭터로 써봐아.");
-        stQuest.vecMessages.push_back("생각 읎음 말구. 암튼 내 부탁도 잘 들어줬으니께 분명 잘 수료할겨.");
+        stQuest.vecMessages.push_back("...생각 읎음 말구. 암튼 내 부탁도 잘 들어줬으니께 분명 잘 수료할겨.");
         stQuest.vecMessages.push_back("응원할테니께, 열심히 햐!");
         stQuest.ClearCondition = ST_FILTER(129, 0x003F);
         vecQuest.push_back(stQuest);
