@@ -24,7 +24,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.nAge = 26;
     npc.strMBTI = "ISTP";
     npc.cPatch = 'U';
-    npc.strMessage = "팀프로젝트 조는 미리미리 짜고 있지?";
+    npc.strMessage = "팀프로젝트 조는 미리미리 짜고있지?";
     npc.strContents1 = "안녕~~~";
     npc.strContents2 = "트랙 선택 축하해";
     npc.strContents3 = "드디어 큰 산 하나 넘었구나";
@@ -138,10 +138,10 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
     {
         ST_QUEST_OBJECT stObject;
         stObject.nQuestObjectId = 277;
-        stObject.strName = "창모의 안주";
-        stObject.cPatch = 0;	// 화면에 보이지도 않고 만져지지도 않게 하려면 0을 넣으면 됨
+        stObject.strName = "창모의 테이블";
+        stObject.cPatch = 'n';	// 화면에 보이지도 않고 만져지지도 않게 하려면 0을 넣으면 됨
         stObject.x = 22;
-        stObject.y = 7;
+        stObject.y = 9;
         stObject.z = 5;
         stObject.reserved = 0;
         vecQuestObject.push_back(stObject);
@@ -152,8 +152,8 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
         stObject.nQuestObjectId = 278;
         stObject.strName = "병따개";
         stObject.cPatch = 0;	// 화면에 보이지도 않고 만져지지도 않게 하려면 0을 넣으면 됨
-        stObject.x = 21;
-        stObject.y = 6;
+        stObject.x = 23;
+        stObject.y = 9;
         stObject.z = 5;
         stObject.reserved = 0;
         vecQuestObject.push_back(stObject);
@@ -176,7 +176,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("배가 너무 고픈데...ㅠㅠ 혹시 먹을것 좀 없니?");
         stQuest.vecMessages.push_back("술안주같은거라도 괜찮아");
         stQuest.vecMessages.push_back("[5층 이창모 멘티 근처에 있는 안주를 훔쳐오자]");
-        stQuest.ClearCondition = ST_FILTER(148, 0x0003);
+        stQuest.ClearCondition = ST_FILTER(154, 0x0003);
         vecQuest.push_back(stQuest);
     }
 
@@ -184,11 +184,11 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
     {
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 277;
-        stQuest.StartCondition = ST_FILTER(148, 0x0001, 0x0003);
-        stQuest.vecMessages.push_back("[술을 먹고 있는 이창모 멘티의 안주이다]");
-        stQuest.vecMessages.push_back("[빨리 들고 도망가자]");
+        stQuest.StartCondition = ST_FILTER(154, 0x0001, 0x0003);
+        stQuest.vecMessages.push_back("[술을 먹고 있는 이창모 멘티의 테이블이다]");
+        stQuest.vecMessages.push_back("[안주를 빨리 들고 도망가자]");
         stQuest.vecMessages.push_back("이창모: 어? 내 안주가 어디갔지??");
-        stQuest.ClearCondition = ST_FILTER(148, 0x0007);
+        stQuest.ClearCondition = ST_FILTER(154, 0x0007);
         vecQuest.push_back(stQuest);
     }
 
@@ -196,7 +196,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
     {
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 154;
-        stQuest.StartCondition = ST_FILTER(148, 0x0003, 0x0007);
+        stQuest.StartCondition = ST_FILTER(154, 0x0003, 0x0007);
         stQuest.vecMessages.push_back("고마워. 맛있겠다!");
         stQuest.vecMessages.push_back("(주섬주섬 뭔가를 꺼낸다.)");
         stQuest.vecMessages.push_back("우리는 코로나 때문에 술을 많이 못마셨어...");
@@ -204,9 +204,9 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("밥만 먹으면 심심하잖아?");
         stQuest.vecMessages.push_back("어라? 근데 병따개가 없네... 오다가 떨어뜨렸나 보다");
         stQuest.vecMessages.push_back("저기... 병따개도 하나만 찾아서 가져와 주라");
-        stQuest.vecMessages.push_back("[5층 이창모 멘티 근처의 병따개를 찾아보자]");
-        stQuest.vecMessages.push_back("(근데... 소주먹는데 병따개가 필요했나...?)");
-        stQuest.ClearCondition = ST_FILTER(148, 0x000F);
+        stQuest.vecMessages.push_back("[5층 이창모 안주 근처의 병따개를 찾아보자]");
+        stQuest.vecMessages.push_back("(흠... 소주먹는데 병따개가 필요했나...?)");
+        stQuest.ClearCondition = ST_FILTER(154, 0x000F);
         vecQuest.push_back(stQuest);
     }
 
@@ -214,11 +214,11 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
     {
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 278;
-        stQuest.StartCondition = ST_FILTER(148, 0x0007, 0x000F);
+        stQuest.StartCondition = ST_FILTER(154, 0x0007, 0x000F);
         stQuest.vecMessages.push_back("[이창모 멘티가 쓰던 병따개를 발견했다!]");
-        stQuest.vecMessages.push_back("(근데... 이사람 근처에 왜 이런것들밖에 없는거야?)");
+        stQuest.vecMessages.push_back("(근데... 이사람 근처엔 왜 이런것들밖에 없는거야?)");
         stQuest.vecMessages.push_back("[이번에도 눈치채기 전에 빨리 돌아가자]");
-        stQuest.ClearCondition = ST_FILTER(148, 0x001F);
+        stQuest.ClearCondition = ST_FILTER(154, 0x001F);
         vecQuest.push_back(stQuest);
     }
 
@@ -226,7 +226,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
     {
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 154;
-        stQuest.StartCondition = ST_FILTER(148, 0x000F, 0x001F);
+        stQuest.StartCondition = ST_FILTER(154, 0x000F, 0x001F);
         stQuest.vecMessages.push_back("고마워! 술한잔 하자구~ ");
         stQuest.vecMessages.push_back("(주섬주섬 뭔가를 또 꺼낸다.)");
         stQuest.vecMessages.push_back("역시 술은 쏘맥이지~!");
@@ -245,7 +245,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("Zzzzzz....");
         stQuest.vecMessages.push_back("(김진욱 멘티가 술에 취해 갑자기 잠들었다. 이틈에 도망가자)");
         stQuest.vecMessages.push_back("[퀘스트를 완료했습니다]");
-        stQuest.ClearCondition = ST_FILTER(148, 0x003F);
+        stQuest.ClearCondition = ST_FILTER(154, 0x003F);
         vecQuest.push_back(stQuest);
     }
 }
