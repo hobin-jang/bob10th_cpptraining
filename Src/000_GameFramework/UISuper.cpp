@@ -15,18 +15,26 @@ CUISuper::~CUISuper(void)
 {
 }
 
-void CUISuper::Create(CDlgSuper* pParent, int l, int t, int r, int b, DWORD dwAttribute)
+void CUISuper::Create(CDlgSuper* pParent, short l, short t, short r, short b, DWORD dwAttribute)
+{
+	Create(pParent, ST_POINT{ l, t }, ST_SIZE{r - l - 1, b - t - 1}, dwAttribute);
+}
+
+void CUISuper::Create(CDlgSuper* pParent, ST_POINT pos, ST_SIZE size, DWORD dwAttribute)
 {
 	m_dwAttribute = dwAttribute;
 	if (pParent)
 		pParent->AddUI(this);
-	SetRect(l, t, r, b);
+	m_TargetPos.x = pos.x < 0? g_nConsoleW + pos.x : pos.x;
+	m_TargetPos.y = pos.y < 0 ? g_nConsoleH + pos.y : pos.y;
+	m_TargetSize.x = size.cx;
+	m_TargetSize.y = size.cy;
 	OnCreate();
 }
 
 void CUISuper::Create(CDlgSuper* pParent, ST_RECT rt, DWORD dwAttribute)
 {
-	Create(pParent, rt.l, rt.t, rt.r, rt.b, dwAttribute);
+	Create(pParent, ST_POINT{ rt.l, rt.t }, ST_SIZE{ rt.r - rt.l - 1, rt.b - rt.t - 1 }, dwAttribute);
 }
 
 void CUISuper::SetText(std::string strText)
@@ -126,5 +134,5 @@ void CUISuper::OnDrawWorld(CDisplayBuffer& vecBuffer)
 void CUISuper::OnDrawUI(CDisplayBuffer& vecBuffer)
 {
 	if( 0 == (m_dwAttribute & UI_ATTRIBUTE_NO_BORDER))
-		vecBuffer.DrawRectangle((int)m_Pos.x, (int)m_Pos.y, (int)m_Pos.x + m_Size.x + 1, (int)m_Pos.y + m_Size.y + 1);
+		vecBuffer.DrawRectangle((int)m_Pos.x, (int)m_Pos.y, (int)m_Pos.x + m_Size.x - 1, (int)m_Pos.y + m_Size.y - 1);
 }

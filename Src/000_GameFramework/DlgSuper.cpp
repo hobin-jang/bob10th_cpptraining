@@ -92,12 +92,9 @@ void CDlgSuper::OnInput(std::list<ST_KEYSTATE>& listKeyState)
 
 void CDlgSuper::OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick)
 {
+	__super::OnUpdate(dwCurrentTick, dwElapsedTick);
 	for (CUISuper* pUI : m_listUI)
-	{
-		if (!pUI->IsVisible())
-			continue;
 		pUI->OnUpdate(dwCurrentTick, dwElapsedTick);
-	}
 }
 
 void CDlgSuper::OnDrawUI(CDisplayBuffer& vecBuffer)
@@ -108,7 +105,7 @@ void CDlgSuper::OnDrawUI(CDisplayBuffer& vecBuffer)
 
 	CDisplayBuffer vecClientBuffer;
 	vecClientBuffer.resize((int)m_Size.y);
-	for (auto line : vecClientBuffer)
+	for (auto& line : vecClientBuffer)
 		line.resize((int)m_Size.x);
 
 	for (CUISuper* pUI : m_listUI)
@@ -118,5 +115,5 @@ void CDlgSuper::OnDrawUI(CDisplayBuffer& vecBuffer)
 		pUI->OnDrawUI(vecClientBuffer);
 	}
 
-	vecBuffer.BitBlt(GetPos(), vecClientBuffer);
+	vecBuffer.BitBlt((short)m_Pos.x, (short)m_Pos.y, vecClientBuffer);
 }

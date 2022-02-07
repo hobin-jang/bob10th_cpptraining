@@ -18,6 +18,8 @@ protected:
 	virtual void OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick);
 	virtual void OnDrawWorld(CDisplayBuffer& vecBuffer);
 
+	void OnDrawUI(CDisplayBuffer& vecBuffer);
+
 public:
 	virtual void AddObject(CGameObjectSuper* pChild);
 };

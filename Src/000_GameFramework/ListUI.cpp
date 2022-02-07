@@ -115,20 +115,16 @@ void CListUI::OnDrawUI(CDisplayBuffer& vecBuffer)
 	for (int i = 0; i + nStartIndex <m_vecItems.size(); i++)
 	{
 		const int nItemIndex = i + nStartIndex;
-		std::wstring strItem = m_vecItems[nItemIndex];
 
 		int x = i % m_nAlignCol;
 		int y = i / m_nAlignCol;
-
-		int nLeft = m_Pos.x + x * nItemLength + nLeftMargin ;
+		int nLeft = m_Pos.x + x * nItemLength + nLeftMargin + 1;
 		int nTop = m_Pos.y + y + 1;
-		if (m_Size.y < 0)
+		if (m_Size.y < 0 || vecBuffer.size() <= nTop)
 			break;
 
-		int w = std::min<int>(m_TargetSize.x, (int)strItem.length());
-		memcpy((void*)(vecBuffer[nTop].c_str() + nLeft + 1), strItem.c_str(), w * sizeof(wchar_t));
-
+		vecBuffer.DrawString(nLeft, nTop, m_vecItems[nItemIndex]);
 		if (nItemIndex == m_nCursorIndex)
-			vecBuffer[nTop][nLeft + 1 - nLeftMargin] = 26;	// 화살표 커서
+			vecBuffer[nTop][nLeft - nLeftMargin] = 26;	// 화살표 커서
 	}
 }

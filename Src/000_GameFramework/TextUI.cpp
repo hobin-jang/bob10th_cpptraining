@@ -14,6 +14,8 @@ CTextUI::~CTextUI(void)
 
 void CTextUI::Clear(void)
 {
+	m_tViewPos = 0;
+	m_strText.clear();
 	m_listText.clear();
 }
 
@@ -74,29 +76,24 @@ void CTextUI::OnSize(void)
 	m_tViewPos = 0;
 }
 
-void CTextUI::OnDrawUI(CDisplayBuffer& vecBuffer)
+void CTextUI::OnDrawUI(CDisplayBuffer& buffer)
 {
-	__super::OnDrawUI(vecBuffer);
+	__super::OnDrawUI(buffer);
 
-	const ST_POINT pos = { (short)m_Pos.x, (short)m_Pos.y };
+	const ST_POINT stCurPos = { (short)m_Pos.x + 1, (short)m_Pos.y + 1 };
 	if (UI_ATTRIBUTE_SINGLELINE & m_dwAttribute)
 	{
-		int w = std::min<int>(m_Size.x, m_strText.length());
-		if(pos.y + 1 < vecBuffer.size())
-			memcpy((void*)(vecBuffer[pos.y + 1].c_str() + pos.x + 1), m_strText.c_str(), w * sizeof(wchar_t));
+		buffer.DrawString(stCurPos, m_strText);
 		return;
 	}
 
-	int nBufferY = pos.y + 1;
-	int nBottom = pos.y + m_Size.y + 1;
-	for(size_t i= m_tViewPos; i<m_listText.size(); i++)
+	for(size_t y= 0; y<m_Size.y; y++)
 	{
-		std::wstring strLine = m_listText[i];
-		int y = nBufferY++;
-		if (nBottom <= y)
+		size_t tIndex = y + m_tViewPos;
+		if (m_listText.size() <= tIndex)
 			break;
 
-		int w = std::min<int>(m_Size.x, strLine.length());
-		memcpy((void*)(vecBuffer[y].c_str() + pos.x + 1), strLine.c_str(), w * sizeof(wchar_t));
+		ST_POINT stDrawPos = { stCurPos.x, stCurPos.y + y };
+		buffer.DrawString(stDrawPos, m_listText[tIndex]);
 	}
 }

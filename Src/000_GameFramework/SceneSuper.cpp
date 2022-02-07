@@ -30,3 +30,13 @@ void CSceneSuper::OnDrawWorld(CDisplayBuffer& vecBuffer)
     for (CGameObjectSuper* pObject : m_listObject)
         pObject->OnDrawUI(vecBuffer);
 }
+
+void CSceneSuper::OnDrawUI(CDisplayBuffer& vecBuffer)
+{
+	for (CUISuper* pUI : m_listUI)
+	{
+		if (!pUI->IsVisible())
+			continue;
+		pUI->OnDrawUI(vecBuffer);
+	}
+}
