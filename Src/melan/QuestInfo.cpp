@@ -16,9 +16,9 @@ CQuestInfo::~CQuestInfo(void)
 void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
 	ST_QUEST_NPC_DATA npc;
-	npc.x = 19;
+	npc.x = 20;
 	npc.y = 21;
-	npc.z = 23;
+	npc.z = 13;
 	npc.nNpcID = 142;
 	npc.strTrack = "취약점분석트랙";
 	npc.strName = "조준희";
@@ -162,6 +162,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		stQuest.vecMessages.push_back("[14층 사무실의 게이밍 의자]를 찾았다!");
 		stQuest.vecMessages.push_back("조준희에게 가져다주자.");
 		stQuest.ClearCondition = ST_FILTER(142, 0x0007);
+		vecQuest.push_back(stQuest);
 	}
 
 	// 조준희
