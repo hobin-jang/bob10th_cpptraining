@@ -13,6 +13,7 @@ CQuestInfo::~CQuestInfo(void)
 
 }
 
+/*
 void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 {
 	ST_NPC_INFO npc;
@@ -85,7 +86,7 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 	npc.vecBuffer[59] = "          .      .,~,...:,,,.!*;!=$######$$$#####!";
 
 	vecNPC.push_back(npc);
-}
+}*/
 
 void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC) {
 	ST_QUEST_NPC_DATA npc;
@@ -98,7 +99,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC) {
 	npc.nAge = 23;
 	npc.strMBTI = "ISFP인데 S빼고는 계속 바껴요. A형입니다아~~";
 	npc.cPatch = 'Y';
-	npc.strMessage = "BOB에서 스트레스 받지 말구 즐겨요!! \n 롤 좋아하는 사람 연락해줘여 쵸비 응원해주세요ヾ(≧▽≦*)o";
+	npc.strMessage = "BOB에서 스트레스 받지 말구 즐겨요!! \n 롤 좋아하는 사람 연락해줘여 쵸비쵸오비ヾ(≧▽≦*)o";
 
 	npc.vecSmallImage.resize(25);
 	npc.vecSmallImage[0] = "======###$$=###$*=#======";

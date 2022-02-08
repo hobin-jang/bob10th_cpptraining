@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "QuestInfo.h"
 
 
@@ -23,13 +23,13 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
         npc.y = 5;
         npc.z = 5;
         npc.nNpcID = 129;
-        npc.strTrack = "µğÁöÅĞÆ÷·»½ÄÆ®·¢";
-        npc.strName = "±è´ë±â (D_wit)";
+        npc.strTrack = "ë””ì§€í„¸í¬ë Œì‹íŠ¸ë™";
+        npc.strName = "ê¹€ëŒ€ê¸° (D_wit)";
         npc.nAge = 25;
-        npc.strMBTI = "Á¤»ó";
+        npc.strMBTI = "ì •ìƒ";
         npc.cPatch = 'D';
-        npc.strMessage = "¹ä¼ÜÀº ÄíÃ¾...";
-        npc.strMessage = "ÄíÄí´Â À§ÇèÇá... ÇÔºÎ·Î °ÇµéÁö ¸»¾î...";
+        npc.strMessage = "ë°¥ì†¥ì€ ì¿ ì²¸...";
+        npc.strMessage = "ì¿ ì¿ ëŠ” ìœ„í—˜í–... í•¨ë¶€ë¡œ ê±´ë“¤ì§€ ë§ì–´...";
 
 
         npc.vecBigImage.push_back("                                                                ");
@@ -103,6 +103,42 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
         npc.vecSmallImage.push_back("QBBBQBQBQBBBBBBBQBQBQBQBQ");
         npc.vecSmallImage.push_back("BQBQBQBQBQBQQQQQBQBQQQQQQ");
 
+        npc.strContents1 =
+            "íì•„- ë“œë””ì–´ ìˆ˜ë£Œí–ˆ...\n"
+            "ì–´? ì™œ ë¥ì§€? 2ì›” ì•„ë‹Œê°€?\n"
+            "(íœ´ëŒ€í°ì„ ì—´ì–´ë³¸ë‹¤.)\n"
+            "2022ë…„ 7ì›”???\n"
+            "ë­ì•¼? ë‚´ 5ê°œì›” ì–´ë”” ê°”ì–´?\n"
+            "ìˆ˜ë£Œí•˜ê³  íœ´í•™í•˜ëŠ” ë™ì•ˆ ì¢€ ì‰¬ë ¤ê³  í–ˆëŠ”ë°...\n"
+            "ì™œ ê°‘ìê¸° ì—¬ë¦„ì´ëƒê³ !!!!!!!!\n"
+            "(ì”ë”” ì•±ì— ì•Œë¦¼ì´ ëœ¬ë‹¤.)\n"
+            "ê³µí†µêµìœ¡ ê³µì§€ì‚¬í•­? ì´ê²Œ ì™œ ë‚˜í•œí…Œ ì™€?\n"
+            "ì—¥? êµìœ¡ìƒ ëª…ë‹¨ì— ë‚´ê°€ ìˆì–ì•„??\n"
+            "ì„¤ë§ˆ...\n"
+            "1ë…„ ë” í•´ì•¼ í•˜ëŠ” ê±°ì•¼??????\n"
+            "ì•„ë‹ˆì•¼... ì•„ë‹ ê±°ì•¼...\n"
+            "ê·¸ë˜! ê¿ˆì´ê² ì§€! ë•Œë ¤ë³´ì (ì°°ì‹¹)\n"
+            "ì•„í”„ë„¤... í°ì¼ì´ë„¤...\n"
+            "ì¼ë‹¨ BoB ì„¼í„° ì•ì´ë‹ˆê¹Œ ë“¤ì–´ê°€ì„œ í™•ì¸í•´ë³´ì§€ ë­.\n"
+            ;
+
+        npc.strContents2 = 
+            "í¬ë Œì‹íŠ¸ë™... ì˜¤ëœë§Œì´ë„¤.\n"
+            "ì‘ë…„ íŠ¸ë™ë³„êµìœ¡ì€ ë¹¡ì…ŒëŠ”ë°... ì˜¬í•´ëŠ” ê´œì°®ê² ...ì§€?\n"
+            "ì˜¬í•´ëŠ” ê°•ì˜ ë‚´ìš© ê¸°ë¡ ì¢€ í•˜ì ì œë°œ.\n"
+            ;
+        npc.strContents3 = 
+            "íì•„ì•„ ì§„ì§œ í° ê±° ëë‚¬ë‹¤...ğŸ¤¤\n"
+            "3ì°¨ êµìœ¡ì€ ì „ë¶€ ë‹¤ ë“¤ì„ í•„ìš”ëŠ” ì—†ë‹¤ì§€ë§Œ,\n"
+            "í•„ìš”í•œ ê±°ëŠ” ê¼­ ì±™ê²¨ ë“¤ì–´ì•¼ì§€ğŸ˜¤";
+        npc.strContents4 = 
+            "ì™€... ê²°êµ­ ì´ê±¸ ë˜ í•´ëƒˆë„¤.\n"
+            "í”Œë ˆì´ì–´, ì—¬ê¸°ê¹Œì§€ ì˜¤ëŠë¼ ê³ ìƒ ë§ì•˜ì–´.\n"
+            "BoB í•˜ëŠ” 7ê°œì›” ë™ì•ˆ ì§„ì§œ ë³„ì˜ë³„ ì¼ë“¤ ë‹¤ ê²ªê²Œ ë ê±°ì•¼.\n"
+            "íŠ¹íˆ ì˜¬í•´ë„ ë¹„ëŒ€ë©´ìœ¼ë¡œ í•˜ë©´ ëª¸ ì§„ì§œ ë§ì´ ë§ê°€ì§ˆ ê±°ê³ .\n"
+            "ë‚˜ì²˜ëŸ¼ ê³ ìƒ ì•ˆ í•˜ê²Œ ìš´ë™ ê¾¸ì¤€íˆ í•˜ê³ , ìì„¸ í‹ˆí‹ˆì´ ê³ ì³ ì•‰ê³ ,\n"
+            "ë˜ ë­ ìˆë”ë¼... ì•„ë¬´íŠ¼ ì˜ í•´ë‚¼ ìˆ˜ ìˆì„ ê±°ë¼ ë¯¿ëŠ”ë‹¤!\n"
+            ;
 
         vecNPC.push_back(npc);
     }
@@ -114,8 +150,8 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
     {
         ST_QUEST_OBJECT stObject;
         stObject.nQuestObjectId = 266;
-        stObject.strName = "512GBÂ¥¸® M.2 SSD";
-        stObject.cPatch = 'S';	// È­¸é¿¡ º¸ÀÌÁöµµ ¾Ê°í ¸¸Á®ÁöÁöµµ ¾Ê°Ô ÇÏ·Á¸é 0À» ³ÖÀ¸¸é µÊ
+        stObject.strName = "512GBì§œë¦¬ M.2 SSD";
+        stObject.cPatch = 'S';	// í™”ë©´ì— ë³´ì´ì§€ë„ ì•Šê³  ë§Œì ¸ì§€ì§€ë„ ì•Šê²Œ í•˜ë ¤ë©´ 0ì„ ë„£ìœ¼ë©´ ë¨
         stObject.x = 5;
         stObject.y = 19;
         stObject.z = 3;
@@ -123,12 +159,12 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
         vecQuestObject.push_back(stObject);
     }
 
-    //ÅÃ¹è¹Ú½º
+    //íƒë°°ë°•ìŠ¤
     {
         ST_QUEST_OBJECT stObject;
         stObject.nQuestObjectId = 274;
-        stObject.strName = "¶â¾îÁø ÅÃ¹è¹Ú½º";
-        stObject.cPatch = 'C';	// È­¸é¿¡ º¸ÀÌÁöµµ ¾Ê°í ¸¸Á®ÁöÁöµµ ¾Ê°Ô ÇÏ·Á¸é 0À» ³ÖÀ¸¸é µÊ
+        stObject.strName = "ëœ¯ì–´ì§„ íƒë°°ë°•ìŠ¤";
+        stObject.cPatch = 'C';	// í™”ë©´ì— ë³´ì´ì§€ë„ ì•Šê³  ë§Œì ¸ì§€ì§€ë„ ì•Šê²Œ í•˜ë ¤ë©´ 0ì„ ë„£ìœ¼ë©´ ë¨
         stObject.x = 18;
         stObject.y = 9;
         stObject.z = 3;
@@ -144,35 +180,35 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 129;
         stQuest.StartCondition = ST_FILTER(129, 0x0000, 0x0001);
-        stQuest.vecMessages.push_back("ÇÏ¾Æ... È¯ÀåÇÏ°Î³×. ¿ÜÀåÇÏµå´Â ¹¹ ¶«¿¡ ÀÚ²Ù Æ¨±â´Â°Ü-");
-        stQuest.vecMessages.push_back("ŸÓ? ÀÚ³×´Â ´©±¸¿©? ¾Æ- 11±â¿©?");
-        stQuest.vecMessages.push_back("ÀÌÀÌ, ¸¶Ä§ Àß ¸¸³µ³×. ±×... ¹¹¿©, ³ª ºÎÅ¹ ÇÏ³ª¸¸ ÇØµµ ´ô?");
-        stQuest.vecMessages.push_back("¾ÆÀ¯ ÀÌ ³ëÆ®ºÏÀÌ ¸»¿©, BoB µé¾î¿À¸é ¾Ë°Ü. ¸àÆ¼µéÇÑÅ× ´Ù ÁÖ´Â °Çµ¥,");
-        stQuest.vecMessages.push_back("½ºÆåÀÌ ¾ÆÁÖ Â¯Â¯Çá- °¡º±±¸, ºü¸£±¸, ¶ß²öÇÏ¤¡... ¾Æ ÀÌ°Å´Â ÀÚ¶ûÀº ¾Æ´Ñµğ...");
-        stQuest.vecMessages.push_back("¹¹, ¾ÏÆ°Áö°£¿¡. ½º½ºµğµµ 512±â°¡³ª ÁÖ´Â °Ü. ³ëÆ®ºÏ Ä¡°í´Â ¸¹ÀÌ ÁÖ´Â °ÅÀİ¿©, ±×Áö?");
-        stQuest.vecMessages.push_back("±Ùµ¥ ÀÌ°Ô ¸»¿©...");
-        stQuest.vecMessages.push_back("(º»·ĞÀÌ ¹¹³Ä°í ÀçÃËÇÑ´Ù.)");
-        stQuest.vecMessages.push_back("¾Æ Á» ÁöµÑ·Á ºÁ¾Æ- ¹¹ ±×¸® »ç¶÷ÀÌ ±ŞÇô? ³» ¾ê±â ´Ù µéÀ¸¸é ¼ûÁ³°Î³×.");
-        stQuest.vecMessages.push_back("±×... ¿öµğ±îÁö ¾ê±âÇßµå¶ó?");
-        stQuest.vecMessages.push_back("¾Æ, °Ü, ¸Â¾î. ¿¡À×, ÀÚ³× ¶«¿¡ ±î¸ÔÀ» »·ÇßÀİ¿©!");
-        stQuest.vecMessages.push_back("¾ÏÆ°°£¿¡. ±× ÀÎÀú, ÇÁ·ÎÁ§Æ®Çã¸é¼­ »÷µå¹Ú½º¸¦ ±ò¾Æ¼­ ¾²´Âµğ, ÀÌ°Ô ¿ë·®ÀÌ »ó´çÇá.");
-        stQuest.vecMessages.push_back("°øÅë±³À° ¶§ ½è´ø ÄÚµå±îÁö ´Ù ˆq°í ¾²´Ï²² ÀÎÀú °ø°£ÀÌ ¸ğÀß·¯.");
-        stQuest.vecMessages.push_back("±×·¡°¡Áö°í ¸»¿©, µ¹¾Æ´ó±â´Ù°¡ ³²´Â ½º½ºµğ ÀÖÀ¸¸é Á» ÁÖ¼­´Ù ÁÖ¸é ¾È µÇ³ª?");
-        stQuest.vecMessages.push_back("±æ¹Ù´Ú º¸´Ù º¸¸éÀº 'S'¶ó°í ½áÁ® ÀÖÀ»°Ü. ±× ½º½ºµğ ÇÏ³ª¸¸ ÁÖ¼­´Ù ÁàºÁ.");
+        stQuest.vecMessages.push_back("í•˜ì•„... í™˜ì¥í•˜ê²„ë„¤. ì™¸ì¥í•˜ë“œëŠ” ë­ ë•œì— ìê¾¸ íŠ•ê¸°ëŠ”ê²¨-");
+        stQuest.vecMessages.push_back("ì­? ìë„¤ëŠ” ëˆ„êµ¬ì—¬? ì•„- 11ê¸°ì—¬?");
+        stQuest.vecMessages.push_back("ì´ì´, ë§ˆì¹¨ ì˜ ë§Œë‚¬ë„¤. ê·¸... ë­ì—¬, ë‚˜ ë¶€íƒ í•˜ë‚˜ë§Œ í•´ë„ ëŒœ?");
+        stQuest.vecMessages.push_back("ì•„ìœ  ì´ ë…¸íŠ¸ë¶ì´ ë§ì—¬, BoB ë“¤ì–´ì˜¤ë©´ ì•Œê²¨. ë©˜í‹°ë“¤í•œí…Œ ë‹¤ ì£¼ëŠ” ê±´ë°,");
+        stQuest.vecMessages.push_back("ìŠ¤í™ì´ ì•„ì£¼ ì§±ì§±í–- ê°€ë³êµ¬, ë¹ ë¥´êµ¬, ëœ¨ëˆí•˜ã„±... ì•„ ì´ê±°ëŠ” ìë‘ì€ ì•„ë‹Œë””...");
+        stQuest.vecMessages.push_back("ë­, ì•”íŠ¼ì§€ê°„ì—. ìŠ¤ìŠ¤ë””ë„ 512ê¸°ê°€ë‚˜ ì£¼ëŠ” ê²¨. ë…¸íŠ¸ë¶ ì¹˜ê³ ëŠ” ë§ì´ ì£¼ëŠ” ê±°ì–ì—¬, ê·¸ì§€?");
+        stQuest.vecMessages.push_back("ê·¼ë° ì´ê²Œ ë§ì—¬...");
+        stQuest.vecMessages.push_back("(ë³¸ë¡ ì´ ë­ëƒê³  ì¬ì´‰í•œë‹¤.)");
+        stQuest.vecMessages.push_back("ì•„ ì¢€ ì§€ë‘˜ë ¤ ë´ì•„- ë­ ê·¸ë¦¬ ì‚¬ëŒì´ ê¸‰í˜€? ë‚´ ì–˜ê¸° ë‹¤ ë“¤ìœ¼ë©´ ìˆ¨ì¡Œê²„ë„¤.");
+        stQuest.vecMessages.push_back("ê·¸... ì›Œë””ê¹Œì§€ ì–˜ê¸°í–ˆë“œë¼?");
+        stQuest.vecMessages.push_back("ì•„, ê²¨, ë§ì–´. ì—ì‰, ìë„¤ ë•œì— ê¹Œë¨¹ì„ ë»”í–ˆì–ì—¬!");
+        stQuest.vecMessages.push_back("ì•”íŠ¼ê°„ì—. ê·¸ ì¸ì €, í”„ë¡œì íŠ¸í—ˆë©´ì„œ ìƒŒë“œë°•ìŠ¤ë¥¼ ê¹”ì•„ì„œ ì“°ëŠ”ë””, ì´ê²Œ ìš©ëŸ‰ì´ ìƒë‹¹í–.");
+        stQuest.vecMessages.push_back("ê³µí†µêµìœ¡ ë•Œ ì¼ë˜ ì½”ë“œê¹Œì§€ ë‹¤ ëŠ«ê³  ì“°ë‹ˆê»˜ ì¸ì € ê³µê°„ì´ ëª¨ì˜ëŸ¬.");
+        stQuest.vecMessages.push_back("ê·¸ë˜ê°€ì§€ê³  ë§ì—¬, ëŒì•„ëŒ•ê¸°ë‹¤ê°€ ë‚¨ëŠ” ìŠ¤ìŠ¤ë”” ìˆìœ¼ë©´ ì¢€ ì£¼ì„œë‹¤ ì£¼ë©´ ì•ˆ ë˜ë‚˜?");
+        stQuest.vecMessages.push_back("ê¸¸ë°”ë‹¥ ë³´ë‹¤ ë³´ë©´ì€ 'S'ë¼ê³  ì¨ì ¸ ìˆì„ê²¨. ê·¸ ìŠ¤ìŠ¤ë”” í•˜ë‚˜ë§Œ ì£¼ì„œë‹¤ ì¤˜ë´.");
         stQuest.ClearCondition = ST_FILTER(129, 0x0003);
         vecQuest.push_back(stQuest);
     }
 
-    //½º½ºµğ
+    //ìŠ¤ìŠ¤ë””
     {
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 266;
         stQuest.StartCondition = ST_FILTER(129, 0x0001, 0x0003);
-        stQuest.vecMessages.push_back("NVMe M.2 SSD (512GB). ÀÌ°Ç°¡?");
-        stQuest.vecMessages.push_back("±Ùµ¥ ÀÌ°Ô ¿Ö ¶¥¿¡ ±×³É ¶³¾îÁ® ÀÖÁö?");
-        stQuest.vecMessages.push_back("[ÁÖÀÎÀ» ¾Ë ¼ö ¾ø´Â SSD]¸¦ È¹µæÇß½À´Ï´Ù.");
-        stQuest.vecMessages.push_back("ÀÌ°Å ¶Ç ÁÖ¿ö°¡¸é ¹®Á¦ »ı±â´Â °Å ¾Æ´Ï¾ß...?");
-        stQuest.vecMessages.push_back("¾Æ ¸ô¶ó, ±×³É °®´ÙÁÖÁö ¹¹.");
+        stQuest.vecMessages.push_back("NVMe M.2 SSD (512GB). ì´ê±´ê°€?");
+        stQuest.vecMessages.push_back("ê·¼ë° ì´ê²Œ ì™œ ë•…ì— ê·¸ëƒ¥ ë–¨ì–´ì ¸ ìˆì§€?");
+        stQuest.vecMessages.push_back("[ì£¼ì¸ì„ ì•Œ ìˆ˜ ì—†ëŠ” SSD]ë¥¼ íšë“í–ˆìŠµë‹ˆë‹¤.");
+        stQuest.vecMessages.push_back("ì´ê±° ë˜ ì£¼ì›Œê°€ë©´ ë¬¸ì œ ìƒê¸°ëŠ” ê±° ì•„ë‹ˆì•¼...?");
+        stQuest.vecMessages.push_back("ì•„ ëª°ë¼, ê·¸ëƒ¥ ê°–ë‹¤ì£¼ì§€ ë­.");
         stQuest.ClearCondition = ST_FILTER(129, 0x0007);
         vecQuest.push_back(stQuest);
     }
@@ -182,35 +218,35 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 129;
         stQuest.StartCondition = ST_FILTER(129, 0x0003, 0x0007);
-        stQuest.vecMessages.push_back("ÀÌÀÌ? »ı°¢º¸´Ù ÀÏÂï Ã£¾ú³×? ÇÔ ÁàºÁ¾Æ.");
-        stQuest.vecMessages.push_back("[ÁÖÀÎÀ» ¾Ë ¼ö ¾ø´Â SSD]¸¦ Àü´ŞÇß½À´Ï´Ù.");
-        stQuest.vecMessages.push_back("¹¹¿©, ÀÌ°Å »ç³õ°í ¼¾ÅÍ¼­ ÀÒ¾î¹ö¸° °Å ¾Æ³à?");
-        stQuest.vecMessages.push_back("ÇÏÀÌ´Ğ½º¿¡ 512±â°¡¸éÀº... ÀÌ°Å »ò´Ù´Â µ¿±â´Â ¸ø ºÃ´Âµï...");
-        stQuest.vecMessages.push_back("¾ÆÀ¯ ¶Ç »ç¶÷ ºÙÀâ¾îµÎ°í ÀÏÀå¿¬¼³ÇÑ´Ù°í ±×·¯°Î´Ù.");
-        stQuest.vecMessages.push_back("ÀÖ¾îºÁ- ²¸º¸°í °°ÀÌ È®ÀÎÇØº¸ÀÚ°í.");
-        stQuest.vecMessages.push_back("(³ëÆ®ºÏ µ¤°³¸¦ ¶â¾î SSD¸¦ ÀåÂøÇÑ´Ù.)");
-        stQuest.vecMessages.push_back("ÀÌÀÌ. Àß µÇ³×À×. ´öºĞ¿¡ ÀÎÀú ¿ë·® °ÆÁ¤ ¾È ÇØµµ µÇ°Î¾î.");
-        stQuest.vecMessages.push_back("±Ùµğ... ÀÌ°Ô Â÷¾Ï ÂòÂòÇÏ´Ü ¸»¿©?");
-        stQuest.vecMessages.push_back("¸¸¾à¿¡ ÀÌ°Ô ³» °Ô ¾Æ´Ï¸éÀº ¹®Á¦°¡ µÉ °Å ¾Æ³à?");
-        stQuest.vecMessages.push_back("±×, ºÎÅ¹ ÇÏ³ª¸¸ ´õ ÇãÀÚ.");
-        stQuest.vecMessages.push_back("ÀÌ°Ô ³» °Å¸éÀº, ÁÖº¯¿¡ ÅÃ¹è ¹Ú½º ¶â±Å³õÀº °Ô ÀÖÀ»°Ü.");
-        stQuest.vecMessages.push_back("'B'¶ó°í »ı°å´ø °Í °°Àºµğ... ¾ÏÆ°Áö°£¿¡ ±× ÅÃ¹è ¹Ú½º ³» °Å ¸Â´ÂÁö Á» È®ÀÎÇôÁàºÁ¾Æ.");
+        stQuest.vecMessages.push_back("ì´ì´? ìƒê°ë³´ë‹¤ ì¼ì° ì°¾ì—ˆë„¤? í•¨ ì¤˜ë´ì•„.");
+        stQuest.vecMessages.push_back("[ì£¼ì¸ì„ ì•Œ ìˆ˜ ì—†ëŠ” SSD]ë¥¼ ì „ë‹¬í–ˆìŠµë‹ˆë‹¤.");
+        stQuest.vecMessages.push_back("ë­ì—¬, ì´ê±° ì‚¬ë†“ê³  ì„¼í„°ì„œ ìƒì–´ë²„ë¦° ê±° ì•„ë…€?");
+        stQuest.vecMessages.push_back("í•˜ì´ë‹‰ìŠ¤ì— 512ê¸°ê°€ë©´ì€... ì´ê±° ìƒ€ë‹¤ëŠ” ë™ê¸°ëŠ” ëª» ë´¤ëŠ”ë“¸...");
+        stQuest.vecMessages.push_back("ì•„ìœ  ë˜ ì‚¬ëŒ ë¶™ì¡ì–´ë‘ê³  ì¼ì¥ì—°ì„¤í•œë‹¤ê³  ê·¸ëŸ¬ê²„ë‹¤.");
+        stQuest.vecMessages.push_back("ìˆì–´ë´- ê»´ë³´ê³  ê°™ì´ í™•ì¸í•´ë³´ìê³ .");
+        stQuest.vecMessages.push_back("(ë…¸íŠ¸ë¶ ë®ê°œë¥¼ ëœ¯ì–´ SSDë¥¼ ì¥ì°©í•œë‹¤.)");
+        stQuest.vecMessages.push_back("ì´ì´. ì˜ ë˜ë„¤ì‰. ë•ë¶„ì— ì¸ì € ìš©ëŸ‰ ê±±ì • ì•ˆ í•´ë„ ë˜ê²„ì–´.");
+        stQuest.vecMessages.push_back("ê·¼ë””... ì´ê²Œ ì°¨ì•” ì°œì°œí•˜ë‹¨ ë§ì—¬?");
+        stQuest.vecMessages.push_back("ë§Œì•½ì— ì´ê²Œ ë‚´ ê²Œ ì•„ë‹ˆë©´ì€ ë¬¸ì œê°€ ë  ê±° ì•„ë…€?");
+        stQuest.vecMessages.push_back("ê·¸, ë¶€íƒ í•˜ë‚˜ë§Œ ë” í—ˆì.");
+        stQuest.vecMessages.push_back("ì´ê²Œ ë‚´ ê±°ë©´ì€, ì£¼ë³€ì— íƒë°° ë°•ìŠ¤ ëœ¯ê¶ˆë†“ì€ ê²Œ ìˆì„ê²¨.");
+        stQuest.vecMessages.push_back("'C'ë¼ê³  ìƒê²¼ë˜ ê²ƒ ê°™ì€ë””... ì•”íŠ¼ì§€ê°„ì— ê·¸ íƒë°° ë°•ìŠ¤ ë‚´ ê±° ë§ëŠ”ì§€ ì¢€ í™•ì¸í˜€ì¤˜ë´ì•„.");
         stQuest.ClearCondition = ST_FILTER(129, 0x000F);
         vecQuest.push_back(stQuest);
     }
 
-    //ÅÃ¹è¹Ú½º
+    //íƒë°°ë°•ìŠ¤
     {
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 274;
         stQuest.StartCondition = ST_FILTER(129, 0x0007, 0x000F);
-        stQuest.vecMessages.push_back("´ëÇÑÅë¿î... ¼³¸¶ ÀÌ°Å¾ß?");
-        stQuest.vecMessages.push_back("SSD 512... ¸Â³×!");
-        stQuest.vecMessages.push_back("¿©±â¼­ SSD ¶â¾î³õ°í ¾Æ±î °Å±â±îÁö ±¼·¯°¬³ª?");
-        stQuest.vecMessages.push_back("¾Ë°Ô ¹¹¾ß. ¾îµğ º¸ÀÚ, ÀÌ¸§Àº Âõ¾îÁ³³ªº»µ¥?");
-        stQuest.vecMessages.push_back("ÁÖ¼Ò°¡... »óµµ·Î41±æ...");
-        stQuest.vecMessages.push_back("[SSD ÁÖÀÎÀÇ ÁÖ¼Ò]¸¦ È¹µæÇß½À´Ï´Ù.");
-        stQuest.vecMessages.push_back("³ª Âü... ÀÌ·± °Í±îÁö ¾Ë·ÁÁà¾ß ÇÏ...°ÚÁö?");
+        stQuest.vecMessages.push_back("ëŒ€í•œí†µìš´... ì„¤ë§ˆ ì´ê±°ì•¼?");
+        stQuest.vecMessages.push_back("SSD 512... ë§ë„¤!");
+        stQuest.vecMessages.push_back("ì—¬ê¸°ì„œ SSD ëœ¯ì–´ë†“ê³  ì•„ê¹Œ ê±°ê¸°ê¹Œì§€ êµ´ëŸ¬ê°”ë‚˜?");
+        stQuest.vecMessages.push_back("ì•Œê²Œ ë­ì•¼. ì–´ë”” ë³´ì, ì´ë¦„ì€ ì°¢ì–´ì¡Œë‚˜ë³¸ë°?");
+        stQuest.vecMessages.push_back("ì£¼ì†Œê°€... ìƒë„ë¡œ41ê¸¸...");
+        stQuest.vecMessages.push_back("[SSD ì£¼ì¸ì˜ ì£¼ì†Œ]ë¥¼ íšë“í–ˆìŠµë‹ˆë‹¤.");
+        stQuest.vecMessages.push_back("ë‚˜ ì°¸... ì´ëŸ° ê²ƒê¹Œì§€ ì•Œë ¤ì¤˜ì•¼ í•˜...ê² ì§€?");
         stQuest.ClearCondition = ST_FILTER(129, 0x001F);
         vecQuest.push_back(stQuest);
     }
@@ -220,21 +256,21 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 129;
         stQuest.StartCondition = ST_FILTER(129, 0x000F, 0x001F);
-        stQuest.vecMessages.push_back("À×, Ã£Àº°Ü? ÀÌ¸§ÀÌ ŸÁ¾ú¾î?");
-        stQuest.vecMessages.push_back("[SSD ÁÖÀÎÀÇ ÁÖ¼Ò]¸¦ ¾Ë·ÁÁá½À´Ï´Ù.");
-        stQuest.vecMessages.push_back("»óµµ·Î41±æ... ³» °Å ¸Â³×!");
-        stQuest.vecMessages.push_back("°í»ıÇû¾î. ÀÎÀú °¡ºÁ.");
-        stQuest.vecMessages.push_back("...¶ó°í Çã¸éÀº »ç¶÷ÀÌ ÀÎÁ¤ÀÌ Á» ŸÁÁö?");
-        stQuest.vecMessages.push_back("±×Áö, ³» ¼Ò°³´Â ÇØ¾ßÁö.");
-        stQuest.vecMessages.push_back("³ª´Â Àú±â... Æ÷·»½ÄÆ®·¢ 10±â¿©. ÀÌ¸§Àº ¾ê±â ¾ÈÇÒ°Ü.");
-        stQuest.vecMessages.push_back("¿©±â¼­´Â NPC¸é¼­ Ä³¸¯ÅÍµµ °¡´ÉÇá.");
-        stQuest.vecMessages.push_back("±×·¯´Ï²² ´Ù½Ã ¸»ÇÏ¸éÀº, ³ª¸¦ °®°í ÀÌ °ÔÀÓ¼­ ÇÃ·¹ÀÌµµ °¡´ÉÇã´Ù- ÀÌ°ÅÁö.");
-        stQuest.vecMessages.push_back("¾Æ, ±×¸®±¸ ½ÇÁö·Î´Â ÀÌ Á¤µµ·Î »çÅõ¸® ¾ÈÇá.");
-        stQuest.vecMessages.push_back("¸»µµ ¿øÃ¼ ÀÌ·¸°Ô ´ä´äÇãÁöµµ ¾Ê¿©. °ÔÀÓÀÌ´Ï²² ÀÌ·¯Áö.");
-        stQuest.vecMessages.push_back("¹¹... ¾ÏÆ°Áö°£¿¡, ±Ã±İÇã¸éÀº ³ª Ä³¸¯ÅÍ·Î ½áºÁ¾Æ.");
-        stQuest.vecMessages.push_back("...»ı°¢ ŸÁÀ½ ¸»±¸. ¾ÏÆ° ³» ºÎÅ¹µµ Àß µé¾îÁáÀ¸´Ï²² ºĞ¸í Àß ¼ö·áÇÒ°Ü.");
-        stQuest.vecMessages.push_back("ÀÀ¿øÇÒÅ×´Ï²², ¿­½ÉÈ÷ Çá!");
-        stQuest.ClearCondition = ST_FILTER(129, 0x003F);
+        stQuest.vecMessages.push_back("ì‰, ì°¾ì€ê²¨? ì´ë¦„ì´ ìì—ˆì–´?");
+        stQuest.vecMessages.push_back("[SSD ì£¼ì¸ì˜ ì£¼ì†Œ]ë¥¼ ì•Œë ¤ì¤¬ìŠµë‹ˆë‹¤.");
+        stQuest.vecMessages.push_back("ìƒë„ë¡œ41ê¸¸... ë‚´ ê±° ë§ë„¤!");
+        stQuest.vecMessages.push_back("ê³ ìƒí˜”ì–´. ì¸ì € ê°€ë´.");
+        stQuest.vecMessages.push_back("...ë¼ê³  í—ˆë©´ì€ ì‚¬ëŒì´ ì¸ì •ì´ ì¢€ ìì§€?");
+        stQuest.vecMessages.push_back("ê·¸ì§€, ë‚´ ì†Œê°œëŠ” í•´ì•¼ì§€.");
+        stQuest.vecMessages.push_back("ë‚˜ëŠ” ì €ê¸°... í¬ë Œì‹íŠ¸ë™ 10ê¸°ì—¬. ì´ë¦„ì€ ì–˜ê¸° ì•ˆí• ê²¨.");
+        stQuest.vecMessages.push_back("ì—¬ê¸°ì„œëŠ” NPCë©´ì„œ ìºë¦­í„°ë„ ê°€ëŠ¥í–.");
+        stQuest.vecMessages.push_back("ê·¸ëŸ¬ë‹ˆê»˜ ë‹¤ì‹œ ë§í•˜ë©´ì€, ë‚˜ë¥¼ ê°–ê³  ì´ ê²Œì„ì„œ í”Œë ˆì´ë„ ê°€ëŠ¥í—ˆë‹¤- ì´ê±°ì§€.");
+        stQuest.vecMessages.push_back("ì•„, ê·¸ë¦¬êµ¬ ì‹¤ì§€ë¡œëŠ” ì´ ì •ë„ë¡œ ì‚¬íˆ¬ë¦¬ ì•ˆí–. NPC ë§ê³  ìºë¦­í„°ì˜€ìœ¼ë©´ì€ ê±°ì§„ ì„œìš¸ë§ë§Œ ì“¸ê²¨.");
+        stQuest.vecMessages.push_back("ë§ë„ ì›ì²´ ì´ë ‡ê²Œ ë‹µë‹µí—ˆì§€ë„ ì•Šì—¬. ê²Œì„ì´ë‹ˆê»˜ ì´ëŸ¬ì§€.");
+        stQuest.vecMessages.push_back("ë­... ì•”íŠ¼ì§€ê°„ì—, ê¶ê¸ˆí—ˆë©´ì€ ë‚˜ ìºë¦­í„°ë¡œ ì¨ë´ì•„.");
+        stQuest.vecMessages.push_back("...ìƒê° ììŒ ë§êµ¬. ì•”íŠ¼ ë‚´ ë¶€íƒë„ ì˜ ë“¤ì–´ì¤¬ìœ¼ë‹ˆê»˜ ë¶„ëª… ì˜ ìˆ˜ë£Œí• ê²¨.");
+        stQuest.vecMessages.push_back("ì‘ì›í• í…Œë‹ˆê»˜, ì—´ì‹¬íˆ í–!");
+        stQuest.ClearCondition = ST_FILTER(129, 0xFFFF);
         vecQuest.push_back(stQuest);
     }
 }
