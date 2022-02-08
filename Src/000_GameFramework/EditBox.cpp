@@ -31,7 +31,13 @@ void CEditBox::OnCreate(void)
 
 	m_KeyboardInput = g_pGameData->input;
 	m_KeyboardInput.Clear();
-	for (int i = 0x32; i < 0x7F; i++)
+
+	// ¼ýÀÚ
+	for (int i = 0x30; i < 0x40; i++)
+		m_KeyboardInput.Register(i, i);
+
+	// ¾ËÆÄ¹î
+	for (int i = 0x41; i < 0x5B; i++)
 		m_KeyboardInput.Register(i, i);
 
 	m_KeyboardInput.Register(VK_DELETE, VK_DELETE);
@@ -41,7 +47,19 @@ void CEditBox::OnCreate(void)
 	m_KeyboardInput.Register(VK_LEFT, VK_LEFT);
 	m_KeyboardInput.Register(VK_RIGHT, VK_RIGHT);
 	m_KeyboardInput.Register(VK_UP, VK_UP);
+	m_KeyboardInput.Register(VK_SPACE, ' ');
 	m_KeyboardInput.Register(VK_DOWN, VK_DOWN);
+	m_KeyboardInput.Register(VK_OEM_PLUS,	'=');
+	m_KeyboardInput.Register(VK_OEM_COMMA,	',');
+	m_KeyboardInput.Register(VK_OEM_MINUS,	'-');
+	m_KeyboardInput.Register(VK_OEM_PERIOD, '.');
+	m_KeyboardInput.Register(VK_OEM_1, ';');
+	m_KeyboardInput.Register(VK_OEM_2, '/');
+	m_KeyboardInput.Register(VK_OEM_3, '~');
+	m_KeyboardInput.Register(VK_OEM_4, '[');
+	m_KeyboardInput.Register(VK_OEM_5, '|');
+	m_KeyboardInput.Register(VK_OEM_6, ']');
+	m_KeyboardInput.Register(VK_OEM_7, '\'');
 }
 
 void CEditBox::OnInput(std::list<ST_KEYSTATE>& listKeyState)
@@ -54,7 +72,7 @@ void CEditBox::OnInput(std::list<ST_KEYSTATE>& listKeyState)
 		if (!stKey.bPressed)
 			continue;
 
-		switch (stKey.nID)
+		switch (stKey.nVirtKey)
 		{
 		case VK_RETURN:
 			Close(0);
@@ -94,13 +112,31 @@ void CEditBox::OnInput(std::list<ST_KEYSTATE>& listKeyState)
 			if ( m_tCursorPos < m_strText.length())
 				m_strText = m_strText.substr(0, m_tCursorPos) + m_strText.substr(m_tCursorPos + 1);
 			break;
-
+		case VK_OEM_MINUS:		InsertChar('-', '_');			break;
+		case VK_OEM_PLUS:		InsertChar('=', '+');			break;
+		case VK_OEM_COMMA:		InsertChar(',', '<');			break;
+		case VK_OEM_PERIOD:		InsertChar('.', '>');			break;
+		case VK_SPACE:			InsertChar(' ', ' ');			break;
+		case VK_OEM_1:			InsertChar(';', ':');			break;
+		case VK_OEM_2:			InsertChar('/', '?');			break;
+		case VK_OEM_3:			InsertChar('`', '~');			break;
+		case VK_OEM_4:			InsertChar('[', '{');			break;
+		case VK_OEM_5:			InsertChar('\\', '|');			break;
+		case VK_OEM_6:			InsertChar(']', '}');			break;
+		case VK_OEM_7:			InsertChar('\'', '\"');			break;
+		case '0':				InsertChar('0', ')');			break;
+		case '1':				InsertChar('1', '!');			break;
+		case '2':				InsertChar('2', '@');			break;
+		case '3':				InsertChar('3', '#');			break;
+		case '4':				InsertChar('4', '$');			break;
+		case '5':				InsertChar('5', '%');			break;
+		case '6':				InsertChar('6', '^');			break;
+		case '7':				InsertChar('7', '&');			break;
+		case '8':				InsertChar('8', '*');			break;
+		case '9':				InsertChar('9', '(');			break;
 		default:
-			if (m_KeyboardInput.IsEnabledCapsLock())
-				m_strText.insert(m_tCursorPos, 1, (char)::toupper(stKey.nVirtKey));
-			else
-				m_strText.insert(m_tCursorPos, 1, (char)::tolower(stKey.nVirtKey));
-			m_tCursorPos++;
+			InsertChar(::tolower(stKey.nID), ::toupper(stKey.nID));
+			break;
 		}
 
 		std::string strCursorText = m_strText;
@@ -112,6 +148,15 @@ void CEditBox::OnInput(std::list<ST_KEYSTATE>& listKeyState)
 void CEditBox::OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick)
 {
 	__super::OnUpdate(dwCurrentTick, dwElapsedTick);
+}
+
+void CEditBox::InsertChar(char cCharL, char cCharU)
+{
+	if (m_KeyboardInput.IsEnabledCapsLock())
+		m_strText.insert(m_tCursorPos, 1, cCharU);
+	else
+		m_strText.insert(m_tCursorPos, 1, cCharL);
+	m_tCursorPos++;
 }
 
 void CEditBox::OnDrawUI(CDisplayBuffer& vecBuffer)

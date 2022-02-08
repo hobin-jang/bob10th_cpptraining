@@ -28,5 +28,7 @@ private:
 	void OnCreate(void);
 	void OnInput(std::list<ST_KEYSTATE>& listKeyState);
 	void OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick);
+
+	void InsertChar(char cCharL, char cCharU);
 };
 

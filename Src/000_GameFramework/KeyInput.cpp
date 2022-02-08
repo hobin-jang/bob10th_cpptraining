@@ -22,7 +22,7 @@ void CKeyInput::Register(int nVirtKey, int nID)
 void CKeyInput::Query(std::list<ST_KEYSTATE>& outState)
 {
 	m_bCapsLockEnabled = GetKeyState(VK_CAPITAL) & 0x01;
-	m_bShiftPressed = GetKeyState(VK_LSHIFT) & 0x8000;
+	m_bShiftPressed = (GetKeyState(VK_LSHIFT) & 0x8000) || (GetKeyState(VK_RSHIFT) & 0x8000);
 
 	std::list<ST_KEYSTATE> tempState;
 	for (auto iter : m_mapRegisteredKey)
