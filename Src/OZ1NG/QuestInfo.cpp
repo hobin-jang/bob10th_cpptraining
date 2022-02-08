@@ -208,6 +208,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.StartCondition = ST_FILTER(1019, 0x0001, 0x0003);
         stQuest.vecMessages.push_back("이 영롱한 빛깔...");
         stQuest.vecMessages.push_back("아무래도 전설의 USB를 찾은 것 같다.");
+        stQuest.vecMessages.push_back("[전설의 USB]를 획득했습니다.");
         stQuest.vecMessages.push_back("이걸 전설의 컴퓨터에 꽂으면 엄청난 일이 일어날 것만 같다.");
         stQuest.ClearCondition = ST_FILTER(1019, 0x000f);
         vecQuest.push_back(stQuest);
@@ -222,6 +223,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("컴퓨터를 켜고 전설의 USB를 꽂았다.");
         stQuest.vecMessages.push_back("갑자기 컴퓨터가 엄청난 빛을 내기 시작했다.");
         stQuest.vecMessages.push_back("단숨에 전설의 USB의 엄청난 아이디어들이 펼쳐지며 머릿속에 들어왔다.");
+        stQuest.vecMessages.push_back("[퍼징신의 가호]를 얻었습니다.");
         stQuest.vecMessages.push_back("전설의 컴퓨터는 서서히 빛을 잃다가 완전히 꺼져버렸다.");
         stQuest.vecMessages.push_back("무슨일이 일어난거지...? 퍼징교 신자 홍택균에게 돌아가 물어보자");
         stQuest.ClearCondition = ST_FILTER(1019, 0x000f);
@@ -235,7 +237,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.StartCondition = ST_FILTER(1019, 0x0007, 0x000f);
         stQuest.vecMessages.push_back("홍택균에게 무슨일이 있었는지 설명했다.");
         stQuest.vecMessages.push_back("뭐...? 그런 일이 있었다니...");
-        stQuest.vecMessages.push_back("아무래도 너는 퍼징 신의 가호를 받은 것 같아");
+        stQuest.vecMessages.push_back("아무래도 너는 퍼징신의 가호를 받은 것 같아");
         stQuest.vecMessages.push_back("축하해! 어떤 취약점이라도 무난히 찾을 수 있을거야");
         stQuest.vecMessages.push_back("잘 되길 빌어줄께! 나 대신 찾아줘서 고마워! :)");
         stQuest.ClearCondition = ST_FILTER(1019, 0x001f);
