@@ -13,6 +13,7 @@ CQuestInfo::~CQuestInfo(void)
 }
 
 
+/*
 void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 {
     ST_NPC_INFO npc;
@@ -22,19 +23,20 @@ void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 
 	vecNPC.push_back(npc);
 }
+*/
 
 void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
     ST_QUEST_NPC_DATA npc;
-    npc.x = 20;
-    npc.y = 3;
+    npc.x = 3;
+    npc.y = 20;
     npc.z = 23;
-    npc.nNpcID = 141;
+    npc.nNpcID = 1019;
     npc.strTrack = "취약점분석트랙";
     npc.strName = "퍼징교 신자 홍택균(OZ1NG)";
     npc.nAge = 28;
     npc.strMBTI = "INTP입니다 :)";
-    npc.cPatch = 'O';
+    npc.cPatch = 'Z';
     npc.strMessage = "퍼저는 신이야! 너도 퍼징교에 들어오지 않을래? \n"
         "너도 취약점을 찾을 수 있을지도 몰라! ";
 
@@ -144,11 +146,100 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 
 void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 {
+    {
+        ST_QUEST_OBJECT stObject;
+        stObject.nQuestObjectId = 301;
+        stObject.strName = "전설의 컴퓨터";
+        stObject.cPatch = 1;	// 화면에 보이지도 않고 만져지지도 않게 하려면 0을 넣으면 됨
+        stObject.x = 22;
+        stObject.y = 22;
+        stObject.z = 6;
+        stObject.reserved = 0;
+        vecQuestObject.push_back(stObject);
+    }
 
+    {
+        ST_QUEST_OBJECT stObject;
+        stObject.nQuestObjectId = 302;
+        stObject.strName = "전설의 USB";
+        stObject.cPatch = 1;	// 화면에 보이지도 않고 만져지지도 않게 하려면 0을 넣으면 됨
+        stObject.x = 5;
+        stObject.y = 20;
+        stObject.z = 3;
+        stObject.reserved = 0;
+        vecQuestObject.push_back(stObject);
+    }
 }
 
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 {
-    
+    // 퍼징교 신자 홍택균
+    {
+        ST_QUEST_DATA stQuest;
+        stQuest.nNpcId = 1019;
+        stQuest.StartCondition = ST_FILTER(1019, 0x0000, 0x0001);
+        stQuest.vecMessages.push_back("그 소문 들었어?");
+        stQuest.vecMessages.push_back("과거 퍼징의 신께서 전설의 USB와 전설의 컴퓨터를 이 건물 어딘가에 숨겨두셨대!");
+        stQuest.vecMessages.push_back("그것만 있으면 취약점 찾는 것 따위는 식은죽 먹기겠지...?");
+        stQuest.vecMessages.push_back("너 시간도 많아보이는데 한번 찾아봐!");
+        stQuest.ClearCondition = ST_FILTER(1019, 0x0003);
+        vecQuest.push_back(stQuest);
+    }
+
+    // 전설의 컴퓨터 // 전설의 USB 찾기 전
+    {
+        ST_QUEST_DATA stQuest;
+        stQuest.nNpcId = 301;
+        stQuest.StartCondition = ST_FILTER(1019, 0x0001, 0x0001);
+        stQuest.vecMessages.push_back("방치된 오랜된 컴퓨터가 있다.");
+        stQuest.vecMessages.push_back("툭툭 치니 갑자기 빛이 나며 켜지기 시작한다.");
+        stQuest.vecMessages.push_back("화면에 '전설의 컴퓨터'라는 문구가 띄워져있다.");
+        stQuest.vecMessages.push_back("이게... 전설의 컴퓨터..?");
+        stQuest.vecMessages.push_back("전설의 컴퓨터를 찾았다. 하지만 전설의 USB가 없다...");
+        stQuest.vecMessages.push_back("컴퓨터는 바로 꺼지고 말았다.");
+        stQuest.ClearCondition = ST_FILTER(1019, 0x000f);
+        vecQuest.push_back(stQuest);
+    }
+
+    // 전설의 USB
+    {
+        ST_QUEST_DATA stQuest;
+        stQuest.nNpcId = 302;
+        stQuest.StartCondition = ST_FILTER(1019, 0x0001, 0x0003);
+        stQuest.vecMessages.push_back("이 영롱한 빛깔...");
+        stQuest.vecMessages.push_back("아무래도 전설의 USB를 찾은 것 같다.");
+        stQuest.vecMessages.push_back("이걸 전설의 컴퓨터에 꽂으면 엄청난 일이 일어날 것만 같다.");
+        stQuest.ClearCondition = ST_FILTER(1019, 0x000f);
+        vecQuest.push_back(stQuest);
+    }
+
+    // 전설의 컴퓨터 // 전설의 USB 찾은 후
+    {
+        ST_QUEST_DATA stQuest;
+        stQuest.nNpcId = 301;
+        stQuest.StartCondition = ST_FILTER(1019, 0x0003, 0x0007);
+        stQuest.vecMessages.push_back("방치된 오랜된 컴퓨터가 있다.");
+        stQuest.vecMessages.push_back("컴퓨터를 켜고 전설의 USB를 꽂았다.");
+        stQuest.vecMessages.push_back("갑자기 컴퓨터가 엄청난 빛을 내기 시작했다.");
+        stQuest.vecMessages.push_back("단숨에 전설의 USB의 엄청난 아이디어들이 펼쳐지며 머릿속에 들어왔다.");
+        stQuest.vecMessages.push_back("전설의 컴퓨터는 서서히 빛을 잃다가 완전히 꺼져버렸다.");
+        stQuest.vecMessages.push_back("무슨일이 일어난거지...? 퍼징교 신자 홍택균에게 돌아가 물어보자");
+        stQuest.ClearCondition = ST_FILTER(1019, 0x000f);
+        vecQuest.push_back(stQuest);
+    }
+
+    // 퍼징교 신자 홍택균 // 클리어
+    {
+        ST_QUEST_DATA stQuest;
+        stQuest.nNpcId = 1019;
+        stQuest.StartCondition = ST_FILTER(1019, 0x0007, 0x000f);
+        stQuest.vecMessages.push_back("홍택균에게 무슨일이 있었는지 설명했다.");
+        stQuest.vecMessages.push_back("뭐...? 그런 일이 있었다니...");
+        stQuest.vecMessages.push_back("아무래도 너는 퍼징 신의 가호를 받은 것 같아");
+        stQuest.vecMessages.push_back("축하해! 어떤 취약점이라도 무난히 찾을 수 있을거야");
+        stQuest.vecMessages.push_back("잘 되길 빌어줄께! 나 대신 찾아줘서 고마워! :)");
+        stQuest.ClearCondition = ST_FILTER(1019, 0x001f);
+        vecQuest.push_back(stQuest);
+    }
 }
 
