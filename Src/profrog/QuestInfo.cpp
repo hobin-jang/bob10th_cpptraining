@@ -16,25 +16,6 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
 	{
 		ST_QUEST_NPC_DATA npc;
-		npc.x = 72;
-		npc.y = 20;
-		npc.z = 0;
-		npc.nNpcID = 4;
-		npc.strTrack = "보안개발트랙";
-		npc.strName = "[멘토]전상현";
-		npc.nAge = 40;
-		npc.strMBTI = "ENFJ이고 B형이에요";
-		npc.cPatch = 'J';
-		npc.strMessage = 
-			"게임 보안을 해보고 싶다면 날 찾아와.\n근데 C++이 어렵다고?\n뭘 잘 모르는구만.\n누구든 21일이면 마스터 할 수 있지.\n일단은 물리학과 생물학을 먼저 배워보자꾸나.";
-
-		npc.strContents1 = "";
-
-		vecNPC.push_back(npc);
-	}
-
-	{
-		ST_QUEST_NPC_DATA npc;
 		npc.x = 11;
 		npc.y = 2;
 		npc.z = 1;
@@ -155,7 +136,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 			"2022년이라니!!!\n"
 			"아직 타임머신이 불완전한건가!! 2004년으로 가야 했었는데...\n"
 			"...\n"
-			"...\n"
+			"... 망했다 ㅠㅠ\n"
 			"여길 어떻게든 벗어나보자.\n"
 			;
 
@@ -172,8 +153,8 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 	stObject.nQuestObjectId = 256;
 	stObject.strName = "분수대의 시원한 물";
 	stObject.cPatch = 0;	// 화면에 보이지도 않고 만져지지도 않게 하려면 0을 넣으면 됨
-	stObject.x = 35;
-	stObject.y = 13;
+	stObject.x = 32;
+	stObject.y = 12;
 	stObject.z = 0;
 	stObject.reserved = 0;
 	vecQuestObject.push_back(stObject);
@@ -234,7 +215,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 	// 전상현 멘토
 	{
 		ST_QUEST_DATA stQuest;
-		stQuest.nNpcId = 4;
+		stQuest.nNpcId = 27;
 		stQuest.StartCondition = ST_FILTER(128, 0x0007, 0x000F);
 		stQuest.vecMessages.push_back("뭐야? C++ 공부하러 온거야?");;
 		stQuest.vecMessages.push_back("...");
@@ -271,7 +252,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 	// 전상현 멘토
 	{
 		ST_QUEST_DATA stQuest;
-		stQuest.nNpcId = 4;
+		stQuest.nNpcId = 27;
 		stQuest.StartCondition = ST_FILTER(128, 0x001F, 0x003F);
 		stQuest.vecMessages.push_back("또 왔네?");
 		stQuest.vecMessages.push_back("이번엔 증거를 들고 왔다고?");

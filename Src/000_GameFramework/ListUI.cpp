@@ -9,6 +9,14 @@ CListUI::CListUI(void)
 {
 }
 
+void CListUI::Clear(void)
+{
+	m_vecItems.clear();
+	m_nScrollPos = 0;
+	m_nCursorIndex = 0;
+	m_nAlignCol = 1;
+}
+
 void CListUI::AddItem(std::string strValue)
 {
 	AddItem(unicode::WCSFromMBS(strValue));
@@ -30,7 +38,7 @@ void CListUI::SetItemAlign(int nColCount)
 				tMaxItemLen = strItem.length();
 		}
 
-		int nWidth = m_nRight - m_nLeft - 1;
+		int nWidth = m_TargetSize.x;
 		nColCount = nWidth / (int)(tMaxItemLen + 2);
 	}
 
@@ -43,17 +51,17 @@ void CListUI::SetItemAlign(int nColCount)
 void CListUI::AdjustHeight(int nRowCount)
 {
 	if (nRowCount < 0)
-		nRowCount = m_vecItems.empty() ? 1 : (m_vecItems.size() - 1) / m_nAlignCol;
+		nRowCount = m_vecItems.empty() ? 0 : ((m_vecItems.size() - 1) / m_nAlignCol) + 1;
 	
-	m_nBottom = m_nTop + nRowCount + 2;
+	m_TargetSize.y = nRowCount + 2;
 }
 
-int CListUI::GetCount(void)
+int CListUI::GetItemCount(void)
 {
 	return (int)m_vecItems.size();
 }
 
-std::wstring CListUI::GetText(int nIndex)
+std::wstring CListUI::GetItem(int nIndex)
 {
 	if (nIndex < m_vecItems.size())
 		return m_vecItems[nIndex];
@@ -89,7 +97,7 @@ void CListUI::MoveCurPos(int nOffsetX, int nOffsetY)
 			m_nCursorIndex = (int)m_vecItems.size() - 1;
 	}
 
-	int nListHeight = (m_nBottom - m_nTop - 1);
+	int nListHeight = GetSize().cy;
 	int nMinShowingIndex = m_nScrollPos * m_nAlignCol + 1;
 	int nMaxShowingIndex = (m_nScrollPos + nListHeight) * m_nAlignCol;
 	if (m_nCursorIndex < nMinShowingIndex)
@@ -98,29 +106,25 @@ void CListUI::MoveCurPos(int nOffsetX, int nOffsetY)
 		m_nScrollPos = m_nCursorIndex / m_nAlignCol - (nListHeight - 1);
 }
 
-void CListUI::OnDraw(CDisplayBuffer& vecBuffer)
+void CListUI::OnDrawUI(CDisplayBuffer& vecBuffer)
 {
-	__super::OnDraw(vecBuffer);
+	__super::OnDrawUI(vecBuffer);
 	int nLeftMargin = 2;
-	int nItemLength = (m_nRight - m_nLeft - 1) / m_nAlignCol;
+	int nItemLength = m_Size.x / m_nAlignCol;
 	int nStartIndex = m_nScrollPos * m_nAlignCol;
 	for (int i = 0; i + nStartIndex <m_vecItems.size(); i++)
 	{
 		const int nItemIndex = i + nStartIndex;
-		std::wstring strItem = m_vecItems[nItemIndex];
 
 		int x = i % m_nAlignCol;
 		int y = i / m_nAlignCol;
-
-		int nLeft = m_nLeft + x * nItemLength + nLeftMargin ;
-		int nTop = m_nTop + y + 1;
-		if (m_nBottom <= nTop)
+		int nLeft = m_Pos.x + x * nItemLength + nLeftMargin + 1;
+		int nTop = m_Pos.y + y + 1;
+		if (m_Size.y < 0 || vecBuffer.size() <= nTop)
 			break;
 
-		int w = std::min<int>(m_nRight - (nLeft + 1), (int)strItem.length());
-		memcpy((void*)(vecBuffer[nTop].c_str() + nLeft + 1), strItem.c_str(), w * sizeof(wchar_t));
-
+		vecBuffer.DrawString(nLeft, nTop, m_vecItems[nItemIndex]);
 		if (nItemIndex == m_nCursorIndex)
-			vecBuffer[nTop][nLeft + 1 - nLeftMargin] = 26;	// 화살표 커서
+			vecBuffer[nTop][nLeft - nLeftMargin] = 26;	// 화살표 커서
 	}
 }

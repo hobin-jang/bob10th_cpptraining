@@ -2,12 +2,17 @@
 #include "SceneSuper.h"
 
 CSceneSuper::CSceneSuper(void)
-	: CDlgSuper()
+	: CDlgSuper(nullptr)
 {
 }
 
 CSceneSuper::~CSceneSuper(void)
 {
+}
+
+void CSceneSuper::AddObject(CGameObjectSuper* pChild)
+{
+    m_listObject.push_back(pChild);
 }
 
 void CSceneSuper::OnCreate(void)
@@ -16,10 +21,22 @@ void CSceneSuper::OnCreate(void)
 
 void CSceneSuper::OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick)
 {
-    m_Camera.Update(dwElapsedTick * 0.001);
+    __super::OnUpdate(dwCurrentTick, dwElapsedTick);
+    g_Camera.Update(dwElapsedTick * 0.01);
 }
 
-int CSceneSuper::DoModal(CDlgSuper* pParent)
+void CSceneSuper::OnDrawWorld(CDisplayBuffer& vecBuffer)
 {
-    return __super::DoModal(nullptr);
+    for (CGameObjectSuper* pObject : m_listObject)
+        pObject->OnDrawUI(vecBuffer);
+}
+
+void CSceneSuper::OnDrawUI(CDisplayBuffer& vecBuffer)
+{
+	for (CUISuper* pUI : m_listUI)
+	{
+		if (!pUI->IsVisible())
+			continue;
+		pUI->OnDrawUI(vecBuffer);
+	}
 }
