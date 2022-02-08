@@ -197,7 +197,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("이게... 전설의 컴퓨터..?");
         stQuest.vecMessages.push_back("전설의 컴퓨터를 찾았다. 하지만 전설의 USB가 없다...");
         stQuest.vecMessages.push_back("컴퓨터는 바로 꺼지고 말았다.");
-        stQuest.ClearCondition = ST_FILTER(1019, 0x000f);
+        stQuest.ClearCondition = ST_FILTER(1019, 0x0003);
         vecQuest.push_back(stQuest);
     }
 
