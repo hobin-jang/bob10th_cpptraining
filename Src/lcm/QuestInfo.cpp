@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "QuestInfo.h"
+#include "MiniGame.h"
 
 static CQuestInfo g_QuestInfo;
 
@@ -249,4 +250,14 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		stQuest.ClearCondition = ST_FILTER(148, 0x003F);
 		vecQuest.push_back(stQuest);
 	}
+
+	//// 미니게임
+	//{
+	//	ST_QUEST_DATA stQuest;
+	//	stQuest.nNpcId = 148;
+	//	stQuest.StartCondition = ST_FILTER(148, 0x001F, 0x003F);
+	//	stQuest.vecMessages.push_back("미니게임 한번할래?");
+	//	stQuest.pMiniGame = new CMiniGame();
+	//	vecQuest.push_back(stQuest);
+	//}
 }
