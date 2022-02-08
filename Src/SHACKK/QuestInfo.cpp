@@ -19,9 +19,9 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
         npc.nNpcID = 132;
         npc.strTrack = "보안제품개발";
         npc.strName = "BABY 임창현";
-        //npc.x = 22;
-        //npc.y = 15;
-        //npc.z = 1;
+        npc.x = 12;
+        npc.y = 9;
+        npc.z = 7;
         npc.cPatch = 'b';
         npc.nAge = 5;
         npc.strMBTI = "저는 MBTI가 BABY\n"
@@ -272,7 +272,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("좋아, 이제부터 해커가 되기위한 여정을 시작해보겠담!");
         stQuest.vecMessages.push_back("우선, 보안인이라면 C++은 기본소양이라고 볼수있담");
         stQuest.vecMessages.push_back("뭐? 파이썬이 짱이라고?");
-        stQuest.vecMessages.push_back("그건 나도 인정이지만... 하라는대로해! 수료하기싫어?");
+        stQuest.vecMessages.push_back("그건 나도 킹정이지만...");
         stQuest.vecMessages.push_back("하라는대로해! 수료하기싫어?");
         stQuest.vecMessages.push_back("케헴... C++은 전상현 멘토님이 대한민국 최강자니까..");
         stQuest.vecMessages.push_back("전상현 멘토님한테 가봐!");
