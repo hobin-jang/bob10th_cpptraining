@@ -311,7 +311,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("과제를 계속 하는데도 오히려 늘어나기만 했지..");
         stQuest.vecMessages.push_back("너! 아기 수준으로 BoB를 시작한 내 이야기를 듣고싶은거얌?");
         stQuest.vecMessages.push_back("탑을 오르다보면 계속해서 나를 만날 수 있을꺼얌!");
-        stQuest.vecMessages.push_back("나를 플레이하다보면, BoB 활동을 하면서 알게된 팁이나 노하우들을 공유해줄껨!!");
+        stQuest.vecMessages.push_back("나를 플레이하다보면, BoB 활동을 하면서 알게된 팁들을 공유해줄껨!!");
         stQuest.vecMessages.push_back("많은 도움이 되길 바랄껨!!");
         stQuest.ClearCondition = ST_FILTER(132, 0x003F);
         vecQuest.push_back(stQuest);
