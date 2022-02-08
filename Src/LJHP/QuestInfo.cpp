@@ -11,11 +11,6 @@ CQuestInfo::~CQuestInfo(void) {
 
 }
 
-void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
-{
-	
-}
-
 void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC) {
 	ST_QUEST_NPC_DATA npc;
 	npc.x = 11;
