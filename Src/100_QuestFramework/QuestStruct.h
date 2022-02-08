@@ -38,6 +38,10 @@ struct ST_QUEST_DATA
 	ST_FILTER StartCondition;	
 	ST_FILTER ClearCondition;
 	std::vector<std::string> vecMessages;
+	CDlgSuper* pMiniGame;
+	ST_QUEST_DATA(void)
+		: nNpcId(-1), StartCondition(), ClearCondition(), vecMessages(), pMiniGame(nullptr)
+	{}
 };
 
 struct ST_QUEST_NPC_DATA : public ST_POINT3
