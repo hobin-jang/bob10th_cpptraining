@@ -134,7 +134,7 @@ void QuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 	ST_QUEST_OBJECT stObject;
 	stObject.nQuestObjectId = 262;
 	stObject.strName = "갤럭시S 21 Ultra";
-	stObject.cPatch = 0;
+	stObject.cPatch = 'S';
 	stObject.x = 21;
 	stObject.y = 17;
 	stObject.z = 5;
@@ -153,7 +153,7 @@ void QuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		stQuest.vecMessages.push_back("겁나 피곤하네\n첫 수업 과제부터 퍼징이라니....");
 		stQuest.vecMessages.push_back("그나저나 내 폰 어디에다가 떨어트렸지?");
 		stQuest.vecMessages.push_back("친구야 혹시 내 핸드폰 좀 갖다줄 수 있어??");
-		stQuest.vecMessages.push_back("아마 5층에 어딘가에 두고 온 거 같아");
+		stQuest.vecMessages.push_back("아마 5층 (21, 17)지점에 두고 온 거 같아");
 		stQuest.ClearCondition = ST_FILTER(144, 0x0003);
 		vecQuest.push_back(stQuest);
 	}
