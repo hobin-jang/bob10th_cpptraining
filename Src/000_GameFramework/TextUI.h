@@ -12,8 +12,10 @@ public:
 	virtual ~CTextUI(void);
 
 	void Clear(void);
-	void AddText(std::string strText);
-	void AddText(std::wstring strText);
+	virtual void SetText(std::string strText);
+	virtual void SetText(std::wstring strText);
+	virtual void AddText(std::string strText);
+	virtual void AddText(std::wstring strText);
 	size_t GetLineCount(void);
 
 	virtual void OnSize(void);

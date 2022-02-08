@@ -19,6 +19,18 @@ void CTextUI::Clear(void)
 	m_listText.clear();
 }
 
+void CTextUI::SetText(std::string strText)
+{
+	__super::SetText(strText);
+	SeperarateLines();
+}
+
+void CTextUI::SetText(std::wstring strText)
+{
+	__super::SetText(strText);
+	SeperarateLines();
+}
+
 void CTextUI::AddText(std::string strText)
 {
 	AddText(unicode::WCSFromMBS(strText));

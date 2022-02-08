@@ -16,7 +16,7 @@ protected:
 	bool m_bIsClosed;
 	int m_nExitCode;
 
-	CDlgSuper(CDlgSuper* pParent);
+	CDlgSuper(CDlgSuper* pParent = nullptr);
 	virtual ~CDlgSuper(void);
 
 	virtual void Close(int nExitCode);
@@ -28,14 +28,14 @@ protected:
 	virtual void OnDrawUI(CDisplayBuffer& vecBuffer);
 
 public:
+	virtual void SetParent(CDlgSuper* pParent);
 	virtual int DoModal(void);
 	virtual void DrawUI(CDisplayBuffer& vecBuffer);
 	virtual void DrawWorld(CDisplayBuffer& vecBuffer);
 
-private:
+protected:
 	friend class CUISuper;
 	friend class CGameObjectSuper;
 	virtual void AddUI(CUISuper* pChild);
-
 };
 

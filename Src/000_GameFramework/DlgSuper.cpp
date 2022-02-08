@@ -34,6 +34,11 @@ void CDlgSuper::AddUI(CUISuper* pChild)
 	m_listUI.push_back(pChild);
 }
 
+void CDlgSuper::SetParent(CDlgSuper* pParent)
+{
+	m_pParent = pParent;
+}
+
 int CDlgSuper::DoModal(void)
 {
 	OnCreate();
