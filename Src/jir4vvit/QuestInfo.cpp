@@ -12,57 +12,6 @@ CQuestInfo::~CQuestInfo(void)
 {
 }
 
-void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
-{
-    ST_NPC_INFO npc;
-    strcpy_s(npc.szName, 21, "¼ÕÇöÁö ¸àÆ¼");
-    npc.patch = 'S';
-    strcpy_s(npc.szGreetMessage, 61, "¾È³çÇÏ¼¼¿ä! > _< È¯¿µÇÕ´Ï´ç ¿À´Ãµµ ÁñÁaÇÏ¼¼¿ä1");
-
-    npc.vecBuffer.resize(38);
-
-    npc.vecBuffer[ 0] = "          ,:!!!*!;:,          ";
-    npc.vecBuffer[ 1] = "        .-!*=====**!~.        ";
-    npc.vecBuffer[ 2] = "       -!*=========*~.       ";
-    npc.vecBuffer[ 3] = "       -!==$$$===$===!-       ";
-    npc.vecBuffer[ 4] = "      ,;===$$$$$$$$===;,      ";
-    npc.vecBuffer[ 5] = "      ~*==============*~      ";
-    npc.vecBuffer[ 6] = "     .;===*!!******====;.     ";
-    npc.vecBuffer[ 7] = "     -*$$=*;;!!!!***=$=!,     ";
-    npc.vecBuffer[ 8] = "     ~=$$=*;:!**!***=$$*~     ";
-    npc.vecBuffer[ 9] = "    .;$#$$*;;!**!*==$#$=:.    ";
-    npc.vecBuffer[10] = "    ,!$#$=;::;!!;;!*=$$=;.    ";
-    npc.vecBuffer[11] = "    -!$#=!~~::~~~~;!*$$$!,    ";
-    npc.vecBuffer[12] = "   -*$$!--~~-,.,-~:;=$$!-    ";
-    npc.vecBuffer[13] = "    ~*$=:,..,.....,,-!$$*-    ";
-    npc.vecBuffer[14] = "    ~*$=~.      .. ..:=$*~    ";
-    npc.vecBuffer[15] = "    :=$*~.      ..  .~=$*~    ";
-    npc.vecBuffer[16] = "   .:=$=:,   ...,,..,:=$*:.   ";
-    npc.vecBuffer[17] = "   .:=$$!-....,,-,,,,;=$=:.   ";
-    npc.vecBuffer[18] = "   .;=$#*~,,,,,,-----!$==;.   ";
-    npc.vecBuffer[19] = "  .;=##$;-,,,,-----:*$==!,   ";
-    npc.vecBuffer[20] = "   .;=###*:-,,,,---~!$===!-   ";
-    npc.vecBuffer[21] = "   ,!=###$;~,...,,~!$$===*-   ";
-    npc.vecBuffer[22] = "   ,!=$##$!~~-,,-~;=#$===*~   ";
-    npc.vecBuffer[23] = "   -!=$##$;~~~~~:;!=#$===*:.  ";
-    npc.vecBuffer[24] = "   -*=$$#$;--~~::;!=#$====;.  ";
-    npc.vecBuffer[25] = "  ~*=$$#$;-,,-~~~;=#$====!,  ";
-    npc.vecBuffer[26] = "  .:*=$$#=:-,,,,-~;=#$====*~  ";
-    npc.vecBuffer[27] = " .;*=$$#=~,,..,,-:*$$$$===;. ";
-    npc.vecBuffer[28] = " .-!==$$#*~,.....,-;=$$$====:-";
-    npc.vecBuffer[29] = "-:!*=$$$#*-.... ..,~!$$$==$$=*";
-    npc.vecBuffer[30] = "*====$$##*-.     ..,:=$$==$$$=";
-    npc.vecBuffer[31] = "$$===$$#$*-       ..:$$$==$$$$";
-    npc.vecBuffer[32] = "$$===$$#$*-        .:$$$$==$$$";
-    npc.vecBuffer[33] = "$$===$$#$*-        ,;$$$===$$$";
-    npc.vecBuffer[34] = "$$===$$#$*-        ,!$$====$$$";
-    npc.vecBuffer[35] = "$$===$$#$*,        ,*$$=====$$";
-    npc.vecBuffer[36] = "$$$$$$$#$*-        -*$$$===$$$";
-    npc.vecBuffer[37] = "$$$$$$##$*-        ~=$$$$=$$$$";
-
-    vecNPC.push_back(npc);
-}
-
 void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
     ST_QUEST_NPC_DATA npc;
@@ -104,6 +53,46 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.vecSmallImage[22] = "           =   !!=.    ";
     npc.vecSmallImage[23] = "       $   .   =       ";
     npc.vecSmallImage[24] = "       $       #       ";
+
+
+    npc.vecBigImage[0] = "          ,:!!!*!;:,          ";
+    npc.vecBigImage[1] = "        .-!*=====**!~.        ";
+    npc.vecBigImage[2] = "       -!*=========*~.       ";
+    npc.vecBigImage[3] = "       -!==$$$===$===!-       ";
+    npc.vecBigImage[4] = "      ,;===$$$$$$$$===;,      ";
+    npc.vecBigImage[5] = "      ~*==============*~      ";
+    npc.vecBigImage[6] = "     .;===*!!******====;.     ";
+    npc.vecBigImage[7] = "     -*$$=*;;!!!!***=$=!,     ";
+    npc.vecBigImage[8] = "     ~=$$=*;:!**!***=$$*~     ";
+    npc.vecBigImage[9] = "    .;$#$$*;;!**!*==$#$=:.    ";
+    npc.vecBigImage[10] = "    ,!$#$=;::;!!;;!*=$$=;.    ";
+    npc.vecBigImage[11] = "    -!$#=!~~::~~~~;!*$$$!,    ";
+    npc.vecBigImage[12] = "   -*$$!--~~-,.,-~:;=$$!-    ";
+    npc.vecBigImage[13] = "    ~*$=:,..,.....,,-!$$*-    ";
+    npc.vecBigImage[14] = "    ~*$=~.      .. ..:=$*~    ";
+    npc.vecBigImage[15] = "    :=$*~.      ..  .~=$*~    ";
+    npc.vecBigImage[16] = "   .:=$=:,   ...,,..,:=$*:.   ";
+    npc.vecBigImage[17] = "   .:=$$!-....,,-,,,,;=$=:.   ";
+    npc.vecBigImage[18] = "   .;=$#*~,,,,,,-----!$==;.   ";
+    npc.vecBigImage[19] = "  .;=##$;-,,,,-----:*$==!,   ";
+    npc.vecBigImage[20] = "   .;=###*:-,,,,---~!$===!-   ";
+    npc.vecBigImage[21] = "   ,!=###$;~,...,,~!$$===*-   ";
+    npc.vecBigImage[22] = "   ,!=$##$!~~-,,-~;=#$===*~   ";
+    npc.vecBigImage[23] = "   -!=$##$;~~~~~:;!=#$===*:.  ";
+    npc.vecBigImage[24] = "   -*=$$#$;--~~::;!=#$====;.  ";
+    npc.vecBigImage[25] = "  ~*=$$#$;-,,-~~~;=#$====!,  ";
+    npc.vecBigImage[26] = "  .:*=$$#=:-,,,,-~;=#$====*~  ";
+    npc.vecBigImage[27] = " .;*=$$#=~,,..,,-:*$$$$===;. ";
+    npc.vecBigImage[28] = " .-!==$$#*~,.....,-;=$$$====:-";
+    npc.vecBigImage[29] = "-:!*=$$$#*-.... ..,~!$$$==$$=*";
+    npc.vecBigImage[30] = "*====$$##*-.     ..,:=$$==$$$=";
+    npc.vecBigImage[31] = "$$===$$#$*-       ..:$$$==$$$$";
+    npc.vecBigImage[32] = "$$===$$#$*-        .:$$$$==$$$";
+    npc.vecBigImage[33] = "$$===$$#$*-        ,;$$$===$$$";
+    npc.vecBigImage[34] = "$$===$$#$*-        ,!$$====$$$";
+    npc.vecBigImage[35] = "$$===$$#$*,        ,*$$=====$$";
+    npc.vecBigImage[36] = "$$$$$$$#$*-        -*$$$===$$$";
+    npc.vecBigImage[37] = "$$$$$$##$*-        ~=$$$$=$$$$";
 
 
     vecNPC.push_back(npc);
