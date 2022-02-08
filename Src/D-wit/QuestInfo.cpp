@@ -270,7 +270,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("뭐... 암튼지간에, 궁금허면은 나 캐릭터로 써봐아.");
         stQuest.vecMessages.push_back("...생각 읎음 말구. 암튼 내 부탁도 잘 들어줬으니께 분명 잘 수료할겨.");
         stQuest.vecMessages.push_back("응원할테니께, 열심히 햐!");
-        stQuest.ClearCondition = ST_FILTER(129, 0x003F);
+        stQuest.ClearCondition = ST_FILTER(129, 0xFFFF);
         vecQuest.push_back(stQuest);
     }
 }
