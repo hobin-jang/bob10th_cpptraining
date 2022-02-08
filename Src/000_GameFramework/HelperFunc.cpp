@@ -1,6 +1,11 @@
 #include "pch.h"
 #include "HelperFunc.h"
 
+void TokenizeMessage(std::string strContext, std::vector<std::wstring>& outMessages, size_t tMaxTextLen)
+{
+	TokenizeMessage(unicode::WCSFromMBS(strContext), outMessages, tMaxTextLen);
+}
+
 void TokenizeMessage(std::wstring strContext, std::vector<std::wstring>& outMessages, size_t tMaxTextLen)
 {
 	std::vector<std::wstring> vecLines;
