@@ -4,6 +4,18 @@
 #include <list>
 #include "Struct.h"
 
+enum E_GAMEKEY
+{
+    GAMEKEY_LEFT = GAME_OBJECT_DIR_LEFT,
+    GAMEKEY_RIGHT,
+    GAMEKEY_UP,
+    GAMEKEY_DOWN,
+    GAMEKEY_SELECT,
+    GAMEKEY_MENU,
+    GAMEKEY_CHAT,
+    GAMEKEY_ESC,
+};
+
 class CKeyInput
 {
     std::map<int, int> m_mapRegisteredKey;      // (virt, id)
