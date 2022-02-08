@@ -10,10 +10,12 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="QuestInfo.h" />
+    <ClInclude Include="MiniGame.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="QuestInfo.cpp" />
+    <ClCompile Include="MiniGame.cpp" />
   </ItemGroup>
 </Project>

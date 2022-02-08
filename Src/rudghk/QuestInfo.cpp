@@ -12,16 +12,6 @@ CQuestInfo::~CQuestInfo(void)
 {
 }
 
-void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
-{
-    ST_NPC_INFO npc;
-    strcpy_s(npc.szName, 21, "정경화 멘티");
-    npc.patch = 'K';
-    strcpy_s(npc.szGreetMessage, 61, "오늘도 화이팅!");
-
-    vecNPC.push_back(npc);
-}
-
 void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
     ST_QUEST_NPC_DATA npc;
@@ -126,7 +116,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.vecSmallImage[23] = "@@@@~@@@@@@@-----@@@@@@@@";
     npc.vecSmallImage[24] = "@@@@@@@@@@@@,-,=,@@@@@@@@";
 
-    npc.strContents1 = "BoB 합격이닷!!\n어떤 생활을 할지 기대반 걱정반이네!\n작년 수료생 말로는 과제는 제출하고 제출해도 계속 리필된다던데 진짜일까,,\n초반에 열심히 하면 최종적으로 좋은 결과를 낼 수 있다던데\n그렇담 열심히 해야징! BoB 생활 기대돼!!!";
+    npc.strContents1 = "BoB 합격이닷!!\n어떤 생활을 할지 기대 반 걱정 반이네..\n작년 수료생 말로는 과제는 제출하고 제출해도 계속 리필된다던데 진짜일까,,\n초반에 열심히 하면 최종적으로 좋은 결과를 낼 수 있다던데\n그렇담 열심히 해야징! BoB 생활 기대돼!!!";
     npc.strContents2 = "트랙 선택잘한거겠지?..\n잘한거야\n잘했어\n재밌는 내용 알려주시면 좋겠다!";
     npc.strContents3 = "짧은 시간 안에 하느라 좀 힘들었지만 좋은 팀원 덕분에 잘 마무리했네\n작년 수료생 말대로 미리 주제랑 팀원 생각해두길 잘했어. 아주 도움되는 정보였어!";
     npc.strContents4 = "와 드디어 수료다!!!\n길고 긴 시간이었지만 나름 많은 걸 배울 수 있는 뜻깊은 시간이었어\n이젠 취직 준비해야지...\n모두들 화이팅!!";
@@ -134,6 +124,59 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     vecNPC.push_back(npc);
 }
 
-void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest)
+void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 {
+    ST_QUEST_OBJECT stObject;
+    stObject.nQuestObjectId = 276;
+    stObject.strName = "잃어버린 손목 보호대";
+    stObject.cPatch = 0;
+    stObject.x = 50;
+    stObject.y = 15;
+    stObject.z = 0;
+    stObject.reserved = 0;
+    vecQuestObject.push_back(stObject);
+}
+
+void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
+{
+    {
+        ST_QUEST_DATA stQuest;
+        stQuest.nNpcId = 276;
+        stQuest.StartCondition = ST_FILTER(136, 0x0000, 0x0001);
+        stQuest.vecMessages.push_back("과제의 연속.. 역시 쉽지만은 않네..");
+        stQuest.vecMessages.push_back("손목이 왜 이렇게 아프냐");
+        stQuest.vecMessages.push_back("아 망했다.. 아까 만남의 광장에서 친구랑 이야기 하다가 손목 보호대를 잃어버렸나 본데?!..");
+        stQuest.vecMessages.push_back("손목 아픈데.. 아 과제 오늘 안에 끝내야하는데.. ");
+        stQuest.vecMessages.push_back("혹시 나 대신 내 손목 보호대 좀 찾아줄 수 있겠니?");
+        stQuest.ClearCondition = ST_FILTER(136, 0x0003);
+        vecQuest.push_back(stQuest);
+    }
+
+    {
+        ST_QUEST_DATA stQuest;
+        stQuest.nNpcId = 136;
+        stQuest.StartCondition = ST_FILTER(136, 0x0001, 0x0003);
+        stQuest.vecMessages.push_back("어 이건가");
+        stQuest.vecMessages.push_back("[잃어버린 손목 보호대]를 획득했습니다.");
+        stQuest.vecMessages.push_back("왜 이렇게 새 것처럼 보이지??");
+        stQuest.vecMessages.push_back("이거 손목 아픈 거 BoB하다가 생긴건가 본데.. 나도 이렇게 되는거 아냐?!..");
+        stQuest.vecMessages.push_back("여튼 얼른 가져다줘야겠다.");
+        stQuest.ClearCondition = ST_FILTER(136, 0x0007);
+        vecQuest.push_back(stQuest);
+    }
+
+    {
+        ST_QUEST_DATA stQuest;
+        stQuest.nNpcId = 276;
+        stQuest.StartCondition = ST_FILTER(136, 0x0003, 0x0007);
+        stQuest.vecMessages.push_back("찾았어?!");
+        stQuest.vecMessages.push_back("[잃어버린 손목 보호대]를 전달했습니다.");
+        stQuest.vecMessages.push_back("고마워! 너 덕분에 과제 할 수 있겠어.");
+        stQuest.vecMessages.push_back("응? 너 갔다올 동안 과제 안했냐고?");
+        stQuest.vecMessages.push_back("손목 아픈게 신경쓰여서 과제를 못하겠더라구ㅎ..");
+        stQuest.vecMessages.push_back("이제 해야지.. 너가 보호대도 찾아줬는데ㅎㅎ");
+        stQuest.vecMessages.push_back("너 덕분에 과제 빨리 해서 낼 수 있겠어! 고마워!!");
+        stQuest.ClearCondition = ST_FILTER(136, 0x000F);
+        vecQuest.push_back(stQuest);
+    }
 }

@@ -12,9 +12,9 @@ CQuestInfo::~CQuestInfo(void) {
 
 void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC) {
 	ST_NPC_INFO npc;
-	strcpy_s(npc.szName, 21, "ÀÓ¿øºó ¸àÆ¼");
+	strcpy_s(npc.szName, 21, "ì„ì›ë¹ˆ ë©˜í‹°");
 	npc.patch = 'W';
-	strcpy_s(npc.szGreetMessage, 61, "ÇØÇÇÇØÇÇ ÇØÅ·!");
+	strcpy_s(npc.szGreetMessage, 61, "í•´í”¼í•´í”¼ í•´í‚¹!");
 
 	npc.vecBuffer.resize(60);
 	npc.vecBuffer[0] = "         ....  ... ,.-~~,!~:*!*=*;!!*;--~,..,....................=:";
@@ -88,12 +88,12 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 	npc.y = 4;
 	npc.z = 25;
 	npc.nNpcID = 130;
-	npc.strTrack = "Ãë¾àÁ¡ ºĞ¼®";
-	npc.strName = "I\'m ¿øºó";
+	npc.strTrack = "ì·¨ì•½ì  ë¶„ì„";
+	npc.strName = "I\'m ì›ë¹ˆ";
 	npc.nAge = 22;
-	npc.strMBTI = "¸¶À½¸¸Àº IÀÎ ENFJÀÔ´Ï´Ù :)";
+	npc.strMBTI = "ë§ˆìŒë§Œì€ Iì¸ ENFJì…ë‹ˆë‹¤ :)";
 	npc.cPatch = 'W';
-	npc.strMessage = "ÀÌ Ä³¸¯ÅÍ¸¦ °í¸¥´Ù¸é ¿©·¯ºĞÀº Â¯Â¯ÀÌ µÉ ¼ö ÀÖ¾î¿ä.";
+	npc.strMessage = "ì´ ìºë¦­í„°ë¥¼ ê³ ë¥¸ë‹¤ë©´ ì—¬ëŸ¬ë¶„ì€ ì§±ì§±ì´ ë  ìˆ˜ ìˆì–´ìš”.";
 
 	npc.vecBigImage.resize(60);
 	npc.vecBigImage[0] = "         ....  ... ,.-~~,!~:*!*=*;!!*;--~,..,....................=:";
@@ -185,29 +185,29 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 	npc.vecSmallImage[24] = "@###@@@@@@@@@@@@@@@@@@##@";
 
 	npc.strContents1 = "BoB...\n"
-		"»ì¾Æ³²À» ¼ö ÀÖ°ÚÁö..?"
-		"¾î¶² ±«¹°°°Àº °úÁ¦°¡ ³¯ ±â´Ù¸±±î?"
-		"ÀáÀº Àß ÀÚ¸é¼­ ÇØ¾ßÁö ¤¾";
-	npc.strContents2 = "ÀÌÁ¦¾ß Á»..\n"
-		"°úÁ¦¸¦ ¾ÆÁÖ Á¶¿À¿À¿À±İ ´õ ÇÒ ¼ö ÀÖÀ» °Í °°¾Æ"
+		"ì‚´ì•„ë‚¨ì„ ìˆ˜ ìˆê² ì§€..?"
+		"ì–´ë–¤ ê´´ë¬¼ê°™ì€ ê³¼ì œê°€ ë‚  ê¸°ë‹¤ë¦´ê¹Œ?"
+		"ì ì€ ì˜ ìë©´ì„œ í•´ì•¼ì§€ ã…";
+	npc.strContents2 = "ì´ì œì•¼ ì¢€..\n"
+		"ê³¼ì œë¥¼ ì•„ì£¼ ì¡°ì˜¤ì˜¤ì˜¤ê¸ˆ ë” í•  ìˆ˜ ìˆì„ ê²ƒ ê°™ì•„"
 		"..."
-		"ÁË¼ÛÇÕ´Ï´Ù ¸àÅä´Ô"
-		"°úÁ¦ ÇÏ·¯ °¥°Ô¿ä";
-	npc.strContents3 = "[È¹µæ]\n"
-		"Ãë¾àÁ¡ ºĞ¼® ½ºÅ³À» ¾ò¾ú´Ù.\n"
+		"ì£„ì†¡í•©ë‹ˆë‹¤ ë©˜í† ë‹˜"
+		"ê³¼ì œ í•˜ëŸ¬ ê°ˆê²Œìš”";
+	npc.strContents3 = "[íšë“]\n"
+		"ì·¨ì•½ì  ë¶„ì„ ìŠ¤í‚¬ì„ ì–»ì—ˆë‹¤.\n"
 		"..."
-		"[°­Å»]\n"
-		"°Ç°­À» »©¾Ñ°å´Ù.\n";
-	npc.strContents4 = "µåµğ¾î ¼ö·á´Ù!\n"
-		"Á¤¸» ÁÁÀº °æÇèÀÌ¾ú¾î\n";
+		"[ê°•íƒˆ]\n"
+		"ê±´ê°•ì„ ë¹¼ì•—ê²¼ë‹¤.\n";
+	npc.strContents4 = "ë“œë””ì–´ ìˆ˜ë£Œë‹¤!\n"
+		"ì •ë§ ì¢‹ì€ ê²½í—˜ì´ì—ˆì–´\n";
 	vecNPC.push_back(npc);
 }
 
 void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject) {
 	ST_QUEST_OBJECT stObject;
 	stObject.nQuestObjectId = 258;
-	stObject.strName = "¹äÆ®ºÏ";
-	stObject.cPatch = 1;	// È­¸é¿¡ º¸ÀÌÁöµµ ¾Ê°í ¸¸Á®ÁöÁöµµ ¾Ê°Ô ÇÏ·Á¸é 0À» ³ÖÀ¸¸é µÊ
+	stObject.strName = "ë°¥íŠ¸ë¶";
+	stObject.cPatch = 'B';	// í™”ë©´ì— ë³´ì´ì§€ë„ ì•Šê³  ë§Œì ¸ì§€ì§€ë„ ì•Šê²Œ í•˜ë ¤ë©´ 0ì„ ë„£ìœ¼ë©´ ë¨
 	stObject.x = 4;
 	stObject.y = 14;
 	stObject.z = 25;
@@ -221,10 +221,10 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest) {
 		ST_QUEST_DATA stQuest;
 		stQuest.nNpcId = 130;
 		stQuest.StartCondition = ST_FILTER(130, 0x0000, 0x0001);
-		stQuest.vecMessages.push_back("°úÁ¦... °úÁ¦¸¦ ÇØ¾ßÇØ..!");
+		stQuest.vecMessages.push_back("ê³¼ì œ... ê³¼ì œë¥¼ í•´ì•¼í•´..!");
 		stQuest.vecMessages.push_back("...");
-		stQuest.vecMessages.push_back("³» ¹äÆ®ºÏ Á» °®´ÙÁÙ·¡..?");
-		stQuest.vecMessages.push_back("BOB¿¡¼­ ¹äÆ®ºÏÀÌ ¾øÀ¸¸é »ì ¼ö ¾ø¾î~");
+		stQuest.vecMessages.push_back("ë‚´ ë°¥íŠ¸ë¶ ì¢€ ê°–ë‹¤ì¤„ë˜..?");
+		stQuest.vecMessages.push_back("BOBì—ì„œ ë°¥íŠ¸ë¶ì´ ì—†ìœ¼ë©´ ì‚´ ìˆ˜ ì—†ì–´~");
 		stQuest.ClearCondition = ST_FILTER(130, 0x0003);
 		vecQuest.push_back(stQuest);
 	}
@@ -233,10 +233,10 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest) {
 		ST_QUEST_DATA stQuest;
 		stQuest.nNpcId = 258;
 		stQuest.StartCondition = ST_FILTER(130, 0x0000, 0x0003);
-		stQuest.vecMessages.push_back("¹äÆ®ºÏÀ» Ã£¾Ò´Ù.");
+		stQuest.vecMessages.push_back("ë°¥íŠ¸ë¶ì„ ì°¾ì•˜ë‹¤.");
 		stQuest.vecMessages.push_back("...");
-		stQuest.vecMessages.push_back("³Ê¹« ¸¹ÀÌ ›§´ÂÁö ²ÒÁËÁË ÇÏ´Ù.");
-		stQuest.vecMessages.push_back("ÀÌ°É ´Ù½Ã µ¹·ÁÁÖ·¯ °¡ÀÚ!");
+		stQuest.vecMessages.push_back("ë„ˆë¬´ ë§ì´ Â›ã¢ì© ê¾€ì£„ì£„ í•˜ë‹¤.");
+		stQuest.vecMessages.push_back("ì´ê±¸ ë‹¤ì‹œ ëŒë ¤ì£¼ëŸ¬ ê°€ì!");
 		stQuest.ClearCondition = ST_FILTER(130, 0x0007);
 		vecQuest.push_back(stQuest);
 	}
@@ -244,9 +244,9 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest) {
 		ST_QUEST_DATA stQuest;
 		stQuest.nNpcId = 130;
 		stQuest.StartCondition = ST_FILTER(130, 0x0000, 0x0007);
-		stQuest.vecMessages.push_back("Á¤¸» °í¸¶¿ö..");
-		stQuest.vecMessages.push_back("´öºĞ¿¡ °úÁ¦¸¦ ÇÒ ¼ö ÀÖÀ» °Í °°¾Æ");
-		stQuest.vecMessages.push_back("¿À´Ãµµ ºÒÅÂ¿ì°Ú¾î");
+		stQuest.vecMessages.push_back("ì •ë§ ê³ ë§ˆì›Œ..");
+		stQuest.vecMessages.push_back("ë•ë¶„ì— ê³¼ì œë¥¼ í•  ìˆ˜ ìˆì„ ê²ƒ ê°™ì•„");
+		stQuest.vecMessages.push_back("ì˜¤ëŠ˜ë„ ë¶ˆíƒœìš°ê² ì–´");
 		stQuest.ClearCondition = ST_FILTER(130, 0x000f);
 		vecQuest.push_back(stQuest);
 	}

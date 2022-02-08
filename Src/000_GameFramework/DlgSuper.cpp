@@ -39,7 +39,7 @@ void CDlgSuper::SetParent(CDlgSuper* pParent)
 	m_pParent = pParent;
 }
 
-int CDlgSuper::DoModal(void)
+int CDlgSuper::DoModal(CKeyInput* pInput)
 {
 	OnCreate();
 
@@ -48,7 +48,10 @@ int CDlgSuper::DoModal(void)
 		const DWORD dwCurrentTick = GetTickCount();
 
 		std::list<ST_KEYSTATE> listKeyState;
-		g_Input.Query(listKeyState);
+		if(pInput)
+			pInput->Query(listKeyState);
+		else
+			g_Input.Query(listKeyState);
 		OnInput(listKeyState);
 		OnUpdate(dwCurrentTick, g_nDeltaTick);
 
