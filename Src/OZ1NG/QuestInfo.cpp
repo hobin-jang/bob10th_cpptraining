@@ -33,10 +33,10 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.strTrack = "취약점분석트랙";
     npc.strName = "퍼징교 신자 홍택균(OZ1NG)";
     npc.nAge = 28;
-    npc.strMBTI = "INTP이고 B형입니다 :)";
+    npc.strMBTI = "INTP입니다 :)";
     npc.cPatch = 'O';
     npc.strMessage = "퍼저는 신이야! 너도 퍼징교에 들어오지 않을래? \n"
-        "너도 취약점을 찾을 수 있을지도 모른다구? ";
+        "너도 취약점을 찾을 수 있을지도 몰라! ";
 
     npc.strContents1 = "";
 
@@ -134,7 +134,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.vecSmallImage[24]  = "@@@@@@@@@@@@@@&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#(#@@@@@@@@@@@@";
 
     npc.strContents1 =
-        "어?"
+        "어? 내가 왜 이곳에..."
         ;
 
     vecNPC.push_back(npc);
