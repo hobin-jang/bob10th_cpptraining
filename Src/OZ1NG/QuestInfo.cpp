@@ -182,6 +182,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("과거 퍼징의 신께서 전설의 USB와 전설의 컴퓨터를 이 건물 어딘가에 숨겨두셨대!");
         stQuest.vecMessages.push_back("그것만 있으면 취약점 찾는 것 따위는 식은죽 먹기겠지...?");
         stQuest.vecMessages.push_back("너 시간도 많아보이는데 한번 찾아봐!");
+        stQuest.vecMessages.push_back("[전설의 컴퓨터]와 [전설의 USB]를 찾아보자.");
         stQuest.ClearCondition = ST_FILTER(1019, 0x0003);
         vecQuest.push_back(stQuest);
     }
@@ -195,8 +196,8 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("툭툭 치니 갑자기 빛이 나며 켜지기 시작한다.");
         stQuest.vecMessages.push_back("화면에 '전설의 컴퓨터'라는 문구가 띄워져있다.");
         stQuest.vecMessages.push_back("이게... 전설의 컴퓨터..?");
-        stQuest.vecMessages.push_back("전설의 컴퓨터를 찾았다. 하지만 전설의 USB가 없다...");
-        stQuest.vecMessages.push_back("컴퓨터는 바로 꺼지고 말았다.");
+        stQuest.vecMessages.push_back("전설의 컴퓨터를 찾았다. 하지만 [전설의 USB]가 없다...");
+        stQuest.vecMessages.push_back("컴퓨터는 바로 꺼지고 말았다. [전설의 USB]를 찾아오자!");
         stQuest.ClearCondition = ST_FILTER(1019, 0x0003);
         vecQuest.push_back(stQuest);
     }
@@ -210,6 +211,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("아무래도 전설의 USB를 찾은 것 같다.");
         stQuest.vecMessages.push_back("[전설의 USB]를 획득했습니다.");
         stQuest.vecMessages.push_back("이걸 전설의 컴퓨터에 꽂으면 엄청난 일이 일어날 것만 같다.");
+        stQuest.vecMessages.push_back("[전설의 USB]를 [전설의 컴퓨터]에 꽂아보자.");
         stQuest.ClearCondition = ST_FILTER(1019, 0x0007);
         vecQuest.push_back(stQuest);
     }
@@ -239,7 +241,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("뭐...? 그런 일이 있었다니...");
         stQuest.vecMessages.push_back("아무래도 너는 '퍼징신의 가호'를 받은 것 같아");
         stQuest.vecMessages.push_back("축하해! 어떤 취약점이라도 무난히 찾을 수 있을거야");
-        stQuest.vecMessages.push_back("잘 되길 빌어줄께! 나 대신 찾아줘서 고마워! :)");
+        stQuest.vecMessages.push_back("잘 되길 빌어줄께! 화이팅! :)");
         stQuest.ClearCondition = ST_FILTER(1019, 0x001f);
         vecQuest.push_back(stQuest);
     }
