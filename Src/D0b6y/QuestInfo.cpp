@@ -86,7 +86,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 	ST_QUEST_NPC_DATA npc;
 	npc.x = 12;
 	npc.y = 4;
-	npc.z = 25;
+	npc.z = 11;
 	npc.nNpcID = 130;
 	npc.strTrack = "취약점 분석";
 	npc.strName = "I\'m 원빈";
@@ -210,7 +210,7 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject) 
 	stObject.cPatch = 'B';	// 화면에 보이지도 않고 만져지지도 않게 하려면 0을 넣으면 됨
 	stObject.x = 4;
 	stObject.y = 14;
-	stObject.z = 25;
+	stObject.z = 11;
 	stObject.reserved = 0;
 	vecQuestObject.push_back(stObject);
 }
