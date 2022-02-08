@@ -15,7 +15,7 @@ CTestScene::~CTestScene(void)
 
 void CTestScene::OnCreate(void)
 {
-	int nResult = m_pDlg->DoModal();
+	int nResult = m_pDlg->DoModal(&g_Input);
 	if (0 == nResult)
 		printf("¼º°ø!!\n");
 	else

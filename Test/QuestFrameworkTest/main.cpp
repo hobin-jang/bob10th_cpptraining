@@ -10,8 +10,17 @@ void PrintImage(std::vector<std::string> buffer)
 void RunMiniGame(CDlgSuper* pDlg)
 {
 	system("cls");
+	g_Input.Register(VK_LEFT, GAMEKEY_LEFT);
+	g_Input.Register(VK_RIGHT, GAMEKEY_RIGHT);
+	g_Input.Register(VK_UP, GAMEKEY_UP);
+	g_Input.Register(VK_DOWN, GAMEKEY_DOWN);
+	g_Input.Register(VK_SPACE, GAMEKEY_SELECT);
+	g_Input.Register(VK_RETURN, GAMEKEY_MENU);
+	g_Input.Register(VK_OEM_3, GAMEKEY_CHAT);
+	g_Input.Register(VK_ESCAPE, GAMEKEY_ESC);
 	g_Output.InitConsole("미니게임 테스트", g_nConsoleW * 2 + 3, g_nConsoleH + 3);
 	g_Output.SetViewPort(g_nConsoleW, g_nConsoleH);
+
 	CTestScene scene(pDlg);
 	scene.DoModal();
 }

@@ -29,7 +29,7 @@ protected:
 
 public:
 	virtual void SetParent(CDlgSuper* pParent);
-	virtual int DoModal(void);
+	virtual int DoModal(CKeyInput* pInput = nullptr);
 	virtual void DrawUI(CDisplayBuffer& vecBuffer);
 	virtual void DrawWorld(CDisplayBuffer& vecBuffer);
 

@@ -1,20 +1,11 @@
 #include "pch.h"
 #include "MiniGame.h"
 
-enum E_GAMEKEY_TYPE
-{
-	GAMEKEY_SELECT,
-	GAMEKEY_ESCAPE,
-};
-
 CMiniGame::CMiniGame(void)
 	: CDlgSuper()
 {
 	g_Output.InitConsole("미니게임 테스트", g_nConsoleW * 2 + 3, g_nConsoleH + 3);
 	g_Output.SetViewPort(g_nConsoleW, g_nConsoleH);
-
-	g_Input.Register(VK_SPACE, GAMEKEY_SELECT);
-	g_Input.Register(VK_ESCAPE, GAMEKEY_ESCAPE);
 }
 
 CMiniGame::~CMiniGame(void)
@@ -40,13 +31,21 @@ void CMiniGame::OnClose(void)
 
 void CMiniGame::OnInput(std::list<ST_KEYSTATE>& listKeyState)
 {
-	__super::OnInput(listKeyState);
 	for (ST_KEYSTATE key : listKeyState)
 	{
 		if (key.bPressed && key.nID == GAMEKEY_SELECT)
 			Close(0); // 0으로 끝내면 성공
-		if (key.bPressed && key.nID == GAMEKEY_ESCAPE)
+		if (key.bPressed && key.nID == GAMEKEY_ESC)
 			Close(-1);	// 0 이외의 값으로 끝내면 실패
+		if (key.bPressed && key.nID == GAMEKEY_MENU)
+		{
+			//std::string strMsg;
+			//if (CEditBox::Show(this, "어떤 값을 입력할래?", strMsg, 10) < 0)
+			//	continue;
+
+			//m_TextUI.SetText(strMsg);
+		}
+			
 	}
 }
 
