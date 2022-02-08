@@ -12,10 +12,6 @@ CQuestInfo::~CQuestInfo(void)
 {
 }
 
-void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
-{
-}
-
 void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
     ST_QUEST_NPC_DATA npc;
@@ -109,16 +105,29 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.vecSmallImage.push_back("#$$####@########@@@@#####");
     npc.vecSmallImage.push_back("@########@###@@##@@######");
 
-    npc.strContents1 = ""; //캐릭터 선택 후 도입부
+    npc.strContents1 = ""; //캐릭터 시작말
+    npc.strContents2 = ""; //1단계 통과
+    npc.strContents3 = ""; //2단계 통과
+    npc.strContents4 = ""; //3단계 통과
 
     vecNPC.push_back(npc);
 
 }
 
 void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
-{
-}
+{/*
+    ST_QUEST_OBJECT stObject;
+    stObject.nQuestObjectId = ;
+    stObject.strName = "";
+    stObject.cPatch = 0;	// 화면에 보이지도 않고 만져지지도 않게 하려면 0을 넣으면 됨
+    stObject.x = ;
+    stObject.y = ;
+    stObject.z = ;
+    stObject.reserved = 0;
+    vecQuestObject.push_back(stObject);
+*/}
 
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest)
 {
+
 }
