@@ -30,6 +30,7 @@
     <ClInclude Include="HelperFunc.h" />
     <ClInclude Include="KeyInput.h" />
     <ClInclude Include="ListUI.h" />
+    <ClInclude Include="MessageBox.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PictureUI.h" />
     <ClInclude Include="SceneSuper.h" />
@@ -51,6 +52,7 @@
     <ClCompile Include="HelperFunc.cpp" />
     <ClCompile Include="KeyInput.cpp" />
     <ClCompile Include="ListUI.cpp" />
+    <ClCompile Include="MessageBox.cpp" />
     <ClCompile Include="PictureUI.cpp" />
     <ClCompile Include="SceneSuper.cpp" />
     <ClCompile Include="Setting.cpp" />
