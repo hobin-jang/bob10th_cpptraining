@@ -225,7 +225,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("단숨에 전설의 USB의 엄청난 아이디어들이 펼쳐지며 머릿속에 들어왔다.");
         stQuest.vecMessages.push_back("[퍼징신의 가호]를 얻었습니다.");
         stQuest.vecMessages.push_back("전설의 컴퓨터는 서서히 빛을 잃다가 완전히 꺼져버렸다.");
-        stQuest.vecMessages.push_back("무슨일이 일어난거지...? 퍼징교 신자 홍택균에게 돌아가 물어보자");
+        stQuest.vecMessages.push_back("무슨일이 일어난거지...? [퍼징교 신자 홍택균]에게 돌아가 물어보자");
         stQuest.ClearCondition = ST_FILTER(1019, 0x000f);
         vecQuest.push_back(stQuest);
     }
