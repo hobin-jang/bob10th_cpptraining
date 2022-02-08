@@ -7,19 +7,35 @@ void PrintImage(std::vector<std::string> buffer)
 		printf("%s\n", line.c_str());
 }
 
-void RunMiniGame(CDlgSuper* pDlg)
+void RunMiniGame(HMODULE hModule, CDlgSuper* pDlg)
 {
+	FP_InitMiniGame fpInitMiniGame = (FP_InitMiniGame)GetProcAddress(hModule, "InitMiniGame");
+	if (nullptr == fpInitMiniGame)
+	{
+		printf("미니게임을 초기화할 수 없습니다.(InitMiniGame을 찾을 수 없음)\n");
+		return;
+	}
+
 	system("cls");
-	g_Input.Register(VK_LEFT, GAMEKEY_LEFT);
-	g_Input.Register(VK_RIGHT, GAMEKEY_RIGHT);
-	g_Input.Register(VK_UP, GAMEKEY_UP);
-	g_Input.Register(VK_DOWN, GAMEKEY_DOWN);
-	g_Input.Register(VK_SPACE, GAMEKEY_SELECT);
-	g_Input.Register(VK_RETURN, GAMEKEY_MENU);
-	g_Input.Register(VK_OEM_3, GAMEKEY_CHAT);
-	g_Input.Register(VK_ESCAPE, GAMEKEY_ESC);
-	g_Output.InitConsole("미니게임 테스트", g_nConsoleW * 2 + 3, g_nConsoleH + 3);
-	g_Output.SetViewPort(g_nConsoleW, g_nConsoleH);
+
+	ST_GAME_DATA GameData;
+	GameData.dwFPS = 30;
+	GameData.nConsoleW = 80;
+	GameData.nConsoleH = 40;
+	GameData.nBackBufferWidth = 78;
+	GameData.nBackBufferHeight = 26;
+	GameData.input.Register(VK_LEFT, GAMEKEY_LEFT);
+	GameData.input.Register(VK_RIGHT, GAMEKEY_RIGHT);
+	GameData.input.Register(VK_UP, GAMEKEY_UP);
+	GameData.input.Register(VK_DOWN, GAMEKEY_DOWN);
+	GameData.input.Register(VK_SPACE, GAMEKEY_SELECT);
+	GameData.input.Register(VK_RETURN, GAMEKEY_MENU);
+	GameData.input.Register(VK_OEM_3, GAMEKEY_CHAT);
+	GameData.input.Register(VK_ESCAPE, GAMEKEY_ESC);
+	GameData.Init("미니게임 테스트", 400);
+	InitGame(&GameData);
+
+	fpInitMiniGame(g_pGameData);
 
 	CTestScene scene(pDlg);
 	scene.DoModal();

@@ -29,7 +29,7 @@ void CEditBox::OnCreate(void)
 	}
 	m_TextUI.Create(this, ST_POINT{ 0, 2 }, ST_SIZE{ size.cx, 3 }, UI_ATTRIBUTE_SINGLELINE);
 
-	m_KeyboardInput = g_Input;
+	m_KeyboardInput = g_pGameData->input;
 	m_KeyboardInput.Clear();
 	for (int i = 0x32; i < 0x7F; i++)
 		m_KeyboardInput.Register(i, i);

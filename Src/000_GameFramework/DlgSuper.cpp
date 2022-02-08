@@ -39,7 +39,7 @@ void CDlgSuper::SetParent(CDlgSuper* pParent)
 	m_pParent = pParent;
 }
 
-int CDlgSuper::DoModal(CKeyInput* pInput)
+int CDlgSuper::DoModal(void)
 {
 	OnCreate();
 
@@ -48,22 +48,19 @@ int CDlgSuper::DoModal(CKeyInput* pInput)
 		const DWORD dwCurrentTick = GetTickCount();
 
 		std::list<ST_KEYSTATE> listKeyState;
-		if(pInput)
-			pInput->Query(listKeyState);
-		else
-			g_Input.Query(listKeyState);
+		g_pGameData->input.Query(listKeyState);
 		OnInput(listKeyState);
 		OnUpdate(dwCurrentTick, g_nDeltaTick);
 
-		CDisplayBuffer& vecBackBuffer = g_Output.GetBackBuffer();
+		CDisplayBuffer& vecBackBuffer = g_pGameData->output.GetBackBuffer();
 		vecBackBuffer.Clear();
-		g_Output.Flip(g_Camera.GetViewPos(), vecBackBuffer);
+		g_pGameData->output.Flip(g_Camera.GetViewPos(), vecBackBuffer);
 		DrawWorld(vecBackBuffer);
 
 		CDisplayBuffer vecDisplayBuffer;
-		g_Output.Flip(g_Camera.GetViewPos(), vecDisplayBuffer);
+		g_pGameData->output.Flip(g_Camera.GetViewPos(), vecDisplayBuffer);
 		DrawUI(vecDisplayBuffer);
-		g_Output.Render(vecDisplayBuffer);
+		g_pGameData->output.Render(vecDisplayBuffer);
 
 		{
 			static DWORD dwLastUpdateTick = GetTickCount();

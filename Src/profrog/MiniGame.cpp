@@ -4,8 +4,6 @@
 CMiniGame::CMiniGame(void)
 	: CDlgSuper()
 {
-	g_Output.InitConsole("미니게임 테스트", g_nConsoleW * 2 + 3, g_nConsoleH + 3);
-	g_Output.SetViewPort(g_nConsoleW, g_nConsoleH);
 }
 
 CMiniGame::~CMiniGame(void)
@@ -39,7 +37,11 @@ void CMiniGame::OnInput(std::list<ST_KEYSTATE>& listKeyState)
 
 		if (key.bPressed && key.nID == GAMEKEY_MENU)
 		{
-			int nAnswer = CMessageBox::Show(this, "메시지 박스 테스트", MB_YESNO);
+			std::string strMsg;
+			if (0 == CEditBox::Show(this, "텍스트를 입력하세요", strMsg))
+				m_TextUI.SetText(strMsg);
+
+			//int nAnswer = CMessageBox::Show(this, "메시지 박스 테스트", MB_YESNO);
 		}
 	}
 }

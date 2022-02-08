@@ -16,6 +16,7 @@ public:
     CConsoleOutput(void);
 
     bool InitConsole(std::string strTitle, int w, int h);
+    void InitBackBuffer(int w, int h);
     void SetViewPort(int w, int h);
 
     CDisplayBuffer& GetBackBuffer(void)    {    return m_BackBuffer;    }

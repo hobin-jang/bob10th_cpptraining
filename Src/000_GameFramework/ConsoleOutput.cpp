@@ -16,10 +16,6 @@ bool CConsoleOutput::InitConsole(std::string strTitle, int w, int h)
     {
         SetConsoleTitleA(strTitle.c_str());
 
-        m_BackBuffer.resize(h + 1);
-        for (auto& strLine : m_BackBuffer)
-            strLine.resize(w + 1, ' ');
-
         // Set output mode to handle virtual terminal sequences
         HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
         if (hOut == INVALID_HANDLE_VALUE)
@@ -58,6 +54,13 @@ bool CConsoleOutput::InitConsole(std::string strTitle, int w, int h)
     }
     
     return true;
+}
+
+void CConsoleOutput::InitBackBuffer(int w, int h)
+{
+    m_BackBuffer.resize(h + 1);
+    for (auto& strLine : m_BackBuffer)
+        strLine.resize(w + 1, ' ');
 }
 
 void CConsoleOutput::SetViewPort(int w, int h)
