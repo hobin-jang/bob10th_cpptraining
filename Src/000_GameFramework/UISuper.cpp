@@ -27,6 +27,33 @@ void CUISuper::Create(CDlgSuper* pParent, ST_POINT pos, ST_SIZE size, DWORD dwAt
 		pParent->AddUI(this);
 	SetPos(pos);
 	SetSize(size);
+
+	if (UI_ATTRIBUTE_NO_ANIMATION & m_dwAttribute)
+	{
+		m_Pos.x = pos.x;
+		m_Pos.y = pos.y;
+		m_Size.x = size.cx;
+		m_Size.y = size.cy;
+	}
+	else
+	{
+		int nCenterX = (g_nConsoleW - size.cx) / 2;
+		int nCenterY = (g_nConsoleH - size.cy) / 2;
+
+		if (pos.x < 0)
+			m_Pos.x = g_nConsoleW;
+		else if ((pos.x + size.cx) < (g_nConsoleW / 2))
+			m_Pos.x = -size.cx;
+		else
+			m_Pos.x = nCenterX;
+
+		if (pos.y < 0)
+			m_Pos.y = g_nConsoleH;
+		else if ((pos.y + size.cy) < (g_nConsoleH / 2))
+			m_Pos.y = -size.cy;
+		else
+			m_Pos.y = nCenterY;
+	}
 	OnCreate();
 }
 
@@ -45,16 +72,20 @@ void CUISuper::SetText(std::wstring strText)
 	m_strText = strText;
 }
 
-void CUISuper::SetPos(ST_POINT pos)
+void CUISuper::SetPos(ST_POINT pos, bool bNoAnimate)
 {
 	m_TargetPos.x = pos.x < 0 ? g_nConsoleW + pos.x : pos.x;
 	m_TargetPos.y = pos.y < 0 ? g_nConsoleH + pos.y : pos.y;
+	if (bNoAnimate)
+		m_Pos = m_TargetPos;
 }
 
-void CUISuper::SetSize(ST_SIZE size)
+void CUISuper::SetSize(ST_SIZE size, bool bNoAnimate)
 {
 	m_TargetSize.x = size.cx;
 	m_TargetSize.y = size.cy;
+	if (bNoAnimate)
+		m_Size = m_TargetSize;
 	OnSize();
 }
 

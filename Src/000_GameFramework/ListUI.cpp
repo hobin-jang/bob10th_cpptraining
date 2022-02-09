@@ -112,7 +112,7 @@ void CListUI::OnDrawUI(CDisplayBuffer& vecBuffer)
 	int nLeftMargin = 2;
 	int nItemLength = m_Size.x / m_nAlignCol;
 	int nStartIndex = m_nScrollPos * m_nAlignCol;
-	for (int i = 0; i + nStartIndex <m_vecItems.size(); i++)
+	for (int i = 0; i + nStartIndex < m_vecItems.size(); i++)
 	{
 		const int nItemIndex = i + nStartIndex;
 
@@ -124,6 +124,11 @@ void CListUI::OnDrawUI(CDisplayBuffer& vecBuffer)
 			break;
 
 		vecBuffer.DrawString(nLeft, nTop, m_vecItems[nItemIndex]);
+
+		int nCursorX = nLeft - nLeftMargin;
+		if (nCursorX < 0 || vecBuffer[nTop].size() <= nCursorX)
+			continue;
+
 		if (nItemIndex == m_nCursorIndex)
 			vecBuffer[nTop][nLeft - nLeftMargin] = 26;	// 화살표 커서
 	}

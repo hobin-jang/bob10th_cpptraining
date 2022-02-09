@@ -26,11 +26,11 @@ void CMessageBox::OnCreate(void)
 			tMaxTextLen = strLine.size();
 	}
 
-	SetPos(ST_POINT{ (short)(g_nConsoleW - tMaxTextLen) / 2, (short)(g_nConsoleH - (short)m_vecMessage.size() - (short)m_vecMenu.size()) / 2 });
+	SetPos(ST_POINT{ (short)(g_nConsoleW - tMaxTextLen) / 2, (short)(g_nConsoleH - (short)m_vecMessage.size() - (short)m_vecMenu.size()) / 2 }, true);
 	SetSize(ST_SIZE{ (short)tMaxTextLen + 2, (short)m_vecMessage.size() + (short)m_vecMenu.size() + 4 });
 
-	m_TextUI.Create(this, ST_POINT{ 0, 0 }, ST_SIZE{ (short)tMaxTextLen + 2, (short)m_vecMessage.size() + 2 });
-	m_MenuUI.Create(this, ST_POINT{ 0, (short)m_vecMessage.size() + 1 }, ST_SIZE{ (short)tMaxTextLen + 2, (short)m_vecMenu.size() + 2 });
+	m_TextUI.Create(this, ST_POINT{ 0, 0 }, ST_SIZE{ (short)tMaxTextLen + 2, (short)m_vecMessage.size() + 2 }, UI_ATTRIBUTE_NO_ANIMATION);
+	m_MenuUI.Create(this, ST_POINT{ 0, (short)m_vecMessage.size() + 1 }, ST_SIZE{ (short)tMaxTextLen + 2, (short)m_vecMenu.size() + 2 }, UI_ATTRIBUTE_NO_ANIMATION);
 
 	// 메뉴 상자 생성
 	for (std::string strMenu : m_vecMenu)

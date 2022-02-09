@@ -24,10 +24,10 @@ void CEditBox::OnCreate(void)
 
 	if (!m_strTitle.empty())
 	{
-		m_TitleUI.Create(this, ST_POINT{ 0, 0}, ST_SIZE{ size.cx, 3 }, UI_ATTRIBUTE_NO_BORDER | UI_ATTRIBUTE_SINGLELINE);
+		m_TitleUI.Create(this, ST_POINT{ 0, 0}, ST_SIZE{ size.cx, 3 }, UI_ATTRIBUTE_NO_BORDER | UI_ATTRIBUTE_SINGLELINE | UI_ATTRIBUTE_NO_ANIMATION);
 		m_TitleUI.SetText(m_strTitle);
 	}
-	m_TextUI.Create(this, ST_POINT{ 0, 2 }, ST_SIZE{ size.cx, 3 }, UI_ATTRIBUTE_SINGLELINE);
+	m_TextUI.Create(this, ST_POINT{ 0, 2 }, ST_SIZE{ size.cx, 3 }, UI_ATTRIBUTE_SINGLELINE | UI_ATTRIBUTE_NO_ANIMATION);
 
 	m_KeyboardInput = g_pGameData->input;
 	m_KeyboardInput.Clear();
