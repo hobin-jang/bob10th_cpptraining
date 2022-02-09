@@ -50,7 +50,7 @@ int CDlgSuper::DoModal(void)
 		std::list<ST_KEYSTATE> listKeyState;
 		g_pGameData->input.Query(listKeyState);
 		OnInput(listKeyState);
-		OnUpdate(dwCurrentTick, g_nDeltaTick);
+		Update(dwCurrentTick, g_nDeltaTick);
 
 		CDisplayBuffer& vecBackBuffer = g_pGameData->output.GetBackBuffer();
 		vecBackBuffer.Clear();
@@ -75,6 +75,13 @@ int CDlgSuper::DoModal(void)
 
 	OnClose();
 	return m_nExitCode;
+}
+
+void CDlgSuper::Update(DWORD dwCurrentTick, DWORD dwElapsedTick)
+{
+	if (m_pParent)
+		m_pParent->Update(dwCurrentTick, dwElapsedTick);
+	OnUpdate(dwCurrentTick, dwElapsedTick);
 }
 
 void CDlgSuper::DrawUI(CDisplayBuffer& vecBuffer)

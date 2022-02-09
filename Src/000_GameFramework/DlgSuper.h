@@ -30,6 +30,7 @@ protected:
 public:
 	virtual void SetParent(CDlgSuper* pParent);
 	virtual int DoModal(void);
+	virtual void Update(DWORD dwCurrentTick, DWORD dwElapsedTick);
 	virtual void DrawUI(CDisplayBuffer& vecBuffer);
 	virtual void DrawWorld(CDisplayBuffer& vecBuffer);
 
