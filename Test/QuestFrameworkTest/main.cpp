@@ -125,13 +125,53 @@ int main()
 			}
 		}
 
+		FP_QueryQuestItem fpQueryQuestItem = (FP_QueryQuestItem)GetProcAddress(hModule, "QueryQuestItem");
+		if (fpQueryQuestItem)
+		{
+			std::vector<ST_QUEST_ITEM_DATA> vecQuestItem;
+			fpQueryQuestItem(vecQuestItem);
+
+			printf("[퀘스트 아이템]\n");
+			for (ST_QUEST_ITEM_DATA item : vecQuestItem)
+			{
+				printf("Id:%u\n", item.btId);
+				printf("Name:%s\n", item.strName.c_str());
+				printf("Desc:%s\n", item.strDesc.c_str());
+				printf("HP:%d\n", item.nHP);
+				printf("MP:%d\n", item.nMP);
+				printf("--------------\n");
+			}
+		}
+
+		FP_QueryQuestMonster fpQueryQuestMonster = (FP_QueryQuestMonster)GetProcAddress(hModule, "QueryQuestMonster");
+		if (fpQueryQuestMonster)
+		{
+			std::vector<ST_QUEST_MONSTER_DATA> vecQuestMonster;
+			fpQueryQuestMonster(vecQuestMonster);
+
+			printf("[퀘스트 몬스터]\n");
+			for (ST_QUEST_MONSTER_DATA item : vecQuestMonster)
+			{
+				printf("Id:%u\n", item.dwMonsterId);
+				printf("Name:%s\n", item.strName.c_str());
+				printf("Lv:%u\n", item.btLevel);
+				printf("HP:%d\n", item.nHP);
+				printf("공격력:%u\n", item.btAttack);
+				printf("행동속도:%u\n", item.btDex);
+				printf("약점:%u\n", item.btVulnerability);
+				printf("보상금:%u\n", item.wRewardMoney);
+				printf("보상경험치:%u\n", item.dwRewardExp);
+				printf("--------------\n");
+			}
+		}
+
 		FP_QueryQuest fpQueryQuest = (FP_QueryQuest)GetProcAddress(hModule, "QueryQuest");
 		if (fpQueryQuest)
 		{
 			std::vector<ST_QUEST_DATA> vecQuestData;
 			fpQueryQuest(vecQuestData);
 
-			printf("퀘스트 데이터\n");
+			printf("[퀘스트 데이터]\n");
 			if (vecQuestData.empty())
 			{
 				printf("  ->> 없군요 ㅠㅠ 캐릭터의 퀘스트를 만들어봅시다.\n");
@@ -142,8 +182,8 @@ int main()
 				printf("--------------\n");
 				for (std::string strMsg : quest.vecMessages)
 					printf("퀘스트 대사: %s\n", strMsg.c_str());
-				if (quest.pMiniGame && IDYES == ::MessageBox(nullptr, TEXT("미니게임을 실행하겠습니까?"), TEXT("걍 궁금"), MB_YESNO))
-					RunMiniGame(quest.pMiniGame);
+				if (quest.pClearGame && IDYES == ::MessageBox(nullptr, TEXT("미니게임을 실행하겠습니까?"), TEXT("걍 궁금"), MB_YESNO))
+					RunMiniGame(hModule, quest.pClearGame);
 			}
 		}
 

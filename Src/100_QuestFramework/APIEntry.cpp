@@ -23,6 +23,16 @@ DLL_API void QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuest)
 	g_pQuestInfo->QueryQuestObject(vecQuest);
 }
 
+DLL_API void QueryQuestItem(std::vector<ST_QUEST_ITEM_DATA>& vecQuestItem)
+{
+	g_pQuestInfo->QueryQuestItem(vecQuestItem);
+}
+
+DLL_API void QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestMonster)
+{
+	g_pQuestInfo->QueryQuestMonster(vecQuestMonster);
+}
+
 DLL_API void QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 {
 	g_pQuestInfo->QueryQuest(vecQuest);

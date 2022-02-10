@@ -299,7 +299,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		stQuest.nNpcId = 128;
 		stQuest.StartCondition = ST_FILTER(128, 0x007F, 0xFFFF);
 		stQuest.vecMessages.push_back("미니게임 한번할래? 이걸 이기면 퀘스트 보상을 주지");
-		stQuest.pMiniGame = new CMiniGame();
+		stQuest.pClearGame = new CMiniGame();
 		vecQuest.push_back(stQuest);
 	}
 }
