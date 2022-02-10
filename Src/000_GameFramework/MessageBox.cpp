@@ -1,10 +1,12 @@
 #include "pch.h"
 #include "MessageBox.h"
 #include "HelperFunc.h"
+#include "HelperClass.h"
 
-CMessageBox::CMessageBox(CDlgSuper* pParent, std::string strContext, std::vector<std::string> vecMenu)
+CMessageBox::CMessageBox(CDlgSuper* pParent, std::string strContext, std::vector<std::string> vecMenu, int nDefault)
 	: CDlgSuper(pParent)
 	, m_vecMenu(vecMenu)
+	, m_nDefault(nDefault)
 {
 	TokenizeMessage(strContext, m_vecMessage, g_nConsoleW * 0.8);
 
@@ -25,12 +27,17 @@ void CMessageBox::OnCreate(void)
 		if (tMaxTextLen < strLine.size())
 			tMaxTextLen = strLine.size();
 	}
+	for (std::string strLine : m_vecMenu)
+	{
+		if (tMaxTextLen < strLine.size())
+			tMaxTextLen = strLine.size();
+	}
 
-	SetPos(ST_POINT{ (short)(g_nConsoleW - tMaxTextLen) / 2, (short)(g_nConsoleH - (short)m_vecMessage.size() - (short)m_vecMenu.size()) / 2 }, true);
-	SetSize(ST_SIZE{ (short)tMaxTextLen + 2, (short)m_vecMessage.size() + (short)m_vecMenu.size() + 4 });
+	SetPos(CPoint((g_nConsoleW - tMaxTextLen) / 2, (g_nConsoleH - m_vecMessage.size() - m_vecMenu.size()) / 2), true);
+	SetSize(CSize(tMaxTextLen + 2, m_vecMessage.size() + m_vecMenu.size() + 4));
 
-	m_TextUI.Create(this, ST_POINT{ 0, 0 }, ST_SIZE{ (short)tMaxTextLen + 2, (short)m_vecMessage.size() + 2 }, UI_ATTRIBUTE_NO_ANIMATION);
-	m_MenuUI.Create(this, ST_POINT{ 0, (short)m_vecMessage.size() + 1 }, ST_SIZE{ (short)tMaxTextLen + 2, (short)m_vecMenu.size() + 2 }, UI_ATTRIBUTE_NO_ANIMATION);
+	m_TextUI.Create(this, CPoint(0, 0), CSize(tMaxTextLen + 2, m_vecMessage.size() + 2), UI_ATTRIBUTE_NO_ANIMATION);
+	m_MenuUI.Create(this, CPoint(0, m_vecMessage.size() + 1), CSize(tMaxTextLen + 2, m_vecMenu.size() + 2), UI_ATTRIBUTE_NO_ANIMATION);
 
 	// 메뉴 상자 생성
 	for (std::string strMenu : m_vecMenu)
@@ -38,6 +45,7 @@ void CMessageBox::OnCreate(void)
 
 	m_MenuUI.SetItemAlign(-1);
 	m_MenuUI.AdjustHeight(-1);
+	m_MenuUI.SetCurPos(m_nDefault);
 
 	// 텍스트 상자 생성
 	for (std::wstring strLine : m_vecMessage)
@@ -130,9 +138,9 @@ int CMessageBox::Show(CDlgSuper* pParent, std::string strMessage, int nStyle)
 	return 0;
 }
 
-int CMessageBox::Show(CDlgSuper* pParent, std::string strMessage, std::vector<std::string> vecMenu)
+int CMessageBox::Show(CDlgSuper* pParent, std::string strMessage, std::vector<std::string> vecMenu, int nDefault)
 {
-	CMessageBox instance(pParent, strMessage, vecMenu);
+	CMessageBox instance(pParent, strMessage, vecMenu, nDefault);
 	return instance.DoModal();
 }
 

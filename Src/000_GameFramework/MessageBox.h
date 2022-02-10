@@ -9,12 +9,13 @@ class CMessageBox : public CDlgSuper
 {
 	CTextUI m_TextUI;
 	CListUI m_MenuUI;
+	int m_nDefault;
 
 	std::vector<std::wstring> m_vecMessage;
 	std::vector<std::string> m_vecMenu;
 
 public:
-	CMessageBox(CDlgSuper* pParent, std::string strContext, std::vector<std::string> vecMenu);
+	CMessageBox(CDlgSuper* pParent, std::string strContext, std::vector<std::string> vecMenu, int nDefault = 0);
 	~CMessageBox();
 
 	void OnCreate(void);
@@ -22,6 +23,6 @@ public:
 	void OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick);
 
 	static int Show(CDlgSuper* pParent, std::string strMessage, int nStyle = MB_OK);
-	static int Show(CDlgSuper* pParent, std::string strMessage, std::vector<std::string> vecMenu);
+	static int Show(CDlgSuper* pParent, std::string strMessage, std::vector<std::string> vecMenu, int nDefault = 0);
 };
 
