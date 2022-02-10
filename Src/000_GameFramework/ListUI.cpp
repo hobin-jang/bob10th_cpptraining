@@ -17,14 +17,18 @@ void CListUI::Clear(void)
 	m_nAlignCol = 1;
 }
 
-void CListUI::AddItem(std::string strValue)
+void CListUI::AddItem(std::string strValue, int nTag, const void* pContext)
 {
-	AddItem(unicode::WCSFromMBS(strValue));
+	AddItem(unicode::WCSFromMBS(strValue), nTag, pContext);
 }
 
-void CListUI::AddItem(std::wstring strValue)
+void CListUI::AddItem(std::wstring strValue, int nTag, const void* pContext)
 {
-	m_vecItems.push_back(strValue);
+	ST_ITEM_DATA item;
+	item.strValue = strValue;
+	item.nTag = nTag;
+	item.pContext = pContext;
+	m_vecItems.push_back(item);
 }
 
 void CListUI::SetItemAlign(int nColCount)
@@ -32,10 +36,10 @@ void CListUI::SetItemAlign(int nColCount)
 	if (nColCount < 0)
 	{
 		size_t tMaxItemLen = 0;
-		for (std::wstring strItem : m_vecItems)
+		for (const ST_ITEM_DATA& item: m_vecItems)
 		{
-			if (tMaxItemLen < strItem.length())
-				tMaxItemLen = strItem.length();
+			if (tMaxItemLen < item.strValue.length())
+				tMaxItemLen = item.strValue.length();
 		}
 
 		int nWidth = m_TargetSize.x;
@@ -64,8 +68,22 @@ int CListUI::GetItemCount(void)
 std::wstring CListUI::GetItem(int nIndex)
 {
 	if (nIndex < m_vecItems.size())
-		return m_vecItems[nIndex];
+		return m_vecItems[nIndex].strValue;
 	return L"";
+}
+
+int CListUI::GetItemTag(int nIndex)
+{
+	if (nIndex < m_vecItems.size())
+		return m_vecItems[nIndex].nTag;
+	return 0;
+}
+
+const void* CListUI::GetItemContext(int nIndex)
+{
+	if (nIndex < m_vecItems.size())
+		return m_vecItems[nIndex].pContext;
+	return nullptr;
 }
 
 int CListUI::GetCurPos(void)
@@ -97,7 +115,7 @@ void CListUI::MoveCurPos(int nOffsetX, int nOffsetY)
 			m_nCursorIndex = (int)m_vecItems.size() - 1;
 	}
 
-	int nListHeight = GetSize().cy;
+	int nListHeight = GetSize().cy - 2;
 	int nMinShowingIndex = m_nScrollPos * m_nAlignCol + 1;
 	int nMaxShowingIndex = (m_nScrollPos + nListHeight) * m_nAlignCol;
 	if (m_nCursorIndex < nMinShowingIndex)
@@ -123,10 +141,10 @@ void CListUI::OnDrawUI(CDisplayBuffer& vecBuffer)
 		if (m_Size.y < 0 || vecBuffer.size() <= nTop)
 			break;
 
-		if ((m_Pos.y + m_Size.y) <= nTop)
+		if ((m_Pos.y + m_Size.y - 1) <= nTop)
 			break;
 
-		vecBuffer.DrawString(nLeft, nTop, m_vecItems[nItemIndex]);
+		vecBuffer.DrawString(nLeft, nTop, m_vecItems[nItemIndex].strValue);
 
 		if (nItemIndex == m_nCursorIndex)
 		{
