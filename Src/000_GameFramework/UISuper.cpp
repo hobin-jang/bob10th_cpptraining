@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "UISuper.h"
 #include "DlgSuper.h"
+#include "HelperClass.h"
 
 CUISuper::CUISuper(void)
 	: m_Pos()
@@ -118,17 +119,17 @@ bool CUISuper::IsVisible(void)
 
 ST_POINT CUISuper::GetPos(void)
 {
-	return ST_POINT{ (short)m_TargetPos.x, (short)m_TargetPos.y };
+	return CPoint(m_TargetPos.x, m_TargetPos.y);
 }
 
 ST_SIZE CUISuper::GetSize(void)
 {
-	return ST_SIZE {(short)m_TargetSize.x, (short)m_TargetSize.y};
+	return CSize(m_TargetSize.x, m_TargetSize.y);
 }
 
 ST_RECT CUISuper::GetRect(void)
 {
-	return ST_RECT(GetPos(), GetSize());
+	return CRect(GetPos(), GetSize());
 }
 
 void CUISuper::OnCreate(void)

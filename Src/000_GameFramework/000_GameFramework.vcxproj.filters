@@ -24,6 +24,7 @@
     <ClCompile Include="Setting.cpp" />
     <ClCompile Include="EditBox.cpp" />
     <ClCompile Include="MessageBox.cpp" />
+    <ClCompile Include="HelperClass.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="000_GameFramework.h" />
@@ -51,6 +52,7 @@
     <ClInclude Include="Setting.h" />
     <ClInclude Include="EditBox.h" />
     <ClInclude Include="MessageBox.h" />
+    <ClInclude Include="HelperClass.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Unicode">

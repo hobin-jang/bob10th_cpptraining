@@ -27,6 +27,7 @@
     <ClInclude Include="DlgSuper.h" />
     <ClInclude Include="EditBox.h" />
     <ClInclude Include="GameObjectSuper.h" />
+    <ClInclude Include="HelperClass.h" />
     <ClInclude Include="HelperFunc.h" />
     <ClInclude Include="KeyInput.h" />
     <ClInclude Include="ListUI.h" />
@@ -49,6 +50,7 @@
     <ClCompile Include="DlgSuper.cpp" />
     <ClCompile Include="EditBox.cpp" />
     <ClCompile Include="GameObjectSuper.cpp" />
+    <ClCompile Include="HelperClass.cpp" />
     <ClCompile Include="HelperFunc.cpp" />
     <ClCompile Include="KeyInput.cpp" />
     <ClCompile Include="ListUI.cpp" />

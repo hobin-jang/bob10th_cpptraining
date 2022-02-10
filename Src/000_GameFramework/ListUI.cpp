@@ -123,13 +123,15 @@ void CListUI::OnDrawUI(CDisplayBuffer& vecBuffer)
 		if (m_Size.y < 0 || vecBuffer.size() <= nTop)
 			break;
 
+		if ((m_Pos.y + m_Size.y) <= nTop)
+			break;
+
 		vecBuffer.DrawString(nLeft, nTop, m_vecItems[nItemIndex]);
 
-		int nCursorX = nLeft - nLeftMargin;
-		if (nCursorX < 0 || vecBuffer[nTop].size() <= nCursorX)
-			continue;
-
 		if (nItemIndex == m_nCursorIndex)
-			vecBuffer[nTop][nLeft - nLeftMargin] = 26;	// 화살표 커서
+		{
+			char szCursor[] = { 26, 0 };	// 화살표 커서
+			vecBuffer.DrawString(nLeft - nLeftMargin, nTop, szCursor);
+		}
 	}
 }

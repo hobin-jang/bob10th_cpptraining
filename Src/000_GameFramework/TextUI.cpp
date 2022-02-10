@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "TextUI.h"
 #include "HelperFunc.h"
+#include "HelperClass.h"
 
 CTextUI::CTextUI(void)
 	: CUISuper()
@@ -77,7 +78,7 @@ void CTextUI::SeperarateLines(void)
 		m_listText.insert(m_listText.end(), vecLine.begin(), vecLine.end());
 
 		// 높이보다 항목이 많으면 최근것만 보이도록 함
-		int nMaxRowCount = m_TargetSize.y;
+		int nMaxRowCount = m_TargetSize.y - 2;
 		int nFirtRowIndex = (m_listText.size() - nMaxRowCount);
 		m_tViewPos = nFirtRowIndex < 0 ? 0 : nFirtRowIndex;
 	}
@@ -92,7 +93,7 @@ void CTextUI::OnDrawUI(CDisplayBuffer& buffer)
 {
 	__super::OnDrawUI(buffer);
 
-	const ST_POINT stCurPos = { (short)m_Pos.x + 1, (short)m_Pos.y + 1 };
+	const CPoint stCurPos(m_Pos.x + 1, m_Pos.y + 1);
 	if (UI_ATTRIBUTE_SINGLELINE & m_dwAttribute)
 	{
 		buffer.DrawString(stCurPos, m_strText);
@@ -105,7 +106,9 @@ void CTextUI::OnDrawUI(CDisplayBuffer& buffer)
 		if (m_listText.size() <= tIndex)
 			break;
 
-		ST_POINT stDrawPos = { stCurPos.x, stCurPos.y + y };
-		buffer.DrawString(stDrawPos, m_listText[tIndex]);
+		if (GetRect().b <= (stCurPos.y + y))
+			continue;
+
+		buffer.DrawString(CPoint(stCurPos.x, stCurPos.y + y), m_listText[tIndex]);
 	}
 }
