@@ -43,7 +43,7 @@ void CListUI::SetItemAlign(int nColCount)
 		}
 
 		int nWidth = m_TargetSize.x;
-		nColCount = nWidth / (int)(tMaxItemLen + 2);
+		nColCount = nWidth / (int)(tMaxItemLen + 4);
 	}
 
 	if (nColCount == 0)
@@ -144,7 +144,10 @@ void CListUI::OnDrawUI(CDisplayBuffer& vecBuffer)
 		if ((m_Pos.y + m_Size.y - 1) <= nTop)
 			break;
 
-		vecBuffer.DrawString(nLeft, nTop, m_vecItems[nItemIndex].strValue);
+		int nLength = (int)m_Size.x - 2 - nLeftMargin;
+		if (nLength < 1)
+			continue;
+		vecBuffer.DrawString(nLeft, nTop, m_vecItems[nItemIndex].strValue, nLength);
 
 		if (nItemIndex == m_nCursorIndex)
 		{
