@@ -160,11 +160,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
+    <ClInclude Include="MiniGame.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="QuestInfo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="MiniGame.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -180,7 +182,8 @@
     <ProjectReference Include="..\100_QuestFramework\100_QuestFramework.vcxproj">
       <Project>{b7e6565e-6919-4241-8b28-5679efe3d4ef}</Project>
     </ProjectReference>
-  </ItemGroup>  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
 </Project>
