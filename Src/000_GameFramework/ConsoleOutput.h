@@ -4,13 +4,13 @@
 #include <string>
 #include "Struct.h"
 #include "DisplayBuffer.h"
+#include "Console.h"
 
-class CConsoleOutput
+class CConsoleOutput : private CConsole
 {
     CDisplayBuffer m_BackBuffer;
     int m_nViewWidth;
     int m_nViewHeight;
-
 
 public:
     CConsoleOutput(void);
