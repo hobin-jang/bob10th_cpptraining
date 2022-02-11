@@ -22,6 +22,14 @@ void CCamera::SetViewPos(int x, int y, bool bForcely)
         m_Pos = m_TargetPos;
 }
 
+void CCamera::SetViewPos(ST_POINT3 pos, bool bForcely)
+{
+    m_TargetPos.x = pos.x - m_ptCenterOffset.x;
+    m_TargetPos.y = pos.y - m_ptCenterOffset.y;
+    if (bForcely)
+        m_Pos = m_TargetPos;
+}
+
 void CCamera::SetViewPos(const ST_VECTOR& pos, bool bForcely)
 {
     m_TargetPos = pos;

@@ -19,7 +19,7 @@ public:
 	virtual void Create(CSceneSuper* pParent);
 	virtual void OnDrawUI(CDisplayBuffer& destBuffer);
 
-	virtual ST_POINT GetFrontPos(void);
-	virtual ST_POINT3 GetFrontPos3(void);
+	virtual ST_POINT3 GetPos(void);
+	virtual ST_POINT3 GetFrontPos(void);
 };
 
