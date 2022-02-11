@@ -54,7 +54,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.vecSmallImage[23] = "       $   .   =       ";
     npc.vecSmallImage[24] = "       $       #       ";
 
-
+    npc.vecBigImage.resize(38);
     npc.vecBigImage[0] = "          ,:!!!*!;:,          ";
     npc.vecBigImage[1] = "        .-!*=====**!~.        ";
     npc.vecBigImage[2] = "       -!*=========*~.       ";
