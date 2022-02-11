@@ -264,8 +264,8 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		stQuest.vecMessages.push_back("분명 내가 맞군. 믿을 수가 없지만 사실이야..!!");
 		stQuest.vecMessages.push_back("응? 그래서 그 친구가 왜 48시간동안 코딩하다 왔냐고 대답들어보라 했다고?");
 		stQuest.vecMessages.push_back("아 그 시절인가.");
-		stQuest.vecMessages.push_back("내가 갓 25살이 되던 때 외주 개발로 게임개발을 했었지.");
-		stQuest.vecMessages.push_back("일정이 한참이나 지났찌만 버그가 득실득실해서 도저히 오픈할 수가 없었어.");
+		stQuest.vecMessages.push_back("내가 갓 25살이 되던 때 외주 개발로 게임을 만들었지.");
+		stQuest.vecMessages.push_back("일정이 한참이나 지났지만 버그가 득실득실해서 도저히 오픈할 수가 없었어.");
 		stQuest.vecMessages.push_back("그래.. 도저히.");
 		stQuest.vecMessages.push_back("그러던 중 조폭들이 움직인거야.");
 		stQuest.vecMessages.push_back("알고보니 우리가 맡았던 프로젝트가 조폭들의 돈으로 굴러가던 것이었지.");
