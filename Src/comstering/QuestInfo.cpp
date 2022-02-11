@@ -184,11 +184,12 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
     }
     
     // 커피숍에서 에너지 드링크를 샀을 때 
-    // {
-    //     ST_QUEST_DATA stQuest;
-    //     stQuest.StartCondition = ST_FILTER(158, 0x0001, 0x002);
-    //     vecQuest.push_back(stQuest);
-    // }
+    {
+       ST_QUEST_DATA stQuest;
+       stQuest.nNpcId = 11;
+        stQuest.StartCondition = ST_FILTER(158, 0x0001, 0x002);
+        vecQuest.push_back(stQuest);
+    }
 
     // 최한수
     {
