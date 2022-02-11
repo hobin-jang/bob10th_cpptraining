@@ -54,7 +54,7 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btDex = 1;
 		monster.btVulnerability = JOB_TYPE_MASTER;
 		monster.wRewardMoney= 50000;
-		monster.dwRewardExp = 1;// 9999;
+		monster.dwRewardExp = 9999;
 		monster.vecRewardItems.push_back(128);	// 엘릭서
 		vecQuestMonster.push_back(monster);
 	}
@@ -138,10 +138,10 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		quest.vecMessages.push_back("으하하!!!");
 		quest.vecMessages.push_back("각오해라!! 최종시련이다------!");
 		quest.vecClearBattleEnemy.push_back(20001);
-		//quest.vecClearBattleEnemy.push_back(20002);
-		//quest.vecClearBattleEnemy.push_back(20003);
-		//quest.vecClearBattleEnemy.push_back(20004);
-		//quest.vecClearBattleEnemy.push_back(20005);
+		quest.vecClearBattleEnemy.push_back(20002);
+		quest.vecClearBattleEnemy.push_back(20003);
+		quest.vecClearBattleEnemy.push_back(20004);
+		quest.vecClearBattleEnemy.push_back(20005);
 		vecQuest.push_back(quest);
 	}
 	{
