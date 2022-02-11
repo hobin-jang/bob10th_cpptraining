@@ -36,8 +36,8 @@ void CConsoleOutput::InitBackBuffer(int w, int h)
 
 void CConsoleOutput::SetViewPort(int w, int h)
 {
-    m_nViewWidth = w + 1;
-    m_nViewHeight = h + 1;
+    m_nViewWidth = w;
+    m_nViewHeight = h;
 }
 
 void CConsoleOutput::Flip(const ST_VECTOR& pos, CDisplayBuffer& vecDisplayBuffer)

@@ -24,7 +24,7 @@ ST_GAME_DATA::ST_GAME_DATA(void)
 void ST_GAME_DATA::Init(std::string strTitle, DWORD dwKeyRepeatInterval)
 {
 	input.SetRepeatTick(dwKeyRepeatInterval);
-	output.InitConsole(strTitle, nConsoleW * 2 + 3, nConsoleH + 3);
+	output.InitConsole(strTitle, nConsoleW * 2, nConsoleH);
 	output.InitBackBuffer(nBackBufferWidth, nBackBufferHeight);
 	output.SetViewPort(nConsoleW, nConsoleH);
 }
