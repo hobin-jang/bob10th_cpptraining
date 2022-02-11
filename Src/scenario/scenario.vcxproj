@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{3a2420ce-e923-46e3-bdef-af07391a209d}</ProjectGuid>
+    <ProjectGuid>{3A2420CE-E923-46E3-BDEF-AF07391A209D}</ProjectGuid>
     <RootNamespace>profrog</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
