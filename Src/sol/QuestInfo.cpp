@@ -123,7 +123,7 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
         stObject.nQuestObjectId = 283;
         stObject.strName = "라꾸라꾸1";
         stObject.cPatch = 'I';	// 화면에 보이지도 않고 만져지지도 않게 하려면 0을 넣으면 됨
-        stObject.x = 4;
+        stObject.x = 4; //테스트 위치 : 6
         stObject.y = 23;
         stObject.z = 20;
         stObject.reserved = 0;
@@ -136,7 +136,7 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
         stObject.nQuestObjectId = 284;
         stObject.strName = "라꾸라꾸2";
         stObject.cPatch = 'I';	// 화면에 보이지도 않고 만져지지도 않게 하려면 0을 넣으면 됨
-        stObject.x = 3;
+        stObject.x = 3; //테스트 위치 : 5
         stObject.y = 23;
         stObject.z = 20;
         stObject.reserved = 0;
@@ -145,7 +145,7 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 }
 
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
-{/*
+{
     //NPC : 21층, 밤샌은솔
     //사물 : 20층, 라꾸라꾸1, 라꾸라꾸2
 
@@ -162,15 +162,16 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("자네, BoB 센터 27층에 가봤는가?");
         stQuest.vecMessages.push_back("그럼 4강의장이 어디에 있는지도 알겠군");
         stQuest.vecMessages.push_back("그 4강의장에는 비밀이 있지...");
-        stQuest.vecMessages.push_back("한 번 상상해보게");
-        stQuest.vecMessages.push_back("강의장 문을 열고 주변을 살펴보면 보드.. 탁자.. 책상들이 보일걸세");
+        stQuest.vecMessages.push_back("내 얘기를 들으면서 상상해보게");
+        stQuest.vecMessages.push_back("4강의장 문을 열고 주변을 살펴보면");
+        stQuest.vecMessages.push_back("보드.. 탁자.. 책상...이 보일걸세");
         stQuest.vecMessages.push_back("거기서 시선을 더 안쪽으로 따라가보면...");
-        stQuest.vecMessages.push_back("....");
-        stQuest.vecMessages.push_back("......");
-        stQuest.vecMessages.push_back("또 다른 문이 있다네...!");
-        stQuest.vecMessages.push_back("그 문 안에는...!.!.!.!.!");
-        stQuest.vecMessages.push_back(".....");
         stQuest.vecMessages.push_back(".......");
+        stQuest.vecMessages.push_back(".......");
+        stQuest.vecMessages.push_back("또 다른 문이 있다네....!");
+        stQuest.vecMessages.push_back("그 문 안에는....!!!!!!!");
+        stQuest.vecMessages.push_back(".......");
+        stQuest.vecMessages.push_back(".........");
         stQuest.vecMessages.push_back("라꾸라꾸가 있다네");
         stQuest.vecMessages.push_back("라꾸라꾸 좀 가져다 주겠나? ㅎㅎ");
         stQuest.vecMessages.push_back("아 참, BoB 센터가 게임속으로 옮겨오면서 위치가 좀 달라졌다네");
@@ -197,8 +198,8 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 153;
         stQuest.StartCondition = ST_FILTER(153, 0x0003, 0x0007);
-        stQuest.vecMessages.push_back("오, 무거웠을텐데 고맙네");
-        stQuest.vecMessages.push_back("꼼지락 꼼지락 (펼치는 중)");
+        stQuest.vecMessages.push_back("오, 무거웠을텐데 가져와줘서 고맙네");
+        stQuest.vecMessages.push_back("꼼지락 꼼지락 [펼치는 중]");
         stQuest.vecMessages.push_back("에잉 이게 아니라네");
         stQuest.vecMessages.push_back("고장난 라꾸라꾸자녀?");
         stQuest.vecMessages.push_back("여기엔 누울 수도 없겠어!");
@@ -226,31 +227,30 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.nNpcId = 153;
         stQuest.StartCondition = ST_FILTER(153, 0x000F, 0x001F);
         stQuest.vecMessages.push_back("오, 가져왔구먼");
-        stQuest.vecMessages.push_back("꼼지락 꼼지락 (펼치는 중)");
+        stQuest.vecMessages.push_back("꼼지락 꼼지락 [펼치는 중]");
         stQuest.vecMessages.push_back("음, 멀쩡하구먼");
         stQuest.vecMessages.push_back("이제 편히 잘 수 있겠어!");
         stQuest.vecMessages.push_back("고마우니 내 보답을 하겠네");
-        stQuest.vecMessages.push_back("자네, 아까전에 내가 말한 BoB 센터에서 전해 내려오는 비밀을 기억하나?");
+        stQuest.vecMessages.push_back("자네, 방금 전 내가 말한 BoB 센터에서 전해 내려오는 비밀을 기억하나?");
         stQuest.vecMessages.push_back("그래, BoB 센터 27층 4강의장에 숨겨진 문이 있다는 말이었지");
         stQuest.vecMessages.push_back("이 말은 사실일세");
         stQuest.vecMessages.push_back("센터에서 밤을 새는 일이 생긴다면 먼저 멘토링룸을 가보게");
         stQuest.vecMessages.push_back("라꾸라꾸가 안보인다고? 혹은 부족하다고?");
         stQuest.vecMessages.push_back("그럼 4강의장 안쪽 문을 찾아가게");
-        stQuest.vecMessages.push_back("자네가 원하는 것이 있을것이여");
+        stQuest.vecMessages.push_back("자네가 원하는 것이 있을 것이여");
         stQuest.vecMessages.push_back("고장난거 조심하고, 거 있는 매트도 쓰게나");
         stQuest.vecMessages.push_back("은인이 두고간 것이여");
-        stQuest.vecMessages.push_back("남은 BoB 생활 응원하겠네");
-        stQuest.vecMessages.push_back("건강 잘 챙기고 필드에서 봅세!");
+        stQuest.vecMessages.push_back("건강 잘 챙기고, 남은 BoB 생활 응원하겠네");
         stQuest.ClearCondition = ST_FILTER(153, 0xFFFF);
         vecQuest.push_back(stQuest);
     }
-
+    /*
     //미니게임
     {
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 153;
         stQuest.StartCondition = ST_FILTER(153, 0x001F, 0xFFFF);
-        stQuest.vecMessages.push_back("미니게임~ 퀘스트 보상~");
+        stQuest.vecMessages.push_back("미니게임을 하고 퀘스트 보상을 받자~");
         stQuest.pClearGame = new CMiniGame();
         vecQuest.push_back(stQuest);
     }*/
