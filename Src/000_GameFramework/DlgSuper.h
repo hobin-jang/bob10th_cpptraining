@@ -19,8 +19,6 @@ protected:
 	CDlgSuper(CDlgSuper* pParent = nullptr);
 	virtual ~CDlgSuper(void);
 
-	virtual void Close(int nExitCode);
-
 	virtual void OnCreate(void);
 	virtual void OnClose(void);
 	virtual void OnInput(std::list<ST_KEYSTATE>& listKeyState);
@@ -28,8 +26,10 @@ protected:
 	virtual void OnDrawUI(CDisplayBuffer& vecBuffer);
 
 public:
-	virtual void SetParent(CDlgSuper* pParent);
 	virtual int DoModal(void);
+	virtual void Close(int nExitCode);
+
+	virtual void SetParent(CDlgSuper* pParent);
 	virtual void Update(DWORD dwCurrentTick, DWORD dwElapsedTick);
 	virtual void DrawUI(CDisplayBuffer& vecBuffer);
 	virtual void DrawWorld(CDisplayBuffer& vecBuffer);
