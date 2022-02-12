@@ -43,6 +43,7 @@ int CDlgSuper::DoModal(void)
 {
 	OnCreate();
 
+	m_bIsClosed = false;
 	while (!m_bIsClosed)
 	{
 		const DWORD dwCurrentTick = GetTickCount();
