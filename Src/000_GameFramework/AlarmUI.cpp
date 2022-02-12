@@ -2,6 +2,7 @@
 #include "AlarmUI.h"
 #include "HelperFunc.h"
 #include "Setting.h"
+#include "HelperClass.h"
 
 CAlarmUI::CAlarmUI(void)
 	: CTextUI()
@@ -15,47 +16,46 @@ CAlarmUI::~CAlarmUI()
 
 void CAlarmUI::Clear(void)
 {
-	SetVisible(false);
+	__super::Clear();
 	m_dwTimeOutTick = 0;
 }
 
 void CAlarmUI::Alarm(std::string strMsg, DWORD dwDuring)
 {
-	SetVisible(true);
+	Clear();
 	m_dwTimeOutTick = GetTickCount() + dwDuring;
 
 	std::vector<std::wstring> vecMessage;
 	vecMessage.clear();
 
-	size_t tMaxLen = g_nConsoleW * 0.8;
-	TokenizeMessage(strMsg, vecMessage, tMaxLen);
+	TokenizeMessage(strMsg, vecMessage, g_nConsoleW * 0.8);
 
 	size_t tMaxTextLen = 10;
-	Clear();
 
 	for (std::wstring strLine : vecMessage)
 	{
 		if (tMaxTextLen < strLine.size())
 			tMaxTextLen = strLine.size();
-		AddText(strLine);
 	}
 
-	int nVerticalOffset = -2;
-	int x = g_nConsoleW / 2;
-	int y = g_nConsoleH / 2;
-	int nLeft = x - (int)(tMaxTextLen) / 2 - 1;
-	int nTop = y - ((int)GetLineCount() + 2) + nVerticalOffset;
-	int nRight = nLeft + (int)tMaxTextLen + 2;
-	int nBottom = nTop + (int)GetLineCount() + 1;
-	SetRect(nLeft, nTop, nRight, nBottom);
+	ST_POINT pos;
+	pos.x = (g_nConsoleW - tMaxTextLen) / 2;
+	pos.y = (g_nConsoleH - vecMessage.size()) / 2 - vecMessage.size();
+	SetPos(pos);
+	SetSize(CSize(tMaxTextLen + 2, vecMessage.size() + 2));
+
+	for (std::wstring strLine : vecMessage)
+		AddText(strLine);
 }
 
 void CAlarmUI::OnCreate(void)
 {
+	__super::OnCreate();
 }
 
 void CAlarmUI::OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick)
 {
+	__super::OnUpdate(dwCurrentTick, dwElapsedTick);
 }
 
 void CAlarmUI::OnDrawUI(CDisplayBuffer& vecBuffer)

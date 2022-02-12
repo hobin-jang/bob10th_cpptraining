@@ -11,7 +11,7 @@ public:
 	CTextUI(void);
 	virtual ~CTextUI(void);
 
-	void Clear(void);
+	virtual void Clear(void);
 	virtual void SetText(std::string strText);
 	virtual void SetText(std::wstring strText);
 	virtual void AddText(std::string strText);
