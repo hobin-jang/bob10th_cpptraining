@@ -141,62 +141,47 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 
         vecNPC.push_back(npc);
     }
-
-    {
-        ST_QUEST_NPC_DATA npc;
-        npc.x = 5;
-        npc.y = 9;
-        npc.z = 16;
-        npc.nNpcID = 157;
-        npc.strTrack = "보안제품개발트랙";
-        npc.strName = "청소년 창현";
-        npc.nAge = 18;
-        npc.strMBTI = "MBTI : H.E.L.L.";
-        npc.cPatch = 'L';
-        npc.strMessage = "수소폭탄보단 과제폭탄이 더 무섭다...";
-
-        vecNPC.push_back(npc);
-    }
-
-    {
-        ST_QUEST_NPC_DATA npc;
-        npc.x = 23;
-        npc.y = 16;
-        npc.z = 1;
-        npc.nNpcID = 158;
-        npc.strTrack = "보안제품개발트랙";
-        npc.strName = "아기 창현";
-        npc.nAge = 5;
-        npc.strMBTI = "BABY";
-        npc.cPatch = 'L';
-        npc.strMessage = "응애~응애~";
-
-
-        npc.strContents1 = "";
-
-        vecNPC.push_back(npc);
-    }
-
-    {
-        ST_QUEST_NPC_DATA npc;
-        npc.x = 19;
-        npc.y = 21;
-        npc.z = 27;
-        npc.nNpcID = 159;
-        npc.strTrack = "보안제품개발트랙";
-        npc.strName = "수료생 창현";
-        npc.nAge = 25;
-        npc.strMBTI = "ENTP";
-        npc.cPatch = 'L';
-        npc.strMessage = "수료를 축하한담...@o@";
-
-        vecNPC.push_back(npc);
-    }
     
 }
 
 void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 {
+    {
+        ST_QUEST_OBJECT stObject;
+        stObject.nQuestObjectId = 157;
+        stObject.strName = "청소년 창현";
+        stObject.cPatch = 'L';
+        stObject.x = 5;
+        stObject.y = 9;
+        stObject.z = 16;
+        stObject.reserved = 0;
+        vecQuestObject.push_back(stObject);
+    }
+
+    {
+        ST_QUEST_OBJECT stObject;
+        stObject.nQuestObjectId = 158;
+        stObject.strName = "아기 창현";
+        stObject.cPatch = 'L';
+        stObject.x = 23;
+        stObject.y = 16;
+        stObject.z = 1;
+        stObject.reserved = 0;
+        vecQuestObject.push_back(stObject);
+    }
+
+    {
+        ST_QUEST_OBJECT stObject;
+        stObject.nQuestObjectId = 159;
+        stObject.strName = "수료생 창현";
+        stObject.cPatch = 'L';
+        stObject.x = 19;
+        stObject.y = 21;
+        stObject.z = 27;
+        stObject.reserved = 0;
+        vecQuestObject.push_back(stObject);
+    }
+
     {
         ST_QUEST_OBJECT stObject;
         stObject.nQuestObjectId = 273;
@@ -217,6 +202,7 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
         stObject.x = 21;
         stObject.y = 17;
         stObject.z = 15;
+        stObject.reserved = 0;
         vecQuestObject.push_back(stObject);
     }
 
@@ -228,6 +214,7 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
         stObject.x = 6;
         stObject.y = 8;
         stObject.z = 27;
+        stObject.reserved = 0;
         vecQuestObject.push_back(stObject);
     }
 }
@@ -276,7 +263,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("하라는대로해! 수료하기싫어?");
         stQuest.vecMessages.push_back("케헴... C++은 전상현 멘토님이 대한민국 최강자니까..");
         stQuest.vecMessages.push_back("전상현 멘토님한테 가봐!");
-        stQuest.ClearCondition = ST_FILTER(132, 0x001F);
+        stQuest.ClearCondition = ST_FILTER(132, 0x000F);
         vecQuest.push_back(stQuest);
     }
 
