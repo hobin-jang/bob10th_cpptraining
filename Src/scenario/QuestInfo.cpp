@@ -137,11 +137,12 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		quest.vecMessages.push_back("(조심해!! 사방에서 몰려오고 있어!!)");
 		quest.vecMessages.push_back("으하하!!!");
 		quest.vecMessages.push_back("각오해라!! 최종시련이다------!");
-		quest.vecClearBattleEnemy.push_back(20001);
-		quest.vecClearBattleEnemy.push_back(20002);
-		quest.vecClearBattleEnemy.push_back(20003);
-		quest.vecClearBattleEnemy.push_back(20004);
-		quest.vecClearBattleEnemy.push_back(20005);
+		quest.ClearBattle.btMinPlayerCount = 4;
+		quest.ClearBattle.vecClearBattleEnemy.push_back(20001);
+		quest.ClearBattle.vecClearBattleEnemy.push_back(20002);
+		quest.ClearBattle.vecClearBattleEnemy.push_back(20003);
+		quest.ClearBattle.vecClearBattleEnemy.push_back(20004);
+		quest.ClearBattle.vecClearBattleEnemy.push_back(20005);
 		vecQuest.push_back(quest);
 	}
 	{
