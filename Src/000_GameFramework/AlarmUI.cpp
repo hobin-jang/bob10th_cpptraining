@@ -57,9 +57,9 @@ void CAlarmUI::OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick)
 	__super::OnUpdate(dwCurrentTick, dwElapsedTick);
 }
 
-void CAlarmUI::OnDrawUI(CDisplayBuffer& vecBuffer)
+void CAlarmUI::OnDrawUI(CDisplayBuffer& vecBuffer, CRect rtDrawArea)
 {
 	if (m_dwTimeOutTick < GetTickCount())
 		return;
-	__super::OnDrawUI(vecBuffer);
+	__super::OnDrawUI(vecBuffer, rtDrawArea);
 }

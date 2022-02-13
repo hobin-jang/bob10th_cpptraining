@@ -20,9 +20,6 @@ public:
 	size_t GetLineCount(void);
 
 	virtual void OnSize(void);
-	virtual void OnDrawUI(CDisplayBuffer& vecBuffer);
-
-private:
-	void SeperarateLines(void);
+	virtual void OnDrawUI(CDisplayBuffer& vecBuffer, CRect rtDrawArea);
 };
 

@@ -42,10 +42,20 @@ CRect::CRect(int inLeft, int inTop, int inRight, int inBottom)
 }
 
 CRect::CRect(const ST_POINT& pt, const ST_SIZE& sz)
-	: ST_RECT{ (pt.x), (pt.y), (pt.x + sz.cx + 1), (pt.y + sz.cy + 1) }
+	: ST_RECT{ (pt.x), (pt.y), (pt.x + sz.cx - 1), (pt.y + sz.cy - 1) }
 {}
 
 CRect::operator ST_RECT() const
 {
 	return *(ST_RECT*)this;
+}
+
+CSize CRect::GetSize(void)
+{
+	return CSize(r - l + 1, b - t + 1);
+}
+
+CPoint CRect::GetPos(void)
+{
+	return CPoint(l, t);
 }

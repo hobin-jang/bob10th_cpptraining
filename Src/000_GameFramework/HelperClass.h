@@ -28,4 +28,7 @@ public:
 	CRect(const ST_POINT& pt, const ST_SIZE& sz);
 
 	operator ST_RECT() const;
+
+	CSize GetSize(void);
+	CPoint GetPos(void);
 };

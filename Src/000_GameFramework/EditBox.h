@@ -10,7 +10,7 @@ class CEditBox : public CDlgSuper
 	CKeyInput m_KeyboardInput;
 
 	std::string m_strTitle;
-	std::string m_strText;
+	std::string m_strContext;
 	size_t m_tMaxLength;
 	size_t m_tCursorPos;
 
@@ -18,9 +18,9 @@ public:
 	CEditBox(CDlgSuper* pParent, std::string strTitle, size_t tMaxLength);
 	~CEditBox(void);
 
-	void OnDrawUI(CDisplayBuffer& vecBuffer);
+	void OnDrawUI(CDisplayBuffer& vecBuffer, CRect rtDrawArea);
 
-	std::string GetText(void);
+	std::string GetContext(void);
 	static int Show(CDlgSuper* pParent, std::string strTitle, std::string& outText, size_t tMaxLength = (size_t)(g_nConsoleW * 0.8));
 	static int Show(CDlgSuper* pParent, std::string strTitle, std::wstring& outText, size_t tMaxLength = (size_t)(g_nConsoleW * 0.8));
 

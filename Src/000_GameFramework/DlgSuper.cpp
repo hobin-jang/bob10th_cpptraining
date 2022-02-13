@@ -23,7 +23,6 @@ void CDlgSuper::Close(int nExitCode)
 
 void CDlgSuper::OnCreate(void)
 {
-	__super::OnCreate();
 	m_bIsCreated = true;
 	m_bIsClosed = false;
 }
@@ -49,6 +48,8 @@ int CDlgSuper::DoModal(void)
 {
 	OnCreate();
 
+	CDisplayBuffer vecDisplayBuffer;
+	vecDisplayBuffer.Create(g_nConsoleW + 1, g_nConsoleH + 1);
 	while (!m_bIsClosed)
 	{
 		const DWORD dwCurrentTick = GetTickCount();
@@ -58,13 +59,7 @@ int CDlgSuper::DoModal(void)
 		OnInput(listKeyState);
 		Update(dwCurrentTick, g_nDeltaTick);
 
-		CDisplayBuffer& vecBackBuffer = g_pGameData->output.GetBackBuffer();
-		vecBackBuffer.Clear();
-		g_pGameData->output.Flip(g_Camera.GetViewPos(), vecBackBuffer);
-		DrawWorld(vecBackBuffer);
-
-		CDisplayBuffer vecDisplayBuffer;
-		g_pGameData->output.Flip(g_Camera.GetViewPos(), vecDisplayBuffer);
+		vecDisplayBuffer.Clear();
 		DrawUI(vecDisplayBuffer);
 		g_pGameData->output.Render(vecDisplayBuffer);
 
@@ -94,14 +89,7 @@ void CDlgSuper::DrawUI(CDisplayBuffer& vecBuffer)
 {
 	if (m_pParent)
 		m_pParent->DrawUI(vecBuffer);
-	OnDrawUI(vecBuffer);
-}
-
-void CDlgSuper::DrawWorld(CDisplayBuffer& vecBuffer)
-{
-	if (m_pParent)
-		m_pParent->DrawWorld(vecBuffer);
-	OnDrawWorld(vecBuffer);
+	__super::DrawUI(vecBuffer);
 }
 
 void CDlgSuper::OnInput(std::list<ST_KEYSTATE>& listKeyState)
@@ -115,21 +103,19 @@ void CDlgSuper::OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick)
 		pUI->OnUpdate(dwCurrentTick, dwElapsedTick);
 }
 
-void CDlgSuper::OnDrawUI(CDisplayBuffer& vecBuffer)
+void CDlgSuper::OnDrawUI(CDisplayBuffer& vecBuffer, CRect rtDrawArea)
 {
-	if (m_Size.y < 1 || m_Size.x < 1)
-		return;
+	ST_SIZE size = rtDrawArea.GetSize();
 
 	CDisplayBuffer vecClientBuffer;
-	vecClientBuffer.Create(m_Size.x + 2, m_Size.y + 2);
-	vecClientBuffer.DrawRectangle(0, 0, m_Size.x + 1, m_Size.y + 1);
+	vecClientBuffer.Create(size.cx, size.cy);
 
 	for (CUISuper* pUI : m_listUI)
 	{
 		if (!pUI->IsVisible())
 			continue;
-		pUI->OnDrawUI(vecClientBuffer);
+		pUI->DrawUI(vecClientBuffer);
 	}
 
-	vecBuffer.BitBlt((short)m_Pos.x - 1, (short)m_Pos.y - 1, vecClientBuffer);
+	vecBuffer.BitBlt(rtDrawArea.l, rtDrawArea.t, vecClientBuffer);
 }

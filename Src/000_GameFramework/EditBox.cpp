@@ -17,17 +17,18 @@ CEditBox::~CEditBox(void)
 
 void CEditBox::OnCreate(void)
 {
-	SetPos(CPoint((g_nConsoleW - m_tMaxLength) / 2, g_nConsoleH / 2 - 2));
-	SetSize(CSize(m_tMaxLength, 5));
+	CPoint pos((g_nConsoleW - m_tMaxLength) / 2, g_nConsoleH / 2 - 2);
+	SetPos(pos);
+	CSize size(m_tMaxLength + 2, 5);
+	SetSize(size);
+	ModifyAttribute(UI_ATTRIBUTE_NO_BORDER, 0);
 
 	if (!m_strTitle.empty())
 	{
-		m_TitleUI.Create(this, CPoint(1, 1), CSize((int)m_TargetSize.x, 1), UI_ATTRIBUTE_NO_BORDER | UI_ATTRIBUTE_SINGLELINE | UI_ATTRIBUTE_NO_ANIMATION);
+		m_TitleUI.Create(this, 0, 0, size.cx, 2, UI_ATTRIBUTE_SINGLELINE | UI_ATTRIBUTE_NO_ANIMATION);
 		m_TitleUI.SetText(m_strTitle);
-		m_TextUI.Create(this, CPoint(1, 3), CSize((int)m_TargetSize.x, 1), UI_ATTRIBUTE_SINGLELINE | UI_ATTRIBUTE_NO_ANIMATION);
 	}
-	else
-		m_TextUI.Create(this, CPoint(1, 1), CSize((int)m_TargetSize.x, 1), UI_ATTRIBUTE_SINGLELINE | UI_ATTRIBUTE_NO_ANIMATION);
+	m_TextUI.Create(this, 0, 2, size.cx, 4, UI_ATTRIBUTE_SINGLELINE | UI_ATTRIBUTE_NO_ANIMATION);
 
 	m_KeyboardInput = g_pGameData->input;
 	m_KeyboardInput.Clear();
@@ -88,8 +89,8 @@ void CEditBox::OnInput(std::list<ST_KEYSTATE>& listKeyState)
 			break;
 
 		case VK_RIGHT:
-			if (m_strText.length() < ++m_tCursorPos)
-				m_tCursorPos = m_strText.length();
+			if (m_strContext.length() < ++m_tCursorPos)
+				m_tCursorPos = m_strContext.length();
 			break;
 
 		case VK_UP:
@@ -97,20 +98,20 @@ void CEditBox::OnInput(std::list<ST_KEYSTATE>& listKeyState)
 			break;
 
 		case VK_DOWN:
-			m_tCursorPos = m_strText.length();
+			m_tCursorPos = m_strContext.length();
 			break;
 
 		case VK_BACK:
 			if (0 < m_tCursorPos)
 			{
-				m_strText = m_strText.substr(0, m_tCursorPos - 1) + m_strText.substr(m_tCursorPos);
+				m_strContext = m_strContext.substr(0, m_tCursorPos - 1) + m_strContext.substr(m_tCursorPos);
 				m_tCursorPos--;
 			}
 			break;
 
 		case VK_DELETE:
-			if ( m_tCursorPos < m_strText.length())
-				m_strText = m_strText.substr(0, m_tCursorPos) + m_strText.substr(m_tCursorPos + 1);
+			if ( m_tCursorPos < m_strContext.length())
+				m_strContext = m_strContext.substr(0, m_tCursorPos) + m_strContext.substr(m_tCursorPos + 1);
 			break;
 		case VK_OEM_MINUS:		InsertChar('-', '_');			break;
 		case VK_OEM_PLUS:		InsertChar('=', '+');			break;
@@ -139,7 +140,7 @@ void CEditBox::OnInput(std::list<ST_KEYSTATE>& listKeyState)
 			break;
 		}
 
-		std::string strCursorText = m_strText;
+		std::string strCursorText = m_strContext;
 		strCursorText.insert(m_tCursorPos, 1, '|');
 		m_TextUI.SetText(strCursorText);
 	}
@@ -153,20 +154,20 @@ void CEditBox::OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick)
 void CEditBox::InsertChar(char cCharL, char cCharU)
 {
 	if (m_KeyboardInput.IsEnabledCapsLock())
-		m_strText.insert(m_tCursorPos, 1, cCharU);
+		m_strContext.insert(m_tCursorPos, 1, cCharU);
 	else
-		m_strText.insert(m_tCursorPos, 1, cCharL);
+		m_strContext.insert(m_tCursorPos, 1, cCharL);
 	m_tCursorPos++;
 }
 
-void CEditBox::OnDrawUI(CDisplayBuffer& vecBuffer)
+void CEditBox::OnDrawUI(CDisplayBuffer& vecBuffer, CRect rtDrawArea)
 {
-	__super::OnDrawUI(vecBuffer);
+	__super::OnDrawUI(vecBuffer, rtDrawArea);
 }
 
-std::string CEditBox::GetText(void)
+std::string CEditBox::GetContext(void)
 {
-	return m_strText;
+	return m_strContext;
 }
 
 int CEditBox::Show(CDlgSuper* pParent, std::string strTitle, std::string& outText, size_t tMaxLength)
@@ -175,7 +176,7 @@ int CEditBox::Show(CDlgSuper* pParent, std::string strTitle, std::string& outTex
 	if (instance.DoModal())
 		return -1;
 
-	outText = instance.GetText();
+	outText = instance.GetContext();
 	return 0;
 }
 

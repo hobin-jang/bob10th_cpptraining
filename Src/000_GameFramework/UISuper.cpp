@@ -18,7 +18,7 @@ CUISuper::~CUISuper(void)
 
 void CUISuper::Create(CDlgSuper* pParent, short l, short t, short r, short b, DWORD dwAttribute)
 {
-	Create(pParent, CPoint(l, t), CSize(r - l, b - t), dwAttribute);
+	Create(pParent, CPoint(l, t), CSize(r - l + 1, b - t + 1), dwAttribute);
 }
 
 void CUISuper::Create(CDlgSuper* pParent, ST_POINT pos, ST_SIZE size, DWORD dwAttribute)
@@ -60,7 +60,7 @@ void CUISuper::Create(CDlgSuper* pParent, ST_POINT pos, ST_SIZE size, DWORD dwAt
 
 void CUISuper::Create(CDlgSuper* pParent, ST_RECT rt, DWORD dwAttribute)
 {
-	Create(pParent, CPoint(rt.l, rt.t), CSize(rt.r - rt.l, rt.b - rt.t), dwAttribute);
+	Create(pParent, CPoint(rt.l, rt.t), CSize(rt.r - rt.l, rt.b - rt.t + 1), dwAttribute);
 }
 
 void CUISuper::SetText(std::string strText)
@@ -94,8 +94,8 @@ void CUISuper::SetRect(int l, int t, int r, int b)
 {
 	m_TargetPos.x = l;
 	m_TargetPos.y = t;
-	m_TargetSize.x = r - l;
-	m_TargetSize.y = b - t;
+	m_TargetSize.x = r - l + 1;
+	m_TargetSize.y = b - t + 1;
 	OnSize();
 }
 
@@ -123,6 +123,33 @@ bool CUISuper::IsVisible(void)
 	return 0 == (m_dwAttribute & UI_ATTRIBUTE_INVISIBLE);
 }
 
+std::wstring CUISuper::GetText(void)
+{
+	return m_strText;
+}
+
+void CUISuper::DrawUI(CDisplayBuffer& vecBuffer)
+{
+	if (m_Size.x < 1 || m_Size.y < 1)
+		return;
+
+	CRect stDrawArea = CRect(m_Pos.MakePoint(), m_Size.MakeSize());
+	if (0 == (m_dwAttribute & UI_ATTRIBUTE_NO_BORDER))
+	{
+		vecBuffer.DrawRectangle(stDrawArea);
+		stDrawArea.l++;
+		stDrawArea.t++;
+		stDrawArea.r--;
+		stDrawArea.b--;
+	}
+
+	CSize stDrawAreaSize = stDrawArea.GetSize();
+	if (stDrawAreaSize.cx < 1 || stDrawAreaSize.cy < 1)
+		return;
+
+	OnDrawUI(vecBuffer, stDrawArea);
+}
+
 ST_POINT CUISuper::GetPos(void)
 {
 	return m_TargetPos.MakePoint();
@@ -130,7 +157,10 @@ ST_POINT CUISuper::GetPos(void)
 
 ST_SIZE CUISuper::GetSize(void)
 {
-	return m_TargetSize.MakeSize();
+	ST_SIZE size = m_TargetSize.MakeSize();
+	if (0 == (m_dwAttribute & UI_ATTRIBUTE_NO_BORDER))
+		size.cx -= 2;
+	return size;
 }
 
 ST_RECT CUISuper::GetRect(void)
@@ -165,13 +195,4 @@ void CUISuper::OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick)
 
 void CUISuper::OnDrawWorld(CDisplayBuffer& vecBuffer)
 {
-}
-
-void CUISuper::OnDrawUI(CDisplayBuffer& vecBuffer)
-{
-	if (m_dwAttribute & UI_ATTRIBUTE_NO_BORDER)
-		return;
-
-	ST_VECTOR BorderPos(m_Pos.x - 1, m_Pos.y - 1);
-	vecBuffer.DrawRectangle(BorderPos.MakePoint(), m_Size.MakeSize());
 }

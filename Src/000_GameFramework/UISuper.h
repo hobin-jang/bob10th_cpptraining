@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Struct.h"
+#include "HelperClass.h"
 #include "DisplayBuffer.h"
 
 enum E_UI_ATTRIBUTE
@@ -14,7 +15,6 @@ enum E_UI_ATTRIBUTE
 class CDlgSuper;
 class CUISuper
 {
-protected:
 	ST_VECTOR m_Pos;
 	ST_VECTOR m_Size;
 	ST_VECTOR m_TargetPos;
@@ -23,6 +23,7 @@ protected:
 
 	std::wstring m_strText;
 
+protected:
 	CUISuper(void);
 	virtual ~CUISuper(void);
 
@@ -40,6 +41,10 @@ public:
 	virtual void ModifyAttribute(DWORD dwAdd, DWORD dwRemove);
 	virtual bool IsVisible(void);
 
+	virtual std::wstring GetText(void);
+
+	virtual void DrawUI(CDisplayBuffer& vecBuffer);
+
 	virtual ST_POINT GetPos(void);
 	virtual ST_SIZE GetSize(void);
 	virtual ST_RECT GetRect(void);
@@ -48,6 +53,6 @@ public:
 	virtual void OnSize(void);
 	virtual void OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick);
 	virtual void OnDrawWorld(CDisplayBuffer& vecBuffer);
-	virtual void OnDrawUI(CDisplayBuffer& vecBuffer);
+	virtual void OnDrawUI(CDisplayBuffer& vecBuffer, CRect rtDrawArea) = 0;
 };
 

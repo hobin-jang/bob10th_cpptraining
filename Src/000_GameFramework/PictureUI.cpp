@@ -30,21 +30,21 @@ void CPictureUI::SetImage(CDisplayBuffer vecImage)
 	}
 }
 
-void CPictureUI::OnDrawUI(CDisplayBuffer& vecBuffer)
+void CPictureUI::OnDrawUI(CDisplayBuffer& vecBuffer, CRect rtDrawArea)
 {
-	__super::OnDrawUI(vecBuffer);
-
-	ST_POINT pos = m_Pos.MakePoint();
-	if (pos.x < 1 || pos.y < 1)
-		return;
+	ST_POINT pos = rtDrawArea.GetPos();
+	ST_SIZE size = rtDrawArea.GetSize();
 
 	for (size_t i=0; i<m_vecImageData.size(); i++)
 	{
 		const std::wstring& strSrcLine = m_vecImageData[i];
-		int y = pos.y + (int)i;
-		if (m_vecImageData.size() <= y)
+		if (size.cy <= i)
 			return;
 
-		vecBuffer.DrawString(m_Pos.x, y, strSrcLine, (size_t)m_Size.x);
+		int y = pos.y + (int)i;
+		if (vecBuffer.size() <= y)
+			return;
+
+		vecBuffer.DrawString(pos.x, y, strSrcLine, (size_t)size.cx);
 	}
 }

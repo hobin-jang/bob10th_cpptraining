@@ -27,7 +27,6 @@
     <ClInclude Include="DisplayBuffer.h" />
     <ClInclude Include="DlgSuper.h" />
     <ClInclude Include="EditBox.h" />
-    <ClInclude Include="GameObjectSuper.h" />
     <ClInclude Include="HelperClass.h" />
     <ClInclude Include="HelperFunc.h" />
     <ClInclude Include="KeyInput.h" />
@@ -35,7 +34,6 @@
     <ClInclude Include="MessageBox.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PictureUI.h" />
-    <ClInclude Include="SceneSuper.h" />
     <ClInclude Include="Setting.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="TextUI.h" />
@@ -51,14 +49,12 @@
     <ClCompile Include="DisplayBuffer.cpp" />
     <ClCompile Include="DlgSuper.cpp" />
     <ClCompile Include="EditBox.cpp" />
-    <ClCompile Include="GameObjectSuper.cpp" />
     <ClCompile Include="HelperClass.cpp" />
     <ClCompile Include="HelperFunc.cpp" />
     <ClCompile Include="KeyInput.cpp" />
     <ClCompile Include="ListUI.cpp" />
     <ClCompile Include="MessageBox.cpp" />
     <ClCompile Include="PictureUI.cpp" />
-    <ClCompile Include="SceneSuper.cpp" />
     <ClCompile Include="Setting.cpp" />
     <ClCompile Include="Struct.cpp" />
     <ClCompile Include="TextUI.cpp" />

@@ -42,7 +42,7 @@ void CListUI::SetItemAlign(int nColCount)
 				tMaxItemLen = item.strValue.length();
 		}
 
-		int nWidth = m_TargetSize.x;
+		int nWidth = GetSize().cx;
 		nColCount = nWidth / (int)(tMaxItemLen + 2);
 	}
 
@@ -57,7 +57,9 @@ void CListUI::AdjustHeight(int nRowCount)
 	if (nRowCount < 0)
 		nRowCount = (int)m_vecItems.size();
 	
-	m_TargetSize.y = nRowCount;
+	ST_SIZE size = GetSize();
+	size.cy = nRowCount + 2;
+	SetSize(size);
 }
 
 int CListUI::GetItemCount(void)
@@ -115,7 +117,7 @@ void CListUI::MoveCurPos(int nOffsetX, int nOffsetY)
 			m_nCursorIndex = (int)m_vecItems.size() - 1;
 	}
 
-	int nListHeight = (int)m_Size.y;
+	int nListHeight = GetSize().cy;
 	int nMinShowingIndex = m_nScrollPos * m_nAlignCol + 1;
 	int nMaxShowingIndex = (m_nScrollPos + nListHeight) * m_nAlignCol;
 	if (m_nCursorIndex < nMinShowingIndex)
@@ -124,31 +126,29 @@ void CListUI::MoveCurPos(int nOffsetX, int nOffsetY)
 		m_nScrollPos = m_nCursorIndex / m_nAlignCol - (nListHeight - 1);
 }
 
-void CListUI::OnDrawUI(CDisplayBuffer& vecBuffer)
+void CListUI::OnDrawUI(CDisplayBuffer& vecBuffer, CRect rtDrawArea)
 {
-	__super::OnDrawUI(vecBuffer);
-
-	if (m_Size.x < 1 || m_Size.y < 1)
-		return;
+	CPoint pos = rtDrawArea.GetPos();
+	CSize size = rtDrawArea.GetSize();
 
 	int nCursorSize = 2;
-	int nItemLength = (int)m_Size.x / m_nAlignCol;
+	int nItemLength = (int)size.cx / m_nAlignCol;
 	for (size_t i = m_nScrollPos * m_nAlignCol; i < m_vecItems.size(); i++)
 	{
 		int x = (int)i % m_nAlignCol;
 		int y = (int)i / m_nAlignCol - m_nScrollPos;
-		int nLeft = (int)m_Pos.x + x * nItemLength + nCursorSize;
-		int nTop = m_Pos.y + y;
+		int nLeft = (int)pos.x + x * nItemLength + nCursorSize;
+		int nTop = pos.y + y;
 		if (nTop < 0)
 			continue;
 
 		if (vecBuffer.size() <= nTop)
 			break;
 
-		if ((int)m_Size.y <= y)
+		if ((int)size.cy <= y)
 			break;
 
-		int nLength = (int)m_Size.x / m_nAlignCol - nCursorSize;
+		int nLength = (int)size.cx / m_nAlignCol - nCursorSize;
 		if (nLength < 1)
 			continue;
 

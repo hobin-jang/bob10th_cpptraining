@@ -20,17 +20,22 @@ void CDisplayBuffer::Clear(void)
 	}
 }
 
-void CDisplayBuffer::DrawRectangle(ST_POINT pos, ST_SIZE size)
-{
-	DrawRectangle(pos.x, pos.y, pos.x + size.cx + 1, pos.y + size.cy + 1);
-}
-
 void CDisplayBuffer::Create(size_t w, size_t h)
 {
 	this->resize(h);
 	for (auto& line : *this)
-		line.resize(w);
+		line.resize(w, ' ');
 	Clear();
+}
+
+void CDisplayBuffer::DrawRectangle(CRect rect)
+{
+	DrawRectangle(rect.l, rect.t, rect.r, rect.b);
+}
+
+void CDisplayBuffer::DrawRectangle(ST_POINT pos, ST_SIZE size)
+{
+	DrawRectangle(CRect(pos, size));
 }
 
 void CDisplayBuffer::DrawRectangle(int nLeft, int nTop, int nRight, int nBottom)
@@ -176,7 +181,7 @@ void CDisplayBuffer::BitBlt(ST_POINT pos, const CDisplayBuffer& buffer)
 		for (int x = 0; x < buffer[y].size(); x++)
 		{
 			int nDestX = x + pos.x;
-			if (nDestX < 0 || at(y).size() <= nDestX)
+			if (nDestX < 0 || this->at(nDestY).size() <= nDestX)
 				continue;
 
 			at(nDestY)[nDestX] = buffer[y][x];

@@ -16,7 +16,7 @@ CTextUI::~CTextUI(void)
 void CTextUI::Clear(void)
 {
 	m_nViewPos = 0;
-	m_strText.clear();
+	SetText("");
 	m_listText.clear();
 }
 
@@ -59,13 +59,8 @@ void CTextUI::OnSize(void)
 	m_nViewPos = 0;
 }
 
-void CTextUI::OnDrawUI(CDisplayBuffer& buffer)
+void CTextUI::OnDrawUI(CDisplayBuffer& vecBuffer, CRect rtDrawArea)
 {
-	__super::OnDrawUI(buffer);
-
-	if (m_Size.x < 1 || m_Size.y < 1)
-		return;
-
 	int nViewOffset = m_nViewPos;
 	if (m_nViewPos < 0)
 	{
@@ -74,13 +69,14 @@ void CTextUI::OnDrawUI(CDisplayBuffer& buffer)
 			nViewOffset = 0;
 	}
 
-	for(int y= 0; y<m_Size.y; y++)
+	ST_SIZE size = rtDrawArea.GetSize();
+	for(int y= 0; y< size.cy; y++)
 	{
 		int tIndex = y + m_nViewPos;
 		if (m_listText.size() <= tIndex)
 			break;
 
 		//if (UI_ATTRIBUTE_SINGLELINE & m_dwAttribute)
-		buffer.DrawString(CPoint(m_Pos.x, m_Pos.y + y), m_listText[tIndex], (size_t)m_Size.x);
+		vecBuffer.DrawString(CPoint(rtDrawArea.l, rtDrawArea.t + y), m_listText[tIndex], (size_t)size.cx);
 	}
 }
