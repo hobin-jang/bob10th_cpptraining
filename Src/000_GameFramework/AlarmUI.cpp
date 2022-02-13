@@ -31,7 +31,6 @@ void CAlarmUI::Alarm(std::string strMsg, DWORD dwDuring)
 	TokenizeMessage(strMsg, vecMessage, g_nConsoleW * 0.8);
 
 	size_t tMaxTextLen = 10;
-
 	for (std::wstring strLine : vecMessage)
 	{
 		if (tMaxTextLen < strLine.size())
@@ -42,7 +41,7 @@ void CAlarmUI::Alarm(std::string strMsg, DWORD dwDuring)
 	pos.x = (g_nConsoleW - tMaxTextLen) / 2;
 	pos.y = (g_nConsoleH - vecMessage.size()) / 2 - vecMessage.size();
 	SetPos(pos);
-	SetSize(CSize(tMaxTextLen + 2, vecMessage.size() + 2));
+	SetSize(CSize((int)tMaxTextLen, (int)vecMessage.size()));
 
 	for (std::wstring strLine : vecMessage)
 		AddText(strLine);

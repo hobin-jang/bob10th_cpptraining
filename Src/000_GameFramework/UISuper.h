@@ -37,6 +37,7 @@ public:
 	virtual void SetRect(int l, int t, int r, int b);
 	virtual void SetRect(ST_RECT rt);
 	virtual void SetVisible(bool bVisible);
+	virtual void ModifyAttribute(DWORD dwAdd, DWORD dwRemove);
 	virtual bool IsVisible(void);
 
 	virtual ST_POINT GetPos(void);

@@ -4,7 +4,7 @@
 
 class CTextUI : public CUISuper
 {
-	size_t m_tViewPos;
+	int m_nViewPos;
 	std::vector<std::wstring> m_listText;
 
 public:
@@ -12,6 +12,7 @@ public:
 	virtual ~CTextUI(void);
 
 	virtual void Clear(void);
+	virtual void SetViewPos(int nPos = -1);
 	virtual void SetText(std::string strText);
 	virtual void SetText(std::wstring strText);
 	virtual void AddText(std::string strText);

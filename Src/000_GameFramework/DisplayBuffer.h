@@ -17,6 +17,7 @@ public:
 
 	void Create(size_t w, size_t h);
 	void Clear(void);
+	void DrawRectangle(ST_POINT pos, ST_SIZE size);
 	void DrawRectangle(int nLeft, int nTop, int nRight, int nBottom);
 	void DrawString(ST_POINT pos, std::string strText, size_t tLength = -1);
 	void DrawString(int x, int y, std::string strText, size_t tLength = -1);

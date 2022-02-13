@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "EditBox.h"
 #include "Unicode.h"
+#include "HelperClass.h"
 
 CEditBox::CEditBox(CDlgSuper* pParent, std::string strTitle, size_t tMaxLength)
 	:CDlgSuper(pParent)
@@ -16,18 +17,17 @@ CEditBox::~CEditBox(void)
 
 void CEditBox::OnCreate(void)
 {
-	ST_POINT pos{ (g_nConsoleW - m_tMaxLength) / 2 - 1, g_nConsoleH / 2 - 3 };
-	SetPos(pos);
-	ST_SIZE size{ m_tMaxLength, 5 };
-	SetSize(size);
-	m_dwAttribute |= UI_ATTRIBUTE_NO_BORDER;
+	SetPos(CPoint((g_nConsoleW - m_tMaxLength) / 2, g_nConsoleH / 2 - 2));
+	SetSize(CSize(m_tMaxLength, 5));
 
 	if (!m_strTitle.empty())
 	{
-		m_TitleUI.Create(this, ST_POINT{ 0, 0}, ST_SIZE{ size.cx, 3 }, UI_ATTRIBUTE_NO_BORDER | UI_ATTRIBUTE_SINGLELINE | UI_ATTRIBUTE_NO_ANIMATION);
+		m_TitleUI.Create(this, CPoint(1, 1), CSize((int)m_TargetSize.x, 1), UI_ATTRIBUTE_NO_BORDER | UI_ATTRIBUTE_SINGLELINE | UI_ATTRIBUTE_NO_ANIMATION);
 		m_TitleUI.SetText(m_strTitle);
+		m_TextUI.Create(this, CPoint(1, 3), CSize((int)m_TargetSize.x, 1), UI_ATTRIBUTE_SINGLELINE | UI_ATTRIBUTE_NO_ANIMATION);
 	}
-	m_TextUI.Create(this, ST_POINT{ 0, 2 }, ST_SIZE{ size.cx, 3 }, UI_ATTRIBUTE_SINGLELINE | UI_ATTRIBUTE_NO_ANIMATION);
+	else
+		m_TextUI.Create(this, CPoint(1, 1), CSize((int)m_TargetSize.x, 1), UI_ATTRIBUTE_SINGLELINE | UI_ATTRIBUTE_NO_ANIMATION);
 
 	m_KeyboardInput = g_pGameData->input;
 	m_KeyboardInput.Clear();

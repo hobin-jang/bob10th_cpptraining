@@ -33,23 +33,24 @@ void CMessageBox::OnCreate(void)
 			tMaxTextLen = strLine.size();
 	}
 
-	SetPos(CPoint((g_nConsoleW - tMaxTextLen) / 2, (g_nConsoleH - m_vecMessage.size() - m_vecMenu.size()) / 2), true);
-	SetSize(CSize(tMaxTextLen + 2, m_vecMessage.size() + m_vecMenu.size() + 4));
+	tMaxTextLen = std::min<size_t>(tMaxTextLen, (size_t)(g_nConsoleW * 0.8));
 
-	m_TextUI.Create(this, CPoint(0, 0), CSize(tMaxTextLen + 2, m_vecMessage.size() + 2), UI_ATTRIBUTE_NO_ANIMATION);
-	m_MenuUI.Create(this, CPoint(0, m_vecMessage.size() + 1), CSize(tMaxTextLen + 2, m_vecMenu.size() + 2), UI_ATTRIBUTE_NO_ANIMATION);
+	SetPos(CPoint((g_nConsoleW - tMaxTextLen) / 2, (g_nConsoleH - m_vecMessage.size() - m_vecMenu.size()) / 2), true);
+	SetSize(CSize(tMaxTextLen, m_vecMessage.size() + m_vecMenu.size() + 1));
+
+	// 텍스트 상자 생성
+	m_TextUI.Create(this, CPoint(1, 1), CSize(tMaxTextLen, m_vecMessage.size()));
+	for (std::wstring strLine : m_vecMessage)
+		m_TextUI.AddText(strLine);
 
 	// 메뉴 상자 생성
+	m_MenuUI.Create(this, CPoint(1, 1 + m_vecMessage.size() + 1), CSize(tMaxTextLen, m_vecMenu.size()));
 	for (std::string strMenu : m_vecMenu)
 		m_MenuUI.AddItem(strMenu);
 
+	m_MenuUI.SetCurPos(m_nDefault);
 	m_MenuUI.SetItemAlign(-1);
 	m_MenuUI.AdjustHeight(-1);
-	m_MenuUI.SetCurPos(m_nDefault);
-
-	// 텍스트 상자 생성
-	for (std::wstring strLine : m_vecMessage)
-		m_TextUI.AddText(strLine);
 }
 
 void CMessageBox::OnInput(std::list<ST_KEYSTATE>& listKeyState)

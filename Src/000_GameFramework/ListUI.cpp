@@ -43,7 +43,7 @@ void CListUI::SetItemAlign(int nColCount)
 		}
 
 		int nWidth = m_TargetSize.x;
-		nColCount = nWidth / (int)(tMaxItemLen + 4);
+		nColCount = nWidth / (int)(tMaxItemLen + 2);
 	}
 
 	if (nColCount == 0)
@@ -55,9 +55,9 @@ void CListUI::SetItemAlign(int nColCount)
 void CListUI::AdjustHeight(int nRowCount)
 {
 	if (nRowCount < 0)
-		nRowCount = m_vecItems.empty() ? 0 : ((m_vecItems.size() - 1) / m_nAlignCol) + 1;
+		nRowCount = (int)m_vecItems.size();
 	
-	m_TargetSize.y = nRowCount + 2;
+	m_TargetSize.y = nRowCount;
 }
 
 int CListUI::GetItemCount(void)
@@ -67,21 +67,21 @@ int CListUI::GetItemCount(void)
 
 std::wstring CListUI::GetItem(int nIndex)
 {
-	if (nIndex < m_vecItems.size())
+	if (nIndex < (int)m_vecItems.size())
 		return m_vecItems[nIndex].strValue;
 	return L"";
 }
 
 int CListUI::GetItemTag(int nIndex)
 {
-	if (nIndex < m_vecItems.size())
+	if (nIndex < (int)m_vecItems.size())
 		return m_vecItems[nIndex].nTag;
 	return 0;
 }
 
 const void* CListUI::GetItemContext(int nIndex)
 {
-	if (nIndex < m_vecItems.size())
+	if (nIndex < (int)m_vecItems.size())
 		return m_vecItems[nIndex].pContext;
 	return nullptr;
 }
@@ -115,7 +115,7 @@ void CListUI::MoveCurPos(int nOffsetX, int nOffsetY)
 			m_nCursorIndex = (int)m_vecItems.size() - 1;
 	}
 
-	int nListHeight = GetSize().cy - 2;
+	int nListHeight = (int)m_Size.y;
 	int nMinShowingIndex = m_nScrollPos * m_nAlignCol + 1;
 	int nMaxShowingIndex = (m_nScrollPos + nListHeight) * m_nAlignCol;
 	if (m_nCursorIndex < nMinShowingIndex)
@@ -127,32 +127,37 @@ void CListUI::MoveCurPos(int nOffsetX, int nOffsetY)
 void CListUI::OnDrawUI(CDisplayBuffer& vecBuffer)
 {
 	__super::OnDrawUI(vecBuffer);
-	int nLeftMargin = 2;
-	int nItemLength = m_Size.x / m_nAlignCol;
-	int nStartIndex = m_nScrollPos * m_nAlignCol;
-	for (int i = 0; i + nStartIndex < m_vecItems.size(); i++)
+
+	if (m_Size.x < 1 || m_Size.y < 1)
+		return;
+
+	int nCursorSize = 2;
+	int nItemLength = (int)m_Size.x / m_nAlignCol;
+	for (size_t i = m_nScrollPos * m_nAlignCol; i < m_vecItems.size(); i++)
 	{
-		const int nItemIndex = i + nStartIndex;
+		int x = (int)i % m_nAlignCol;
+		int y = (int)i / m_nAlignCol - m_nScrollPos;
+		int nLeft = (int)m_Pos.x + x * nItemLength + nCursorSize;
+		int nTop = m_Pos.y + y;
+		if (nTop < 0)
+			continue;
 
-		int x = i % m_nAlignCol;
-		int y = i / m_nAlignCol;
-		int nLeft = m_Pos.x + x * nItemLength + nLeftMargin + 1;
-		int nTop = m_Pos.y + y + 1;
-		if (m_Size.y < 0 || vecBuffer.size() <= nTop)
+		if (vecBuffer.size() <= nTop)
 			break;
 
-		if ((m_Pos.y + m_Size.y - 1) <= nTop)
+		if ((int)m_Size.y <= y)
 			break;
 
-		int nLength = (int)m_Size.x - 2 - nLeftMargin;
+		int nLength = (int)m_Size.x / m_nAlignCol - nCursorSize;
 		if (nLength < 1)
 			continue;
-		vecBuffer.DrawString(nLeft, nTop, m_vecItems[nItemIndex].strValue, nLength);
 
-		if (nItemIndex == m_nCursorIndex)
+		vecBuffer.DrawString(nLeft, nTop, m_vecItems[i].strValue, nLength);
+
+		if ((int)i == m_nCursorIndex)
 		{
 			char szCursor[] = { 26, 0 };	// 화살표 커서
-			vecBuffer.DrawString(nLeft - nLeftMargin, nTop, szCursor);
+			vecBuffer.DrawString(nLeft - nCursorSize, nTop, szCursor);
 		}
 	}
 }

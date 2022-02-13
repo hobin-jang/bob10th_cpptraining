@@ -20,6 +20,11 @@ void CDisplayBuffer::Clear(void)
 	}
 }
 
+void CDisplayBuffer::DrawRectangle(ST_POINT pos, ST_SIZE size)
+{
+	DrawRectangle(pos.x, pos.y, pos.x + size.cx + 1, pos.y + size.cy + 1);
+}
+
 void CDisplayBuffer::Create(size_t w, size_t h)
 {
 	this->resize(h);

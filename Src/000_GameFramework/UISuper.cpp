@@ -18,7 +18,7 @@ CUISuper::~CUISuper(void)
 
 void CUISuper::Create(CDlgSuper* pParent, short l, short t, short r, short b, DWORD dwAttribute)
 {
-	Create(pParent, ST_POINT{ l, t }, ST_SIZE{r - l - 1, b - t - 1}, dwAttribute);
+	Create(pParent, CPoint(l, t), CSize(r - l, b - t), dwAttribute);
 }
 
 void CUISuper::Create(CDlgSuper* pParent, ST_POINT pos, ST_SIZE size, DWORD dwAttribute)
@@ -60,7 +60,7 @@ void CUISuper::Create(CDlgSuper* pParent, ST_POINT pos, ST_SIZE size, DWORD dwAt
 
 void CUISuper::Create(CDlgSuper* pParent, ST_RECT rt, DWORD dwAttribute)
 {
-	Create(pParent, ST_POINT{ rt.l, rt.t }, ST_SIZE{ rt.r - rt.l - 1, rt.b - rt.t - 1 }, dwAttribute);
+	Create(pParent, CPoint(rt.l, rt.t), CSize(rt.r - rt.l, rt.b - rt.t), dwAttribute);
 }
 
 void CUISuper::SetText(std::string strText)
@@ -94,8 +94,8 @@ void CUISuper::SetRect(int l, int t, int r, int b)
 {
 	m_TargetPos.x = l;
 	m_TargetPos.y = t;
-	m_TargetSize.x = r - l - 1;
-	m_TargetSize.y = b - t - 1;
+	m_TargetSize.x = r - l;
+	m_TargetSize.y = b - t;
 	OnSize();
 }
 
@@ -112,6 +112,12 @@ void CUISuper::SetVisible(bool bVisible)
 		m_dwAttribute |= UI_ATTRIBUTE_INVISIBLE;
 }
 
+void CUISuper::ModifyAttribute(DWORD dwAdd, DWORD dwRemove)
+{
+	m_dwAttribute |= dwAdd;
+	m_dwAttribute &= ~dwRemove;
+}
+
 bool CUISuper::IsVisible(void)
 {
 	return 0 == (m_dwAttribute & UI_ATTRIBUTE_INVISIBLE);
@@ -119,17 +125,17 @@ bool CUISuper::IsVisible(void)
 
 ST_POINT CUISuper::GetPos(void)
 {
-	return CPoint(m_TargetPos.x, m_TargetPos.y);
+	return m_TargetPos.MakePoint();
 }
 
 ST_SIZE CUISuper::GetSize(void)
 {
-	return CSize(m_TargetSize.x, m_TargetSize.y);
+	return m_TargetSize.MakeSize();
 }
 
 ST_RECT CUISuper::GetRect(void)
 {
-	return CRect(GetPos(), GetSize());
+	return CRect(m_TargetPos.MakePoint(), m_TargetSize.MakeSize());
 }
 
 void CUISuper::OnCreate(void)
@@ -163,6 +169,9 @@ void CUISuper::OnDrawWorld(CDisplayBuffer& vecBuffer)
 
 void CUISuper::OnDrawUI(CDisplayBuffer& vecBuffer)
 {
-	if( 0 == (m_dwAttribute & UI_ATTRIBUTE_NO_BORDER))
-		vecBuffer.DrawRectangle((int)m_Pos.x, (int)m_Pos.y, (int)m_Pos.x + m_Size.x - 1, (int)m_Pos.y + m_Size.y - 1);
+	if (m_dwAttribute & UI_ATTRIBUTE_NO_BORDER)
+		return;
+
+	ST_VECTOR BorderPos(m_Pos.x - 1, m_Pos.y - 1);
+	vecBuffer.DrawRectangle(BorderPos.MakePoint(), m_Size.MakeSize());
 }

@@ -36,6 +36,7 @@ void CDlgSuper::OnClose(void)
 
 void CDlgSuper::AddUI(CUISuper* pChild)
 {
+	pChild->ModifyAttribute(UI_ATTRIBUTE_NO_ANIMATION, 0);
 	m_listUI.push_back(pChild);
 }
 
