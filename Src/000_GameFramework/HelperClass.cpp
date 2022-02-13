@@ -26,6 +26,11 @@ CSize::CSize(int inCX, int inCY)
 {
 }
 
+CSize CSize::Inflate(int x, int y)
+{
+	return CSize(cx + x, cy + y);
+}
+
 CSize::operator ST_SIZE() const
 {
 	return *(ST_SIZE*)this;

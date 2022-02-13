@@ -17,6 +17,8 @@ public:
 	CSize(void);
 	CSize(int inCX, int inCY);
 
+	CSize Inflate(int x, int y);
+
 	operator ST_SIZE() const;
 };
 

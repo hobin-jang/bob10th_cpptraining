@@ -19,8 +19,8 @@ void CEditBox::OnCreate(void)
 {
 	CPoint pos((g_nConsoleW - m_tMaxLength) / 2, g_nConsoleH / 2 - 2);
 	SetPos(pos);
-	CSize size(m_tMaxLength + 2, 5);
-	SetSize(size);
+	CSize size(m_tMaxLength + 2, 4);
+	SetSize(size.Inflate(1, 1));
 	ModifyAttribute(UI_ATTRIBUTE_NO_BORDER, 0);
 
 	if (!m_strTitle.empty())
@@ -28,7 +28,7 @@ void CEditBox::OnCreate(void)
 		m_TitleUI.Create(this, 0, 0, size.cx, 2, UI_ATTRIBUTE_SINGLELINE | UI_ATTRIBUTE_NO_ANIMATION);
 		m_TitleUI.SetText(m_strTitle);
 	}
-	m_TextUI.Create(this, 0, 2, size.cx, 4, UI_ATTRIBUTE_SINGLELINE | UI_ATTRIBUTE_NO_ANIMATION);
+	m_TextUI.Create(this, 0, 2, size.cx, size.cy, UI_ATTRIBUTE_SINGLELINE | UI_ATTRIBUTE_NO_ANIMATION);
 
 	m_KeyboardInput = g_pGameData->input;
 	m_KeyboardInput.Clear();
