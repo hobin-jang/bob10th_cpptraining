@@ -2,6 +2,13 @@
 
 #include "Struct.h"
 
+enum E_ALIGN_TYPE
+{
+	ALIGN_TYPE_LEFT,
+	ALIGN_TYPE_RIGHT,
+	ALIGN_TYPE_CENTER,
+};
+
 class CDisplayBuffer : public std::vector<std::wstring>
 {
 public:
@@ -15,6 +22,8 @@ public:
 	void DrawString(int x, int y, std::string strText, size_t tLength = -1);
 	void DrawString(ST_POINT pos, std::wstring strText, size_t tLength = -1);
 	void DrawString(int x, int y, std::wstring strText, size_t tLength = -1);
+	void DrawAlignedString(ST_POINT pos, std::string strText, size_t tLength, E_ALIGN_TYPE nAlign);
+	void DrawAlignedString(ST_POINT pos, std::wstring strText, size_t tLength, E_ALIGN_TYPE nAlign);
 	void BitBlt(short x, short y, const CDisplayBuffer& buffer);
 	void BitBlt(ST_POINT pos, const CDisplayBuffer& buffer);
 };
