@@ -4,6 +4,7 @@
 CDlgSuper::CDlgSuper(CDlgSuper* pParent)
 	: CUISuper()
 	, m_pParent(pParent)
+	, m_bIsCreated(false)
 	, m_bIsClosed(false)
 	, m_nExitCode(0)
 {
@@ -23,10 +24,14 @@ void CDlgSuper::Close(int nExitCode)
 void CDlgSuper::OnCreate(void)
 {
 	__super::OnCreate();
+	m_bIsCreated = true;
+	m_bIsClosed = false;
 }
 
 void CDlgSuper::OnClose(void)
 {
+	m_bIsCreated = false;
+	m_listUI.clear();
 }
 
 void CDlgSuper::AddUI(CUISuper* pChild)
@@ -43,7 +48,6 @@ int CDlgSuper::DoModal(void)
 {
 	OnCreate();
 
-	m_bIsClosed = false;
 	while (!m_bIsClosed)
 	{
 		const DWORD dwCurrentTick = GetTickCount();
@@ -112,12 +116,12 @@ void CDlgSuper::OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick)
 
 void CDlgSuper::OnDrawUI(CDisplayBuffer& vecBuffer)
 {
-	__super::OnDrawUI(vecBuffer);
 	if (m_Size.y < 1 || m_Size.x < 1)
 		return;
 
 	CDisplayBuffer vecClientBuffer;
-	vecClientBuffer.Create(m_Size.x, m_Size.y);
+	vecClientBuffer.Create(m_Size.x + 2, m_Size.y + 2);
+	vecClientBuffer.DrawRectangle(0, 0, m_Size.x + 1, m_Size.y + 1);
 
 	for (CUISuper* pUI : m_listUI)
 	{
@@ -126,5 +130,5 @@ void CDlgSuper::OnDrawUI(CDisplayBuffer& vecBuffer)
 		pUI->OnDrawUI(vecClientBuffer);
 	}
 
-	vecBuffer.BitBlt((short)m_Pos.x, (short)m_Pos.y, vecClientBuffer);
+	vecBuffer.BitBlt((short)m_Pos.x - 1, (short)m_Pos.y - 1, vecClientBuffer);
 }

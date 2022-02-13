@@ -13,6 +13,7 @@ protected:
 	CDlgSuper* m_pParent;
 	std::list<CUISuper*> m_listUI;
 
+	bool m_bIsCreated;
 	bool m_bIsClosed;
 	int m_nExitCode;
 
