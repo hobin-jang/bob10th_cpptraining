@@ -34,6 +34,7 @@
     <ClInclude Include="MessageBox.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PictureUI.h" />
+    <ClInclude Include="ScrollTextUI.h" />
     <ClInclude Include="Setting.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="TextUI.h" />
@@ -55,6 +56,7 @@
     <ClCompile Include="ListUI.cpp" />
     <ClCompile Include="MessageBox.cpp" />
     <ClCompile Include="PictureUI.cpp" />
+    <ClCompile Include="ScrollTextUI.cpp" />
     <ClCompile Include="Setting.cpp" />
     <ClCompile Include="Struct.cpp" />
     <ClCompile Include="TextUI.cpp" />

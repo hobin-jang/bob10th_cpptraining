@@ -24,6 +24,7 @@
     <ClCompile Include="MessageBox.cpp" />
     <ClCompile Include="HelperClass.cpp" />
     <ClCompile Include="Console.cpp" />
+    <ClCompile Include="ScrollTextUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="000_GameFramework.h" />
@@ -51,6 +52,7 @@
     <ClInclude Include="MessageBox.h" />
     <ClInclude Include="HelperClass.h" />
     <ClInclude Include="Console.h" />
+    <ClInclude Include="ScrollTextUI.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Unicode">

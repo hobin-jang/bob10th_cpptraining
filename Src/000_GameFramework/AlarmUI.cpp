@@ -37,11 +37,11 @@ void CAlarmUI::Alarm(std::string strMsg, DWORD dwDuring)
 			tMaxTextLen = strLine.size();
 	}
 
-	ST_POINT pos;
+	CPoint pos;
 	pos.x = (g_nConsoleW - tMaxTextLen) / 2;
 	pos.y = (g_nConsoleH - vecMessage.size()) / 2 - vecMessage.size();
-	SetPos(pos);
-	SetSize(CSize((int)tMaxTextLen, (int)vecMessage.size()));
+	SetWindowPos(pos);
+	SetWindowSize(CSize((int)tMaxTextLen, (int)vecMessage.size()));
 
 	for (std::wstring strLine : vecMessage)
 		AddText(strLine);

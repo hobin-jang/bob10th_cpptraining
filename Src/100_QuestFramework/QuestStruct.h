@@ -34,8 +34,8 @@ struct ST_QUEST_OBJECT : public ST_POINT3
 
 struct ST_QUEST_BATTLE_INFO
 {
-	BYTE btMinPlayerCount;	// 1~6 사이
-	std::vector<DWORD> vecClearBattleEnemy;
+	BYTE btMinPlayerCount;			// 1~6 사이
+	std::vector<DWORD> vecMonster;	// 몬스터도 최대 6마리만..
 	ST_QUEST_BATTLE_INFO(void)
 		: btMinPlayerCount(1)
 	{}

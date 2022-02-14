@@ -26,8 +26,8 @@ void CUISuper::Create(CDlgSuper* pParent, ST_POINT pos, ST_SIZE size, DWORD dwAt
 	m_dwAttribute = dwAttribute;
 	if (pParent)
 		pParent->AddUI(this);
-	SetPos(pos);
-	SetSize(size);
+	SetWindowPos(pos);
+	SetWindowSize(size);
 
 	if (UI_ATTRIBUTE_NO_ANIMATION & m_dwAttribute)
 	{
@@ -73,7 +73,7 @@ void CUISuper::SetText(std::wstring strText)
 	m_strText = strText;
 }
 
-void CUISuper::SetPos(ST_POINT pos, bool bNoAnimate)
+void CUISuper::SetWindowPos(CPoint pos, bool bNoAnimate)
 {
 	m_TargetPos.x = pos.x < 0 ? g_nConsoleW + pos.x : pos.x;
 	m_TargetPos.y = pos.y < 0 ? g_nConsoleH + pos.y : pos.y;
@@ -81,7 +81,7 @@ void CUISuper::SetPos(ST_POINT pos, bool bNoAnimate)
 		m_Pos = m_TargetPos;
 }
 
-void CUISuper::SetSize(ST_SIZE size, bool bNoAnimate)
+void CUISuper::SetWindowSize(CSize size, bool bNoAnimate)
 {
 	m_TargetSize.x = size.cx;
 	m_TargetSize.y = size.cy;
@@ -90,18 +90,69 @@ void CUISuper::SetSize(ST_SIZE size, bool bNoAnimate)
 	OnSize();
 }
 
-void CUISuper::SetRect(int l, int t, int r, int b)
+void CUISuper::SetWindowRect(int l, int t, int r, int b)
 {
-	m_TargetPos.x = l;
-	m_TargetPos.y = t;
-	m_TargetSize.x = r - l + 1;
-	m_TargetSize.y = b - t + 1;
+	SetWindowRect(CRect(l, t, r, b));
+}
+
+void CUISuper::SetWindowRect(CRect rt)
+{
+	m_TargetPos = rt.GetPos().MakeVector();
+	m_TargetSize = rt.GetSize().MakeVector();
 	OnSize();
 }
 
-void CUISuper::SetRect(ST_RECT rt)
+void CUISuper::SetClientPos(CPoint pos, bool bNoAnimate)
 {
-	SetRect(rt.l, rt.t, rt.r, rt.b);
+	if (m_dwAttribute & UI_ATTRIBUTE_NO_BORDER)
+	{
+		m_TargetPos = pos.MakeVector();
+	}
+	else
+	{
+		pos.x -= 1;
+		pos.y -= 1;
+		m_TargetPos = pos.MakeVector();
+	}
+	if (bNoAnimate)
+		m_Pos = m_TargetPos;
+}
+
+void CUISuper::SetClientSize(CSize size, bool bNoAnimate)
+{
+	if (m_dwAttribute & UI_ATTRIBUTE_NO_BORDER)
+	{
+		m_TargetSize = size.MakeVector();
+	}
+	else
+	{
+		size.cx += 2;
+		size.cy += 2;
+		m_TargetSize = size.MakeVector();
+	}
+	if (bNoAnimate)
+		m_Size = m_TargetSize;
+}
+
+void CUISuper::SetClientRect(int l, int t, int r, int b)
+{
+	SetClientRect(CRect(l, t, r, b));
+}
+
+void CUISuper::SetClientRect(CRect rt)
+{
+	if (m_dwAttribute & UI_ATTRIBUTE_NO_BORDER)
+	{
+		m_TargetPos = rt.GetPos().MakeVector();
+		m_TargetSize = rt.GetSize().MakeVector();
+	}
+	else
+	{
+		rt = rt.Inflate(1, 1, 1, 1);
+		m_TargetPos = rt.GetPos().MakeVector();
+		m_TargetSize = rt.GetSize().MakeVector();
+	}
+	OnSize();
 }
 
 void CUISuper::SetVisible(bool bVisible)
@@ -163,9 +214,18 @@ ST_SIZE CUISuper::GetSize(void)
 	return size;
 }
 
-ST_RECT CUISuper::GetRect(void)
+CRect CUISuper::GetWindowRect(void)
 {
 	return CRect(m_TargetPos.MakePoint(), m_TargetSize.MakeSize());
+}
+
+CRect CUISuper::GetClientRect(void)
+{
+	CRect WindowRect(m_TargetPos.MakePoint(), m_TargetSize.MakeSize());
+	if (m_dwAttribute & UI_ATTRIBUTE_NO_BORDER)
+		return WindowRect;
+
+	return WindowRect.Deflate(1, 1, 1, 1);
 }
 
 void CUISuper::OnCreate(void)

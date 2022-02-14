@@ -18,9 +18,9 @@ CEditBox::~CEditBox(void)
 void CEditBox::OnCreate(void)
 {
 	CPoint pos((g_nConsoleW - m_tMaxLength) / 2, g_nConsoleH / 2 - 2);
-	SetPos(pos);
+	SetWindowPos(pos);
 	CSize size(m_tMaxLength + 2, 4);
-	SetSize(size.Inflate(1, 1));
+	SetWindowSize(size.Inflate(1, 1));
 	ModifyAttribute(UI_ATTRIBUTE_NO_BORDER, 0);
 
 	if (!m_strTitle.empty())

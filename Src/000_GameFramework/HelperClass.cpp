@@ -11,6 +11,16 @@ CPoint::CPoint(int inX, int inY)
 {
 }
 
+CPoint::CPoint(ST_POINT pos)
+	: ST_POINT{ pos.x, pos.y }
+{
+}
+
+ST_VECTOR CPoint::MakeVector(void)
+{
+	return ST_VECTOR(x, y);
+}
+
 CPoint::operator ST_POINT() const
 {
 	return *(ST_POINT*)this;
@@ -26,9 +36,24 @@ CSize::CSize(int inCX, int inCY)
 {
 }
 
+CSize::CSize(ST_SIZE size)
+	: ST_SIZE{ size.cx, size.cy}
+{
+}
+
 CSize CSize::Inflate(int x, int y)
 {
 	return CSize(cx + x, cy + y);
+}
+
+CSize CSize::Deflate(int x, int y)
+{
+	return CSize(cx - x, cy - y);
+}
+
+ST_VECTOR CSize::MakeVector(void)
+{
+	return ST_VECTOR(cx, cy);
 }
 
 CSize::operator ST_SIZE() const
@@ -63,4 +88,14 @@ CSize CRect::GetSize(void)
 CPoint CRect::GetPos(void)
 {
 	return CPoint(l, t);
+}
+
+CRect CRect::Inflate(int left, int top, int right, int bottom)
+{
+	return CRect(l - left, t - top, r + right, b + bottom);
+}
+
+CRect CRect::Deflate(int left, int top, int right, int bottom)
+{
+	return CRect(l + left, t + top, r - right, b - bottom);
 }

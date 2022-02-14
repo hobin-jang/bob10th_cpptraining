@@ -57,9 +57,9 @@ void CListUI::AdjustHeight(int nRowCount)
 	if (nRowCount < 0)
 		nRowCount = (int)m_vecItems.size();
 	
-	ST_SIZE size = GetSize();
-	size.cy = nRowCount + 2;
-	SetSize(size);
+	ST_SIZE size = GetClientRect().GetSize();
+	size.cy = nRowCount;
+	SetClientSize(size);
 }
 
 int CListUI::GetItemCount(void)

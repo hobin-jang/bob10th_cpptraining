@@ -7,6 +7,8 @@ class CPoint : public ST_POINT
 public:
 	CPoint(void);
 	CPoint(int inX, int inY);
+	CPoint(ST_POINT pos);
+	ST_VECTOR MakeVector(void);
 
 	operator ST_POINT() const;
 };
@@ -16,8 +18,10 @@ class CSize : public ST_SIZE
 public:
 	CSize(void);
 	CSize(int inCX, int inCY);
-
+	CSize(ST_SIZE size);
 	CSize Inflate(int x, int y);
+	CSize Deflate(int x, int y);
+	ST_VECTOR MakeVector(void);
 
 	operator ST_SIZE() const;
 };
@@ -33,4 +37,7 @@ public:
 
 	CSize GetSize(void);
 	CPoint GetPos(void);
+
+	CRect Inflate(int left, int top, int right, int bottom);
+	CRect Deflate(int left, int top, int right, int bottom);
 };
