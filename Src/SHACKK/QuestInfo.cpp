@@ -250,7 +250,7 @@ void CQuestInfo::QueryQuestItem(std::vector<ST_QUEST_ITEM_DATA>& vecQuestItem)
     }
 }
 
-void QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestMonster)
+void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestMonster)
 {
     {
         ST_QUEST_MONSTER_DATA monster;
