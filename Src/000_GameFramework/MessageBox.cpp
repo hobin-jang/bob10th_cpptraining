@@ -47,12 +47,12 @@ void CMessageBox::OnCreate(void)
 	ModifyAttribute(UI_ATTRIBUTE_NO_BORDER, 0);
 
 	// 텍스트 상자 생성
-	m_TextUI.Create(this, 0, 0, size.cx, m_vecMessage.size() + 1);
+	m_TextUI.Create(this, 0, 0, size.cx + 1, m_vecMessage.size() + 1);
 	for (std::wstring strLine : m_vecMessage)
 		m_TextUI.AddText(strLine);
 
 	// 메뉴 상자 생성
-	m_MenuUI.Create(this, 0, m_vecMessage.size() + 1, size.cx, size.cy);
+	m_MenuUI.Create(this, 0, m_vecMessage.size() + 1, size.cx + 1, size.cy);
 	for (std::string strMenu : m_vecMenu)
 		m_MenuUI.AddItem(strMenu);
 
