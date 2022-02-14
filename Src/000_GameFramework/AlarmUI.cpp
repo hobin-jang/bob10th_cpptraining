@@ -5,7 +5,7 @@
 #include "HelperClass.h"
 
 CAlarmUI::CAlarmUI(void)
-	: CTextUI()
+	: CScrollTextUI()
 	, m_dwTimeOutTick(0)
 {
 }

@@ -7,6 +7,7 @@ CMessageBox::CMessageBox(CDlgSuper* pParent, std::vector<std::string> vecMessage
 	: CDlgSuper(pParent)
 	, m_vecMenu(vecMenu)
 	, m_nDefault(nDefault)
+	, m_PopupPos(-1, -1)
 {
 	for (std::string strMessage : vecMessage)
 		TokenizeMessage(unicode::WCSFromMBS(strMessage), m_vecMessage, g_nConsoleW * 0.8);
@@ -36,8 +37,11 @@ void CMessageBox::OnCreate(void)
 
 	tMaxTextLen = std::min<size_t>(tMaxTextLen, (size_t)(g_nConsoleW * 0.8));
 
-	CPoint pos((g_nConsoleW - tMaxTextLen) / 2, (g_nConsoleH - m_vecMessage.size() - m_vecMenu.size()) / 2);
-	SetClientPos(pos, true);
+	CPoint pos = m_PopupPos;
+	if (m_PopupPos.x < 0 || m_PopupPos.y < 0)
+		pos = CPoint((g_nConsoleW - tMaxTextLen) / 2, (g_nConsoleH - m_vecMessage.size() - m_vecMenu.size()) / 2);
+
+	SetWindowPos(pos, true);
 	CSize size(tMaxTextLen, m_vecMessage.size() + m_vecMenu.size() + 1);
 	SetClientSize(size);
 	ModifyAttribute(UI_ATTRIBUTE_NO_BORDER, 0);
@@ -96,6 +100,11 @@ void CMessageBox::OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick)
 	__super::OnUpdate(dwCurrentTick, dwElapsedTick);
 }
 
+void CMessageBox::SetPopUpPos(CPoint pos)
+{
+	m_PopupPos = pos;
+}
+
 int CMessageBox::Show(CDlgSuper* pParent, std::string strMessage, int nStyle)
 {
 	std::vector<std::string> vecMessage;
@@ -104,12 +113,13 @@ int CMessageBox::Show(CDlgSuper* pParent, std::string strMessage, int nStyle)
 	return Show(pParent, vecMessage, nStyle);
 }
 
-int CMessageBox::Show(CDlgSuper* pParent, std::string strMessage, std::vector<std::string> vecMenu, int nDefault)
+int CMessageBox::Show(CDlgSuper* pParent, std::string strMessage, std::vector<std::string> vecMenu, int nDefault, CPoint pos)
 {
 	std::vector<std::string> vecMessage;
 	vecMessage.push_back(strMessage);
 
 	CMessageBox instance(pParent, vecMessage, vecMenu, nDefault);
+	instance.SetPopUpPos(pos);
 	return instance.DoModal();
 }
 

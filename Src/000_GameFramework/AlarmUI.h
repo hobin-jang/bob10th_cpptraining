@@ -1,9 +1,9 @@
 #pragma once
 
 #include "UISuper.h"
-#include "TextUI.h"
+#include "ScrollTextUI.h"
 
-class CAlarmUI : public CTextUI
+class CAlarmUI : public CScrollTextUI
 {
 	DWORD m_dwTimeOutTick;
 
