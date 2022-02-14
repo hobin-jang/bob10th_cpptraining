@@ -83,7 +83,7 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btVulnerability = JOB_TYPE_FORENSICER;
 		monster.wRewardMoney = 500;
 		monster.dwRewardExp = 999;
-		monster.vecRewardItems.push_back(6);	// 멘토님과 먹는 제육덮밥
+		monster.vecRewardItems.push_back(6);	// 뚱마카롱
 		vecQuestMonster.push_back(monster);
 	}
 	{
@@ -138,18 +138,18 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		quest.vecMessages.push_back("으하하!!!");
 		quest.vecMessages.push_back("각오해라!! 최종시련이다------!");
 		quest.ClearBattle.btMinPlayerCount = 4;
-		quest.ClearBattle.vecClearBattleEnemy.push_back(20001);
-		quest.ClearBattle.vecClearBattleEnemy.push_back(20002);
-		quest.ClearBattle.vecClearBattleEnemy.push_back(20003);
-		quest.ClearBattle.vecClearBattleEnemy.push_back(20004);
-		quest.ClearBattle.vecClearBattleEnemy.push_back(20005);
+		quest.ClearBattle.vecMonster.push_back(20001);
+		quest.ClearBattle.vecMonster.push_back(20002);
+		quest.ClearBattle.vecMonster.push_back(20003);
+		quest.ClearBattle.vecMonster.push_back(20004);
+		quest.ClearBattle.vecMonster.push_back(20005);
+		quest.ClearCondition = ST_FILTER(1, 0x0003);	// 전투나 미니게임을 클리어하면 스위치가 켜진다.
 		vecQuest.push_back(quest);
 	}
 	{
 		ST_QUEST_DATA quest;
 		quest.nNpcId = 1;
-		quest.StartCondition = ST_FILTER(1, 0x0001, 0xFFFF);
-		quest.ClearCondition = ST_FILTER(1, 0xFFFF);
+		quest.StartCondition = ST_FILTER(1, 0x0003, 0xFFFF);
 		quest.vecMessages.push_back("책임감 있게");
 		quest.vecMessages.push_back("임무를 수행해줘서 고맙네");
 		quest.vecMessages.push_back("멘티 생활이");
@@ -161,6 +161,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		quest.vecMessages.push_back("걸어가다 보면 끝이 보일걸세");
 		quest.vecMessages.push_back("어디서나 자랑스런 BoB인이라는 것을 잊지 말게나");
 		quest.vecRewardItems.push_back(129);
+		quest.ClearCondition = ST_FILTER(1, 0xFFFF);
 		vecQuest.push_back(quest);
 	}
 }
