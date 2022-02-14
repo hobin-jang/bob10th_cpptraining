@@ -17,9 +17,9 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 	{
 
 		ST_QUEST_NPC_DATA npc;
-		npc.x = 17;
-		npc.y = 17;
-		npc.z = 1;
+		npc.x = 18;
+		npc.y = 15;
+		npc.z = 7;
 		npc.nNpcID = 138;
 		npc.strTrack = "보안제품개발트랙";
 		npc.strName = "이찬우(LINKER)";
