@@ -52,9 +52,9 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.nHP = 32767;
 		monster.btAttack = 50;
 		monster.btDex = 5;
-		monster.btVulnerability = JOB_TYPE_NONE;
-		monster.wRewardMoney= 50000;
-		monster.dwRewardExp = 9999;
+		monster.btVulnerability = JOB_TYPE_NOVICE;
+		monster.nRewardMoney= 50000;
+		monster.nRewardExp = 9999;
 		monster.vecRewardItems.push_back(128);	// ¿¤¸¯¼­
 		vecQuestMonster.push_back(monster);
 	}
@@ -67,8 +67,8 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btAttack = 99;
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_DEVELOPER;
-		monster.wRewardMoney = 500;
-		monster.dwRewardExp = 999;
+		monster.nRewardMoney = 500;
+		monster.nRewardExp = 999;
 		monster.vecRewardItems.push_back(3);	// Á¦À°µ¤¹ä
 		vecQuestMonster.push_back(monster);
 	}
@@ -80,9 +80,9 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.nHP = 9999;
 		monster.btAttack = 99;
 		monster.btDex = 7;
-		monster.btVulnerability = JOB_TYPE_FORENSICER;
-		monster.wRewardMoney = 500;
-		monster.dwRewardExp = 999;
+		monster.btVulnerability = JOB_TYPE_INVESTIGATOR;
+		monster.nRewardMoney = 500;
+		monster.nRewardExp = 999;
 		monster.vecRewardItems.push_back(6);	// ¶×¸¶Ä«·Õ
 		vecQuestMonster.push_back(monster);
 	}
@@ -95,8 +95,8 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btAttack = 99;
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_CONSULTANT;
-		monster.wRewardMoney = 500;
-		monster.dwRewardExp = 999;
+		monster.nRewardMoney = 500;
+		monster.nRewardExp = 999;
 		monster.vecRewardItems.push_back(7);	// Ä¿ÇÇ
 		vecQuestMonster.push_back(monster);
 	}
@@ -109,8 +109,8 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btAttack = 99;
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_ANALYST;
-		monster.wRewardMoney = 500;
-		monster.dwRewardExp = 999;
+		monster.nRewardMoney = 500;
+		monster.nRewardExp = 999;
 		monster.vecRewardItems.push_back(8);	// ¿¡³ÊÁöµå¸µÅ©
 		vecQuestMonster.push_back(monster);
 	}

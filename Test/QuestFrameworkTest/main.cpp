@@ -141,8 +141,8 @@ int main()
 				printf("--------------\n");
 				for (std::string strMsg : quest.vecMessages)
 					printf("퀘스트 대사: %s\n", strMsg.c_str());
-				if (quest.pMiniGame && IDYES == ::MessageBox(nullptr, TEXT("미니게임을 실행하겠습니까?"), TEXT("걍 궁금"), MB_YESNO))
-					RunMiniGame(quest.pMiniGame);
+				if (quest.pClearGame && IDYES == ::MessageBox(nullptr, TEXT("미니게임을 실행하겠습니까?"), TEXT("걍 궁금"), MB_YESNO))
+					RunMiniGame(hModule, quest.pClearGame);
 			}
 		}
 

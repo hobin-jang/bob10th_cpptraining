@@ -47,7 +47,11 @@ struct ST_QUEST_DATA
 	ST_FILTER StartCondition;	
 	ST_FILTER ClearCondition;
 	std::vector<std::string> vecMessages;
+	std::vector<BYTE> vecRewardItems;
+	CDlgSuper* pClearGame;
+	ST_QUEST_BATTLE_INFO ClearBattle;
 	ST_QUEST_DATA(void)
+		: nNpcId(-1), StartCondition(), ClearCondition(), vecMessages(), vecRewardItems(), pClearGame(nullptr), ClearBattle()
 	{}
 };
 
