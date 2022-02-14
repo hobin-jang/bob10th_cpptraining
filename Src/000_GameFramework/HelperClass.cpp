@@ -11,6 +11,16 @@ CPoint::CPoint(int inX, int inY)
 {
 }
 
+CPoint::CPoint(ST_POINT pos)
+	: ST_POINT{ pos.x, pos.y }
+{
+}
+
+ST_VECTOR CPoint::MakeVector(void)
+{
+	return ST_VECTOR(x, y);
+}
+
 CPoint::operator ST_POINT() const
 {
 	return *(ST_POINT*)this;
@@ -24,6 +34,26 @@ CSize::CSize(void)
 CSize::CSize(int inCX, int inCY)
 	: ST_SIZE{ (short)inCX, (short)inCY}
 {
+}
+
+CSize::CSize(ST_SIZE size)
+	: ST_SIZE{ size.cx, size.cy}
+{
+}
+
+CSize CSize::Inflate(int x, int y)
+{
+	return CSize(cx + x, cy + y);
+}
+
+CSize CSize::Deflate(int x, int y)
+{
+	return CSize(cx - x, cy - y);
+}
+
+ST_VECTOR CSize::MakeVector(void)
+{
+	return ST_VECTOR(cx, cy);
 }
 
 CSize::operator ST_SIZE() const
@@ -42,10 +72,30 @@ CRect::CRect(int inLeft, int inTop, int inRight, int inBottom)
 }
 
 CRect::CRect(const ST_POINT& pt, const ST_SIZE& sz)
-	: ST_RECT{ (pt.x), (pt.y), (pt.x + sz.cx + 1), (pt.y + sz.cy + 1) }
+	: ST_RECT{ (pt.x), (pt.y), (pt.x + sz.cx - 1), (pt.y + sz.cy - 1) }
 {}
 
 CRect::operator ST_RECT() const
 {
 	return *(ST_RECT*)this;
+}
+
+CSize CRect::GetSize(void)
+{
+	return CSize(r - l + 1, b - t + 1);
+}
+
+CPoint CRect::GetPos(void)
+{
+	return CPoint(l, t);
+}
+
+CRect CRect::Inflate(int left, int top, int right, int bottom)
+{
+	return CRect(l - left, t - top, r + right, b + bottom);
+}
+
+CRect CRect::Deflate(int left, int top, int right, int bottom)
+{
+	return CRect(l + left, t + top, r - right, b - bottom);
 }

@@ -9,6 +9,6 @@ public:
     ~CQuestInfo(void);
 
     void QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC);
-    void QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest);
+    void QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest);
     void QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject);
 };

@@ -13,6 +13,6 @@ public:
 	void SetImage(std::vector<std::string> vecImage);
 	void SetImage(CDisplayBuffer vecImage);
 
-	void OnDrawUI(CDisplayBuffer& vecBuffer);
+	void OnDrawUI(CDisplayBuffer& vecBuffer, CRect rtDrawArea);
 };
 
