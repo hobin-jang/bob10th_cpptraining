@@ -184,14 +184,14 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("[두꺼운 빨대]를 획득했다.");
         stQuest.vecMessages.push_back("감사합니다!");
         stQuest.vecMessages.push_back("다시 이성진 멘티에게 돌아가자");
-        stQuest.ClearCondition = ST_FILTER(150, 0x0001f);
+        stQuest.ClearCondition = ST_FILTER(150, 0x001f);
         vecQuest.push_back(stQuest);
     }
 
     {
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 150;
-        stQuest.StartCondition = ST_FILTER(150, 0x000f, 0x0001f);
+        stQuest.StartCondition = ST_FILTER(150, 0x000f, 0xffff);
         stQuest.vecMessages.push_back("오 그래 가져왔니?");
         stQuest.vecMessages.push_back("여기요...^^");
         stQuest.vecMessages.push_back("오! 그래 이거야!");
@@ -206,7 +206,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("너의 그 끈기에 박수를 보낼께! ㅉㅉㅉ!");
         stQuest.vecMessages.push_back("그럼 난 이만...");
         stQuest.vecMessages.push_back("(이성진 멘티는 어둠 속으로 사라졌다. 어둠속에는 희미하게 훈련소라고 쓰여있었다...)");
-        stQuest.ClearCondition = ST_FILTER(150, 0x0003f);
+        stQuest.ClearCondition = ST_FILTER(150, 0x003f);
         vecQuest.push_back(stQuest);
     }
 }

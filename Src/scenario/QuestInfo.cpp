@@ -53,7 +53,7 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btAttack = 50;
 		monster.btDex = 5;
 		monster.btVulnerability = JOB_TYPE_NOVICE;
-		monster.nRewardMoney= 50000;
+		monster.nRewardMoney = 10000;
 		monster.nRewardExp = 9999;
 		monster.vecRewardItems.push_back(128);	// ¿¤¸¯¼­
 		vecQuestMonster.push_back(monster);
