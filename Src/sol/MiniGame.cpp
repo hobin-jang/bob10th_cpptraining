@@ -14,8 +14,8 @@ void CMiniGame::OnCreate(void)
 {
 	ST_SIZE stWindowSize = { g_nConsoleW, g_nConsoleH };
 	ST_POINT stCenterPos = { (g_nConsoleW - stWindowSize.cx) / 2,  (g_nConsoleH - stWindowSize.cy) / 2 };
-	SetPos(stCenterPos);
-	SetSize(stWindowSize);
+	SetWindowPos(stCenterPos);
+	SetWindowSize(stWindowSize);
 
 	m_TextUI.Create(this, ST_POINT{ 0, 0 }, ST_SIZE{ 20, 3 });
 	m_TextUI.SetText("Hello world!!");
