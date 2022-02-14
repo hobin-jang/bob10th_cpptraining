@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "QuestInfo.h"
 
-// CQuestInfo g_QuestInfo;
+CQuestInfo g_QuestInfo;
 
 CQuestInfo::CQuestInfo(void)
 {
