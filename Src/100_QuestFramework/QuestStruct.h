@@ -77,9 +77,9 @@ struct ST_QUEST_NPC_DATA : public ST_POINT3
 
 enum E_JOB_TYPE
 {
-	JOB_TYPE_NONE = 0,		// 교육생
+	JOB_TYPE_NOVICE = 0,		// 교육생
 	JOB_TYPE_DEVELOPER,
-	JOB_TYPE_FORENSICER,
+	JOB_TYPE_INVESTIGATOR,
 	JOB_TYPE_CONSULTANT,
 	JOB_TYPE_ANALYST,
 	JOB_TYPE_MASTER,		// 수료생
@@ -106,8 +106,8 @@ struct ST_QUEST_MONSTER_DATA
 	BYTE btAttack;			// 공격력.
 	BYTE btDex;				// 행동속도. 1~7까지만 지정하자.(보스는 10까지다.)
 	BYTE btVulnerability;	// 어떤 직업에 취약한지 나타낸다. 0:무속성, 바로위 E_JOB_TYPE 참조.
-	WORD wRewardMoney;		// 보상 금액. 벨붕은 방지하자2.
-	DWORD dwRewardExp;		// 보상 경험치. 벨붕은 방지하자.
+	short nRewardMoney;		// 보상 금액. 벨붕은 방지하자2.
+	short nRewardExp;		// 보상 경험치. 벨붕은 방지하자.
 	std::vector<BYTE> vecRewardItems;	// 보상 아이템. 벨붕은 방지하자3
 };
 #pragma pack(pop)
