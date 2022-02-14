@@ -131,7 +131,7 @@ void CListUI::OnDrawUI(CDisplayBuffer& vecBuffer, CRect rtDrawArea)
 	CPoint pos = rtDrawArea.GetPos();
 	CSize size = rtDrawArea.GetSize();
 
-	int nCursorSize = 2;
+	const int nCursorSize = 2;
 	int nItemLength = (int)size.cx / m_nAlignCol;
 	for (size_t i = m_nScrollPos * m_nAlignCol; i < m_vecItems.size(); i++)
 	{
@@ -156,8 +156,8 @@ void CListUI::OnDrawUI(CDisplayBuffer& vecBuffer, CRect rtDrawArea)
 
 		if ((int)i == m_nCursorIndex)
 		{
-			char szCursor[] = { 26, 0 };	// 화살표 커서
-			vecBuffer.DrawString(nLeft - nCursorSize, nTop, szCursor);
+			char szCursor[] = { 26, 0 };// 화살표 커서
+			vecBuffer.DrawString(nLeft - 1, nTop, szCursor);
 		}
 	}
 }
