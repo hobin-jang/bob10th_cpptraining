@@ -227,7 +227,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
     {
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 136;
-        stQuest.StartCondition = ST_FILTER(136, 0x000F, 0x001F);     
+        stQuest.StartCondition = ST_FILTER(136, 0x000F, 0xFFFF);     
         stQuest.vecMessages.push_back("너 덕분에 과제 빨리 해서 낼 수 있겠어! 고마워!!");
         stQuest.ClearCondition = ST_FILTER(136, 0xFFFF);
         vecQuest.push_back(stQuest);
