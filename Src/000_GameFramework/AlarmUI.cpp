@@ -31,18 +31,17 @@ void CAlarmUI::Alarm(std::string strMsg, DWORD dwDuring)
 	TokenizeMessage(strMsg, vecMessage, g_nConsoleW * 0.8);
 
 	size_t tMaxTextLen = 10;
-
 	for (std::wstring strLine : vecMessage)
 	{
 		if (tMaxTextLen < strLine.size())
 			tMaxTextLen = strLine.size();
 	}
 
-	ST_POINT pos;
+	CPoint pos;
 	pos.x = (g_nConsoleW - tMaxTextLen) / 2;
 	pos.y = (g_nConsoleH - vecMessage.size()) / 2 - vecMessage.size();
-	SetPos(pos);
-	SetSize(CSize(tMaxTextLen + 2, vecMessage.size() + 2));
+	SetWindowPos(pos);
+	SetWindowSize(CSize((int)tMaxTextLen, (int)vecMessage.size()));
 
 	for (std::wstring strLine : vecMessage)
 		AddText(strLine);
@@ -58,9 +57,9 @@ void CAlarmUI::OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick)
 	__super::OnUpdate(dwCurrentTick, dwElapsedTick);
 }
 
-void CAlarmUI::OnDrawUI(CDisplayBuffer& vecBuffer)
+void CAlarmUI::OnDrawUI(CDisplayBuffer& vecBuffer, CRect rtDrawArea)
 {
 	if (m_dwTimeOutTick < GetTickCount())
 		return;
-	__super::OnDrawUI(vecBuffer);
+	__super::OnDrawUI(vecBuffer, rtDrawArea);
 }

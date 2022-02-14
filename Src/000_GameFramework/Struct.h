@@ -5,62 +5,6 @@
 #include <vector>
 #include <Windows.h>
 
-struct ST_VECTOR
-{
-    double x;
-    double y;
-
-    ST_VECTOR(void)
-        : x(0), y(0)
-    {}
-
-    ST_VECTOR(double inX, double inY)
-        : x(inX), y(inY)
-    {}
-
-    ST_VECTOR operator+(const ST_VECTOR& other)
-    {
-        ST_VECTOR temp;
-        temp.x = this->x + other.x;
-        temp.y = this->y + other.y;
-        return temp;
-    }
-    ST_VECTOR operator-(const ST_VECTOR& other)
-    {
-        ST_VECTOR temp;
-        temp.x = this->x - other.x;
-        temp.y = this->y - other.y;
-        return temp;
-    }
-    ST_VECTOR operator*(double scalar)
-    {
-        ST_VECTOR temp;
-        temp.x = this->x * scalar;
-        temp.y = this->y * scalar;
-        return temp;
-    }
-    ST_VECTOR operator/(double scalar)
-    {
-        ST_VECTOR temp;
-        temp.x = this->x / scalar;
-        temp.y = this->y / scalar;
-        return temp;
-    }
-
-    ST_VECTOR& operator+=(const ST_VECTOR& other)
-    {
-        this->x += other.x;
-        this->y += other.y;
-        return *this;
-    }
-    ST_VECTOR& operator-=(const ST_VECTOR& other)
-    {
-        this->x -= other.x;
-        this->y -= other.y;
-        return *this;
-    }
-};
-
 struct ST_POINT
 {
     short x;
@@ -97,6 +41,30 @@ struct ST_POINT3
     ST_POINT3(void)
         : qwPos(0)
     {}
+};
+
+struct ST_VECTOR
+{
+    double x;
+    double y;
+
+    ST_VECTOR(void)
+        : x(0), y(0)
+    {}
+
+    ST_VECTOR(double inX, double inY)
+        : x(inX), y(inY)
+    {}
+
+    ST_POINT MakePoint(void);
+    ST_SIZE MakeSize(void);
+
+    ST_VECTOR operator+(const ST_VECTOR& other);
+    ST_VECTOR operator-(const ST_VECTOR& other);
+    ST_VECTOR operator*(double scalar);
+    ST_VECTOR operator/(double scalar);
+    ST_VECTOR& operator+=(const ST_VECTOR& other);
+    ST_VECTOR& operator-=(const ST_VECTOR& other);
 };
 
 struct ST_KEYSTATE

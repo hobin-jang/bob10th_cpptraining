@@ -34,6 +34,6 @@ public:
 	void SetCurPos(int nIndex);
 	void MoveCurPos(int nOffsetX, int nOffsetY);
 
-	void OnDrawUI(CDisplayBuffer& vecBuffer);
+	void OnDrawUI(CDisplayBuffer& vecBuffer, CRect rtDrawArea);
 };
 

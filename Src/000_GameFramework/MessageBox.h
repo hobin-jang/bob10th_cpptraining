@@ -15,7 +15,7 @@ class CMessageBox : public CDlgSuper
 	std::vector<std::string> m_vecMenu;
 
 public:
-	CMessageBox(CDlgSuper* pParent, std::string strContext, std::vector<std::string> vecMenu, int nDefault = 0);
+	CMessageBox(CDlgSuper* pParent, std::vector<std::string> strContext, std::vector<std::string> vecMenu, int nDefault = 0);
 	~CMessageBox();
 
 	void OnCreate(void);
@@ -24,5 +24,6 @@ public:
 
 	static int Show(CDlgSuper* pParent, std::string strMessage, int nStyle = MB_OK);
 	static int Show(CDlgSuper* pParent, std::string strMessage, std::vector<std::string> vecMenu, int nDefault = 0);
+	static int Show(CDlgSuper* pParent, std::vector<std::string> vecMessage, int nStyle = MB_OK);
 };
 

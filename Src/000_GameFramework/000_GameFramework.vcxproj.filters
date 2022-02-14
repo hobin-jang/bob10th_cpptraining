@@ -6,12 +6,10 @@
     <ClCompile Include="ConsoleOutput.cpp" />
     <ClCompile Include="DisplayBuffer.cpp" />
     <ClCompile Include="DlgSuper.cpp" />
-    <ClCompile Include="GameObjectSuper.cpp" />
     <ClCompile Include="HelperFunc.cpp" />
     <ClCompile Include="KeyInput.cpp" />
     <ClCompile Include="ListUI.cpp" />
     <ClCompile Include="PictureUI.cpp" />
-    <ClCompile Include="SceneSuper.cpp" />
     <ClCompile Include="Struct.cpp" />
     <ClCompile Include="TextUI.cpp" />
     <ClCompile Include="UISuper.cpp" />
@@ -26,6 +24,7 @@
     <ClCompile Include="MessageBox.cpp" />
     <ClCompile Include="HelperClass.cpp" />
     <ClCompile Include="Console.cpp" />
+    <ClCompile Include="ScrollTextUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="000_GameFramework.h" />
@@ -34,13 +33,11 @@
     <ClInclude Include="ConsoleOutput.h" />
     <ClInclude Include="DisplayBuffer.h" />
     <ClInclude Include="DlgSuper.h" />
-    <ClInclude Include="GameObjectSuper.h" />
     <ClInclude Include="HelperFunc.h" />
     <ClInclude Include="KeyInput.h" />
     <ClInclude Include="ListUI.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="PictureUI.h" />
-    <ClInclude Include="SceneSuper.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="TextUI.h" />
     <ClInclude Include="UISuper.h" />
@@ -55,6 +52,7 @@
     <ClInclude Include="MessageBox.h" />
     <ClInclude Include="HelperClass.h" />
     <ClInclude Include="Console.h" />
+    <ClInclude Include="ScrollTextUI.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Unicode">
