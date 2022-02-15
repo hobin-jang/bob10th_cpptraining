@@ -8,7 +8,16 @@ public:
 	CPoint(void);
 	CPoint(int inX, int inY);
 	CPoint(ST_POINT pos);
-	ST_VECTOR MakeVector(void);
+
+	ST_VECTOR MakeVector(void) const;
+	CPoint Move(int nOffsetX, int nOffsetY) const;
+
+	CPoint operator+(const CPoint other);
+	CPoint operator-(const CPoint other);
+	CPoint operator*(int value);
+
+	CPoint& operator+=(const CPoint other);
+	CPoint& operator-=(const CPoint other);
 
 	operator ST_POINT() const;
 };

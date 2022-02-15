@@ -16,9 +16,45 @@ CPoint::CPoint(ST_POINT pos)
 {
 }
 
-ST_VECTOR CPoint::MakeVector(void)
+ST_VECTOR CPoint::MakeVector(void) const
 {
 	return ST_VECTOR(x, y);
+}
+
+CPoint CPoint::Move(int nOffsetX, int nOffsetY) const
+{
+	return CPoint(x + nOffsetX, y + nOffsetY);
+}
+
+CPoint CPoint::operator+(const CPoint other)
+{
+	return CPoint(x + other.x, y + other.y);
+}
+
+CPoint CPoint::operator-(const CPoint other)
+{
+	return CPoint(x - other.x, y - other.y);
+
+}
+
+CPoint CPoint::operator*(int value)
+{
+	return CPoint(x * value, y * value);
+
+}
+
+CPoint& CPoint::operator+=(const CPoint other)
+{
+	x += other.x;
+	y += other.y;
+	return *this;
+}
+
+CPoint& CPoint::operator-=(const CPoint other)
+{
+	x -= other.x;
+	y -= other.y;
+	return *this;
 }
 
 CPoint::operator ST_POINT() const

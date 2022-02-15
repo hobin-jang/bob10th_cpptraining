@@ -14,6 +14,7 @@ public:
 
 	void CenterOffset(ST_POINT ptCenterOffset);
 	void SetViewPos(int x, int y, bool bForcely = false);
+	void SetViewPos(ST_POINT pos, bool bForcely = false);
 	void SetViewPos(ST_POINT3 pos, bool bForcely = false);
 	void SetViewPos(const ST_VECTOR& pos, bool bForcely = false);
 	void Update(double dElapsedTime);

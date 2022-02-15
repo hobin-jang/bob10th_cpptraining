@@ -9,12 +9,18 @@ struct ST_POINT
 {
     short x;
     short y;
+
+    bool operator==(const ST_POINT& other);
+    bool operator!=(const ST_POINT& other);
 };
 
 struct ST_SIZE
 {
     short cx;
     short cy;
+
+    bool operator==(const ST_SIZE& other);
+    bool operator!=(const ST_SIZE& other);
 };
 
 struct ST_RECT
@@ -23,6 +29,8 @@ struct ST_RECT
     short t;
     short r;
     short b;
+
+    bool operator==(const ST_RECT& other);
 };
 
 struct ST_POINT3
@@ -65,6 +73,9 @@ struct ST_VECTOR
     ST_VECTOR operator/(double scalar);
     ST_VECTOR& operator+=(const ST_VECTOR& other);
     ST_VECTOR& operator-=(const ST_VECTOR& other);
+
+    bool operator==(const ST_VECTOR& other);
+    bool operator!=(const ST_VECTOR& other);
 };
 
 struct ST_KEYSTATE
