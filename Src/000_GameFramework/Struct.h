@@ -66,6 +66,7 @@ struct ST_VECTOR
 
     ST_POINT MakePoint(void);
     ST_SIZE MakeSize(void);
+    double GetScalar(void);
 
     ST_VECTOR operator+(const ST_VECTOR& other);
     ST_VECTOR operator-(const ST_VECTOR& other);

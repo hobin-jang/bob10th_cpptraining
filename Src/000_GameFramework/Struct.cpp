@@ -36,6 +36,11 @@ ST_SIZE ST_VECTOR::MakeSize(void)
     return ST_SIZE{ (short)x, (short)y };
 }
 
+double ST_VECTOR::GetScalar(void)
+{
+    return sqrt((x * x) + (y * y));
+}
+
 ST_VECTOR ST_VECTOR::operator+(const ST_VECTOR& other)
 {
     ST_VECTOR temp;
