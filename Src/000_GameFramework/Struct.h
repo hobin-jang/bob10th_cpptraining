@@ -67,11 +67,12 @@ struct ST_VECTOR
     ST_POINT MakePoint(void);
     ST_SIZE MakeSize(void);
     double GetScalar(void);
+    void Interpolate(const ST_VECTOR& target, DWORD dwElapsedTick, double dFactor);
 
-    ST_VECTOR operator+(const ST_VECTOR& other);
-    ST_VECTOR operator-(const ST_VECTOR& other);
-    ST_VECTOR operator*(double scalar);
-    ST_VECTOR operator/(double scalar);
+    ST_VECTOR operator+(const ST_VECTOR& other) const;
+    ST_VECTOR operator-(const ST_VECTOR& other) const;
+    ST_VECTOR operator*(double scalar) const;
+    ST_VECTOR operator/(double scalar) const;
     ST_VECTOR& operator+=(const ST_VECTOR& other);
     ST_VECTOR& operator-=(const ST_VECTOR& other);
 
