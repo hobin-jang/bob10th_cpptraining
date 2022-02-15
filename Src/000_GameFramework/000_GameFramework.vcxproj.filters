@@ -25,6 +25,7 @@
     <ClCompile Include="HelperClass.cpp" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="ScrollTextUI.cpp" />
+    <ClCompile Include="pch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="000_GameFramework.h" />
