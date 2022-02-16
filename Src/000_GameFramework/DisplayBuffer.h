@@ -27,6 +27,8 @@ public:
 	void DrawString(int x, int y, std::wstring strText, size_t tLength = -1);
 	void DrawAlignedString(ST_POINT pos, std::string strText, size_t tLength, E_ALIGN_TYPE nAlign);
 	void DrawAlignedString(ST_POINT pos, std::wstring strText, size_t tLength, E_ALIGN_TYPE nAlign);
+	void DrawStringOnCenter(ST_POINT pos, std::string strText);
+	void DrawStringOnCenter(ST_POINT pos, std::wstring strText);
 	void BitBlt(short x, short y, const CDisplayBuffer& buffer);
 	void BitBlt(ST_POINT pos, const CDisplayBuffer& buffer);
 };

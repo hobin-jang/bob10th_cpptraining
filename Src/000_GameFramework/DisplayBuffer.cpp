@@ -165,6 +165,17 @@ void CDisplayBuffer::DrawAlignedString(ST_POINT pos, std::wstring strText, size_
 	memcpy(&this->at(pos.y)[nDrawX], strText.c_str(), tDrawLength * sizeof(wchar_t));
 }
 
+void CDisplayBuffer::DrawStringOnCenter(ST_POINT pos, std::string strText)
+{
+	std::wstring strTextW = unicode::WCSFromMBS(strText);
+	DrawString(pos.x - strTextW.length() / 2, pos.y, strText);
+}
+
+void CDisplayBuffer::DrawStringOnCenter(ST_POINT pos, std::wstring strText)
+{
+	DrawString(pos.x - strText.length() / 2, pos.y, strText);
+}
+
 void CDisplayBuffer::BitBlt(short x, short y, const CDisplayBuffer& buffer)
 {
 	BitBlt(ST_POINT{ x, y }, buffer);
