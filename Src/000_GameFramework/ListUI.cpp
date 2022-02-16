@@ -117,7 +117,7 @@ void CListUI::MoveCurPos(int nOffsetX, int nOffsetY)
 			m_nCursorIndex = (int)m_vecItems.size() - 1;
 	}
 
-	int nListHeight = GetSize().cy;
+	int nListHeight = GetClientRect().GetSize().cy;
 	int nMinShowingIndex = m_nScrollPos * m_nAlignCol + 1;
 	int nMaxShowingIndex = (m_nScrollPos + nListHeight) * m_nAlignCol;
 	if (m_nCursorIndex < nMinShowingIndex)
