@@ -201,11 +201,19 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 	{
 		ST_QUEST_DATA quest;
 		quest.nNpcId = 290;
-		quest.StartCondition = ST_FILTER(290, 0x0000, 0x0001);
+		quest.StartCondition = ST_FILTER(0, 0x000F, 0x001F);
 		quest.ClearCondition = ST_FILTER(290, 0x0001);
 		quest.vecMessages.push_back("너가 그동안의 수업에 열심히 참여했다면...");
 		quest.vecMessages.push_back("나를 쉽게 통과할 수 있을거야!");
 		quest.ClearBattle.vecMonster.push_back(20006);
+		vecQuest.push_back(quest);
+	}
+	{
+		ST_QUEST_DATA quest;
+		quest.nNpcId = 10004;		// 계단 사물 아이디
+		quest.StartCondition = ST_FILTER(290, 0x0000, 0x0000);
+		quest.ClearCondition = ST_FILTER(290, 0xFFFF);
+		quest.vecMessages.push_back("보스가 날 노려보고 있다...");
 		vecQuest.push_back(quest);
 	}
 	{
@@ -216,7 +224,8 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		quest.vecMessages.push_back("와 1단계교육 열심히 들었구나bb");
 		quest.vecMessages.push_back("2달 간의 공통교육과 트랙교육은 어땠어?");
 		quest.vecMessages.push_back("2차 교육은 3개월간 팀프로젝트를 수행하는 거야.");
-		quest.vecMessages.push_back("관심있는 주제를 선택해서 마음 맞는 팀원들과 함께\n열심히 하여 좋은 결과를 얻을 수 있길 응원할게!");
+		quest.vecMessages.push_back("관심있는 주제를 선택해서 마음 맞는 팀원들과 함께");
+		quest.vecMessages.push_back("열심히 하여 좋은 결과를 얻을 수 있길 응원할게!");
 		quest.vecRewardItems.push_back(136);
 		vecQuest.push_back(quest);
 	}
