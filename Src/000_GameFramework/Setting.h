@@ -6,6 +6,9 @@
 
 struct ST_GAME_DATA
 {
+	std::string strTitle;
+	DWORD dwKeyRepeatInterval;
+
 	DWORD dwFPS;
 	short nConsoleW;
 	short nConsoleH;
@@ -16,7 +19,6 @@ struct ST_GAME_DATA
 	CConsoleOutput output;
 
 	ST_GAME_DATA(void);
-	void Init(std::string strTitle, DWORD dwKeyRepeatInterval);
 };
 
 extern ST_GAME_DATA* g_pGameData;

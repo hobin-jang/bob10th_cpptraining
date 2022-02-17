@@ -3,12 +3,14 @@
 #include "HelperFunc.h"
 #include "HelperClass.h"
 
-CMessageBox::CMessageBox(CDlgSuper* pParent, std::string strContext, std::vector<std::string> vecMenu, int nDefault)
+CMessageBox::CMessageBox(CDlgSuper* pParent, std::vector<std::string> vecMessage, std::vector<std::string> vecMenu, int nDefault)
 	: CDlgSuper(pParent)
 	, m_vecMenu(vecMenu)
 	, m_nDefault(nDefault)
+	, m_PopupPos(-1, -1)
 {
-	TokenizeMessage(strContext, m_vecMessage, g_nConsoleW * 0.8);
+	for (std::string strMessage : vecMessage)
+		TokenizeMessage(unicode::WCSFromMBS(strMessage), m_vecMessage, g_nConsoleW * 0.8);
 
 	if (vecMenu.empty())
 		vecMenu.push_back("확인");
@@ -33,23 +35,30 @@ void CMessageBox::OnCreate(void)
 			tMaxTextLen = strLine.size();
 	}
 
-	SetPos(CPoint((g_nConsoleW - tMaxTextLen) / 2, (g_nConsoleH - m_vecMessage.size() - m_vecMenu.size()) / 2), true);
-	SetSize(CSize(tMaxTextLen + 2, m_vecMessage.size() + m_vecMenu.size() + 4));
+	tMaxTextLen = std::min<size_t>(tMaxTextLen, (size_t)(g_nConsoleW * 0.8));
 
-	m_TextUI.Create(this, CPoint(0, 0), CSize(tMaxTextLen + 2, m_vecMessage.size() + 2), UI_ATTRIBUTE_NO_ANIMATION);
-	m_MenuUI.Create(this, CPoint(0, m_vecMessage.size() + 1), CSize(tMaxTextLen + 2, m_vecMenu.size() + 2), UI_ATTRIBUTE_NO_ANIMATION);
+	CPoint pos = m_PopupPos;
+	if (m_PopupPos.x < 0 || m_PopupPos.y < 0)
+		pos = CPoint((g_nConsoleW - tMaxTextLen) / 2, (g_nConsoleH - m_vecMessage.size() - m_vecMenu.size()) / 2);
+
+	SetWindowPos(pos, true);
+	CSize size(tMaxTextLen, m_vecMessage.size() + m_vecMenu.size() + 1);
+	SetClientSize(size);
+	ModifyAttribute(UI_ATTRIBUTE_NO_BORDER, 0);
+
+	// 텍스트 상자 생성
+	m_TextUI.Create(this, 0, 0, size.cx + 1, m_vecMessage.size() + 1);
+	for (std::wstring strLine : m_vecMessage)
+		m_TextUI.AddText(strLine);
 
 	// 메뉴 상자 생성
+	m_MenuUI.Create(this, 0, m_vecMessage.size() + 1, size.cx + 1, size.cy);
 	for (std::string strMenu : m_vecMenu)
 		m_MenuUI.AddItem(strMenu);
 
+	m_MenuUI.SetCurPos(m_nDefault);
 	m_MenuUI.SetItemAlign(-1);
 	m_MenuUI.AdjustHeight(-1);
-	m_MenuUI.SetCurPos(m_nDefault);
-
-	// 텍스트 상자 생성
-	for (std::wstring strLine : m_vecMessage)
-		m_TextUI.AddText(strLine);
 }
 
 void CMessageBox::OnInput(std::list<ST_KEYSTATE>& listKeyState)
@@ -91,10 +100,33 @@ void CMessageBox::OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick)
 	__super::OnUpdate(dwCurrentTick, dwElapsedTick);
 }
 
+void CMessageBox::SetPopUpPos(CPoint pos)
+{
+	m_PopupPos = pos;
+}
+
 int CMessageBox::Show(CDlgSuper* pParent, std::string strMessage, int nStyle)
 {
+	std::vector<std::string> vecMessage;
+	vecMessage.push_back(strMessage);
+
+	return Show(pParent, vecMessage, nStyle);
+}
+
+int CMessageBox::Show(CDlgSuper* pParent, std::string strMessage, std::vector<std::string> vecMenu, int nDefault, CPoint pos)
+{
+	std::vector<std::string> vecMessage;
+	vecMessage.push_back(strMessage);
+
+	CMessageBox instance(pParent, vecMessage, vecMenu, nDefault);
+	instance.SetPopUpPos(pos);
+	return instance.DoModal();
+}
+
+int CMessageBox::Show(CDlgSuper* pParent, std::vector<std::string> vecMessage, int nStyle)
+{
 	std::vector<std::string> vecMenu;
-	switch(nStyle)
+	switch (nStyle)
 	{
 	case MB_YESNO:
 		vecMenu.push_back("예");
@@ -112,7 +144,7 @@ int CMessageBox::Show(CDlgSuper* pParent, std::string strMessage, int nStyle)
 		vecMenu.push_back("확인");
 	}
 
-	CMessageBox instance(pParent, strMessage, vecMenu);
+	CMessageBox instance(pParent, vecMessage, vecMenu);
 	int nAnswer = instance.DoModal();
 	switch (nStyle)
 	{
@@ -137,10 +169,3 @@ int CMessageBox::Show(CDlgSuper* pParent, std::string strMessage, int nStyle)
 
 	return 0;
 }
-
-int CMessageBox::Show(CDlgSuper* pParent, std::string strMessage, std::vector<std::string> vecMenu, int nDefault)
-{
-	CMessageBox instance(pParent, strMessage, vecMenu, nDefault);
-	return instance.DoModal();
-}
-

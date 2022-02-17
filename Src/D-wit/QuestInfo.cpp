@@ -128,9 +128,9 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
             "올해는 강의 내용 기록 좀 하자 제발.\n"
             ;
         npc.strContents3 = 
-            "흐아아 진짜 큰 거 끝났다...🤤\n"
+            "흐아아 진짜 큰 거 끝났다...\n"
             "3차 교육은 전부 다 들을 필요는 없다지만,\n"
-            "필요한 거는 꼭 챙겨 들어야지😤";
+            "필요한 거는 꼭 챙겨 들어야지";
         npc.strContents4 = 
             "와... 결국 이걸 또 해냈네.\n"
             "플레이어, 여기까지 오느라 고생 많았어.\n"
@@ -173,6 +173,37 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
     }
 }
 
+void CQuestInfo::QueryQuestItem(std::vector<ST_QUEST_ITEM_DATA>& vecQuestItem)
+{
+    {
+        ST_QUEST_ITEM_DATA item;
+        item.btId = 134;
+        item.strName = "노트북 쿨러";
+        item.strDesc = "노트북을 덜 혹사시켜 멘탈을 10만큼 회복시켜준다.";
+        item.nHP = 0;
+        item.nMP = 10;
+        vecQuestItem.push_back(item);
+    }
+}
+
+void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestMonster)
+{
+    {
+        ST_QUEST_MONSTER_DATA monster;
+        monster.dwMonsterId = 20009;
+        monster.strName = "포렌식 분석보고서 작성";
+        monster.btLevel = 11;
+        monster.nHP = 45;
+        monster.btAttack = 10;
+        monster.btDex = 5;
+        monster.btVulnerability = JOB_TYPE_INVESTIGATOR;
+        monster.nRewardMoney = 800;
+        monster.nRewardExp = 600;
+        monster.vecRewardItems.push_back(134);
+        vecQuestMonster.push_back(monster);
+    }
+}
+
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 {
     //D-wit
@@ -209,7 +240,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("[주인을 알 수 없는 SSD]를 획득했습니다.");
         stQuest.vecMessages.push_back("이거 또 주워가면 문제 생기는 거 아니야...?");
         stQuest.vecMessages.push_back("아 몰라, 그냥 갖다주지 뭐.");
-        stQuest.ClearCondition = ST_FILTER(129, 0x0007);
+        stQuest.ClearCondition = ST_FILTER(129, 0x007);
         vecQuest.push_back(stQuest);
     }
 

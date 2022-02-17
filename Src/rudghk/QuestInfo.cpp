@@ -130,13 +130,44 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 {
     ST_QUEST_OBJECT stObject;
     stObject.nQuestObjectId = 276;
-    stObject.strName = "손목보호대";
+    stObject.strName = "누군가의 손목보호대";
     stObject.cPatch = 'S';
     stObject.x = 50;
     stObject.y = 21;
     stObject.z = 0;
     stObject.reserved = 0;
     vecQuestObject.push_back(stObject);
+}
+
+void CQuestInfo::QueryQuestItem(std::vector<ST_QUEST_ITEM_DATA>& vecQuestItem)
+{
+    {
+        ST_QUEST_ITEM_DATA item;
+        item.btId = 130;
+        item.strName = "하리보 젤리";
+        item.strDesc = "정신력을 30만큼 채워준다.";
+        item.nHP = 0;
+        item.nMP = 30;
+        vecQuestItem.push_back(item);
+    }
+}
+
+void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestMonster)
+{
+    {
+        ST_QUEST_MONSTER_DATA monster;
+        monster.dwMonsterId = 20008;
+        monster.strName = "c++ 자료조사";
+        monster.btLevel = 12;
+        monster.nHP = 50;
+        monster.btAttack = 10;
+        monster.btDex = 4;
+        monster.btVulnerability = JOB_TYPE_NOVICE;
+        monster.nRewardMoney = 800;
+        monster.nRewardExp = 600;
+        monster.vecRewardItems.push_back(130);
+        vecQuestMonster.push_back(monster);
+    }
 }
 
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
@@ -177,8 +208,29 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("응? 너 갔다올 동안 과제 안했냐고?");
         stQuest.vecMessages.push_back("손목 아픈게 신경쓰여서 과제를 못하겠더라구ㅎ..");
         stQuest.vecMessages.push_back("이제 해야지.. 너가 보호대도 찾아줬는데..ㅎㅎ");
+        stQuest.vecMessages.push_back("근데 혹시 하나만 더 도와줄 수 있을까?");
+        stQuest.ClearCondition = ST_FILTER(136, 0x000F);
+        vecQuest.push_back(stQuest);
+    }
+    {
+        ST_QUEST_DATA stQuest;
+        stQuest.nNpcId = 136;
+        stQuest.StartCondition = ST_FILTER(136, 0x0007, 0x000F);
+        stQuest.vecMessages.push_back("도와준다고 해서 고마워");
+        stQuest.vecMessages.push_back("내가 시간이 없어서 말이지..ㅎ");
+        stQuest.vecMessages.push_back("조금 힘들 수 있는데,, 과제에 필요한 자료를 조사해주면 고마울 것 같아");
+        stQuest.ClearBattle.btMinPlayerCount = 1;
+        stQuest.ClearBattle.vecMonster.push_back(20008);
+        stQuest.ClearCondition = ST_FILTER(136, 0x001F);
+        vecQuest.push_back(stQuest);
+    }
+    {
+        ST_QUEST_DATA stQuest;
+        stQuest.nNpcId = 136;
+        stQuest.StartCondition = ST_FILTER(136, 0x000F, 0xFFFF);     
         stQuest.vecMessages.push_back("너 덕분에 과제 빨리 해서 낼 수 있겠어! 고마워!!");
         stQuest.ClearCondition = ST_FILTER(136, 0xFFFF);
         vecQuest.push_back(stQuest);
+
     }
 }

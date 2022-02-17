@@ -1,5 +1,4 @@
 ﻿#include "stdafx.h"
-#include "TestScene.h"
 
 void PrintImage(std::vector<std::string> buffer)
 {
@@ -32,13 +31,13 @@ void RunMiniGame(HMODULE hModule, CDlgSuper* pDlg)
 	GameData.input.Register(VK_RETURN, GAMEKEY_MENU);
 	GameData.input.Register(VK_OEM_3, GAMEKEY_CHAT);
 	GameData.input.Register(VK_ESCAPE, GAMEKEY_ESC);
-	GameData.Init("미니게임 테스트", 400);
+	GameData.strTitle = "미니게임 테스트";
+	GameData.dwKeyRepeatInterval = 200;
 	InitGame(&GameData);
 
 	fpInitMiniGame(g_pGameData);
 
-	CTestScene scene(pDlg);
-	scene.DoModal();
+	pDlg->DoModal();
 }
 
 int main()
@@ -142,8 +141,8 @@ int main()
 				printf("--------------\n");
 				for (std::string strMsg : quest.vecMessages)
 					printf("퀘스트 대사: %s\n", strMsg.c_str());
-				if (quest.pMiniGame && IDYES == ::MessageBox(nullptr, TEXT("미니게임을 실행하겠습니까?"), TEXT("걍 궁금"), MB_YESNO))
-					RunMiniGame(quest.pMiniGame);
+				if (quest.pClearGame && IDYES == ::MessageBox(nullptr, TEXT("미니게임을 실행하겠습니까?"), TEXT("걍 궁금"), MB_YESNO))
+					RunMiniGame(hModule, quest.pClearGame);
 			}
 		}
 

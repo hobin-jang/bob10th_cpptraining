@@ -31,11 +31,11 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.x = 5;
     npc.y = 8;
     npc.z = 6;
-    npc.nNpcID = 1019;
+    npc.nNpcID = 141;
     npc.strTrack = "취약점분석트랙";
     npc.strName = "퍼징교 신자 홍택균";
-    npc.nAge = 28;
-    npc.strMBTI = "INTP입니다 :)";
+    npc.nAge = 24;
+    npc.strMBTI = "INTP";
     npc.cPatch = 'O';
     npc.strMessage = "퍼저는 신이야! 너도 퍼징교에 들어오지 않을래? \n"
         "너도 취약점을 찾을 수 있을지도 몰라! ";
@@ -136,7 +136,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     npc.vecSmallImage[24]  = "@@@@@@@@@@@@@@&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#(#@@@@@@@@@@@@";
 
     npc.strContents1 =
-        "어? 내가 왜 이곳에..."
+        "어? 내가 왜 이곳에... 난 분명히..."
         ;
 
     vecNPC.push_back(npc);
@@ -148,8 +148,9 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 {
     {
         ST_QUEST_OBJECT stObject;
-        stObject.nQuestObjectId = 301;
+        stObject.nQuestObjectId = 287;
         stObject.strName = "전설의 컴퓨터";
+        stObject.cPatch = '모';
         stObject.cPatch = 1;	// 화면에 보이지도 않고 만져지지도 않게 하려면 0을 넣으면 됨
         stObject.x = 22;
         stObject.y = 22;
@@ -160,7 +161,7 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 
     {
         ST_QUEST_OBJECT stObject;
-        stObject.nQuestObjectId = 302;
+        stObject.nQuestObjectId = 288;
         stObject.strName = "전설의 USB";
         stObject.cPatch = 0;	// 화면에 보이지도 않고 만져지지도 않게 하려면 0을 넣으면 됨
         stObject.x = 5;
@@ -176,64 +177,64 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
     // 퍼징교 신자 홍택균
     {
         ST_QUEST_DATA stQuest;
-        stQuest.nNpcId = 1019;
-        stQuest.StartCondition = ST_FILTER(1019, 0x0000, 0x0001);
+        stQuest.nNpcId = 141;
+        stQuest.StartCondition = ST_FILTER(141, 0x0000, 0x0001);
         stQuest.vecMessages.push_back("그 소문 들었어?");
         stQuest.vecMessages.push_back("과거 퍼징의 신께서 [전설의 USB]와 [전설의 컴퓨터]를 이 건물 어딘가에 숨겨두셨대!");
         stQuest.vecMessages.push_back("그것만 있으면 취약점 찾는 것 따위는 식은죽 먹기겠지...?");
         stQuest.vecMessages.push_back("너 시간도 많아보이는데 한번 찾아봐!");
         stQuest.vecMessages.push_back("먼저 [전설의 컴퓨터]를 찾아보자");
-        stQuest.ClearCondition = ST_FILTER(1019, 0x0003);
+        stQuest.ClearCondition = ST_FILTER(141, 0x0003);
         vecQuest.push_back(stQuest);
     }
 
     // 전설의 컴퓨터 // 전설의 USB 찾기 전
     {
         ST_QUEST_DATA stQuest;
-        stQuest.nNpcId = 301;
-        stQuest.StartCondition = ST_FILTER(1019, 0x0001, 0x0003);
+        stQuest.nNpcId = 287;
+        stQuest.StartCondition = ST_FILTER(141, 0x0001, 0x0003);
         stQuest.vecMessages.push_back("방치된 오랜된 컴퓨터가 있다.");
         stQuest.vecMessages.push_back("툭툭 치니 갑자기 빛이 나며 켜지기 시작한다.");
         stQuest.vecMessages.push_back("화면에 '전설의 컴퓨터'라는 문구가 띄워져있다.");
         stQuest.vecMessages.push_back("이게... 전설의 컴퓨터..?");
         stQuest.vecMessages.push_back("전설의 컴퓨터를 찾았다. 하지만 [전설의 USB]가 필요하다는 문구가 뜬다...");
         stQuest.vecMessages.push_back("[전설의 컴퓨터]는 바로 꺼지고 말았다. [전설의 USB]를 찾아오자!");
-        stQuest.ClearCondition = ST_FILTER(1019, 0x0007);
+        stQuest.ClearCondition = ST_FILTER(141, 0x0007);
         vecQuest.push_back(stQuest);
     }
 
     // 퍼징교 신자 홍택균
     {
         ST_QUEST_DATA stQuest;
-        stQuest.nNpcId = 1019;
-        stQuest.StartCondition = ST_FILTER(1019, 0x0003, 0x0007);
+        stQuest.nNpcId = 141;
+        stQuest.StartCondition = ST_FILTER(141, 0x0003, 0x0007);
         stQuest.vecMessages.push_back("오! [전설의 컴퓨터]를 찾았구나!");
         stQuest.vecMessages.push_back("그럼 이번엔 [전설의 USB]를 찾아봐!");
         stQuest.vecMessages.push_back("[전설의 USB]는 3층 어딘가에 있다는 말이 있더라고...");
         stQuest.vecMessages.push_back("[전설의 USB]를 찾아보자");
-        stQuest.ClearCondition = ST_FILTER(1019, 0x000f);
+        stQuest.ClearCondition = ST_FILTER(141, 0x000f);
         vecQuest.push_back(stQuest);
     }
 
     // 전설의 USB1
     {
         ST_QUEST_DATA stQuest;
-        stQuest.nNpcId = 302;
-        stQuest.StartCondition = ST_FILTER(1019, 0x0007, 0x000f);
+        stQuest.nNpcId = 288;
+        stQuest.StartCondition = ST_FILTER(141, 0x0007, 0x000f);
         stQuest.vecMessages.push_back("이 영롱한 빛깔...");
         stQuest.vecMessages.push_back("아무래도 전설의 USB를 찾은 것 같다.");
         stQuest.vecMessages.push_back("[전설의 USB]를 획득했습니다.");
         stQuest.vecMessages.push_back("이걸 전설의 컴퓨터에 꽂으면 엄청난 일이 일어날 것만 같다.");
         stQuest.vecMessages.push_back("[전설의 USB]를 [전설의 컴퓨터]에 꽂아보자.");
-        stQuest.ClearCondition = ST_FILTER(1019, 0x001f);
+        stQuest.ClearCondition = ST_FILTER(141, 0x001f);
         vecQuest.push_back(stQuest);
     }
 
     // 전설의 컴퓨터 // 전설의 USB 찾은 후
     {
         ST_QUEST_DATA stQuest;
-        stQuest.nNpcId = 301;
-        stQuest.StartCondition = ST_FILTER(1019, 0x000f, 0x001f);
+        stQuest.nNpcId = 287;
+        stQuest.StartCondition = ST_FILTER(141, 0x000f, 0x001f);
         stQuest.vecMessages.push_back("방치된 오랜된 컴퓨터가 있다.");
         stQuest.vecMessages.push_back("컴퓨터를 켜고 전설의 USB를 꽂았다.");
         stQuest.vecMessages.push_back("갑자기 컴퓨터가 엄청난 빛을 내기 시작했다.");
@@ -241,21 +242,21 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("[퍼징신의 가호]를 얻었습니다.");
         stQuest.vecMessages.push_back("전설의 컴퓨터는 서서히 빛을 잃다가 완전히 꺼져버렸다.");
         stQuest.vecMessages.push_back("무슨일이 일어난거지...? [퍼징교 신자 홍택균]에게 돌아가 물어보자");
-        stQuest.ClearCondition = ST_FILTER(1019, 0x003f);
+        stQuest.ClearCondition = ST_FILTER(141, 0x003f);
         vecQuest.push_back(stQuest);
     }
 
     // 퍼징교 신자 홍택균 // 클리어
     {
         ST_QUEST_DATA stQuest;
-        stQuest.nNpcId = 1019;
-        stQuest.StartCondition = ST_FILTER(1019, 0x001f, 0x003f);
+        stQuest.nNpcId = 141;
+        stQuest.StartCondition = ST_FILTER(141, 0x001f, 0x003f);
         stQuest.vecMessages.push_back("홍택균에게 무슨일이 있었는지 설명했다.");
         stQuest.vecMessages.push_back("뭐...? 그런 일이 있었다니...");
         stQuest.vecMessages.push_back("아무래도 너는 '퍼징신의 가호'를 받은 것 같아");
         stQuest.vecMessages.push_back("축하해! 어떤 취약점이라도 무난히 찾을 수 있을거야");
         stQuest.vecMessages.push_back("잘 되길 퍼징의 신께 빌어줄께! 화이팅! :)");
-        stQuest.ClearCondition = ST_FILTER(1019, 0x00ff);
+        stQuest.ClearCondition = ST_FILTER(141, 0x00ff);
         vecQuest.push_back(stQuest);
     }
 }

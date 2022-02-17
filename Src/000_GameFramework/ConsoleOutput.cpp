@@ -93,8 +93,9 @@ void CConsoleOutput::Render(const CDisplayBuffer& vecDisplayBuffer)
         std::string strOutput;
         strOutput.resize(strLineW.length() * 2);
         std::string strLine = unicode::MBSFromWCS(strLineW);
-        for (char w : strLine)
+        for(size_t i=0; i<strLine.size(); i++)
         {
+            char w = strLine.at(i);
             if (w == 2 || w == 4 || w == 6)   // UI 외곽선만 연결함
             {
                 strOutput[tPos++] = 6;
@@ -110,8 +111,16 @@ void CConsoleOutput::Render(const CDisplayBuffer& vecDisplayBuffer)
                 strOutput[tPos++] = w;
                 strOutput[tPos++] = ' ';
             }
-            else if( w < 0)
+            else if (w < 0)
+            {
+                // 다국어 문자 처리
                 strOutput[tPos++] = w;
+                if (i + 1 < strLine.size())
+                    strOutput[tPos++] = strLine.at(i + 1);
+                else
+                    strOutput[tPos++] = ' ';
+                i++;
+            }
         }
         strOutput.resize(tPos);
         __super::Print(0, y, strOutput);

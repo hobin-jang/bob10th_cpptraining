@@ -174,9 +174,6 @@
     <ClCompile Include="QuestInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Test\QuestFrameworkTest\QuestFrameworkTest.vcxproj">
-      <Project>{e02728d3-e318-4165-a94f-20b24bda19ae}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\000_GameFramework\000_GameFramework.vcxproj">
       <Project>{9d43ffbf-fd65-4ab9-b2c2-cb1c82b13179}</Project>
     </ProjectReference>

@@ -15,9 +15,9 @@ CQuestInfo::~CQuestInfo(void)
 void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
     ST_QUEST_NPC_DATA npc;
-    npc.x = 18;
+    npc.x = 13;
     npc.y = 13;
-    npc.z = 1;
+    npc.z = 3;
     npc.nNpcID = 131;
     npc.strTrack = "보안개발트랙";
     npc.strName = "헤르미온느가꿈인이주원";

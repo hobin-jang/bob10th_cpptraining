@@ -5,72 +5,22 @@
 #include <vector>
 #include <Windows.h>
 
-struct ST_VECTOR
-{
-    double x;
-    double y;
-
-    ST_VECTOR(void)
-        : x(0), y(0)
-    {}
-
-    ST_VECTOR(double inX, double inY)
-        : x(inX), y(inY)
-    {}
-
-    ST_VECTOR operator+(const ST_VECTOR& other)
-    {
-        ST_VECTOR temp;
-        temp.x = this->x + other.x;
-        temp.y = this->y + other.y;
-        return temp;
-    }
-    ST_VECTOR operator-(const ST_VECTOR& other)
-    {
-        ST_VECTOR temp;
-        temp.x = this->x - other.x;
-        temp.y = this->y - other.y;
-        return temp;
-    }
-    ST_VECTOR operator*(double scalar)
-    {
-        ST_VECTOR temp;
-        temp.x = this->x * scalar;
-        temp.y = this->y * scalar;
-        return temp;
-    }
-    ST_VECTOR operator/(double scalar)
-    {
-        ST_VECTOR temp;
-        temp.x = this->x / scalar;
-        temp.y = this->y / scalar;
-        return temp;
-    }
-
-    ST_VECTOR& operator+=(const ST_VECTOR& other)
-    {
-        this->x += other.x;
-        this->y += other.y;
-        return *this;
-    }
-    ST_VECTOR& operator-=(const ST_VECTOR& other)
-    {
-        this->x -= other.x;
-        this->y -= other.y;
-        return *this;
-    }
-};
-
 struct ST_POINT
 {
     short x;
     short y;
+
+    bool operator==(const ST_POINT& other);
+    bool operator!=(const ST_POINT& other);
 };
 
 struct ST_SIZE
 {
     short cx;
     short cy;
+
+    bool operator==(const ST_SIZE& other);
+    bool operator!=(const ST_SIZE& other);
 };
 
 struct ST_RECT
@@ -79,6 +29,8 @@ struct ST_RECT
     short t;
     short r;
     short b;
+
+    bool operator==(const ST_RECT& other);
 };
 
 struct ST_POINT3
@@ -97,6 +49,35 @@ struct ST_POINT3
     ST_POINT3(void)
         : qwPos(0)
     {}
+};
+
+struct ST_VECTOR
+{
+    double x;
+    double y;
+
+    ST_VECTOR(void)
+        : x(0), y(0)
+    {}
+
+    ST_VECTOR(double inX, double inY)
+        : x(inX), y(inY)
+    {}
+
+    ST_POINT MakePoint(void);
+    ST_SIZE MakeSize(void);
+    double GetScalar(void);
+    void Interpolate(const ST_VECTOR& target, DWORD dwElapsedTick, double dFactor);
+
+    ST_VECTOR operator+(const ST_VECTOR& other) const;
+    ST_VECTOR operator-(const ST_VECTOR& other) const;
+    ST_VECTOR operator*(double scalar) const;
+    ST_VECTOR operator/(double scalar) const;
+    ST_VECTOR& operator+=(const ST_VECTOR& other);
+    ST_VECTOR& operator-=(const ST_VECTOR& other);
+
+    bool operator==(const ST_VECTOR& other);
+    bool operator!=(const ST_VECTOR& other);
 };
 
 struct ST_KEYSTATE

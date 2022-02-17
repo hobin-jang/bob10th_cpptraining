@@ -1,9 +1,9 @@
 #pragma once
 
 #include "UISuper.h"
-#include "TextUI.h"
+#include "ScrollTextUI.h"
 
-class CAlarmUI : public CTextUI
+class CAlarmUI : public CScrollTextUI
 {
 	DWORD m_dwTimeOutTick;
 
@@ -17,6 +17,6 @@ public:
 private:
 	void OnCreate(void);
 	void OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick);
-	void OnDrawUI(CDisplayBuffer& vecBuffer);
+	void OnDrawUI(CDisplayBuffer& vecBuffer, CRect rtDrawArea);
 };
 

@@ -24,8 +24,18 @@ void CDisplayBuffer::Create(size_t w, size_t h)
 {
 	this->resize(h);
 	for (auto& line : *this)
-		line.resize(w);
+		line.resize(w, ' ');
 	Clear();
+}
+
+void CDisplayBuffer::DrawRectangle(CRect rect)
+{
+	DrawRectangle(rect.l, rect.t, rect.r, rect.b);
+}
+
+void CDisplayBuffer::DrawRectangle(ST_POINT pos, ST_SIZE size)
+{
+	DrawRectangle(CRect(pos, size));
 }
 
 void CDisplayBuffer::DrawRectangle(int nLeft, int nTop, int nRight, int nBottom)
@@ -115,6 +125,57 @@ void CDisplayBuffer::DrawString(int x, int y, std::wstring strText, size_t tLeng
 	}
 }
 
+void CDisplayBuffer::DrawAlignedString(ST_POINT pos, std::string strText, size_t tLength, E_ALIGN_TYPE nAlign)
+{
+	DrawAlignedString(pos, unicode::WCSFromMBS(strText), tLength, nAlign);
+}
+
+void CDisplayBuffer::DrawAlignedString(ST_POINT pos, std::wstring strText, size_t tLength, E_ALIGN_TYPE nAlign)
+{
+	if (this->size() <= pos.y)
+		return;
+
+	int nDrawX = pos.x;
+	int nEndX = pos.x + tLength;
+
+	if (tLength < strText.length())
+		nDrawX = pos.x;
+	else
+	{
+		switch (nAlign)
+		{
+		case ALIGN_TYPE_LEFT:
+			nDrawX = pos.x;
+			break;
+		case ALIGN_TYPE_RIGHT:
+			nDrawX = nEndX - strText.length() - 1;
+			break;
+		case ALIGN_TYPE_CENTER:
+			nDrawX = pos.x + (tLength - strText.length()) / 2;
+			break;
+		}
+	}
+
+	int nRemainedBuffer = this->at(pos.y).size() - nDrawX - 1;
+	if (nRemainedBuffer < 1)
+		return;
+
+	size_t tMaxDrawLength = std::min<size_t>(nRemainedBuffer, nDrawX + tLength);
+	size_t tDrawLength = std::min<size_t>(tMaxDrawLength, strText.length());
+	memcpy(&this->at(pos.y)[nDrawX], strText.c_str(), tDrawLength * sizeof(wchar_t));
+}
+
+void CDisplayBuffer::DrawStringOnCenter(ST_POINT pos, std::string strText)
+{
+	std::wstring strTextW = unicode::WCSFromMBS(strText);
+	DrawString(pos.x - strTextW.length() / 2, pos.y, strText);
+}
+
+void CDisplayBuffer::DrawStringOnCenter(ST_POINT pos, std::wstring strText)
+{
+	DrawString(pos.x - strText.length() / 2, pos.y, strText);
+}
+
 void CDisplayBuffer::BitBlt(short x, short y, const CDisplayBuffer& buffer)
 {
 	BitBlt(ST_POINT{ x, y }, buffer);
@@ -131,7 +192,7 @@ void CDisplayBuffer::BitBlt(ST_POINT pos, const CDisplayBuffer& buffer)
 		for (int x = 0; x < buffer[y].size(); x++)
 		{
 			int nDestX = x + pos.x;
-			if (nDestX < 0 || at(y).size() <= nDestX)
+			if (nDestX < 0 || this->at(nDestY).size() <= nDestX)
 				continue;
 
 			at(nDestY)[nDestX] = buffer[y][x];

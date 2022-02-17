@@ -17,16 +17,16 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 	{
 
 		ST_QUEST_NPC_DATA npc;
-		npc.x = 17;
-		npc.y = 17;
-		npc.z = 1;
+		npc.x = 18;
+		npc.y = 15;
+		npc.z = 7;
 		npc.nNpcID = 138;
 		npc.strTrack = "보안제품개발트랙";
 		npc.strName = "이찬우(LINKER)";
 		npc.nAge = 24;
 		npc.strMBTI = "ENFJ-T, A형 입니다.";
 		npc.cPatch = 'L';
-		npc.strMessage = "어이 너 나랑 코딩하지 않을래?";
+		npc.strMessage = "어이 너 나랑 코딩하지 않을래?\n";
 
 		npc.vecBigImage.resize(50);
 		npc.vecBigImage[0] = "                 .,~#=~,,*##@#!:,                     ";
@@ -80,39 +80,36 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 		npc.vecBigImage[48] = ",,~::::::~:~~~~.                   ,~~~~::~::~::::    ";
 		npc.vecBigImage[49] = "::~::~~~~~:~~~~,                  .-~~~::~~:::~:~:    ";
 
-
-		npc.vecSmallImage.resize(25);
-
-		npc.vecSmallImage[0] = "★☆★☆★☆★☆★☆★☆★";
-		npc.vecSmallImage[1] = "                         ";
-		npc.vecSmallImage[2] = "        ,;@**@@=         ";
-		npc.vecSmallImage[3] = "      ~$#@@@@@@##$,      ";
-		npc.vecSmallImage[4] = "     .*#@@@@@@##$$:      ";
-		npc.vecSmallImage[5] = "     ,##@#@##@#$$$$,     ";
-		npc.vecSmallImage[6] = "     ,########@####,     ";
-		npc.vecSmallImage[7] = "     ,$#$$!:~;$#@#:      ";
-		npc.vecSmallImage[8] = "      .=~-,. .-~~:.      ";
-		npc.vecSmallImage[9] = "       ,|~~|^|~~|.       ";
-		npc.vecSmallImage[10] = "       .        .        ";
-		npc.vecSmallImage[11] = "        .   ,   .        ";
-		npc.vecSmallImage[12] = "        .       ,        ";
-		npc.vecSmallImage[13] = "         . ㅇ  .         ";
-		npc.vecSmallImage[14] = "         ,,,,,,.         ";
-		npc.vecSmallImage[15] = "       ....,.......      ";
-		npc.vecSmallImage[16] = "     ,,-....... .-~,,,   ";
-		npc.vecSmallImage[17] = "   ,-:~-         ,~:::,, ";
-		npc.vecSmallImage[18] = " ,,:::~-         ,~:~:~:-";
-		npc.vecSmallImage[19] = "-~~:::~-         -~~::~~:";
-		npc.vecSmallImage[20] = "::~~::~-         ,~~~:~~:";
-		npc.vecSmallImage[21] = ":~:~::~-.        ,~-~~~::";
-		npc.vecSmallImage[22] = "-------------------------";
-		npc.vecSmallImage[23] = "                         ";
-		npc.vecSmallImage[24] = "★☆★☆★☆★☆★☆★☆★";
+		npc.vecSmallImage.push_back("★☆★☆★☆★☆★☆★☆★");
+		npc.vecSmallImage.push_back("                         ");
+		npc.vecSmallImage.push_back("        ,;@**@@=         ");
+		npc.vecSmallImage.push_back("      ~$#@@@@@@##$,      ");
+		npc.vecSmallImage.push_back("     .*#@@@@@@##$$:      ");
+		npc.vecSmallImage.push_back("     ,##@#@##@#$$$$,     ");
+		npc.vecSmallImage.push_back("     ,########@####,     ");
+		npc.vecSmallImage.push_back("     ,$#$$!:~;$#@#:      ");
+		npc.vecSmallImage.push_back("      .=~-,. .-~~:.      ");
+		npc.vecSmallImage.push_back("       ,|~~|^|~~|.       ");
+		npc.vecSmallImage.push_back("       .        .        ");
+		npc.vecSmallImage.push_back("        .   ,   .        ");
+		npc.vecSmallImage.push_back("        .       ,        ");
+		npc.vecSmallImage.push_back("         . ㅇ  .         ");
+		npc.vecSmallImage.push_back("         ,,,,,,.         ");
+		npc.vecSmallImage.push_back("       ....,.......      ");
+		npc.vecSmallImage.push_back("     ,,-....... .-~,,,   ");
+		npc.vecSmallImage.push_back("   ,-:~-         ,~:::,, ");
+		npc.vecSmallImage.push_back(" ,,:::~-         ,~:~:~:-");
+		npc.vecSmallImage.push_back("-~~:::~-         -~~::~~:");
+		npc.vecSmallImage.push_back("::~~::~-         ,~~~:~~:");
+		npc.vecSmallImage.push_back(":~:~::~-.        ,~-~~~::");
+		npc.vecSmallImage.push_back("-------------------------");
+		npc.vecSmallImage.push_back("                         ");
+		npc.vecSmallImage.push_back("★☆★☆★☆★☆★☆★☆★");
 
 		npc.strContents1 = "ㅎ2ㅎ2 반갑습니다 ~ !!\n"
 			"어... 지옥길에 오셨군요 ~ !!\n 환영합니다.\n";
-		"혹시 여유가 있으시다면, 지옥길에서 빠져 못 나온 \n LINKER를 구출해 줄래?\n";
-		"아마 LINKER는 7층 어딘가에 있을거야! 이니셜은 L이겠지?";
+		"코딩하기 싫다구..? ㅠ^ㅠ 그렇다면 7층 어딘가에 있는 LINKER에게 가볼래?\n";
+		"이니셜은 E야!\n";
 
 		npc.strContents2 = "LINKER를 찾았구나!!\n";
 		"표정이 왜그래?? 과제라도 받은 것 처럼...?\n";
@@ -127,26 +124,23 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 		vecNPC.push_back(npc);
 	}
 
-	{
-		ST_QUEST_NPC_DATA npc;
-		npc.x = 5;
-		npc.y = 20;
-		npc.z = 7;
-		npc.nNpcID = 161;
-		npc.strTrack = "보안제품개발";
-		npc.strName = "LINKER";
-		npc.cPatch = 'L';
-		npc.strMessage = "장로 먹으면 역전 가능해!";
-
-
-		npc.strContents1 = "";
-
-		vecNPC.push_back(npc);
-	}
 }
 
 void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 {
+
+	{
+		ST_QUEST_OBJECT stObject;
+		stObject.nQuestObjectId = 161;
+		stObject.strName = "LINKER";
+		stObject.cPatch = 'E';
+		stObject.x = 6;
+		stObject.y = 7;
+		stObject.z = 7;
+		stObject.reserved = 0;
+		vecQuestObject.push_back(stObject);
+	}
+
 	{
 		ST_QUEST_OBJECT stObject;
 		stObject.nQuestObjectId = 285;
@@ -215,11 +209,23 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 	{
 		ST_QUEST_DATA stQuest;
 		stQuest.nNpcId = 286;
-		stQuest.StartCondition = ST_FILTER(161, 0x000F, 0x003F);
+		stQuest.StartCondition = ST_FILTER(161, 0x0007, 0x000F);
 		stQuest.vecMessages.push_back("[ 저것이 2022 시즌 초반 필수템 ""부여왕""인가? ]");
 		stQuest.vecMessages.push_back("[ 부서진 여왕의 왕관 ]을 획득했습니다.");
 		stQuest.vecMessages.push_back("[ 휴.. 이제 탈출하자! ]");
-		stQuest.ClearCondition = ST_FILTER(161, 0x007F);
+		stQuest.ClearCondition = ST_FILTER(161, 0x001F);
+		vecQuest.push_back(stQuest);
+	}
+
+	//부서진여왕의왕관 LINKER에게 가져가기
+	{
+		ST_QUEST_DATA stQuest;
+		stQuest.nNpcId = 161;
+		stQuest.StartCondition = ST_FILTER(161, 0x000F, 0x001F);
+		stQuest.vecMessages.push_back("오옷 고마워!!");
+		stQuest.vecMessages.push_back("이제 장로를 잡고 넥서스를 부수러 갈 수 있겠는걸~~");
+		stQuest.vecMessages.push_back("아직 미구현... Update 중");
+		stQuest.ClearCondition = ST_FILTER(161, 0x003F);
 		vecQuest.push_back(stQuest);
 	}
 }
