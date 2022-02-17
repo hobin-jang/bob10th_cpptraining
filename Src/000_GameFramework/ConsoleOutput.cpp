@@ -95,6 +95,9 @@ void CConsoleOutput::Render(const CDisplayBuffer& vecDisplayBuffer)
         std::string strLine = unicode::MBSFromWCS(strLineW);
         for (char w : strLine)
         {
+            if (strOutput.size() <= tPos)
+                return;
+
             if (w == 2 || w == 4 || w == 6)   // UI 외곽선만 연결함
             {
                 strOutput[tPos++] = 6;
