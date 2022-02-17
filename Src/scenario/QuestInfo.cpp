@@ -53,7 +53,7 @@ void CQuestInfo::QueryQuestItem(std::vector<ST_QUEST_ITEM_DATA>& vecQuestItem)
 	}
 	{
 		ST_QUEST_ITEM_DATA item;
-		item.btId = 130;
+		item.btId = 136;
 		item.strName = "1단계1차시험통과도장";
 		item.strDesc = "1단계1차시험을 통과한 자들에게 주어지는 도장";
 		item.nHP = 0;
@@ -217,7 +217,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		quest.vecMessages.push_back("2달 간의 공통교육과 트랙교육은 어땠어?");
 		quest.vecMessages.push_back("2차 교육은 3개월간 팀프로젝트를 수행하는 거야.");
 		quest.vecMessages.push_back("관심있는 주제를 선택해서 마음 맞는 팀원들과 함께\n열심히 하여 좋은 결과를 얻을 수 있길 응원할게!");
-		quest.vecRewardItems.push_back(130);
+		quest.vecRewardItems.push_back(136);
 		vecQuest.push_back(quest);
 	}
 }
