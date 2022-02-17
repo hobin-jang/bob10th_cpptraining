@@ -6,6 +6,15 @@ void TokenizeMessage(std::string strContext, std::vector<std::wstring>& outMessa
 	TokenizeMessage(unicode::WCSFromMBS(strContext), outMessages, tMaxTextLen);
 }
 
+void TokenizeMessage(std::string strContext, std::vector<std::string>& outMessages, size_t tMaxTextLen)
+{
+	std::vector<std::wstring> vecTemp;
+	TokenizeMessage(unicode::WCSFromMBS(strContext), vecTemp, tMaxTextLen);
+
+	for (std::wstring strLine : vecTemp)
+		outMessages.push_back(unicode::MBSFromWCS(strLine));
+}
+
 void TokenizeMessage(std::wstring strContext, std::vector<std::wstring>& outMessages, size_t tMaxTextLen)
 {
 	std::vector<std::wstring> vecLines;
