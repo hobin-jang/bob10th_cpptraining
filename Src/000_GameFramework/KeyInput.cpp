@@ -21,6 +21,11 @@ void CKeyInput::Register(int nVirtKey, int nID)
 
 void CKeyInput::Query(std::list<ST_KEYSTATE>& outState)
 {
+	HWND hConsole = ::GetConsoleWindow();
+	HWND hFocus = ::GetForegroundWindow();
+	if (hConsole != hFocus)
+		return;
+
 	m_bCapsLockEnabled = GetAsyncKeyState(VK_CAPITAL) & 0x01;
 	m_bShiftPressed = (GetAsyncKeyState(VK_LSHIFT) & 0x8000) || (GetAsyncKeyState(VK_RSHIFT) & 0x8000);
 
