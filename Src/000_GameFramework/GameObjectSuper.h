@@ -3,7 +3,7 @@
 #include "Struct.h"
 #include "DisplayBuffer.h"
 
-class CDlgSuper;
+class CSceneSuper;
 class CGameObjectSuper
 {
 public:
@@ -16,10 +16,10 @@ public:
 	CGameObjectSuper(void);
 	~CGameObjectSuper(void);
 
-	virtual void Create(CDlgSuper* pParent);
-	virtual void OnDraw(CDisplayBuffer& destBuffer);
+	virtual void Create(CSceneSuper* pParent);
+	virtual void OnDrawUI(CDisplayBuffer& destBuffer);
 
-	virtual ST_POINT GetFrontPos(void);
-	virtual ST_POINT3 GetFrontPos3(void);
+	virtual ST_POINT3 GetPos(void);
+	virtual ST_POINT3 GetFrontPos(void);
 };
 

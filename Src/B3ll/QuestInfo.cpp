@@ -12,121 +12,174 @@ QuestInfo::~QuestInfo(void)
 {
 }
 
-void QuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
-{
-	ST_NPC_INFO npc;
-	strcpy_s(npc.szName, 21, "정종배");
-	npc.patch = 'p';
-	strcpy_s(npc.szGreetMessage, 61, "안녕하세요 취분트랙 정종배입니다;");
-
-	npc.vecBuffer.resize(60);
-	npc.vecBuffer[ 0] = "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
-	npc.vecBuffer[ 1] = "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
-	npc.vecBuffer[ 2] = "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
-	npc.vecBuffer[ 3] = "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.       @@@@@@@@";
-	npc.vecBuffer[ 4] = "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@           @@@@@@";
-	npc.vecBuffer[ 5] = "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@             @@@@@";
-	npc.vecBuffer[ 6] = "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.    @@@@@, .              @@@@";
-	npc.vecBuffer[ 7] = "@@@@@@@@@@@@@@@@@@@@@@@@@            @..                 @@@";
-	npc.vecBuffer[ 8] = "@@@@@@@@@@.      @@@                                     @@@";
-	npc.vecBuffer[ 9] = "@@@@@@@@ .        @                                      @@@";
-	npc.vecBuffer[10] = "@@@@@@@@                                                 @@@";
-	npc.vecBuffer[11] = "@@@@@@                                                   @@@";
-	npc.vecBuffer[12] = "@@@@@@.                                                  @@@";
-	npc.vecBuffer[13] = "@@@@@@.                                                  @@@";
-	npc.vecBuffer[14] = "@@@@@@.                                             ..   @@@";
-	npc.vecBuffer[15] = "@@@@@ .                                            ...   @@@";
-	npc.vecBuffer[16] = "@@@@@ .                                          ...  .  @@@";
-	npc.vecBuffer[17] = "@@@@@ .                                         ........,@@@";
-	npc.vecBuffer[18] = "@@@@@@,.                                         ,,,,,,..@@@";
-	npc.vecBuffer[19] = "@@@@@@...                         ,-,            ,,---;@@@@@";
-	npc.vecBuffer[20] = "@@@@@@,..,                       ;===:           ,--- @@@@@@";
-	npc.vecBuffer[21] = "@@@@@@-,..   ~                  .=$$==.           ~;@@@@@@@@";
-	npc.vecBuffer[22] = "@@@@@@@,,.  :=;                 ,=$$==~            ,@@@@@@@@";
-	npc.vecBuffer[23] = "@@@@@@@@,  .=$!.                ,=$#==-             @@@@@@@@";
-	npc.vecBuffer[24] = "@@@@@@@@   ,=$*.     -$:         !$$$=.             @@@@@@@@";
-	npc.vecBuffer[25] = "@@@@@@@@   ,=$!.    ,=$$.        .!*!-             @@@@@@@@@";
-	npc.vecBuffer[26] = "@@@@@@@@ . .!=;     -$$$-     .    ,.              @@@@@@@@@";
-	npc.vecBuffer[27] = "@@@@@@@@ .  :*.      =$#.     .                    @@@@@@@@@";
-	npc.vecBuffer[28] = "@@@@@@@@..           =$$;,    .                    @@@@@@@@@";
-	npc.vecBuffer[29] = "@@@@@@@@,. .    .   :$~:$*.   .                   @@@@@@@@@@";
-	npc.vecBuffer[30] = "@@@@@@@@,,..    .  .=;  -!.  ..                  .@@@@@@@@@@";
-	npc.vecBuffer[31] = "@@@@@@@@@.....   .  .    ....... . ... ....      .@@@@@@@@@@";
-	npc.vecBuffer[32] = "@@@@@@@@@@...... ..    ....,,.................   @@@@@@@@@@@";
-	npc.vecBuffer[33] = "@@@@@@@@@@,........,,.,,,,-,......,,,,,,,.....  .@@@@@@@@@@@";
-	npc.vecBuffer[34] = "@@@@@@@@@@@.........,,,,,,,.....,,,,,,,,,,,,.... @@@@@@@@@@@";
-	npc.vecBuffer[35] = "@@@@@@@@@@@.................,,,,,,,,,,,-,,,,..,@@@@@@@@@@@@@";
-	npc.vecBuffer[36] = "@@@@@@@@@@@@,.....,......,,,,,,,,,,-,,--,,,,,.@@@@@@@@@@@@@@";
-	npc.vecBuffer[37] = "@@@@@@@@@@@@@,....,....,,,,,,,,-,-,------,,,,,@@@@@@@@@@@@@@";
-	npc.vecBuffer[38] = "@@@@@@@@@@@@@@....,,,,---------------------,~,@@@@@@@@@@@@@@";
-	npc.vecBuffer[39] = "@@@@@@@@@@@@@@. .:!!**===*!!!!*****!!!;~--- $ @@@@@@@@@@@@@@";
-	npc.vecBuffer[40] = "@@@@@@@@@@@@@@, .*@@@@@@@#$$$##@@@@@@@#*~~ @@@@@@@@@@@@@@@@@";
-	npc.vecBuffer[41] = "@@@@@@@@@@@@@@~*###@@@@@@@@@@@@@@@@@@@@##@@@@@@@@@@@@@@@@@@@";
-	npc.vecBuffer[42] = "@@@@@@@@@@@@@#$####@@@@@@@@@@@@@@@@@@@@@#$@@@@@@@@@@@@@@@@@@";
-	npc.vecBuffer[43] = "@@@@@@@@@@@@##$$####@@@@@@@@@@@@@@@@@@@@###@@@@@@@@@@@@@@@@@";
-	npc.vecBuffer[44] = "@@@@@@@@@@@##$$#######@@@@@@@@@@@@@@@@@@###@@@@@@@@@@@@@@@@@";
-	npc.vecBuffer[45] = "@@@@@@@@@@@@$###########@@@@@@@@@@@@@@#@####@@@@@@@@@@@@@@@@";
-	npc.vecBuffer[46] = "@@@@@@@@@@@@$############@@@@@@@@#@@@@#@####@@@@@@@@@@@@@@@@";
-	npc.vecBuffer[47] = "@@@@@@@@@@@@#############@@@@@@@##@#@@@@@@##@@@@@@@@@@@@@@@@";
-	npc.vecBuffer[48] = "@@@@@@@@@@@#######################@##@@@@@##@@@@@@@@@@@@@@@@";
-	npc.vecBuffer[49] = "@@@@@@@@@@@##########################@@@@@###@@@@@@@@@@@@@@@";
-	npc.vecBuffer[50] = "@@@@@@@@@@@#######################$@###@@@@#$@@@@@@@@@@@@@@@";
-	npc.vecBuffer[51] = "@@@@@@@@@@@######################!,@###@@@@@#@@@@@@@@@@@@@@@";
-	npc.vecBuffer[52] = "@@@@@@@@@@@####################=,  @####@@#@#@@@@@@@@@@@@@@@";
-	npc.vecBuffer[53] = "@@@@@@@@@####################=~.   @###@@##@#@@@@@@@@@@@@@@@";
-	npc.vecBuffer[54] = "@@@@@@@@@###################;      @###@@@#@#@@@@@@@@@@@@@@@";
-	npc.vecBuffer[55] = "@@@@@@@@@################$!,       ####@@@@##$@@@@@@@@@@@@@@";
-	npc.vecBuffer[56] = "@@@@@@@@@##############$;,         =####@#@##$@@@@@@@@@@@@@@";
-	npc.vecBuffer[57] = "@@@@@@@@@@######@#####;            ;####@####$@@@@@@@@@@@@@@";
-	npc.vecBuffer[58] = "@@@@@@@@@@######@###$:             -##@@@#####@@@@@@@@@@@@@@";
-	npc.vecBuffer[59] = "@@@@@@@@@@####@#@##@=,              @#@@@@####@@@@@@@@@@@@@@";
-
-	vecNPC.push_back(npc);
-}
 
 void QuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
-	ST_QUEST_NPC_DATA npc;
-	npc.x = 10;
-	npc.y = 4;
-	npc.z = 6;
-	npc.nNpcID = 144;
-	npc.strTrack = "취약점분석트랙";
-	npc.strName = "정종배";
-	npc.nAge = 23;
-	npc.strMBTI = "INFP에 A형 입니다~";
-	npc.cPatch = 'J';
-	npc.strMessage = "뭐? 취약점이라고?? (호다ㅏㅏㄱ)";
+	{
+		ST_QUEST_NPC_DATA npc;
+		npc.x = 10;
+		npc.y = 4;
+		npc.z = 6;
+		npc.nNpcID = 144;
+		npc.strTrack = "취약점분석트랙";
+		npc.strName = "정종배";
+		npc.nAge = 23;
+		npc.strMBTI = "INFP가 맞나?";
+		npc.cPatch = 'J';
+		npc.strMessage =
+			"안녕하세요 취분트랙 정종배라고 합니다.\n" \
+			"Slipknot의 Eyeless라는 노래를 굉장히 좋아합니다.\n" \
+			"드림핵도 열심히 하고 있으니 보이면 친추해주시면 정말 기쁠 것 같습니다\n"\
+			"(B3ll 이라는 닉을 사용하고 있어요)\n"\
+			"시나리오 짜기 너무 힘드네요\n허허...";
 
-	npc.vecSmallImage.resize(25);
-	npc.vecSmallImage[0]  = "@@@@@@@@@@@@@@@@@@@@@@@@@";
-	npc.vecSmallImage[1]  = "@@@@@@@@@@@@@@@@@@@  @@@@";
-	npc.vecSmallImage[2]  = "@@@@@@@@@@@@@ @@@.     @@";
-	npc.vecSmallImage[3]  = "@@@@                    @";
-	npc.vecSmallImage[4]  = "@@@                     @";
-	npc.vecSmallImage[5]  = "@@.                     @";
-	npc.vecSmallImage[6]  = "@@.                  .  @";
-	npc.vecSmallImage[7]  = "@@.                 .,,.@";
-	npc.vecSmallImage[8]  = "@@..         .*~     --@@";
-	npc.vecSmallImage[9]  = "@@@. *       :$=     .@@@";
-	npc.vecSmallImage[10] = "@@@. $  -*.   *:      @@@";
-	npc.vecSmallImage[11] = "@@@. ;  -$-          @@@@";
-	npc.vecSmallImage[12] = "@@@,.   : = .       .@@@@";
-	npc.vecSmallImage[13] = "@@@@.......,....... .@@@@";
-	npc.vecSmallImage[14] = "@@@@@....,,..,,,,,..@@@@@";
-	npc.vecSmallImage[15] = "@@@@@..,..,,,,,--,,,@@@@@";
-	npc.vecSmallImage[16] = "@@@@@@.;!**;!***:-;@@@@@@";
-	npc.vecSmallImage[17] = "@@@@@#=#@@@@@@@@@#@@@@@@@";
-	npc.vecSmallImage[18] = "@@@@@####@@@@@@@@#@@@@@@@";
-	npc.vecSmallImage[19] = "@@@@@#####@@@#@@###@@@@@@";
-	npc.vecSmallImage[20] = "@@@@@##########@@@#@@@@@@";
-	npc.vecSmallImage[21] = "@@@@@########*:#@@#@@@@@@";
-	npc.vecSmallImage[22] = "@@@@#######$; -#@@#@@@@@@";
-	npc.vecSmallImage[23] = "@@@#######-   -#@##@@@@@@";
-	npc.vecSmallImage[24] = "@@@@##@#$     ,#@@#@@@@@@";
-	vecNPC.push_back(npc);
+		npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   @@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@        @@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          @@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@@@@@@@@@@@@@@@@.   @@@@ ..            @@@");
+		npc.vecBigImage.push_back("@@@@@@@@@     @@@@              .               @@");
+		npc.vecBigImage.push_back("@@@@@@@@..    @@@                               @@");
+		npc.vecBigImage.push_back("@@@@@@,                                         @@");
+		npc.vecBigImage.push_back("@@@@@@                                          @@");
+		npc.vecBigImage.push_back("@@@@@.                                          @@");
+		npc.vecBigImage.push_back("@@@@@.                                      .   @@");
+		npc.vecBigImage.push_back("@@@@@                                      ..   @@");
+		npc.vecBigImage.push_back("@@@@@.                                    .     @@");
+		npc.vecBigImage.push_back("@@@@@.                                  ......,@@@");
+		npc.vecBigImage.push_back("@@@@@,.                                  ,,,-,.@@@");
+		npc.vecBigImage.push_back("@@@@@...                    :;~          ----@@@@@");
+		npc.vecBigImage.push_back("@@@@@,...  .               :=$=;         ,- @@@@@@");
+		npc.vecBigImage.push_back("@@@@@@,,  :*               ;=$**.         .@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@.  =$,              ;=#=*.          @@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@  .=$~    .=!       -$$$!           @@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@. .=$.    !$$,       -;~           @@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@.. !*     :$$.                     @@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@.. .      ,$$,    .                @@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@, .      .*;:$~   .                @@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@-..      ~!. -~  ..      .        .@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@....  .      ...,....... ...     @@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@,............,-,......,.......   @@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@.......,,---,,....,,,,,,,,,....;@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@,........,....,,,,,,,,,,,,,,,..@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@@.....,.....,,,,,,,,,,---,,,,,@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@@@....,.,.,,,,,,,---------,,,@@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@@@@..,--~:;;:::::::~~~~----*,@@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@@@@, !#@@@@@$===#@@@###*:~:@@@@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@@@@-$##@@@@@@@@@@@@@@@@@#@@@@@@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@@@#$###@@@@@@@@@@@@@@@@@#$@@@@@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@@#$$####@@@@@@@@@@@@@@@@@##@@@@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@@#########@@@@@@@@@@@@@@###@@@@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@@$#########@@@@@@@#@@@@@@##@@@@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@@###########@@@@@@##@@@@@@##@@@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@####################@#@@@@##@@@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@######################@@@@@#@@@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@###################=####@@##@@@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@@#################$, $###@@@##@@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@######@#########$:   $###@####@@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@###############*     $###@@@##@@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@####@#@######;.      =###@@@#$@@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@##########$;,        ;###@#@#$@@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@#########$.          -##@@###$@@@@@@@@@@@@");
+		npc.vecBigImage.push_back("@@@@@@@@####@@##@:            ###@@###@@@@@@@@@@@@");
+
+		npc.vecSmallImage.push_back("@@@@@@@@@@@@@@@@@@@@@@@@@");
+		npc.vecSmallImage.push_back("@@@@@@@@@@@@@@@@@@@  @@@@");
+		npc.vecSmallImage.push_back("@@@@@@@@@@@@@ @@@.     @@");
+		npc.vecSmallImage.push_back("@@@@                    @");
+		npc.vecSmallImage.push_back("@@@                     @");
+		npc.vecSmallImage.push_back("@@.                     @");
+		npc.vecSmallImage.push_back("@@.                  .  @");
+		npc.vecSmallImage.push_back("@@.                 .,,.@");
+		npc.vecSmallImage.push_back("@@..         .*~     --@@");
+		npc.vecSmallImage.push_back("@@@. *       :$=     .@@@");
+		npc.vecSmallImage.push_back("@@@. $  -*.   *:      @@@");
+		npc.vecSmallImage.push_back("@@@. ;  -$-          @@@@");
+		npc.vecSmallImage.push_back("@@@,.   : = .       .@@@@");
+		npc.vecSmallImage.push_back("@@@@.......,....... .@@@@");
+		npc.vecSmallImage.push_back("@@@@@....,,..,,,,,..@@@@@");
+		npc.vecSmallImage.push_back("@@@@@..,..,,,,,--,,,@@@@@");
+		npc.vecSmallImage.push_back("@@@@@@.;!**;!***:-;@@@@@@");
+		npc.vecSmallImage.push_back("@@@@@#=#@@@@@@@@@#@@@@@@@");
+		npc.vecSmallImage.push_back("@@@@@####@@@@@@@@#@@@@@@@");
+		npc.vecSmallImage.push_back("@@@@@#####@@@#@@###@@@@@@");
+		npc.vecSmallImage.push_back("@@@@@##########@@@#@@@@@@");
+		npc.vecSmallImage.push_back("@@@@@########*:#@@#@@@@@@");
+		npc.vecSmallImage.push_back("@@@@#######$; -#@@#@@@@@@");
+		npc.vecSmallImage.push_back("@@@#######-   -#@##@@@@@@");
+		npc.vecSmallImage.push_back("@@@@##@#$     ,#@@#@@@@@@");
+
+		npc.strContents1 =
+			"(눈을 떠보니 낯선 천장....\n" \
+			"이 아니라 하늘이다.)\n" \
+			"어라? 내가 어제 밖에서 잤었나?\n"\
+			"(주위를 둘러 보며)\n"\
+			"일단 움직여 보자\n";
+		npc.strContents2 =
+			"아직까진 버틸만 하구만\n";
+		npc.strContents3 =
+			"아.......\n"\
+			"집 가고 싶다....\n";
+		npc.strContents4 =
+			"고생했다...\n"\
+			"이제 집가자....\n";
+
+		vecNPC.push_back(npc);
+	}
 }
 
-void QuestInfo::QueryQuest(std::vector<ST_QUEST_DATA*>& vecQuest)
+void QuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 {
+	ST_QUEST_OBJECT stObject;
+	stObject.nQuestObjectId = 262;
+	stObject.strName = "갤럭시S 21 Ultra";
+	stObject.cPatch = 'S';
+	stObject.x = 21;
+	stObject.y = 17;
+	stObject.z = 5;
+	stObject.reserved = 0;
+	vecQuestObject.push_back(stObject);
+}
+
+void QuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
+{
+	// 정종배
+	{
+		ST_QUEST_DATA stQuest;
+		stQuest.nNpcId = 144;
+		stQuest.StartCondition = ST_FILTER(144, 0X0000, 0X0001);
+		stQuest.vecMessages.push_back("으어.....");
+		stQuest.vecMessages.push_back("겁나 피곤하네\n첫 수업 과제부터 퍼징이라니....");
+		stQuest.vecMessages.push_back("그나저나 내 폰 어디에다가 떨어트렸지?");
+		stQuest.vecMessages.push_back("친구야 혹시 내 핸드폰 좀 갖다줄 수 있어??");
+		stQuest.vecMessages.push_back("아마 5층 (21, 17)지점에 두고 온 거 같아");
+		stQuest.ClearCondition = ST_FILTER(144, 0x0003);
+		vecQuest.push_back(stQuest);
+	}
+
+	// 스마트폰
+	{
+		ST_QUEST_DATA stQuest;
+		stQuest.nNpcId = 262;
+		stQuest.StartCondition = ST_FILTER(144, 0x0001, 0x0003);
+		stQuest.vecMessages.push_back("네모난 뭔가가 있다.");
+		stQuest.vecMessages.push_back("이건가?");
+		stQuest.vecMessages.push_back("[갤럭시S 21 Ultra]를 획득했습니다.");
+		stQuest.ClearCondition = ST_FILTER(144, 0x0007);
+		vecQuest.push_back(stQuest);
+	}
+
+	// 정종배
+	{
+		ST_QUEST_DATA stQuest;
+		stQuest.nNpcId = 144;
+		stQuest.StartCondition = ST_FILTER(144, 0x0003, 0x0007);
+		stQuest.vecMessages.push_back("오 고마워");
+		stQuest.vecMessages.push_back("이게 없으면 QR체크인을 못하거든");
+		stQuest.vecMessages.push_back("오랜만에 센터에 왔는데 다시 돌아갈 순 없지");
+		stQuest.ClearCondition = ST_FILTER(144, 0x000F);
+		vecQuest.push_back(stQuest);
+
+	}
 }

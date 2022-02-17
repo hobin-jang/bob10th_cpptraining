@@ -14,3 +14,6 @@
 #include "PictureUI.h"
 #include "TextUI.h"
 #include "AlarmUI.h"
+#include "EditBox.h"
+#include "MessageBox.h"
+#include "HelperClass.h"

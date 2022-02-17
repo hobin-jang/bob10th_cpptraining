@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "QuestInfo.h"
+#include "MiniGame.h"
 
 static CQuestInfo g_QuestInfo;
 
@@ -9,10 +10,6 @@ CQuestInfo::CQuestInfo(void)
 }
 
 CQuestInfo::~CQuestInfo(void)
-{
-}
-
-void CQuestInfo::QueryNpc(std::vector<ST_NPC_INFO>& vecNPC)
 {
 }
 
@@ -180,7 +177,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		stQuest.StartCondition = ST_FILTER(148, 0x0000, 0x0001);
 		stQuest.vecMessages.push_back("지친다 지쳐...");
 		stQuest.vecMessages.push_back("아직도 7월이라고? 난 1년이나 보낸거 같은데");
-		stQuest.vecMessages.push_back("이봐, 잘생긴 친구. 내 이야기를 부탁을 들어줘.");
+		stQuest.vecMessages.push_back("이봐, 잘생긴 친구. 내 부탁을 들어줘.");
 		stQuest.vecMessages.push_back("센터 1층에 맛있는 술이 있는데 가져다주지 않을래?");
 		stQuest.vecMessages.push_back("그거라도 마시지 않으면 이 험한 세상에서 제정신을 붙잡지 못하겠어.");
 		stQuest.vecMessages.push_back("고마워.기다릴게.");
@@ -207,8 +204,8 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		stQuest.nNpcId = 148;
 		stQuest.StartCondition = ST_FILTER(148, 0x0003, 0x0007);
 		stQuest.vecMessages.push_back("내 부탁을 들어주다니 정말 고마워.");
-		stQuest.vecMessages.push_back("(꿀꺽꿀꺽)");
 		stQuest.vecMessages.push_back("[진로이즈백]을 [이창모]에게 전달했습니다.");
+		stQuest.vecMessages.push_back("(꿀꺽꿀꺽)");
 		stQuest.vecMessages.push_back("근데 이걸 마시다 보니까 안주가 좀 땡기네.");
 		stQuest.vecMessages.push_back("이왕 마실 거 제대로 마셔야되지 않겠어?");
 		stQuest.vecMessages.push_back("아까 소주를 찾은 위치에 내가 정말 좋아하는 안주가 하나 있어.");
@@ -253,4 +250,14 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		stQuest.ClearCondition = ST_FILTER(148, 0x003F);
 		vecQuest.push_back(stQuest);
 	}
+
+	//// 미니게임
+	//{
+	//	ST_QUEST_DATA stQuest;
+	//	stQuest.nNpcId = 148;
+	//	stQuest.StartCondition = ST_FILTER(148, 0x001F, 0x003F);
+	//	stQuest.vecMessages.push_back("미니게임 한번할래?");
+	//	stQuest.pMiniGame = new CMiniGame();
+	//	vecQuest.push_back(stQuest);
+	//}
 }

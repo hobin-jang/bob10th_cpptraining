@@ -4,18 +4,19 @@
 #include <string>
 #include "Struct.h"
 #include "DisplayBuffer.h"
+#include "Console.h"
 
-class CConsoleOutput
+class CConsoleOutput : private CConsole
 {
     CDisplayBuffer m_BackBuffer;
     int m_nViewWidth;
     int m_nViewHeight;
 
-
 public:
     CConsoleOutput(void);
 
     bool InitConsole(std::string strTitle, int w, int h);
+    void InitBackBuffer(int w, int h);
     void SetViewPort(int w, int h);
 
     CDisplayBuffer& GetBackBuffer(void)    {    return m_BackBuffer;    }

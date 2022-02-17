@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "UISuper.h"
 #include "DlgSuper.h"
+#include "HelperClass.h"
 
 CUISuper::CUISuper(void)
 	: m_Pos()
@@ -15,18 +16,51 @@ CUISuper::~CUISuper(void)
 {
 }
 
-void CUISuper::Create(CDlgSuper* pParent, int l, int t, int r, int b, DWORD dwAttribute)
+void CUISuper::Create(CDlgSuper* pParent, short l, short t, short r, short b, DWORD dwAttribute)
+{
+	Create(pParent, ST_POINT{ l, t }, ST_SIZE{r - l - 1, b - t - 1}, dwAttribute);
+}
+
+void CUISuper::Create(CDlgSuper* pParent, ST_POINT pos, ST_SIZE size, DWORD dwAttribute)
 {
 	m_dwAttribute = dwAttribute;
 	if (pParent)
 		pParent->AddUI(this);
-	SetRect(l, t, r, b);
+	SetPos(pos);
+	SetSize(size);
+
+	if (UI_ATTRIBUTE_NO_ANIMATION & m_dwAttribute)
+	{
+		m_Pos.x = pos.x;
+		m_Pos.y = pos.y;
+		m_Size.x = size.cx;
+		m_Size.y = size.cy;
+	}
+	else
+	{
+		int nCenterX = (g_nConsoleW - size.cx) / 2;
+		int nCenterY = (g_nConsoleH - size.cy) / 2;
+
+		if (pos.x < 0)
+			m_Pos.x = g_nConsoleW;
+		else if ((pos.x + size.cx) < (g_nConsoleW / 2))
+			m_Pos.x = -size.cx;
+		else
+			m_Pos.x = nCenterX;
+
+		if (pos.y < 0)
+			m_Pos.y = g_nConsoleH;
+		else if ((pos.y + size.cy) < (g_nConsoleH / 2))
+			m_Pos.y = -size.cy;
+		else
+			m_Pos.y = nCenterY;
+	}
 	OnCreate();
 }
 
 void CUISuper::Create(CDlgSuper* pParent, ST_RECT rt, DWORD dwAttribute)
 {
-	Create(pParent, rt.l, rt.t, rt.r, rt.b, dwAttribute);
+	Create(pParent, ST_POINT{ rt.l, rt.t }, ST_SIZE{ rt.r - rt.l - 1, rt.b - rt.t - 1 }, dwAttribute);
 }
 
 void CUISuper::SetText(std::string strText)
@@ -39,16 +73,20 @@ void CUISuper::SetText(std::wstring strText)
 	m_strText = strText;
 }
 
-void CUISuper::SetPos(ST_POINT pos)
+void CUISuper::SetPos(ST_POINT pos, bool bNoAnimate)
 {
-	m_TargetPos.x = pos.x;
-	m_TargetPos.y = pos.y;
+	m_TargetPos.x = pos.x < 0 ? g_nConsoleW + pos.x : pos.x;
+	m_TargetPos.y = pos.y < 0 ? g_nConsoleH + pos.y : pos.y;
+	if (bNoAnimate)
+		m_Pos = m_TargetPos;
 }
 
-void CUISuper::SetSize(ST_SIZE size)
+void CUISuper::SetSize(ST_SIZE size, bool bNoAnimate)
 {
 	m_TargetSize.x = size.cx;
 	m_TargetSize.y = size.cy;
+	if (bNoAnimate)
+		m_Size = m_TargetSize;
 	OnSize();
 }
 
@@ -81,17 +119,17 @@ bool CUISuper::IsVisible(void)
 
 ST_POINT CUISuper::GetPos(void)
 {
-	return ST_POINT{ (short)m_TargetPos.x, (short)m_TargetPos.y };
+	return CPoint(m_TargetPos.x, m_TargetPos.y);
 }
 
 ST_SIZE CUISuper::GetSize(void)
 {
-	return ST_SIZE {(short)m_TargetSize.x, (short)m_TargetSize.y};
+	return CSize(m_TargetSize.x, m_TargetSize.y);
 }
 
 ST_RECT CUISuper::GetRect(void)
 {
-	return ST_RECT(GetPos(), GetSize());
+	return CRect(GetPos(), GetSize());
 }
 
 void CUISuper::OnCreate(void)
@@ -119,8 +157,12 @@ void CUISuper::OnUpdate(DWORD dwCurrentTick, DWORD dwElapsedTick)
 
 }
 
-void CUISuper::OnDraw(CDisplayBuffer& vecBuffer)
+void CUISuper::OnDrawWorld(CDisplayBuffer& vecBuffer)
+{
+}
+
+void CUISuper::OnDrawUI(CDisplayBuffer& vecBuffer)
 {
 	if( 0 == (m_dwAttribute & UI_ATTRIBUTE_NO_BORDER))
-		vecBuffer.DrawRectangle((int)m_Pos.x, (int)m_Pos.y, (int)m_Pos.x + m_Size.x + 1, (int)m_Pos.y + m_Size.y + 1);
+		vecBuffer.DrawRectangle((int)m_Pos.x, (int)m_Pos.y, (int)m_Pos.x + m_Size.x - 1, (int)m_Pos.y + m_Size.y - 1);
 }

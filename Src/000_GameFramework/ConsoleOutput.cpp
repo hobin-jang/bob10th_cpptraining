@@ -4,7 +4,8 @@
 #include "Setting.h"
 
 CConsoleOutput::CConsoleOutput(void)
-    : m_BackBuffer()
+    : CConsole()
+    , m_BackBuffer()
     , m_nViewWidth(0)
     , m_nViewHeight(0)
 {
@@ -15,41 +16,7 @@ bool CConsoleOutput::InitConsole(std::string strTitle, int w, int h)
     try
     {
         SetConsoleTitleA(strTitle.c_str());
-
-        m_BackBuffer.resize(h + 1);
-        for (auto& strLine : m_BackBuffer)
-            strLine.resize(w + 1, ' ');
-
-        // Set output mode to handle virtual terminal sequences
-        HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
-        if (hOut == INVALID_HANDLE_VALUE)
-            throw std::runtime_error("Failed to GetStdHandle(STD_OUTPUT_HANDLE)");
-
-        DWORD dwMode = 0;
-        if (!GetConsoleMode(hOut, &dwMode))
-            throw std::runtime_error("Failed to GetConsoleMode()");
-
-        dwMode |= DISABLE_NEWLINE_AUTO_RETURN | ENABLE_VIRTUAL_TERMINAL_PROCESSING;
-        if (!SetConsoleMode(hOut, dwMode))
-            throw std::runtime_error("Failed to SetConsoleMode(ENABLE_VIRTUAL_TERMINAL_PROCESSING)");
-
-        CONSOLE_SCREEN_BUFFER_INFOEX stBufferInfo;
-        stBufferInfo.cbSize = sizeof(stBufferInfo);
-        if (!GetConsoleScreenBufferInfoEx(hOut, &stBufferInfo))
-            throw std::runtime_error("Failed to GetConsoleScreenBufferInfoEx");
-
-        stBufferInfo.dwSize.X = w * 2 + 10;
-        stBufferInfo.dwSize.Y = h + 10;
-        stBufferInfo.dwMaximumWindowSize.X = w * 2 + 10;
-        stBufferInfo.dwMaximumWindowSize.Y = h + 10;
-        if (!SetConsoleScreenBufferInfoEx(hOut, &stBufferInfo))
-            throw std::runtime_error("Failed to SetConsoleScreenBufferInfoEx");
-
-        SMALL_RECT stDisplayArea = { 0, 0, w + 3, h + 3 };
-        if(!SetConsoleWindowInfo(hOut, TRUE, &stDisplayArea))
-            throw std::runtime_error("Failed to SetConsoleWindowInfo");
-
-        SetConsoleActiveScreenBuffer(hOut);
+        __super::Create(w, h);
     }
     catch (const std::exception& e)
     {
@@ -60,10 +27,17 @@ bool CConsoleOutput::InitConsole(std::string strTitle, int w, int h)
     return true;
 }
 
+void CConsoleOutput::InitBackBuffer(int w, int h)
+{
+    m_BackBuffer.resize(h + 1);
+    for (auto& strLine : m_BackBuffer)
+        strLine.resize(w + 1, ' ');
+}
+
 void CConsoleOutput::SetViewPort(int w, int h)
 {
-    m_nViewWidth = w + 1;
-    m_nViewHeight = h + 1;
+    m_nViewWidth = w;
+    m_nViewHeight = h;
 }
 
 void CConsoleOutput::Flip(const ST_VECTOR& pos, CDisplayBuffer& vecDisplayBuffer)
@@ -103,30 +77,18 @@ struct ST_PROFILE
     ~ST_PROFILE(void)
     {
         DWORD dwElapsedTick = GetTickCount() - dwStartTick;
-        printf("ElapsedTick:%u\n", dwElapsedTick);
+        char szBuffer[101] = { 0, };
+        sprintf_s(szBuffer, 100, "ElapsedTick:%u\n", dwElapsedTick);
+        OutputDebugStringA(szBuffer);
     }
 };
 
 void CConsoleOutput::Render(const CDisplayBuffer& vecDisplayBuffer)
-{
-    ST_PROFILE profile;
+{    
+    for (size_t y = 0; y<vecDisplayBuffer.size(); y++)
     {
-        // ANSI Escape sequence
-        // 참고: http://ascii-table.com/ansi-escape-sequences-vt-100.php
-        printf("\x1b[H");
-    }
+        const std::wstring& strLineW = vecDisplayBuffer[y];
 
-    {   // FPS 표기
-        static std::list<DWORD> s_FrameTick;
-        DWORD dwCurrentTick = GetTickCount();
-        s_FrameTick.push_back(dwCurrentTick);
-        while (s_FrameTick.front() + 1000 < dwCurrentTick)
-            s_FrameTick.pop_front();
-        printf("%*uFPS\n", g_nConsoleW * 2 - 2, (DWORD)s_FrameTick.size());
-    }
-
-    for (const std::wstring& strLineW : vecDisplayBuffer)
-    {
         size_t tPos = 0;
         std::string strOutput;
         strOutput.resize(strLineW.length() * 2);
@@ -152,7 +114,20 @@ void CConsoleOutput::Render(const CDisplayBuffer& vecDisplayBuffer)
                 strOutput[tPos++] = w;
         }
         strOutput.resize(tPos);
-        printf("%s\n", strOutput.c_str());
+        __super::Print(0, y, strOutput);
     }
+    
+    {   // FPS 표기
+        static std::list<DWORD> s_FrameTick;
+        DWORD dwCurrentTick = GetTickCount();
+        s_FrameTick.push_back(dwCurrentTick);
+        while (s_FrameTick.front() + 1000 < dwCurrentTick)
+            s_FrameTick.pop_front();
+
+        char szBuffer[101];
+        sprintf_s(szBuffer, 100, "%uFPS", (DWORD)s_FrameTick.size());
+        __super::Print(0, 0, szBuffer);
+    }
+    __super::Render();
 }
 

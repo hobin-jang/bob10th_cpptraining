@@ -11,13 +11,15 @@ public:
 	CTextUI(void);
 	virtual ~CTextUI(void);
 
-	void Clear(void);
-	void AddText(std::string strText);
-	void AddText(std::wstring strText);
+	virtual void Clear(void);
+	virtual void SetText(std::string strText);
+	virtual void SetText(std::wstring strText);
+	virtual void AddText(std::string strText);
+	virtual void AddText(std::wstring strText);
 	size_t GetLineCount(void);
 
 	virtual void OnSize(void);
-	virtual void OnDraw(CDisplayBuffer& vecBuffer);
+	virtual void OnDrawUI(CDisplayBuffer& vecBuffer);
 
 private:
 	void SeperarateLines(void);

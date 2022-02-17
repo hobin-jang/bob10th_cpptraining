@@ -4,13 +4,28 @@
 #include "ConsoleOutput.h"
 #include "Camera.h"
 
-extern CKeyInput g_Input;
-extern CConsoleOutput g_Output;
+struct ST_GAME_DATA
+{
+	DWORD dwFPS;
+	short nConsoleW;
+	short nConsoleH;
+	short nBackBufferWidth;
+	short nBackBufferHeight;
+
+	CKeyInput input;
+	CConsoleOutput output;
+
+	ST_GAME_DATA(void);
+	void Init(std::string strTitle, DWORD dwKeyRepeatInterval);
+};
+
+extern ST_GAME_DATA* g_pGameData;
 extern CCamera g_Camera;
 
 extern DWORD g_dwFPS;
 extern short g_nConsoleW;
 extern short g_nConsoleH;
+extern int g_nDeltaTick;
+extern double g_dDeltaTime;
 
-const int g_nDeltaTick = 1000 / g_dwFPS;
-const double g_dDeltaTime = 1.0 / g_dwFPS;
+void InitGame(ST_GAME_DATA* pGameData);

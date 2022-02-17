@@ -30,11 +30,11 @@ void CPictureUI::SetImage(CDisplayBuffer vecImage)
 	}
 }
 
-void CPictureUI::OnDraw(CDisplayBuffer& vecBuffer)
+void CPictureUI::OnDrawUI(CDisplayBuffer& vecBuffer)
 {
-	__super::OnDraw(vecBuffer);
-	int nBufferY = m_TargetPos.y + 1;
-	int nBottom = (int)(m_Pos.y + m_Size.y + 1);
+	__super::OnDrawUI(vecBuffer);
+	int nBufferY = m_Pos.y + 1;
+	int nBottom = (int)(m_Pos.y + m_Size.y - 1);
 	nBottom = std::min<int>(nBottom, (int)vecBuffer.size() - 1);
 
 	for (const std::wstring& strSrcLine : m_vecImageData)
@@ -43,8 +43,6 @@ void CPictureUI::OnDraw(CDisplayBuffer& vecBuffer)
 		if (nBottom <= y)
 			break;
 
-		const size_t tMaxBuffLength = vecBuffer[y].size() - (m_Pos.x + 1);
-		int w = std::min<int>(std::min<int>(m_Size.x, strSrcLine.size()), tMaxBuffLength);
-		memcpy((void*)&vecBuffer[y][m_Pos.x+1], strSrcLine.c_str(), w * sizeof(wchar_t));
+		vecBuffer.DrawString(m_Pos.x + 1, y, strSrcLine, m_Size.x - 2);
 	}
 }

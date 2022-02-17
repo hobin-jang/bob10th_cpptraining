@@ -148,9 +148,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TestScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TestScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Src\000_GameFramework\000_GameFramework.vcxproj">
@@ -158,9 +160,6 @@
     </ProjectReference>
     <ProjectReference Include="..\..\Src\100_QuestFramework\100_QuestFramework.vcxproj">
       <Project>{b7e6565e-6919-4241-8b28-5679efe3d4ef}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\comstering\comstering.vcxproj">
-      <Project>{c523ca10-cbd7-4ecd-afa6-5830dbc46843}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
