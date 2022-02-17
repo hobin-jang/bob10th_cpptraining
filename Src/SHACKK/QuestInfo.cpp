@@ -19,9 +19,9 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
         npc.nNpcID = 132;
         npc.strTrack = "보안제품개발";
         npc.strName = "BABY 임창현";
-        npc.x = 12;
-        npc.y = 9;
-        npc.z = 7;
+        //npc.x = 12;
+        //npc.y = 9;
+        //npc.z = 7;
         npc.cPatch = 'B';
         npc.nAge = 5;
         npc.strMBTI = "저는 MBTI가 BABY\n"
@@ -99,7 +99,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
         npc.vecSmallImage.push_back("@@@@@               @@@@@");
         npc.vecSmallImage.push_back("@@@@@               @@@@@");
         npc.vecSmallImage.push_back("@@@@@@@           @@@@@@@");
-        npc.vecSmallImage.push_back("@@@@@@@@@       @@@@@@@@@");
+        npc.vecSmallImage.push_back("@@@@@@@@@@@@@@@@@@@@@@@@@");
 
         npc.strContents1 = "응애...\n"
             "요기가 어디얌...\n"
@@ -122,38 +122,31 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 
         vecNPC.push_back(npc);
     }
-
-    {
-        ST_QUEST_NPC_DATA npc;
-        npc.x = 7;
-        npc.y = 20;
-        npc.z = 5;
-        npc.nNpcID = 156;
-        npc.strTrack = "보안제품개발트랙";
-        npc.strName = "어린이 창현";
-        npc.nAge = 5;
-        npc.strMBTI = "LOVE 사랑해요 여러분";
-        npc.cPatch = 'L';
-        npc.strMessage = "멀봐?(사춘기인듯하다)";
-        
-
-        npc.strContents1 = "";
-
-        vecNPC.push_back(npc);
-    }
     
 }
 
 void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 {
+    /*{
+        ST_QUEST_OBJECT stObject;
+        stObject.nQuestObjectId = 156;
+        stObject.strName = "어린이 창현";
+        stObject.cPatch = 'L';
+        stObject.x = 7;
+        stObject.y = 20;
+        stObject.z = 5;
+        stObject.reserved = 0;
+        vecQuestObject.push_back(stObject);
+    }*/
+
     {
         ST_QUEST_OBJECT stObject;
         stObject.nQuestObjectId = 157;
         stObject.strName = "청소년 창현";
         stObject.cPatch = 'L';
         stObject.x = 5;
-        stObject.y = 9;
-        stObject.z = 16;
+        stObject.y = 5;
+        stObject.z = 17;
         stObject.reserved = 0;
         vecQuestObject.push_back(stObject);
     }
@@ -185,7 +178,7 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
     {
         ST_QUEST_OBJECT stObject;
         stObject.nQuestObjectId = 273;
-        stObject.strName = "잊혀진 기억 1";
+        stObject.strName = "잊혀진 기억 1 퀘스트 시작";
         stObject.cPatch = '.';
         stObject.x = 10;
         stObject.y = 23;
@@ -197,7 +190,7 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
     {
         ST_QUEST_OBJECT stObject;
         stObject.nQuestObjectId = 279;
-        stObject.strName = "잊혀진 기억 2";
+        stObject.strName = "잊혀진 기억 2 퀘스트 시작";
         stObject.cPatch = '.';
         stObject.x = 21;
         stObject.y = 17;
@@ -209,7 +202,7 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
     {
         ST_QUEST_OBJECT stObject;
         stObject.nQuestObjectId = 280;
-        stObject.strName = "낡은 쪽지";
+        stObject.strName = "낡은 쪽지 퀘스트 시작";
         stObject.cPatch = '.';
         stObject.x = 6;
         stObject.y = 8;
@@ -243,7 +236,7 @@ void CQuestInfo::QueryQuestItem(std::vector<ST_QUEST_ITEM_DATA>& vecQuestItem)
         ST_QUEST_ITEM_DATA item;
         item.btId = 133;
         item.strName = "낡은 쪽지";
-        item.strDesc = "<암호 : 창현 짱짱맨님, 치킨 받으러 왔습니다.>";
+        item.strDesc = "<너무 악필이라 알아볼 수 없다..>";
         item.nHP = 0;
         item.nMP = 0;
         vecQuestItem.push_back(item);
@@ -281,37 +274,9 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
         monster.vecRewardItems.push_back(132);
     }
 }
+
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 {
-    //{
-    //    ST_QUEST_DATA stQuest;
-    //    stQuest.nNpcId = 158;
-    //    stQuest.StartCondition = ST_FILTER(132, 0x0000, 0x001);
-    //    stQuest.vecMessages.push_back("너...노트북도 없이 빈손으로 온거냠...");
-    //    stQuest.vecMessages.push_back("기본이 안되있구만 기본이!!");
-    //    stQuest.vecMessages.push_back("뭐? 돈이 없다고? 그럴수있지..ㅎㅎ");
-    //    stQuest.vecMessages.push_back("로비의 [김우진 연구원님]에게 가면 노트북을 줄꺼얌");
-    //    stQuest.vecMessages.push_back("가서 받아오도록!!");
-    //    stQuest.ClearCondition = ST_FILTER(132, 0x0003);
-    //    vecQuest.push_back(stQuest);
-    //}
-
-    //{
-    //    ST_QUEST_DATA stQuest;
-    //    stQuest.nNpcId = 63;
-    //    stQuest.StartCondition = ST_FILTER(132, 0x0001, 0x0003);
-    //    stQuest.vecMessages.push_back("교육생이구나! 안녕?");
-    //    stQuest.vecMessages.push_back("아직 노트북 수령을 못했구나??");
-    //    stQuest.vecMessages.push_back("[Galaxy Book Pro]을 획득했습니다.");
-    //    stQuest.vecMessages.push_back("여기!! 열공해~~");
-    //    stQuest.vecMessages.push_back("(뭐야...진짜주네? ㄷㄷ)");
-    //    stQuest.vecMessages.push_back("다시 [아기 창현]에게 가보자");
-    //    //stQuest.vecMessages.push_back("돈줄테니까 왼쪽에 컴퓨터 상점에서 구매하면 돼~");
-    //    //stQuest.vecMessages.push_back("[1,500,000원]을 획득했습니다.");
-    //    //이후 추가되는 NPC 정보에 따라서 BoB트북 획득 과정을 어렵게 할 예정
-    //    stQuest.ClearCondition = ST_FILTER(132, 0x0007);
-    //    vecQuest.push_back(stQuest);
-    //}
 
     {
         ST_QUEST_DATA stQuest;
@@ -340,46 +305,34 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("앞으로 공부하다 보면 수많은 샷건을 치게 될겁니다..");
         stQuest.vecMessages.push_back("반드시.. 컴퓨터가 고장나지 않을 만큼의 힘(F = ma)을 계산해서 샷건을 쳐야하며..");
         stQuest.vecMessages.push_back("샷건을 치다 피가날 경우 염증으로부터의…...");
-        stQuest.vecMessages.push_back("(먼소리지.. 에라잇, 도망가자)");
+        stQuest.vecMessages.push_back("(좀 이상한데.. 에라잇, 도망가자)");
         stQuest.vecMessages.push_back("R.U.N");
         stQuest.ClearCondition = ST_FILTER(132, 0x001F);
         vecQuest.push_back(stQuest);
     }
 
+    // 7F : 아기 창현
     {
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 158;
         stQuest.StartCondition = ST_FILTER(132, 0x000F, 0x001F);
-        stQuest.vecMessages.push_back("ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ");
-        stQuest.vecMessages.push_back("당황했니??");
-        stQuest.vecMessages.push_back("앞으로 BoB생활을 하다보면 말이얌..!");
-        stQuest.vecMessages.push_back("더욱 황당한 일이 많이 생길꺼얌!");
-        stQuest.vecMessages.push_back("예를들면... 분명오늘 과제가 1개였는데..");
-        stQuest.vecMessages.push_back("잘때쯤엔 과제가 5개가 되있다던지..ㅎㅎ");
-        stQuest.vecMessages.push_back("과제를 계속 하는데도 오히려 늘어나기만 했지..");
+        stQuest.vecMessages.push_back("뭐?? 전상현 멘토님이 이상한 소리를 하신다고??");
+        stQuest.vecMessages.push_back("게임개발 하시느라 많이 힘드셨나보다...");
+        stQuest.vecMessages.push_back("\"코딩병\"이라는 현상이야");
+        stQuest.vecMessages.push_back("멘토, 멘티 불문하고 빡센 일정을 소화하다 보니,");
+        stQuest.vecMessages.push_back("BoB 생활을 하다보면 흔히 과부하가 발생하곤 하지..");
         stQuest.vecMessages.push_back("암튼! 나는 BoB생활을 하면서 미리 알면 좋은 팁들을 준비해뒀단담ㅎㅎ");
         stQuest.vecMessages.push_back("탑을 오르다보면 계속해서 나를 만날 수 있을꺼얌!");
         stQuest.vecMessages.push_back("그때마다 나를 도와준다면, BoB 활동을 하면서 알게된 팁들을 공유해줄껨!!");
-        stQuest.vecMessages.push_back("많은 도움이 되길 바랄껨!!");
-        stQuest.vecMessages.push_back("아, 우선 5층의 어린 창현이에게 가봐!");
-        stQuest.ClearCondition = ST_FILTER(132, 0x003F);
-        vecQuest.push_back(stQuest);
-    }
-
-    // 5F : 어린 창현
-    {
-        ST_QUEST_DATA stQuest;
-        stQuest.nNpcId = 156;
-        stQuest.StartCondition = ST_FILTER(132, 0x001F, 0x003F);
-        stQuest.vecMessages.push_back("안녕!");
-        stQuest.vecMessages.push_back("벌써 전직을 했구나..!");
-        stQuest.vecMessages.push_back("잠시 쉬어갈겸.. 내 이야기를 들어보는게 어떠냠..?");
-		stQuest.vecMessages.push_back("앞으로 공통수업, 트랙교육때 꿀팁을 알려주겠담..!");
-        stQuest.vecMessages.push_back("잠깐만.... 기억이나질 않는담..");
+        stQuest.vecMessages.push_back("첫 번째 팁!!");
+        stQuest.vecMessages.push_back("..");
+        stQuest.vecMessages.push_back("....");
+        stQuest.vecMessages.push_back(";;;;;;;");
+        stQuest.vecMessages.push_back("잠깐만...기억이 나질 않는담..");
         stQuest.vecMessages.push_back("아무래도 옆방에서 놀다가 [잊혀진 기억1]을 흘린거같담ㅠㅠ");
         stQuest.vecMessages.push_back("난 공부하느라 바쁘니까 좀 찾아주람!!");
         stQuest.vecMessages.push_back("오른쪽 방을 뒤져보면 있을거담!!");
-        stQuest.ClearCondition = ST_FILTER(132, 0x007F);
+        stQuest.ClearCondition = ST_FILTER(132, 0x003F);
         vecQuest.push_back(stQuest);
         
     }
@@ -388,7 +341,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
     {
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 273;
-        stQuest.StartCondition = ST_FILTER(132, 0x003F, 0x007F);
+        stQuest.StartCondition = ST_FILTER(132, 0x001F, 0x003F);
         stQuest.vecMessages.push_back("(무엇인가 반짝인다..)");
         stQuest.vecMessages.push_back("(혹시 이건가...?");
         stQuest.vecMessages.push_back("(엇...쥐가 갉아먹고있는데??)");
@@ -397,14 +350,14 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.ClearBattle.vecMonster.push_back(20006);
         stQuest.vecMessages.push_back("[잊혀진 기억1]을 획득했습니다.");
         stQuest.vecMessages.push_back("(일단 가져가보자..)");
-        stQuest.ClearCondition = ST_FILTER(132, 0x00FF);
+        stQuest.ClearCondition = ST_FILTER(132, 0x007F);
         vecQuest.push_back(stQuest);
     }
 
     {
         ST_QUEST_DATA stQuest;
-        stQuest.nNpcId = 156;
-        stQuest.StartCondition = ST_FILTER(132, 0x007F, 0x00FF);
+        stQuest.nNpcId = 158;
+        stQuest.StartCondition = ST_FILTER(132, 0x003F, 0x007F);
         stQuest.vecMessages.push_back("역시! 거기있었담!! 어서 줘!!");
         stQuest.vecMessages.push_back("[잊혀진 기억1]을 잃었습니다.");
         stQuest.vecMessages.push_back("우걱우걱..");
@@ -430,7 +383,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("난 이렇게 했냐고??");
         stQuest.vecMessages.push_back("못했으니까 알려주는거담..ㅎㅎ");
         stQuest.vecMessages.push_back("이번 팁 방출은 여기까지... 나는 17층에 먼저 가있겠담..ㅎㅎ");
-        stQuest.ClearCondition = ST_FILTER(132, 0x01FF);
+        stQuest.ClearCondition = ST_FILTER(132, 0x00FF);
         vecQuest.push_back(stQuest);
     }
 
@@ -438,7 +391,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
     {
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 157;
-        stQuest.StartCondition = ST_FILTER(132, 0x00FF, 0x01FF);
+        stQuest.StartCondition = ST_FILTER(132, 0x007F, 0x00FF);
         stQuest.vecMessages.push_back("호오...여기까지 오다니 대단하담!!!");
         stQuest.vecMessages.push_back("탑은 오를만 한지 모르겠넴ㅎㅎ");
         stQuest.vecMessages.push_back("나도 공통교육때, 전상현 멘토님이 이런 게임을 던져주셨는데");
@@ -452,7 +405,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("15층에 미로에서 너무 헤맸담... 그때 잃어버린거 같담...");
         stQuest.vecMessages.push_back("막다른 길임을 인지했을 때... 화가나서 벽을 쳤는데 그때 기억이 날아갔나보담ㅠㅠ");
         stQuest.vecMessages.push_back("미안하지만.. 15층 막다른 길목을 전부 뒤져봐야할거같담ㅠㅠ");
-        stQuest.ClearCondition = ST_FILTER(132, 0x03FF);
+        stQuest.ClearCondition = ST_FILTER(132, 0x01FF);
         vecQuest.push_back(stQuest);
     }
 
@@ -460,7 +413,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
     {
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 279;
-        stQuest.StartCondition = ST_FILTER(132, 0x01FF, 0x03FF);
+        stQuest.StartCondition = ST_FILTER(132, 0x00FF, 0x01FF);
         stQuest.vecMessages.push_back("(여기... 핏자국이...)");
         stQuest.vecMessages.push_back("(이자식..얼마나 화가났으면 피까지 흘릴정도로 벽을 때린거야ㅋㅋㅋ)");
         stQuest.vecMessages.push_back("(사춘기가 온건가...)");
@@ -469,14 +422,14 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.ClearBattle.vecMonster.push_back(20007);
         stQuest.vecMessages.push_back("[잊혀진 기억 2]를 획득했습니다.");
         stQuest.vecMessages.push_back("(다시 돌아가자..)");
-        stQuest.ClearCondition = ST_FILTER(132, 0x07FF);
+        stQuest.ClearCondition = ST_FILTER(132, 0x03FF);
         vecQuest.push_back(stQuest);
     }
 
     {
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 157;
-        stQuest.StartCondition = ST_FILTER(132, 0x03FF, 0x07FF);
+        stQuest.StartCondition = ST_FILTER(132, 0x01FF, 0x03FF);
         stQuest.vecMessages.push_back("오!! 이걸 찾다니 지렸담.....ㄷㄷ");
         stQuest.vecMessages.push_back("이번엔 팀 프로젝트와 관련한 팁을 방출하겠담..!");
         stQuest.vecMessages.push_back("이번에 내가 느낀건... 프로젝트의 주제도 중요하지만..");
@@ -491,21 +444,21 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("해당 프로젝트로 BoB 외부에서의 활동도 추가적으로 하면 더욱 좋담!! 예를들면 논문이라던지... 등등");
         stQuest.vecMessages.push_back("팀 프로젝트도 열심히 해보길 바란담!@");
         stQuest.vecMessages.push_back("다음 Tip은 어마어마게 지리는거니까 꼭 끝까지 탑을 오르길 바래!");
-        stQuest.ClearCondition = ST_FILTER(132, 0x0FFF);
+        stQuest.ClearCondition = ST_FILTER(132, 0x07FF);
         vecQuest.push_back(stQuest);
     }
 
     {
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 159;
-        stQuest.StartCondition = ST_FILTER(132, 0x07FF, 0x0FFF);
+        stQuest.StartCondition = ST_FILTER(132, 0x03FF, 0x07FF);
         stQuest.vecMessages.push_back("진짜...여기까지 왔넴... OoO");
         stQuest.vecMessages.push_back("너 정말 지독한 아이구남?");
         stQuest.vecMessages.push_back("칭찬이얌ㅎㅎ");
         stQuest.vecMessages.push_back("이걸 끝까지 해보는게 정말 열정이거든....");
         stQuest.vecMessages.push_back("아마 여기까지 온사람은 몇 안될꺼얌ㅋㅋㅋㅋ");
         stQuest.vecMessages.push_back("정말 고생했으니... 어마어마한 선물을 주겠담...");
-        stQuest.vecMessages.push_back("이 메세지를 보고 나한테 처음으로 [암호]보내는 사람에겐 치킨 기프티콘을 주겠담..ㅎㅎ");
+        stQuest.vecMessages.push_back("나한테 처음으로 [암호]보내는 사람에겐 치킨 기프티콘을 주겠담..ㅎㅎ");
         stQuest.vecMessages.push_back("치킨 먹으면서 이야기를 같이 해보면 좋을 것 같담!!");
         stQuest.vecMessages.push_back("암호는...");
         stQuest.vecMessages.push_back("암호...는.....");
@@ -513,23 +466,32 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.vecMessages.push_back("(이자식이 끝까지 진짜;;;");
         stQuest.vecMessages.push_back("이건 분명히 내가 쪽지에 적어뒀는뎀,,,");
         stQuest.vecMessages.push_back("분명 27층 어딘가에 있는데... 어딨는지 찾아주람!!!");
-        stQuest.ClearCondition = ST_FILTER(132, 0x1FFF);
+        stQuest.ClearCondition = ST_FILTER(132, 0x0FFF);
         vecQuest.push_back(stQuest);
     }
 
     {
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 280;
-        stQuest.StartCondition = ST_FILTER(132, 0x0FFF, 0x1FFF);
+        stQuest.StartCondition = ST_FILTER(132, 0x07FF, 0x0FFF);
         stQuest.vecMessages.push_back("(이건가...?");
         stQuest.vecMessages.push_back("[낡은 쪽지]를 획득했습니다.");
         stQuest.vecMessages.push_back("(읽어보자.)");
-        stQuest.vecMessages.push_back("<암호 : 창현 짱짱맨님, 치킨받으러 왔습니다.>");
-        stQuest.vecMessages.push_back("<위 암호를 BoB10기 보안제품개발트랙 임창현한테 보내는 선착순 1명은 치킨을 얻을 수 있담!!>");
-        stQuest.vecMessages.push_back("(과연 진짜 줄까...?)");
-        stQuest.vecMessages.push_back("(속는셈 치고 연락해보자)");
-        stQuest.vecMessages.push_back("(근데 연락처가 없는데...?)");
-        stQuest.vecMessages.push_back("(페이스북을 뒤져보자");
+        stQuest.vecMessages.push_back("(너무 악필이라 도저히 읽을수가 없군...)");
+        stQuest.vecMessages.push_back("(본인은 알아보겠지... 다시 가져가보자)");
+        stQuest.ClearCondition = ST_FILTER(132, 0x1FFF);
+        vecQuest.push_back(stQuest);
+    }
+
+    {
+        ST_QUEST_DATA stQuest;
+        stQuest.nNpcId = 159;
+        stQuest.StartCondition = ST_FILTER(132, 0x0FFF, 0x1FFF);
+        stQuest.vecMessages.push_back("쪽지를 찾아왔구남!!");
+        stQuest.vecMessages.push_back("아 너무 악필이라 읽기 어렵지??ㅎㅎ 미안");
+        stQuest.vecMessages.push_back("또박또박 불러줄테니깐 잘 받아적어!!");
+        stQuest.vecMessages.push_back("암호 : 7LC97ZiEIOynseynseunqOuLmCwg7LmY7YKoIOuwm+ycvOufrCDsmZTsirXri4jri6Qu");
+        stQuest.vecMessages.push_back("카카오톡 ID : amZoZzQ1Ng==");
         stQuest.ClearCondition = ST_FILTER(132, 0x3FFF);
         vecQuest.push_back(stQuest);
     }
@@ -537,10 +499,10 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
     {
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 159;
-        stQuest.StartCondition = ST_FILTER(132, 0x3FFF, 0x7FFF);
-        stQuest.vecMessages.push_back("치킨은 잘 받았니?ㅎㅎ");
-        stQuest.vecMessages.push_back("암호를 까먹었니? ");
-        stQuest.ClearCondition = ST_FILTER(132, 0xFFFF);
-        vecQuest.push_back(stQuest);
+        stQuest.StartCondition = ST_FILTER(132, 0x1FFF);
+        stQuest.vecMessages.push_back("암호를 까먹었니?");
+        stQuest.vecMessages.push_back("암호 : 7LC97ZiEIOynseynseunqOuLmCwg7LmY7YKoIOuwm+ycvOufrCDsmZTsirXri4jri6Qu");
+        stQuest.vecMessages.push_back("카카오톡 ID : amZoZzQ1Ng==");
+        stQuest.ClearCondition = ST_FILTER(132, 0x7FFF);
     }
 }
