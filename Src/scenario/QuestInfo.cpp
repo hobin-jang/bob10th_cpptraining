@@ -73,8 +73,8 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btAttack = 30;
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_NOVICE;
-		monster.nRewardMoney= 50000;
-		monster.nRewardExp = 9999;
+		monster.nRewardMoney= 5000;
+		monster.nRewardExp = 50000;
 		monster.vecRewardItems.push_back(128);	// 엘릭서
 		vecQuestMonster.push_back(monster);
 	}
@@ -87,8 +87,8 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btAttack = 50;
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_DEVELOPER;
-		monster.nRewardMoney = 500;
-		monster.nRewardExp = 999;
+		monster.nRewardMoney = 5000;
+		monster.nRewardExp = 50000;
 		monster.vecRewardItems.push_back(3);	// 제육덮밥
 		vecQuestMonster.push_back(monster);
 	}
@@ -101,8 +101,8 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btAttack = 50;
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_INVESTIGATOR;
-		monster.nRewardMoney = 500;
-		monster.nRewardExp = 999;
+		monster.nRewardMoney = 5000;
+		monster.nRewardExp = 50000;
 		monster.vecRewardItems.push_back(6);	// 뚱마카롱
 		vecQuestMonster.push_back(monster);
 	}
@@ -115,8 +115,8 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btAttack = 50;
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_CONSULTANT;
-		monster.nRewardMoney = 500;
-		monster.nRewardExp = 999;
+		monster.nRewardMoney = 5000;
+		monster.nRewardExp = 50000;
 		monster.vecRewardItems.push_back(7);	// 커피
 		vecQuestMonster.push_back(monster);
 	}
@@ -129,8 +129,8 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btAttack = 50;
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_ANALYST;
-		monster.nRewardMoney = 500;
-		monster.nRewardExp = 999;
+		monster.nRewardMoney = 5000;
+		monster.nRewardExp = 50000;
 		monster.vecRewardItems.push_back(8);	// 에너지드링크
 		vecQuestMonster.push_back(monster);
 	}
@@ -138,13 +138,13 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		ST_QUEST_MONSTER_DATA monster;
 		monster.dwMonsterId = 20006;
 		monster.strName = "1단계1차시험";
-		monster.btLevel = 99;
-		monster.nHP = 1;
-		monster.btAttack = 1;
-		monster.btDex = 1;
-		monster.btVulnerability = JOB_TYPE_MASTER;
+		monster.btLevel = 17;
+		monster.nHP = 300;
+		monster.btAttack = 25;
+		monster.btDex = 5;
+		monster.btVulnerability = JOB_TYPE_NOVICE;
 		monster.nRewardMoney = 5000;
-		monster.nRewardExp = 5000;
+		monster.nRewardExp = 2000;
 		monster.vecRewardItems.push_back(2);
 		monster.vecRewardItems.push_back(5);
 		vecQuestMonster.push_back(monster);
@@ -172,7 +172,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		quest.vecMessages.push_back("(조심해!! 사방에서 몰려오고 있어!!)");
 		quest.vecMessages.push_back("으하하!!!");
 		quest.vecMessages.push_back("각오해라!! 최종시련이다------!");
-		quest.ClearBattle.btMinPlayerCount = 4;
+		quest.ClearBattle.btMinPlayerCount = 1;
 		quest.ClearBattle.vecMonster.push_back(20001);
 		quest.ClearBattle.vecMonster.push_back(20002);
 		quest.ClearBattle.vecMonster.push_back(20003);
@@ -211,7 +211,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 	{
 		ST_QUEST_DATA quest;
 		quest.nNpcId = 10004;		// 계단 사물 아이디
-		quest.StartCondition = ST_FILTER(290, 0x0000, 0x0000);
+		quest.StartCondition = ST_FILTER(0, 0x000F, 0x000F);
 		quest.ClearCondition = ST_FILTER(290, 0xFFFF);
 		quest.vecMessages.push_back("보스가 날 노려보고 있다...");
 		vecQuest.push_back(quest);
