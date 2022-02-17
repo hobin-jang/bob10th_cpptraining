@@ -12,6 +12,7 @@ CQuestInfo::~CQuestInfo(void)
 {
 }
 
+//내 캐릭 설정
 void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
 {
     {
@@ -125,20 +126,9 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     
 }
 
+//퀘스트 사물
 void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 {
-    /*{
-        ST_QUEST_OBJECT stObject;
-        stObject.nQuestObjectId = 156;
-        stObject.strName = "어린이 창현";
-        stObject.cPatch = 'L';
-        stObject.x = 7;
-        stObject.y = 20;
-        stObject.z = 5;
-        stObject.reserved = 0;
-        vecQuestObject.push_back(stObject);
-    }*/
-
     {
         ST_QUEST_OBJECT stObject;
         stObject.nQuestObjectId = 157;
@@ -178,10 +168,10 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
     {
         ST_QUEST_OBJECT stObject;
         stObject.nQuestObjectId = 273;
-        stObject.strName = "잊혀진 기억 1 퀘스트 시작";
-        stObject.cPatch = '.';
+        stObject.strName = "잊혀진 기억 1";
+        stObject.cPatch = '+';
         stObject.x = 10;
-        stObject.y = 23;
+        stObject.y = 24;
         stObject.z = 7;
         stObject.reserved = 0;
         vecQuestObject.push_back(stObject);
@@ -190,10 +180,10 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
     {
         ST_QUEST_OBJECT stObject;
         stObject.nQuestObjectId = 279;
-        stObject.strName = "잊혀진 기억 2 퀘스트 시작";
-        stObject.cPatch = '.';
+        stObject.strName = "잊혀진 기억 2";
+        stObject.cPatch = '+';
         stObject.x = 21;
-        stObject.y = 17;
+        stObject.y = 16;
         stObject.z = 15;
         stObject.reserved = 0;
         vecQuestObject.push_back(stObject);
@@ -202,8 +192,8 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
     {
         ST_QUEST_OBJECT stObject;
         stObject.nQuestObjectId = 280;
-        stObject.strName = "낡은 쪽지 퀘스트 시작";
-        stObject.cPatch = '.';
+        stObject.strName = "낡은 쪽지";
+        stObject.cPatch = '+';
         stObject.x = 6;
         stObject.y = 8;
         stObject.z = 27;
@@ -212,6 +202,7 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
     }
 }
 
+//퀘스트 아이템
 void CQuestInfo::QueryQuestItem(std::vector<ST_QUEST_ITEM_DATA>& vecQuestItem)
 {
     {
@@ -243,6 +234,7 @@ void CQuestInfo::QueryQuestItem(std::vector<ST_QUEST_ITEM_DATA>& vecQuestItem)
     }
 }
 
+//퀘스트 몬스터
 void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestMonster)
 {
     {
@@ -250,7 +242,7 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
         monster.dwMonsterId = 20006;
         monster.strName = "탑에 서식하는 쥐";
         monster.btLevel = 10;
-        monster.nHP = 1500;
+        monster.nHP = 50;
         monster.btAttack = 10;
         monster.btDex = 3;
         monster.btVulnerability = JOB_TYPE_DEVELOPER;
@@ -265,7 +257,7 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
         monster.dwMonsterId = 20007;
         monster.strName = "탑의 망령";
         monster.btLevel = 45;
-        monster.nHP = 6000;
+        monster.nHP = 500;
         monster.btAttack = 40;
         monster.btDex = 5;
         monster.btVulnerability = JOB_TYPE_DEVELOPER;
@@ -275,6 +267,7 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
     }
 }
 
+//퀘스트 본문
 void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 {
 
@@ -343,13 +336,12 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         stQuest.nNpcId = 273;
         stQuest.StartCondition = ST_FILTER(132, 0x001F, 0x003F);
         stQuest.vecMessages.push_back("(무엇인가 반짝인다..)");
-        stQuest.vecMessages.push_back("(혹시 이건가...?");
+        stQuest.vecMessages.push_back("(혹시 잃어버린 기억인가...?");
         stQuest.vecMessages.push_back("(엇...쥐가 갉아먹고있는데??)");
-        stQuest.vecMessages.push_back("탑에 서식하는 쥐 : 쨲쨲쨲쨲(=저리가 인간놈아)");
+        stQuest.vecMessages.push_back("탑에 서식하는 쥐 : 쨲쨲쨲쨲(=저리가라 닝겐)");
+        stQuest.vecMessages.push_back("미안한데.. 그걸 좀 뺏어야겠다");
         stQuest.ClearBattle.btMinPlayerCount = 1;
         stQuest.ClearBattle.vecMonster.push_back(20006);
-        stQuest.vecMessages.push_back("[잊혀진 기억1]을 획득했습니다.");
-        stQuest.vecMessages.push_back("(일단 가져가보자..)");
         stQuest.ClearCondition = ST_FILTER(132, 0x007F);
         vecQuest.push_back(stQuest);
     }
@@ -414,14 +406,15 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 279;
         stQuest.StartCondition = ST_FILTER(132, 0x00FF, 0x01FF);
-        stQuest.vecMessages.push_back("(여기... 핏자국이...)");
+        stQuest.vecMessages.push_back("(웬 핏자국이...)");
+        stQuest.vecMessages.push_back("(반짝거리는게 또 있는걸 보니 여기인것 같군)");
         stQuest.vecMessages.push_back("(이자식..얼마나 화가났으면 피까지 흘릴정도로 벽을 때린거야ㅋㅋㅋ)");
         stQuest.vecMessages.push_back("(사춘기가 온건가...)");
-        stQuest.vecMessages.push_back("탑의 망령 : 어이, 나랑 한판 붙자.");
+        stQuest.vecMessages.push_back("탑의 망령 : 어이, 개발트랙 전직관이 도대체 어디에 계시는거지?");
+        stQuest.vecMessages.push_back("(괜히 알려주기 싫다...)");
+        stQuest.vecMessages.push_back("탑의 망령 : 대답을 안하네. 좀 맞아야겠군");
         stQuest.ClearBattle.btMinPlayerCount = 1;
         stQuest.ClearBattle.vecMonster.push_back(20007);
-        stQuest.vecMessages.push_back("[잊혀진 기억 2]를 획득했습니다.");
-        stQuest.vecMessages.push_back("(다시 돌아가자..)");
         stQuest.ClearCondition = ST_FILTER(132, 0x03FF);
         vecQuest.push_back(stQuest);
     }
