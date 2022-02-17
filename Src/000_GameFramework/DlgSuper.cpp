@@ -17,6 +17,13 @@ CDlgSuper::~CDlgSuper(void)
 
 void CDlgSuper::Close(int nExitCode)
 {
+	if (m_bIsClosed)
+		return;
+
+	char szTest[20];
+	sprintf_s(szTest, 20, "Close(%d)\n", nExitCode);
+	OutputDebugStringA(szTest);
+	
 	m_bIsClosed = true;
 	m_nExitCode = nExitCode;
 }

@@ -27,8 +27,8 @@ void CKeyInput::Query(std::list<ST_KEYSTATE>& outState)
 	std::list<ST_KEYSTATE> tempState;
 	for (auto iter : m_mapRegisteredKey)
 	{
-		short nCurState = GetAsyncKeyState(iter.first);
 		short nPreState = m_mapLastKeyState[iter.first];
+		short nCurState = GetAsyncKeyState(iter.first);
 		m_mapLastKeyState[iter.first] = nCurState;
 
 		short nDiff = nCurState ^ nPreState;
@@ -72,6 +72,15 @@ void CKeyInput::GenerateRepeatKey(std::list<ST_KEYSTATE>& inState, std::list<ST_
 			stRepeatKey.nVirtKey = iter.first;
 			stRepeatKey.nID = iter.second;
 			stRepeatKey.bPressed = true;
+			stRepeatKey.bReserved = 0;
+			outRepeatState.push_back(stRepeatKey);
+		}
+		else if (!bIsKeyPressed)
+		{
+			ST_KEYSTATE stRepeatKey;
+			stRepeatKey.nVirtKey = iter.first;
+			stRepeatKey.nID = iter.second;
+			stRepeatKey.bPressed = false;
 			stRepeatKey.bReserved = 0;
 			outRepeatState.push_back(stRepeatKey);
 		}
