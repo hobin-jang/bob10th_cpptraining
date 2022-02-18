@@ -93,8 +93,8 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btAttack = 30;
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_NOVICE;
-		monster.nRewardMoney= 5000;
-		monster.nRewardExp = 50000;
+		monster.nRewardMoney= 2000;
+		monster.nRewardExp = 10000;
 		monster.vecRewardItems.push_back(128);	// 엘릭서
 		vecQuestMonster.push_back(monster);
 	}
@@ -107,8 +107,8 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btAttack = 50;
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_DEVELOPER;
-		monster.nRewardMoney = 5000;
-		monster.nRewardExp = 50000;
+		monster.nRewardMoney = 1000;
+		monster.nRewardExp = 5000;
 		monster.vecRewardItems.push_back(3);	// 제육덮밥
 		vecQuestMonster.push_back(monster);
 	}
@@ -121,8 +121,8 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btAttack = 50;
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_INVESTIGATOR;
-		monster.nRewardMoney = 5000;
-		monster.nRewardExp = 50000;
+		monster.nRewardMoney = 1000;
+		monster.nRewardExp = 5000;
 		monster.vecRewardItems.push_back(6);	// 뚱마카롱
 		vecQuestMonster.push_back(monster);
 	}
@@ -135,8 +135,8 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btAttack = 50;
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_CONSULTANT;
-		monster.nRewardMoney = 5000;
-		monster.nRewardExp = 50000;
+		monster.nRewardMoney = 1000;
+		monster.nRewardExp = 5000;
 		monster.vecRewardItems.push_back(7);	// 커피
 		vecQuestMonster.push_back(monster);
 	}
@@ -149,8 +149,8 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btAttack = 50;
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_ANALYST;
-		monster.nRewardMoney = 5000;
-		monster.nRewardExp = 50000;
+		monster.nRewardMoney = 1000;
+		monster.nRewardExp = 5000;
 		monster.vecRewardItems.push_back(8);	// 에너지드링크
 		vecQuestMonster.push_back(monster);
 	}
@@ -209,7 +209,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		quest.vecMessages.push_back("각오해라!! 최종시련이다------!");
 		quest.vecMessages.push_back("(이제 남은 건 수료시험입니다)");
 		quest.vecMessages.push_back("(이 마지막 보스는 파티퀘스트로 진행이 됩니다)");
-		quest.ClearBattle.btMinPlayerCount = 1;
+		quest.ClearBattle.btMinPlayerCount = 4;
 		quest.ClearBattle.vecMonster.push_back(20001);
 		quest.ClearBattle.vecMonster.push_back(20002);
 		quest.ClearBattle.vecMonster.push_back(20003);
