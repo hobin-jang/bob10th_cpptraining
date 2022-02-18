@@ -29,6 +29,17 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 		stObject.reserved = 0;
 		vecQuestObject.push_back(stObject);
 	}
+	{
+		ST_QUEST_OBJECT stObject;
+		stObject.nQuestObjectId = 291;
+		stObject.strName = "2단계최종발표";
+		stObject.cPatch = 'B';
+		stObject.x = 12;
+		stObject.y = 9;
+		stObject.z = 23;
+		stObject.reserved = 0;
+		vecQuestObject.push_back(stObject);
+	}
 }
 
 void CQuestInfo::QueryQuestItem(std::vector<ST_QUEST_ITEM_DATA>& vecQuestItem)
@@ -60,6 +71,15 @@ void CQuestInfo::QueryQuestItem(std::vector<ST_QUEST_ITEM_DATA>& vecQuestItem)
 		item.nMP = 0;
 		vecQuestItem.push_back(item);
 	}
+	{
+		ST_QUEST_ITEM_DATA item;
+		item.btId = 139;
+		item.strName = "2단계최종발표책자";
+		item.strDesc = "모든 2단계 최종 발표 내용이 들어있는 책자";
+		item.nHP = 0;
+		item.nMP = 0;
+		vecQuestItem.push_back(item);
+	}
 }
 
 void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestMonster)
@@ -73,8 +93,8 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btAttack = 30;
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_NOVICE;
-		monster.nRewardMoney= 50000;
-		monster.nRewardExp = 9999;
+		monster.nRewardMoney= 2000;
+		monster.nRewardExp = 10000;
 		monster.vecRewardItems.push_back(128);	// 엘릭서
 		vecQuestMonster.push_back(monster);
 	}
@@ -87,8 +107,8 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btAttack = 50;
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_DEVELOPER;
-		monster.nRewardMoney = 500;
-		monster.nRewardExp = 999;
+		monster.nRewardMoney = 1000;
+		monster.nRewardExp = 5000;
 		monster.vecRewardItems.push_back(3);	// 제육덮밥
 		vecQuestMonster.push_back(monster);
 	}
@@ -101,8 +121,8 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btAttack = 50;
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_INVESTIGATOR;
-		monster.nRewardMoney = 500;
-		monster.nRewardExp = 999;
+		monster.nRewardMoney = 1000;
+		monster.nRewardExp = 5000;
 		monster.vecRewardItems.push_back(6);	// 뚱마카롱
 		vecQuestMonster.push_back(monster);
 	}
@@ -115,8 +135,8 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btAttack = 50;
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_CONSULTANT;
-		monster.nRewardMoney = 500;
-		monster.nRewardExp = 999;
+		monster.nRewardMoney = 1000;
+		monster.nRewardExp = 5000;
 		monster.vecRewardItems.push_back(7);	// 커피
 		vecQuestMonster.push_back(monster);
 	}
@@ -129,22 +149,37 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btAttack = 50;
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_ANALYST;
-		monster.nRewardMoney = 500;
-		monster.nRewardExp = 999;
+		monster.nRewardMoney = 1000;
+		monster.nRewardExp = 5000;
 		monster.vecRewardItems.push_back(8);	// 에너지드링크
 		vecQuestMonster.push_back(monster);
 	}
 	{
 		ST_QUEST_MONSTER_DATA monster;
-		monster.dwMonsterId = 20006;
+		monster.dwMonsterId = 20011;
 		monster.strName = "1단계1차시험";
-		monster.btLevel = 99;
-		monster.nHP = 1;
-		monster.btAttack = 1;
-		monster.btDex = 1;
-		monster.btVulnerability = JOB_TYPE_MASTER;
+		monster.btLevel = 17;
+		monster.nHP = 300;
+		monster.btAttack = 25;
+		monster.btDex = 5;
+		monster.btVulnerability = JOB_TYPE_NOVICE;
 		monster.nRewardMoney = 5000;
-		monster.nRewardExp = 5000;
+		monster.nRewardExp = 2000;
+		monster.vecRewardItems.push_back(2);
+		monster.vecRewardItems.push_back(5);
+		vecQuestMonster.push_back(monster);
+	}
+	{
+		ST_QUEST_MONSTER_DATA monster;
+		monster.dwMonsterId = 20012;
+		monster.strName = "2단계최종발표";
+		monster.btLevel = 23;
+		monster.nHP = 500;
+		monster.btAttack = 35;
+		monster.btDex = 6;
+		monster.btVulnerability = JOB_TYPE_MASTER;
+		monster.nRewardMoney = 10000;
+		monster.nRewardExp = 6000;
 		monster.vecRewardItems.push_back(2);
 		monster.vecRewardItems.push_back(5);
 		vecQuestMonster.push_back(monster);
@@ -172,6 +207,8 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		quest.vecMessages.push_back("(조심해!! 사방에서 몰려오고 있어!!)");
 		quest.vecMessages.push_back("으하하!!!");
 		quest.vecMessages.push_back("각오해라!! 최종시련이다------!");
+		quest.vecMessages.push_back("(이제 남은 건 수료시험입니다)");
+		quest.vecMessages.push_back("(이 마지막 보스는 파티퀘스트로 진행이 됩니다)");
 		quest.ClearBattle.btMinPlayerCount = 4;
 		quest.ClearBattle.vecMonster.push_back(20001);
 		quest.ClearBattle.vecMonster.push_back(20002);
@@ -201,11 +238,19 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 	{
 		ST_QUEST_DATA quest;
 		quest.nNpcId = 290;
-		quest.StartCondition = ST_FILTER(290, 0x0000, 0x0001);
+		quest.StartCondition = ST_FILTER(0, 0x000F, 0x001F);
 		quest.ClearCondition = ST_FILTER(290, 0x0001);
 		quest.vecMessages.push_back("너가 그동안의 수업에 열심히 참여했다면...");
 		quest.vecMessages.push_back("나를 쉽게 통과할 수 있을거야!");
-		quest.ClearBattle.vecMonster.push_back(20006);
+		quest.ClearBattle.vecMonster.push_back(20011);
+		vecQuest.push_back(quest);
+	}
+	{
+		ST_QUEST_DATA quest;
+		quest.nNpcId = 10004;		// 계단 사물 아이디
+		quest.StartCondition = ST_FILTER(0, 0x000F, 0x000F);
+		quest.ClearCondition = ST_FILTER(290, 0xFFFF);
+		quest.vecMessages.push_back("보스가 날 노려보고 있다...");
 		vecQuest.push_back(quest);
 	}
 	{
@@ -216,8 +261,38 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		quest.vecMessages.push_back("와 1단계교육 열심히 들었구나bb");
 		quest.vecMessages.push_back("2달 간의 공통교육과 트랙교육은 어땠어?");
 		quest.vecMessages.push_back("2차 교육은 3개월간 팀프로젝트를 수행하는 거야.");
-		quest.vecMessages.push_back("관심있는 주제를 선택해서 마음 맞는 팀원들과 함께\n열심히 하여 좋은 결과를 얻을 수 있길 응원할게!");
+		quest.vecMessages.push_back("관심있는 주제를 선택해서 마음 맞는 팀원들과 함께");
+		quest.vecMessages.push_back("열심히 하여 좋은 결과를 얻을 수 있길 응원할게!");
 		quest.vecRewardItems.push_back(136);
+		vecQuest.push_back(quest);
+	}
+	{
+		ST_QUEST_DATA quest;
+		quest.nNpcId = 291;
+		quest.StartCondition = ST_FILTER(0, 0x003F, 0x007F);
+		quest.ClearCondition = ST_FILTER(291, 0x0001);
+		quest.vecMessages.push_back("파티원들과 함께 프로젝트를 진행하는데");
+		quest.vecMessages.push_back("많은 육체적, 정신적으로 극심한 피로가 많았겠지만");
+		quest.vecMessages.push_back("들여보내줄 수 없어 그동안 진행했던 것을 마음껏 뽐내봐");
+		quest.ClearBattle.vecMonster.push_back(20012);
+		vecQuest.push_back(quest);
+	}
+	{
+		ST_QUEST_DATA quest;
+		quest.nNpcId = 10004;		// 계단 사물 아이디
+		quest.StartCondition = ST_FILTER(0, 0x003F, 0x003F);
+		quest.ClearCondition = ST_FILTER(291, 0xFFFF);
+		quest.vecMessages.push_back("보스가 날 노려보고 있다...");
+		vecQuest.push_back(quest);
+	}
+	{
+		ST_QUEST_DATA quest;
+		quest.nNpcId = 291;
+		quest.StartCondition = ST_FILTER(291, 0x0001, 0xFFFF);
+		quest.ClearCondition = ST_FILTER(291, 0xFFFF);
+		quest.vecMessages.push_back("너희들은 충분히 3차교육 받을 자격이 되는군!");
+		quest.vecMessages.push_back("마지막까지 포기하지 말고 꼭 수료해보렴!");
+		quest.vecRewardItems.push_back(139);
 		vecQuest.push_back(quest);
 	}
 }

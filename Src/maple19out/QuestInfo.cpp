@@ -17,7 +17,7 @@ void CQuestInfo::QueryNpcEx(std::vector<ST_QUEST_NPC_DATA>& vecNPC)
     ST_QUEST_NPC_DATA npc;
     npc.x = 10;
     npc.y = 10;
-    npc.z = 1;
+    npc.z = 24;
     npc.nNpcID = 134;
     npc.strTrack = "취약점분석트랙";
     npc.strName = "강민석";
@@ -104,12 +104,12 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
     {
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 134;
-        stQuest.StartCondition = ST_FILTER(134, 0000, 0x0001);
+        stQuest.StartCondition = ST_FILTER(134, 0x0000, 0x0001);
         stQuest.vecMessages.push_back("분명 맞게 짰는데 왜 안되는 걸까?");
         stQuest.vecMessages.push_back("누가 좀 도와줬으면...");
         stQuest.vecMessages.push_back("나를 대신해서 1층에 있는 사람들에게 말을 걸어줄래?");
         stQuest.vecMessages.push_back("[강민석 멘티를 위해 1층에 있는 C++ 고수에게 물어보자]");
-        stQuest.ClearCondition = ST_FILTER(134, 0x00ff);
+        stQuest.ClearCondition = ST_FILTER(134, 0x0003);
         vecQuest.push_back(stQuest);
     }
 
@@ -129,10 +129,10 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
     {
         ST_QUEST_DATA stQuest;
         stQuest.nNpcId = 134;
-        stQuest.StartCondition = ST_FILTER(134, 0x0003, 0x0005);
+        stQuest.StartCondition = ST_FILTER(134, 0x0003, 0xFFFF);
         stQuest.vecMessages.push_back("역시 전상현 멘토님...");
         stQuest.vecMessages.push_back("고마워 헤헷");
-        stQuest.ClearCondition = ST_FILTER(134, 0x000f);
+        stQuest.ClearCondition = ST_FILTER(134, 0xFFFF);
         vecQuest.push_back(stQuest);
     }
 }
