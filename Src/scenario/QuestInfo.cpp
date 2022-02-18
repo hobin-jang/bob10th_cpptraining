@@ -156,7 +156,7 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 	}
 	{
 		ST_QUEST_MONSTER_DATA monster;
-		monster.dwMonsterId = 20006;
+		monster.dwMonsterId = 20011;
 		monster.strName = "1단계1차시험";
 		monster.btLevel = 17;
 		monster.nHP = 300;
@@ -171,7 +171,7 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 	}
 	{
 		ST_QUEST_MONSTER_DATA monster;
-		monster.dwMonsterId = 20007;
+		monster.dwMonsterId = 20012;
 		monster.strName = "2단계최종발표";
 		monster.btLevel = 23;
 		monster.nHP = 500;
@@ -242,7 +242,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		quest.ClearCondition = ST_FILTER(290, 0x0001);
 		quest.vecMessages.push_back("너가 그동안의 수업에 열심히 참여했다면...");
 		quest.vecMessages.push_back("나를 쉽게 통과할 수 있을거야!");
-		quest.ClearBattle.vecMonster.push_back(20006);
+		quest.ClearBattle.vecMonster.push_back(20011);
 		vecQuest.push_back(quest);
 	}
 	{
@@ -274,7 +274,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		quest.vecMessages.push_back("파티원들과 함께 프로젝트를 진행하는데");
 		quest.vecMessages.push_back("많은 육체적, 정신적으로 극심한 피로가 많았겠지만");
 		quest.vecMessages.push_back("들여보내줄 수 없어 그동안 진행했던 것을 마음껏 뽐내봐");
-		quest.ClearBattle.vecMonster.push_back(20006);
+		quest.ClearBattle.vecMonster.push_back(20012);
 		vecQuest.push_back(quest);
 	}
 	{
