@@ -292,7 +292,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 		quest.ClearCondition = ST_FILTER(291, 0xFFFF);
 		quest.vecMessages.push_back("너희들은 충분히 3차교육 받을 자격이 되는군!");
 		quest.vecMessages.push_back("마지막까지 포기하지 말고 꼭 수료해보렴!");
-		quest.vecRewardItems.push_back(136);
+		quest.vecRewardItems.push_back(139);
 		vecQuest.push_back(quest);
 	}
 }
