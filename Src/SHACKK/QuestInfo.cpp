@@ -143,7 +143,7 @@ void CQuestInfo::QueryQuestObject(std::vector<ST_QUEST_OBJECT>& vecQuestObject)
 
     {
         ST_QUEST_OBJECT stObject;
-        stObject.nQuestObjectId = 158;
+        stObject.nQuestObjectId = 156;
         stObject.strName = "아기 창현";
         stObject.cPatch = 'L';
         stObject.x = 7;
@@ -273,7 +273,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 {
     {
         ST_QUEST_DATA stQuest;
-        stQuest.nNpcId = 158;
+        stQuest.nNpcId = 156;
         stQuest.StartCondition = ST_FILTER(132, 0x0000, 0x0001);
         stQuest.vecMessages.push_back("좋아, 이제부터 해커가 되기위한 본격적인 여정을 시작해보겠담!");
         stQuest.vecMessages.push_back("우선, 보안인이라면 C++은 기본소양이라고 볼수있담");
@@ -307,7 +307,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
     // 7F : 아기 창현
     {
         ST_QUEST_DATA stQuest;
-        stQuest.nNpcId = 158;
+        stQuest.nNpcId = 156;
         stQuest.StartCondition = ST_FILTER(132, 0x0003, 0x0007);
         stQuest.vecMessages.push_back("뭐?? 전상현 멘토님이 이상한 소리를 하신다고??");
         stQuest.vecMessages.push_back("게임개발 하시느라 많이 힘드셨나보다...");
@@ -348,7 +348,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 
     {
         ST_QUEST_DATA stQuest;
-        stQuest.nNpcId = 158;
+        stQuest.nNpcId = 156;
         stQuest.StartCondition = ST_FILTER(132, 0x001F, 0x003F);
         stQuest.vecMessages.push_back("역시! 거기있었담!! 어서 줘!!");
         stQuest.vecMessages.push_back("[잊혀진 기억1]을 잃었습니다.");
