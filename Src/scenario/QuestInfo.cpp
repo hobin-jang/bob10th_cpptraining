@@ -94,7 +94,7 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_NOVICE;
 		monster.nRewardMoney= 2000;
-		monster.nRewardExp = 10000;
+		monster.nRewardExp = 800000;
 		monster.vecRewardItems.push_back(128);	// 엘릭서
 		vecQuestMonster.push_back(monster);
 	}
@@ -108,7 +108,7 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_DEVELOPER;
 		monster.nRewardMoney = 1000;
-		monster.nRewardExp = 5000;
+		monster.nRewardExp = 100000;
 		monster.vecRewardItems.push_back(3);	// 제육덮밥
 		vecQuestMonster.push_back(monster);
 	}
@@ -122,7 +122,7 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_INVESTIGATOR;
 		monster.nRewardMoney = 1000;
-		monster.nRewardExp = 5000;
+		monster.nRewardExp = 100000;
 		monster.vecRewardItems.push_back(6);	// 뚱마카롱
 		vecQuestMonster.push_back(monster);
 	}
@@ -136,7 +136,7 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_CONSULTANT;
 		monster.nRewardMoney = 1000;
-		monster.nRewardExp = 5000;
+		monster.nRewardExp = 100000;
 		monster.vecRewardItems.push_back(7);	// 커피
 		vecQuestMonster.push_back(monster);
 	}
@@ -150,7 +150,7 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btDex = 7;
 		monster.btVulnerability = JOB_TYPE_ANALYST;
 		monster.nRewardMoney = 1000;
-		monster.nRewardExp = 5000;
+		monster.nRewardExp = 100000;
 		monster.vecRewardItems.push_back(8);	// 에너지드링크
 		vecQuestMonster.push_back(monster);
 	}
@@ -164,7 +164,7 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btDex = 5;
 		monster.btVulnerability = JOB_TYPE_NOVICE;
 		monster.nRewardMoney = 5000;
-		monster.nRewardExp = 2000;
+		monster.nRewardExp = 30000;	// 레벨 16 -> 18로 단번에 올릴수 있을만큼 필요함
 		monster.vecRewardItems.push_back(2);
 		monster.vecRewardItems.push_back(5);
 		vecQuestMonster.push_back(monster);
@@ -179,7 +179,7 @@ void CQuestInfo::QueryQuestMonster(std::vector<ST_QUEST_MONSTER_DATA>& vecQuestM
 		monster.btDex = 6;
 		monster.btVulnerability = JOB_TYPE_MASTER;
 		monster.nRewardMoney = 10000;
-		monster.nRewardExp = 6000;
+		monster.nRewardExp = 320000;	// 레벨 23 -> 24로 단번에 올릴 수 있을만큼
 		monster.vecRewardItems.push_back(2);
 		monster.vecRewardItems.push_back(5);
 		vecQuestMonster.push_back(monster);
