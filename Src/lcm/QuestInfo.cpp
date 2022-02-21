@@ -233,7 +233,7 @@ void CQuestInfo::QueryQuest(std::vector<ST_QUEST_DATA>& vecQuest)
 	{
 		ST_QUEST_DATA stQuest;
 		stQuest.nNpcId = 148;
-		stQuest.StartCondition = ST_FILTER(148, 0x000F, 0x001F);
+		stQuest.StartCondition = ST_FILTER(148, 0x000F, 0xFFFF);
 		stQuest.vecMessages.push_back("어~ 왔어? 냬가 먈이야~");
 		stQuest.vecMessages.push_back("처음에 BoB 왔을 떄 말이야~.");
 		stQuest.vecMessages.push_back("알코올을 끊곘댜교 먈이야~.");
